@@ -39,8 +39,13 @@ export function Navbar({ onBookBirthday }) {
   }, [])
 
   useEffect(() => {
-    document.body.style.overflow = mobileOpen ? 'hidden' : ''
-    return () => { document.body.style.overflow = '' }
+    const v = mobileOpen ? 'hidden' : ''
+    document.body.style.overflow = v
+    document.documentElement.style.overflow = v
+    return () => {
+      document.body.style.overflow = ''
+      document.documentElement.style.overflow = ''
+    }
   }, [mobileOpen])
 
   return (
@@ -78,7 +83,9 @@ export function Navbar({ onBookBirthday }) {
       {mobileOpen && (
         <div className="mobile-menu" role="dialog" aria-modal="true">
           <div className="mobile-menu-top">
-            <img src="/assets/logo_small.png" alt="" />
+            <a href="#" className="mobile-menu-brand" onClick={() => setMobileOpen(false)} aria-label="BAWISZ — strona główna">
+              <img src="/assets/logo_small.png" alt="" />
+            </a>
             <button className="nav-burger" aria-label="Zamknij" onClick={() => setMobileOpen(false)}>
               <IconClose size={22} />
             </button>
@@ -107,7 +114,7 @@ export function Navbar({ onBookBirthday }) {
           padding: 16px 28px;
           pointer-events: none;
         }
-        @media (max-width: 720px) { .nav-rail { padding: 12px 14px; } }
+        @media (max-width: 720px) { .nav-rail { padding: 8px 10px; } }
 
         .nav {
           pointer-events: auto;
@@ -228,8 +235,8 @@ export function Navbar({ onBookBirthday }) {
           .nav-links { display: none; }
           .nav-burger { display: inline-flex; }
           .nav-brand-text { display: none; }
-          .nav-brand img { height: 48px; }
-          .nav { gap: 10px; padding: 8px 8px 8px 12px; }
+          .nav-brand img { height: 56px; }
+          .nav { gap: 8px; padding: 6px 8px 6px 8px; }
         }
         @media (max-width: 420px) {
           .status-pill { padding: 6px 10px 6px 8px; font-size: 11px; gap: 6px; }
@@ -240,16 +247,18 @@ export function Navbar({ onBookBirthday }) {
           inset: 0;
           z-index: 70;
           background: var(--cream);
-          padding: 18px;
+          padding: 8px 10px;
           display: flex;
           flex-direction: column;
+          overflow-y: auto;
         }
         .mobile-menu-top {
           display: flex;
           justify-content: space-between;
           align-items: center;
         }
-        .mobile-menu-top img { height: 44px; }
+        .mobile-menu-brand { display: inline-flex; align-items: center; }
+        .mobile-menu-top img { height: 56px; }
         .mobile-links {
           flex: 1;
           list-style: none;
