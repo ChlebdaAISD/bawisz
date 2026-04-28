@@ -247,7 +247,9 @@ export function Navbar({ onBookBirthday }) {
           inset: 0;
           z-index: 70;
           background: var(--cream);
-          padding: 8px 10px;
+          /* Match navbar offset exactly so logo + X stay in place when menu opens.
+             = nav-rail padding (8/10) + nav border (1.5) + nav padding (6/8) */
+          padding: 15.5px 19.5px;
           display: flex;
           flex-direction: column;
           overflow-y: auto;

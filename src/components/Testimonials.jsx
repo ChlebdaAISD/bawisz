@@ -43,6 +43,9 @@ export function Testimonials() {
 
   const trackRef = useRef(null)
   const [activeIndex, setActiveIndex] = useState(0)
+  const [perView, setPerView] = useState(1)
+
+  const dotCount = Math.max(1, reviews.length - perView + 1)
 
   const scrollByCard = (dir) => {
     const track = trackRef.current
@@ -66,17 +69,35 @@ export function Testimonials() {
   useEffect(() => {
     const track = trackRef.current
     if (!track) return
+
+    const measure = () => {
+      const card = track.querySelector('.tst-card')
+      if (!card) return
+      const gap = 18
+      const cardW = card.getBoundingClientRect().width
+      const trackW = track.getBoundingClientRect().width
+      const pv = Math.max(1, Math.round((trackW + gap) / (cardW + gap)))
+      setPerView(pv)
+    }
+
     const onScroll = () => {
       const card = track.querySelector('.tst-card')
       if (!card) return
       const gap = 18
       const w = card.getBoundingClientRect().width + gap
       const i = Math.round(track.scrollLeft / w)
-      setActiveIndex(Math.max(0, Math.min(reviews.length - 1, i)))
+      const max = Math.max(0, reviews.length - perView)
+      setActiveIndex(Math.max(0, Math.min(max, i)))
     }
+
+    measure()
     track.addEventListener('scroll', onScroll, { passive: true })
-    return () => track.removeEventListener('scroll', onScroll)
-  }, [reviews.length])
+    window.addEventListener('resize', measure)
+    return () => {
+      track.removeEventListener('scroll', onScroll)
+      window.removeEventListener('resize', measure)
+    }
+  }, [reviews.length, perView])
 
   return (
     <section className="tst">
@@ -130,11 +151,11 @@ export function Testimonials() {
             </button>
 
             <div className="tst-dots" role="tablist">
-              {reviews.map((_, i) => (
+              {Array.from({ length: dotCount }).map((_, i) => (
                 <button
                   key={i}
                   className={`tst-dot ${i === activeIndex ? 'is-active' : ''}`}
-                  aria-label={`Przejdź do opinii ${i + 1}`}
+                  aria-label={`Przejdź do pozycji ${i + 1}`}
                   aria-selected={i === activeIndex}
                   onClick={() => goTo(i)}
                 />
