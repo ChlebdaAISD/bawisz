@@ -13,10 +13,10 @@ import { Footer } from './components/Footer.jsx'
 import { BirthdayModal } from './components/BirthdayModal.jsx'
 
 const COZY = {
-  '--cream':       '#FBF7EE',
-  '--cream-deep':  '#F4EBDB',
-  '--paper':       '#FAF3EA',
-  '--bone':        '#FFFDF8',
+  '--cream':       '#FDFBF6',
+  '--cream-deep':  '#F8F0E2',
+  '--paper':       '#FCF8F0',
+  '--bone':        '#FFFEFB',
   '--sand':        '#EAD8C4',
   '--sand-deep':   '#D0B192',
 
@@ -27,12 +27,12 @@ const COZY = {
   '--sage':        '#EAD8C4',
   '--sage-deep':   '#D0B192',
 
-  '--rose':        '#E8B4B8',
-  '--rose-deep':   '#C98F94',
-  '--rose-soft':   '#F2D3D5',
+  '--rose':        '#C4D8AE',
+  '--rose-deep':   '#9DB585',
+  '--rose-soft':   '#E0EBD0',
 
-  '--terracotta':      '#E8B4B8',
-  '--terracotta-deep': '#C98F94',
+  '--terracotta':      '#C4D8AE',
+  '--terracotta-deep': '#9DB585',
   '--apricot':         '#EAD8C4',
 
   '--ink':       '#5C4F47',

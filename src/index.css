@@ -1,10 +1,10 @@
 :root {
   /* PALETTE — cozy beż / brąz z logo + dusty rose + sage. Inspiracja: Skoczek,
      Bawi się, paleta brązów klienta (#776258 / #a98062 / #d0b192 / #ead8c4). */
-  --cream:        #FBF7EE;
-  --cream-deep:   #F4EBDB;
-  --paper:        #FAF3EA;
-  --bone:         #FFFDF8;
+  --cream:        #FDFBF6;
+  --cream-deep:   #F8F0E2;
+  --paper:        #FCF8F0;
+  --bone:         #FFFEFB;
   --sand:         #EAD8C4;
   --sand-deep:    #D0B192;
 
@@ -15,12 +15,12 @@
   --sage:         #EAD8C4;
   --sage-deep:    #D0B192;
 
-  --rose:         #E8B4B8;
-  --rose-deep:    #C98F94;
-  --rose-soft:    #F2D3D5;
+  --rose:         #C4D8AE;
+  --rose-deep:    #9DB585;
+  --rose-soft:    #E0EBD0;
 
-  --terracotta:      #E8B4B8;
-  --terracotta-deep: #C98F94;
+  --terracotta:      #C4D8AE;
+  --terracotta-deep: #9DB585;
   --apricot:         #EAD8C4;
 
   --ink:          #5C4F47;
@@ -139,7 +139,7 @@ section { position: relative; }
   background: var(--rose);
   color: var(--ink);
 }
-.btn-pop:hover { background: var(--rose-deep); color: var(--bone); box-shadow: 0 8px 24px -10px rgba(201,143,148,0.55); }
+.btn-pop:hover { background: var(--rose-deep); color: var(--bone); box-shadow: 0 8px 24px -10px rgba(157,181,133,0.55); }
 
 .btn-ghost {
   background: transparent;

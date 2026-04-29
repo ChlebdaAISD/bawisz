@@ -123,8 +123,8 @@ export function Navbar({ onBookBirthday }) {
           display: flex;
           align-items: center;
           gap: 24px;
-          padding: 12px 18px 12px 14px;
-          background: rgba(246, 241, 231, 0.7);
+          padding: 6px 18px 6px 8px;
+          background: rgba(255, 253, 248, 0.78);
           backdrop-filter: blur(16px);
           -webkit-backdrop-filter: blur(16px);
           border: 1px solid var(--line-soft);
@@ -132,7 +132,7 @@ export function Navbar({ onBookBirthday }) {
           transition: padding 0.25s, background 0.25s, box-shadow 0.25s;
         }
         .nav.is-scrolled {
-          background: rgba(251, 247, 238, 0.92);
+          background: rgba(255, 253, 248, 0.95);
           box-shadow: 0 12px 30px -16px rgba(27,26,23,0.18);
         }
 
@@ -143,7 +143,7 @@ export function Navbar({ onBookBirthday }) {
           padding-right: 8px;
           flex: none;
         }
-        .nav-brand img { height: 44px; width: auto; }
+        .nav-brand img { height: 56px; width: auto; }
         .nav-brand-text { line-height: 1; white-space: nowrap; }
         .nav-brand-name {
           font-family: var(--font-display);
