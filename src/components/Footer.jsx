@@ -75,7 +75,7 @@ export function Footer({ onBookBirthday }) {
 
       <style>{`
         .ftr {
-          background: var(--ink);
+          background: var(--brand-deep);
           color: var(--cream);
           padding: 64px 0 32px;
         }
@@ -141,7 +141,7 @@ export function Footer({ onBookBirthday }) {
           color: var(--cream);
           transition: background 0.2s, border-color 0.2s;
         }
-        .ftr-socials a:hover { background: var(--terracotta); border-color: var(--terracotta); }
+        .ftr-socials a:hover { background: var(--terracotta-deep); border-color: var(--terracotta-deep); color: var(--cream); }
 
         .ftr-form { display: flex; gap: 6px; }
         .ftr-form input {

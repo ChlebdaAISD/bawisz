@@ -167,7 +167,7 @@ export function BirthdayModal({ open, onClose }) {
           width: 48px; height: 48px;
           border-radius: 50%;
           background: var(--terracotta);
-          color: var(--bone);
+          color: var(--ink);
           border: 1.5px solid var(--line);
           display: inline-flex; align-items: center; justify-content: center;
         }
@@ -216,10 +216,10 @@ export function BirthdayModal({ open, onClose }) {
           width: 26px; height: 26px;
           border-radius: 50%;
           background: var(--terracotta);
-          color: var(--bone);
+          color: var(--ink);
           display: inline-flex; align-items: center; justify-content: center;
         }
-        .bm-pkg-price { font-size: 32px; margin: 8px 0 4px; color: var(--terracotta); }
+        .bm-pkg-price { font-size: 32px; margin: 8px 0 4px; color: var(--terracotta-deep); }
         .bm-pkg-desc { font-size: 13px; color: var(--ink-mute); }
 
         .bm-foot {

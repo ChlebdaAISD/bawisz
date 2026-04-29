@@ -140,7 +140,7 @@ export function Menu() {
         .menu-item-n { font-weight: 700; color: var(--ink); font-size: 16px; }
         .menu-item-d { color: var(--ink-mute); font-size: 13px; margin-top: 2px; max-width: 36ch; }
         .menu-dotted { flex: 1; border-bottom: 1.5px dotted var(--line-soft); transform: translateY(-4px); }
-        .menu-item-p { font-size: 26px; color: var(--terracotta); white-space: nowrap; }
+        .menu-item-p { font-size: 26px; color: var(--terracotta-deep); white-space: nowrap; }
         .menu-item-p span { font-size: 13px; opacity: 0.7; }
 
         .menu-foot { margin-top: 18px; }

@@ -1,4 +1,5 @@
 import { IconArrow } from './icons.jsx'
+import { Decoration } from './Decoration.jsx'
 
 export function Hero({ onBookBirthday }) {
   return (
@@ -7,6 +8,16 @@ export function Hero({ onBookBirthday }) {
         <img src="/assets/photo4.jpg" alt="Wnętrze bawialni Bawisz" className="hero-fb-img" />
         <div className="hero-fb-overlay" />
         <div className="hero-fb-grain" />
+
+        <Decoration
+          type="balloon"
+          color="var(--pastel-rose)"
+          size={120}
+          rotate={-12}
+          opacity={0.45}
+          animate="float"
+          style={{ right: '6%', top: '14%', zIndex: 2 }}
+        />
 
         <div className="shell hero-fb-content">
           <h1 className="hero-headline display fade-up">
@@ -68,8 +79,8 @@ export function Hero({ onBookBirthday }) {
           inset: 0;
           z-index: 1;
           background:
-            linear-gradient(100deg, rgba(15,28,18,0.78) 0%, rgba(15,28,18,0.55) 40%, rgba(15,28,18,0.25) 70%, rgba(15,28,18,0.45) 100%),
-            linear-gradient(180deg, rgba(15,28,18,0.35) 0%, rgba(15,28,18,0.15) 50%, rgba(15,28,18,0.55) 100%);
+            linear-gradient(100deg, rgba(58,46,31,0.78) 0%, rgba(58,46,31,0.55) 40%, rgba(58,46,31,0.25) 70%, rgba(58,46,31,0.45) 100%),
+            linear-gradient(180deg, rgba(58,46,31,0.35) 0%, rgba(58,46,31,0.15) 50%, rgba(58,46,31,0.55) 100%);
         }
         .hero-fb-grain {
           position: absolute;
@@ -93,12 +104,7 @@ export function Hero({ onBookBirthday }) {
           margin: 0;
         }
         .hero-headline .line { display: block; }
-        .hero-italic {
-          font-style: italic;
-          color: var(--sage);
-          position: relative;
-          padding: 0 0.05em;
-        }
+        .hero-fb .hero-italic { color: var(--terracotta); }
 
         .hero-sub {
           margin: 32px 0 40px;

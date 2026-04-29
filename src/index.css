@@ -1,27 +1,35 @@
 :root {
-  /* PALETTE — playful-premium. Sage + cream + one warm pop (terracotta).
-     Drawn from the actual space: plywood, sage walls, white floor, soft red sit-on toy. */
+  /* PALETTE — pastelowa tęcza + ciepły brąz z logo. Inspirowane grafikami IG
+     (Nowości 2026 — kolorowe ołówki, Mały Artysta — pastelowe plamy farby). */
   --cream:        #F6F1E7;
   --cream-deep:   #EFE7D6;
   --paper:        #FBF7EE;
   --bone:         #FFFDF8;
 
-  --sage:         #B8C9A8;
+  --brand:        #8B6F47;
+  --brand-deep:   #5C4830;
+
+  --sage:         #B8D0A0;
   --sage-deep:    #8FA67D;
-  --forest:       #3F5A3A;
-  --forest-deep:  #2A3F26;
+  --forest:       #5C4830;
+  --forest-deep:  #3A2E1F;
 
-  --terracotta:   #D86B4A;
-  --terracotta-deep: #B4502F;
-  --apricot:      #F0B894;
+  --terracotta:   #E89B5C;
+  --terracotta-deep: #C97A42;
+  --apricot:      #F2B88A;
 
-  --ink:          #1B1A17;
-  --ink-soft:     #3A3833;
-  --ink-mute:     #6E6A60;
-  --ink-faint:    #A8A294;
+  --pastel-rose:   #F4B6B6;
+  --pastel-butter: #F5D970;
+  --pastel-peach:  #F2B88A;
+  --pastel-lilac:  #C9B8DD;
 
-  --line:         #1B1A17;
-  --line-soft:    rgba(27,26,23,0.12);
+  --ink:          #3A2E1F;
+  --ink-soft:     #5C4F3F;
+  --ink-mute:     #8A7E6B;
+  --ink-faint:    #B5A993;
+
+  --line:         #3A2E1F;
+  --line-soft:    rgba(58,46,31,0.14);
 
   /* radius — tweakable */
   --r-sm: 10px;
@@ -119,9 +127,9 @@ section { position: relative; }
 
 .btn-pop {
   background: var(--terracotta);
-  color: var(--bone);
+  color: var(--ink);
 }
-.btn-pop:hover { background: var(--terracotta-deep); }
+.btn-pop:hover { background: var(--terracotta-deep); color: var(--bone); }
 
 .btn-ghost {
   background: transparent;
@@ -150,8 +158,8 @@ section { position: relative; }
   background: var(--bone);
   color: var(--ink);
 }
-.chip-sage { background: var(--sage); border-color: var(--forest-deep); color: var(--forest-deep); }
-.chip-pop { background: var(--terracotta); border-color: var(--terracotta-deep); color: var(--bone); }
+.chip-sage { background: var(--sage); border-color: var(--ink); color: var(--ink); }
+.chip-pop { background: var(--terracotta); border-color: var(--terracotta-deep); color: var(--ink); }
 
 /* CARDS */
 .card {
@@ -209,6 +217,30 @@ section { position: relative; }
 .img-reveal.in img { transform: scale(1); }
 .img-reveal.in::after { transform: scaleY(0); }
 
+/* DECORATIONS — subtle childlike accents (bear, rainbow, pencil, balloon) */
+@keyframes dec-floaty {
+  0%, 100% { transform: translateY(0) rotate(var(--rot, 0deg)); }
+  50%      { transform: translateY(-8px) rotate(calc(var(--rot, 0deg) + 3deg)); }
+}
+@keyframes dec-breathe {
+  0%, 100% { transform: scale(1) rotate(var(--rot, 0deg)); }
+  50%      { transform: scale(1.06) rotate(var(--rot, 0deg)); }
+}
+.dec-float   { animation: dec-floaty 6s ease-in-out infinite; }
+.dec-breathe { animation: dec-breathe 7s ease-in-out infinite; }
+
+@media (max-width: 720px) {
+  .decoration { transform: scale(0.7) rotate(var(--rot, 0deg)) !important; }
+}
+
+/* ITALIC ACCENT — used in H1/H2 across sections */
+.hero-italic {
+  font-style: italic;
+  color: var(--terracotta-deep);
+  position: relative;
+  padding: 0 0.05em;
+}
+
 /* DASHED DIVIDER */
 .divider {
   border: none;
@@ -223,7 +255,7 @@ section { position: relative; }
   border-top: 1.5px solid var(--line);
   border-bottom: 1.5px solid var(--line);
   background: var(--terracotta);
-  color: var(--bone);
+  color: var(--ink);
 }
 .marquee-track {
   display: inline-block;
@@ -289,7 +321,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--ink-faint) transparent; }
   height: 56px;
   border-radius: 50%;
   background: var(--terracotta);
-  color: var(--bone);
+  color: var(--ink);
   font-family: var(--font-display);
   font-size: 22px;
   border: 1.5px solid var(--line);

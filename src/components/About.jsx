@@ -1,5 +1,6 @@
 import { Reveal, ImgReveal } from './Reveal.jsx'
 import { IconLeaf, IconHeart, IconShield, IconArrow } from './icons.jsx'
+import { Decoration } from './Decoration.jsx'
 
 export function About() {
   const values = [
@@ -10,6 +11,14 @@ export function About() {
 
   return (
     <section id="o-nas" className="about">
+      <Decoration
+        type="bear"
+        color="var(--brand)"
+        size={140}
+        rotate={-8}
+        opacity={0.22}
+        style={{ right: '4%', top: '8%' }}
+      />
       <div className="shell about-grid">
         <Reveal className="about-media">
           <div className="about-img-wrap">

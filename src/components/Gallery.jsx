@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react'
 import { Reveal, ImgReveal } from './Reveal.jsx'
 import { IconInstagram, IconChevronLeft, IconChevronRight, IconClose } from './icons.jsx'
+import { Decoration } from './Decoration.jsx'
 
 export function Gallery() {
   const items = [
@@ -55,6 +56,13 @@ export function Gallery() {
 
   return (
     <section id="galeria" className="gal">
+      <Decoration
+        type="rainbow"
+        size={170}
+        rotate={8}
+        opacity={0.4}
+        style={{ right: '4%', top: '90px' }}
+      />
       <div className="shell">
         <div className="gal-head">
           <Reveal className="eyebrow">[ Galeria ]</Reveal>

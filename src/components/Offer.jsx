@@ -1,5 +1,6 @@
 import { Reveal } from './Reveal.jsx'
 import { IconBlock, IconCoffee, IconCake, IconPalette, IconArrow } from './icons.jsx'
+import { Decoration } from './Decoration.jsx'
 
 export function Offer() {
   const items = [
@@ -17,7 +18,7 @@ export function Offer() {
       t: 'Kawiarnia',
       s: 'Kawa, herbata, ciasta i przekąski. Wygodne miejsce dla rodziców — usiądź, odpocznij, miej dzieci na oku.',
       tags: ['Kawa', 'Ciasta', 'Przekąski'],
-      tone: 'cream',
+      tone: 'rose',
     },
     {
       n: '03',
@@ -25,7 +26,7 @@ export function Offer() {
       t: 'Urodziny',
       s: 'Dwa pakiety urodzinowe, motywy lasu i kwiatów, opcja sali na wyłączność. Dekoracje, poczęstunek i prezent dla solenizanta — my zajmujemy się resztą.',
       tags: ['MINI · STANDARD', 'Sala na wyłączność', 'Prezent od nas'],
-      tone: 'pop',
+      tone: 'butter',
     },
     {
       n: '04',
@@ -33,12 +34,20 @@ export function Offer() {
       t: 'Warsztaty',
       s: 'Plastyka, sensoplastyka, wspólne tworzenie. Daj dziecku spróbować czegoś nowego — w spokojnej atmosferze i niewielkiej grupie.',
       tags: ['Plastyka', 'Sensoplastyka', 'Małe grupy'],
-      tone: 'sage',
+      tone: 'lilac',
     },
   ]
 
   return (
     <section id="oferta" className="offer">
+      <Decoration
+        type="pencil"
+        color="var(--pastel-butter)"
+        size={180}
+        rotate={-18}
+        opacity={0.4}
+        style={{ right: '5%', top: '90px' }}
+      />
       <div className="shell">
         <div className="offer-head">
           <Reveal className="eyebrow">[ Co u nas znajdziesz ]</Reveal>
@@ -96,9 +105,13 @@ export function Offer() {
           transition: transform 0.35s ease, background 0.35s;
         }
         .offer-card:hover { transform: translateY(-4px); }
-        .offer-card.tone-sage { background: var(--sage); color: var(--forest-deep); }
-        .offer-card.tone-cream { background: var(--bone); color: var(--ink); }
-        .offer-card.tone-pop { background: var(--terracotta); color: var(--bone); }
+        .offer-card.tone-sage   { background: var(--sage); color: var(--ink); }
+        .offer-card.tone-cream  { background: var(--bone); color: var(--ink); }
+        .offer-card.tone-pop    { background: var(--terracotta); color: var(--ink); }
+        .offer-card.tone-rose   { background: var(--pastel-rose); color: var(--ink); }
+        .offer-card.tone-butter { background: var(--pastel-butter); color: var(--ink); }
+        .offer-card.tone-peach  { background: var(--pastel-peach); color: var(--ink); }
+        .offer-card.tone-lilac  { background: var(--pastel-lilac); color: var(--ink); }
 
         .offer-card-top {
           display: flex;

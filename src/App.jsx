@@ -12,23 +12,35 @@ import { Contact } from './components/Contact.jsx'
 import { Footer } from './components/Footer.jsx'
 import { BirthdayModal } from './components/BirthdayModal.jsx'
 
-const FOREST = {
-  '--cream':       '#F4EFE3',
-  '--cream-deep':  '#E8E0CE',
-  '--paper':       '#F8F3E7',
-  '--bone':        '#FFFDF6',
-  '--sage':        '#A8BD96',
-  '--sage-deep':   '#7E9A6C',
-  '--forest':      '#284428',
-  '--forest-deep': '#15281A',
-  '--terracotta':      '#C9633F',
-  '--terracotta-deep': '#9A4628',
-  '--ink':       '#15281A',
-  '--ink-soft':  '#2D3F2E',
-  '--ink-mute':  '#5C6B58',
-  '--ink-faint': '#9AA396',
-  '--line':      '#15281A',
-  '--line-soft': 'rgba(21,40,26,0.14)',
+const PASTEL = {
+  '--cream':       '#F6F1E7',
+  '--cream-deep':  '#EFE7D6',
+  '--paper':       '#FBF7EE',
+  '--bone':        '#FFFDF8',
+
+  '--brand':       '#8B6F47',
+  '--brand-deep':  '#5C4830',
+
+  '--sage':        '#B8D0A0',
+  '--sage-deep':   '#8FA67D',
+  '--forest':      '#5C4830',
+  '--forest-deep': '#3A2E1F',
+
+  '--terracotta':      '#E89B5C',
+  '--terracotta-deep': '#C97A42',
+  '--apricot':         '#F2B88A',
+
+  '--pastel-rose':   '#F4B6B6',
+  '--pastel-butter': '#F5D970',
+  '--pastel-peach':  '#F2B88A',
+  '--pastel-lilac':  '#C9B8DD',
+
+  '--ink':       '#3A2E1F',
+  '--ink-soft':  '#5C4F3F',
+  '--ink-mute':  '#8A7E6B',
+  '--ink-faint': '#B5A993',
+  '--line':      '#3A2E1F',
+  '--line-soft': 'rgba(58,46,31,0.14)',
 }
 
 const SHARP = { '--r-sm': '2px', '--r-md': '4px', '--r-lg': '6px', '--r-xl': '10px', '--r-pill': '6px' }
@@ -38,7 +50,7 @@ export default function App() {
 
   useEffect(() => {
     const root = document.documentElement
-    Object.entries(FOREST).forEach(([k, v]) => root.style.setProperty(k, v))
+    Object.entries(PASTEL).forEach(([k, v]) => root.style.setProperty(k, v))
     Object.entries(SHARP).forEach(([k, v]) => root.style.setProperty(k, v))
   }, [])
 

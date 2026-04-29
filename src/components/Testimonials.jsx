@@ -1,6 +1,7 @@
 import { useRef, useState, useEffect } from 'react'
 import { Reveal } from './Reveal.jsx'
 import { IconStar, IconQuote, IconChevronLeft, IconChevronRight } from './icons.jsx'
+import { Decoration } from './Decoration.jsx'
 
 export function Testimonials() {
   const reviews = [
@@ -9,35 +10,35 @@ export function Testimonials() {
       role: 'opinia z Google',
       text: 'BAWISZ to najlepsza bawialnia, w jakiej byłam z moją 3-latką. Spędziłam tu cały dzień: ja siedząc w kawiarni z pysznym ciastem i kawą, mając całą bawialnię w zasięgu wzroku, a córka bawiąc się w pięknym, dopracowanym w każdym detalu placu zabaw.',
       stars: 5,
-      tone: 'sage',
+      tone: 'rose',
     },
     {
       name: 'Anita Słodyczka',
       role: 'opinia z Google',
       text: 'Świetne miejsce! Wszystko drewniane łącznie z zabawkami — to ogromny plus. Córka bawiła się tak dobrze, że nie chciała wyjść. Czystość, przepiękne wnętrza, pyszna kawa, herbata i ciasto. Polecam gorąco!',
       stars: 5,
-      tone: 'cream',
+      tone: 'sage',
     },
     {
       name: 'Karolina Biela',
       role: 'opinia z Google',
       text: 'Gorąco polecam dla dziecka. Moja 9-miesięczna córka była zachwycona zabawkami, bezpiecznymi i różnorodnymi. Dziecko może się pobawić, a rodzic odpocząć przy pysznej kawie, nie spuszczając go z oczu. Obsługa miła i pomocna.',
       stars: 5,
-      tone: 'pop',
+      tone: 'butter',
     },
     {
       name: 'Adrian T.',
       role: 'opinia z Google',
       text: 'Super miejsce dla dzieci! Sala zabaw to strzał w 10 — świetnie zorganizowana i naprawdę fajna przestrzeń dla najmłodszych. Dodatkowo monoporcje są przepyszne. Bardzo polecam.',
       stars: 5,
-      tone: 'cream',
+      tone: 'peach',
     },
     {
       name: 'Beata Waras',
       role: 'opinia z Google',
       text: 'Super miejsce dla maluszka — dużo pięknych i interesujących zabawek, pyszna kawa. Dodatkowa gwiazdka za wyposażenie toalety dla bobasów: pieluszki, mokre chusteczki, nocnik, nakładka. Polecam!',
       stars: 5,
-      tone: 'sage',
+      tone: 'lilac',
     },
   ]
 
@@ -101,6 +102,14 @@ export function Testimonials() {
 
   return (
     <section className="tst">
+      <Decoration
+        type="bear"
+        color="var(--brand)"
+        size={130}
+        rotate={6}
+        opacity={0.22}
+        style={{ right: '5%', top: '90px' }}
+      />
       <div className="shell">
         <div className="tst-head">
           <Reveal className="eyebrow">[ Co mówią rodzice ]</Reveal>
@@ -180,7 +189,7 @@ export function Testimonials() {
         .tst-h { font-size: clamp(40px, 6vw, 80px); margin: 16px 0 0; color: var(--ink); }
 
         .tst-rating { display: flex; align-items: center; gap: 14px; }
-        .tst-stars { display: flex; gap: 4px; color: var(--terracotta); }
+        .tst-stars { display: flex; gap: 4px; color: var(--terracotta-deep); }
         .tst-rate-num { font-size: 44px; line-height: 0.9; color: var(--ink); }
 
         .tst-carousel { position: relative; }
@@ -210,9 +219,13 @@ export function Testimonials() {
         @media (max-width: 980px) { .tst-card { flex-basis: calc((100% - 18px) / 2); } }
         @media (max-width: 600px) { .tst-card { flex-basis: 88%; min-height: 280px; } }
 
-        .tst-cream { background: var(--bone); color: var(--ink); }
-        .tst-sage { background: var(--sage); color: var(--forest-deep); }
-        .tst-pop { background: var(--terracotta); color: var(--bone); }
+        .tst-cream  { background: var(--bone); color: var(--ink); }
+        .tst-sage   { background: var(--sage); color: var(--ink); }
+        .tst-pop    { background: var(--terracotta); color: var(--ink); }
+        .tst-rose   { background: var(--pastel-rose); color: var(--ink); }
+        .tst-butter { background: var(--pastel-butter); color: var(--ink); }
+        .tst-peach  { background: var(--pastel-peach); color: var(--ink); }
+        .tst-lilac  { background: var(--pastel-lilac); color: var(--ink); }
 
         .tst-quote { opacity: 0.5; margin-bottom: 12px; }
         .tst-text {

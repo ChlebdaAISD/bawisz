@@ -1,5 +1,6 @@
 import { Reveal } from './Reveal.jsx'
 import { IconCheck, IconArrow } from './icons.jsx'
+import { Decoration } from './Decoration.jsx'
 
 export function Pricing({ onBookBirthday }) {
   const plans = [
@@ -17,7 +18,7 @@ export function Pricing({ onBookBirthday }) {
       unit: 'zł / bez limitu',
       desc: 'Dla stałych bywalców — wchodzisz, kiedy chcesz, ile chcesz.',
       includes: ['Bez limitu wejść', '1 miesiąc kalendarzowy', 'Najlepszy stosunek do ceny'],
-      tone: 'pop',
+      tone: 'peach',
       badge: 'Najlepsza wartość',
     },
     {
@@ -40,6 +41,15 @@ export function Pricing({ onBookBirthday }) {
 
   return (
     <section id="cennik" className="prc">
+      <Decoration
+        type="balloon"
+        color="var(--pastel-lilac)"
+        size={130}
+        rotate={10}
+        opacity={0.4}
+        animate="float"
+        style={{ right: '6%', top: '80px' }}
+      />
       <div className="shell">
         <div className="prc-head">
           <Reveal className="eyebrow">[ Cennik ]</Reveal>
@@ -113,10 +123,14 @@ export function Pricing({ onBookBirthday }) {
           border-radius: var(--r-lg);
         }
         .prc-cream { background: var(--bone); color: var(--ink); }
-        .prc-pop { background: var(--terracotta); color: var(--bone); transform: translateY(-12px); }
-        .prc-sage { background: var(--sage); color: var(--forest-deep); }
+        .prc-pop   { background: var(--terracotta); color: var(--ink); transform: translateY(-12px); }
+        .prc-peach { background: var(--pastel-peach); color: var(--ink); transform: translateY(-12px); }
+        .prc-sage  { background: var(--sage); color: var(--ink); }
+        .prc-rose  { background: var(--pastel-rose); color: var(--ink); }
+        .prc-butter{ background: var(--pastel-butter); color: var(--ink); }
+        .prc-lilac { background: var(--pastel-lilac); color: var(--ink); }
 
-        @media (max-width: 900px) { .prc-pop { transform: none; } }
+        @media (max-width: 900px) { .prc-pop, .prc-peach { transform: none; } }
 
         .prc-badge {
           position: absolute;
@@ -188,7 +202,7 @@ export function Pricing({ onBookBirthday }) {
         .prc-row-v {
           font-family: var(--font-display);
           font-size: 22px;
-          color: var(--terracotta);
+          color: var(--terracotta-deep);
         }
 
         .prc-extras-cta {
