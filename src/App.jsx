@@ -12,46 +12,46 @@ import { Contact } from './components/Contact.jsx'
 import { Footer } from './components/Footer.jsx'
 import { BirthdayModal } from './components/BirthdayModal.jsx'
 
-const PASTEL = {
-  '--cream':       '#F6F1E7',
-  '--cream-deep':  '#EFE7D6',
-  '--paper':       '#FBF7EE',
+const COZY = {
+  '--cream':       '#FBF7EE',
+  '--cream-deep':  '#F4EBDB',
+  '--paper':       '#FAF3EA',
   '--bone':        '#FFFDF8',
+  '--sand':        '#EAD8C4',
+  '--sand-deep':   '#D0B192',
 
-  '--brand':       '#8B6F47',
-  '--brand-deep':  '#5C4830',
+  '--brand':       '#A98062',
+  '--brand-deep':  '#776258',
+  '--brand-soft':  '#D0B192',
 
-  '--sage':        '#B8D0A0',
-  '--sage-deep':   '#8FA67D',
-  '--forest':      '#5C4830',
-  '--forest-deep': '#3A2E1F',
+  '--sage':        '#EAD8C4',
+  '--sage-deep':   '#D0B192',
 
-  '--terracotta':      '#E89B5C',
-  '--terracotta-deep': '#C97A42',
-  '--apricot':         '#F2B88A',
+  '--rose':        '#E8B4B8',
+  '--rose-deep':   '#C98F94',
+  '--rose-soft':   '#F2D3D5',
 
-  '--pastel-rose':   '#F4B6B6',
-  '--pastel-butter': '#F5D970',
-  '--pastel-peach':  '#F2B88A',
-  '--pastel-lilac':  '#C9B8DD',
+  '--terracotta':      '#E8B4B8',
+  '--terracotta-deep': '#C98F94',
+  '--apricot':         '#EAD8C4',
 
-  '--ink':       '#3A2E1F',
-  '--ink-soft':  '#5C4F3F',
-  '--ink-mute':  '#8A7E6B',
-  '--ink-faint': '#B5A993',
-  '--line':      '#3A2E1F',
-  '--line-soft': 'rgba(58,46,31,0.14)',
+  '--ink':       '#5C4F47',
+  '--ink-soft':  '#776258',
+  '--ink-mute':  '#9E8C7E',
+  '--ink-faint': '#C7B5A2',
+  '--line':      'rgba(168,128,98,0.32)',
+  '--line-soft': 'rgba(168,128,98,0.16)',
 }
 
-const SHARP = { '--r-sm': '2px', '--r-md': '4px', '--r-lg': '6px', '--r-xl': '10px', '--r-pill': '6px' }
+const SOFT = { '--r-sm': '14px', '--r-md': '22px', '--r-lg': '32px', '--r-xl': '48px', '--r-pill': '999px' }
 
 export default function App() {
   const [bookOpen, setBookOpen] = useState(false)
 
   useEffect(() => {
     const root = document.documentElement
-    Object.entries(PASTEL).forEach(([k, v]) => root.style.setProperty(k, v))
-    Object.entries(SHARP).forEach(([k, v]) => root.style.setProperty(k, v))
+    Object.entries(COZY).forEach(([k, v]) => root.style.setProperty(k, v))
+    Object.entries(SOFT).forEach(([k, v]) => root.style.setProperty(k, v))
   }, [])
 
   return (

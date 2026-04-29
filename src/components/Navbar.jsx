@@ -127,7 +127,7 @@ export function Navbar({ onBookBirthday }) {
           background: rgba(246, 241, 231, 0.7);
           backdrop-filter: blur(16px);
           -webkit-backdrop-filter: blur(16px);
-          border: 1.5px solid var(--line);
+          border: 1px solid var(--line-soft);
           border-radius: var(--r-pill);
           transition: padding 0.25s, background 0.25s, box-shadow 0.25s;
         }
@@ -180,7 +180,7 @@ export function Navbar({ onBookBirthday }) {
           position: absolute;
           left: 0; right: 0; bottom: -4px;
           height: 1.5px;
-          background: var(--ink);
+          background: var(--brand-deep);
           transform: scaleX(0);
           transform-origin: left;
           transition: transform 0.25s ease;
@@ -200,7 +200,7 @@ export function Navbar({ onBookBirthday }) {
           align-items: center;
           gap: 8px;
           padding: 6px 12px 6px 10px;
-          border: 1.5px solid var(--line);
+          border: 1px solid var(--line-soft);
           background: var(--bone);
           border-radius: var(--r-pill);
           font-size: 12px;
@@ -223,8 +223,8 @@ export function Navbar({ onBookBirthday }) {
           display: none;
           width: 48px; height: 48px;
           border-radius: 50%;
-          background: var(--ink);
-          color: var(--bone);
+          background: var(--brand-deep);
+          color: var(--cream);
           border: none;
           align-items: center;
           justify-content: center;

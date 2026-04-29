@@ -10,35 +10,35 @@ export function Testimonials() {
       role: 'opinia z Google',
       text: 'BAWISZ to najlepsza bawialnia, w jakiej byłam z moją 3-latką. Spędziłam tu cały dzień: ja siedząc w kawiarni z pysznym ciastem i kawą, mając całą bawialnię w zasięgu wzroku, a córka bawiąc się w pięknym, dopracowanym w każdym detalu placu zabaw.',
       stars: 5,
-      tone: 'rose',
+      tone: 'cream',
     },
     {
       name: 'Anita Słodyczka',
       role: 'opinia z Google',
       text: 'Świetne miejsce! Wszystko drewniane łącznie z zabawkami — to ogromny plus. Córka bawiła się tak dobrze, że nie chciała wyjść. Czystość, przepiękne wnętrza, pyszna kawa, herbata i ciasto. Polecam gorąco!',
       stars: 5,
-      tone: 'sage',
+      tone: 'sand',
     },
     {
       name: 'Karolina Biela',
       role: 'opinia z Google',
       text: 'Gorąco polecam dla dziecka. Moja 9-miesięczna córka była zachwycona zabawkami, bezpiecznymi i różnorodnymi. Dziecko może się pobawić, a rodzic odpocząć przy pysznej kawie, nie spuszczając go z oczu. Obsługa miła i pomocna.',
       stars: 5,
-      tone: 'butter',
+      tone: 'cream',
     },
     {
       name: 'Adrian T.',
       role: 'opinia z Google',
       text: 'Super miejsce dla dzieci! Sala zabaw to strzał w 10 — świetnie zorganizowana i naprawdę fajna przestrzeń dla najmłodszych. Dodatkowo monoporcje są przepyszne. Bardzo polecam.',
       stars: 5,
-      tone: 'peach',
+      tone: 'sand',
     },
     {
       name: 'Beata Waras',
       role: 'opinia z Google',
       text: 'Super miejsce dla maluszka — dużo pięknych i interesujących zabawek, pyszna kawa. Dodatkowa gwiazdka za wyposażenie toalety dla bobasów: pieluszki, mokre chusteczki, nocnik, nakładka. Polecam!',
       stars: 5,
-      tone: 'lilac',
+      tone: 'cream',
     },
   ]
 
@@ -105,27 +105,21 @@ export function Testimonials() {
       <Decoration
         type="bear"
         color="var(--brand)"
-        size={130}
+        size={120}
         rotate={6}
-        opacity={0.22}
-        style={{ right: '5%', top: '90px' }}
+        opacity={0.85}
+        animate="float"
+        style={{ right: '5%', top: '60px' }}
       />
       <div className="shell">
         <div className="tst-head">
           <Reveal className="eyebrow">[ Co mówią rodzice ]</Reveal>
-          <Reveal delay={80}>
-            <h2 className="display tst-h">
-              4,9 ★ od ponad<br />
-              setki rodziców<br />
-              <span className="hero-italic">w Google.</span>
-            </h2>
-          </Reveal>
           <div className="tst-rating">
             <div className="tst-stars">
               {[...Array(5)].map((_, i) => <IconStar key={i} size={20} />)}
             </div>
             <div>
-              <div className="display tst-rate-num">4.9</div>
+              <div className="tst-rate-num">4.9</div>
               <div className="body-sm">na 127 opinii w Google</div>
             </div>
           </div>
@@ -183,20 +177,23 @@ export function Testimonials() {
       </div>
 
       <style>{`
-        .tst { padding: 120px 0 100px; background: var(--cream); overflow: hidden; }
-        .tst-head { display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: end; max-width: 1100px; margin-bottom: 56px; }
-        @media (max-width: 820px) { .tst-head { grid-template-columns: 1fr; } }
-        .tst-h { font-size: clamp(40px, 6vw, 80px); margin: 16px 0 0; color: var(--ink); }
-
+        .tst { padding: 110px 0 90px; background: var(--cream); overflow: hidden; }
+        .tst-head { display: flex; flex-direction: column; gap: 18px; margin-bottom: 50px; }
         .tst-rating { display: flex; align-items: center; gap: 14px; }
-        .tst-stars { display: flex; gap: 4px; color: var(--terracotta-deep); }
-        .tst-rate-num { font-size: 44px; line-height: 0.9; color: var(--ink); }
+        .tst-stars { display: flex; gap: 4px; color: var(--rose-deep); }
+        .tst-rate-num {
+          font-family: var(--font-display);
+          font-weight: 700;
+          font-size: 56px;
+          line-height: 0.9;
+          color: var(--brand-deep);
+        }
 
         .tst-carousel { position: relative; }
 
         .tst-track {
           display: flex;
-          gap: 18px;
+          gap: 20px;
           overflow-x: auto;
           scroll-snap-type: x mandatory;
           scroll-behavior: smooth;
@@ -207,40 +204,40 @@ export function Testimonials() {
         .tst-track::-webkit-scrollbar { display: none; }
 
         .tst-card {
-          flex: 0 0 calc((100% - 36px) / 3);
+          flex: 0 0 calc((100% - 40px) / 3);
           scroll-snap-align: start;
-          padding: 28px 26px;
-          border: 1.5px solid var(--line);
+          padding: 30px 28px;
+          background: var(--bone);
+          border: 1px solid var(--line-soft);
           border-radius: var(--r-lg);
           display: flex;
           flex-direction: column;
           min-height: 320px;
+          color: var(--ink);
+          box-shadow: 0 4px 24px -16px rgba(168,128,98,0.35);
         }
-        @media (max-width: 980px) { .tst-card { flex-basis: calc((100% - 18px) / 2); } }
+        @media (max-width: 980px) { .tst-card { flex-basis: calc((100% - 20px) / 2); } }
         @media (max-width: 600px) { .tst-card { flex-basis: 88%; min-height: 280px; } }
 
-        .tst-cream  { background: var(--bone); color: var(--ink); }
-        .tst-sage   { background: var(--sage); color: var(--ink); }
-        .tst-pop    { background: var(--terracotta); color: var(--ink); }
-        .tst-rose   { background: var(--pastel-rose); color: var(--ink); }
-        .tst-butter { background: var(--pastel-butter); color: var(--ink); }
-        .tst-peach  { background: var(--pastel-peach); color: var(--ink); }
-        .tst-lilac  { background: var(--pastel-lilac); color: var(--ink); }
+        .tst-cream { background: var(--bone); }
+        .tst-sand  { background: var(--sand); }
 
-        .tst-quote { opacity: 0.5; margin-bottom: 12px; }
+        .tst-quote { color: var(--rose-deep); opacity: 0.7; margin-bottom: 12px; }
         .tst-text {
-          font-family: var(--font-display);
-          font-size: 20px;
-          line-height: 1.3;
+          font-family: var(--font-heading);
+          font-weight: 500;
+          font-size: 19px;
+          line-height: 1.45;
           margin: 0 0 24px;
           flex: 1;
+          color: var(--ink);
         }
-        @media (max-width: 600px) { .tst-text { font-size: 18px; } }
+        @media (max-width: 600px) { .tst-text { font-size: 17px; } }
 
-        .tst-foot { display: flex; align-items: center; gap: 14px; padding-top: 18px; border-top: 1.5px dashed currentColor; }
-        .tst-stars-sm { display: flex; gap: 2px; opacity: 0.85; }
-        .tst-name { font-weight: 700; font-size: 14px; }
-        .tst-role { font-size: 12px; opacity: 0.75; }
+        .tst-foot { display: flex; align-items: center; gap: 14px; padding-top: 18px; border-top: 1px dashed var(--line-soft); }
+        .tst-stars-sm { display: flex; gap: 2px; color: var(--rose-deep); }
+        .tst-name { font-weight: 700; font-size: 14px; color: var(--ink); }
+        .tst-role { font-size: 12px; color: var(--ink-mute); }
 
         .tst-controls {
           display: flex;
@@ -251,19 +248,19 @@ export function Testimonials() {
         }
 
         .tst-nav {
-          width: 44px;
-          height: 44px;
+          width: 46px;
+          height: 46px;
           border-radius: 50%;
           background: var(--bone);
-          color: var(--ink);
-          border: 1.5px solid var(--line);
+          color: var(--brand-deep);
+          border: 1px solid var(--line-soft);
           display: inline-flex;
           align-items: center;
           justify-content: center;
           cursor: pointer;
           transition: background 0.2s, color 0.2s, transform 0.2s;
         }
-        .tst-nav:hover { background: var(--ink); color: var(--bone); }
+        .tst-nav:hover { background: var(--brand-deep); color: var(--bone); border-color: var(--brand-deep); }
         .tst-nav:active { transform: scale(0.94); }
 
         .tst-dots {
@@ -282,9 +279,9 @@ export function Testimonials() {
           transition: width 0.25s, background 0.2s;
         }
         .tst-dot.is-active {
-          width: 26px;
+          width: 28px;
           border-radius: 999px;
-          background: var(--ink);
+          background: var(--rose-deep);
         }
       `}</style>
     </section>

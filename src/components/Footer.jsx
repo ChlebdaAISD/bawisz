@@ -102,7 +102,7 @@ export function Footer({ onBookBirthday }) {
         }
         @media (max-width: 720px) { .ftr-logo { height: 64px; } }
         .ftr-mark span:first-child, .ftr-mark span:last-child { color: var(--ink-faint); }
-        .ftr-italic { font-style: italic; color: var(--terracotta); }
+        .ftr-italic { font-family: var(--font-display); font-style: normal; color: var(--rose-soft); }
 
         .ftr-cta { display: flex; flex-wrap: wrap; gap: 10px; align-self: flex-end; }
 
@@ -141,7 +141,7 @@ export function Footer({ onBookBirthday }) {
           color: var(--cream);
           transition: background 0.2s, border-color 0.2s;
         }
-        .ftr-socials a:hover { background: var(--terracotta-deep); border-color: var(--terracotta-deep); color: var(--cream); }
+        .ftr-socials a:hover { background: var(--rose-deep); border-color: var(--rose-deep); color: var(--cream); }
 
         .ftr-form { display: flex; gap: 6px; }
         .ftr-form input {
@@ -155,18 +155,18 @@ export function Footer({ onBookBirthday }) {
           font-size: 14px;
         }
         .ftr-form input::placeholder { color: rgba(255,255,255,0.4); }
-        .ftr-form input:focus { outline: none; border-color: var(--terracotta); }
+        .ftr-form input:focus { outline: none; border-color: var(--rose-deep); }
         .ftr-form button {
           width: 42px; height: 42px;
           border-radius: 50%;
-          background: var(--terracotta);
-          border: 1.5px solid var(--terracotta);
+          background: var(--rose-deep);
+          border: 1.5px solid var(--rose-deep);
           color: var(--bone);
           display: inline-flex;
           align-items: center;
           justify-content: center;
         }
-        .ftr-form button:hover { background: var(--terracotta-deep); border-color: var(--terracotta-deep); }
+        .ftr-form button:hover { background: var(--rose-deep); border-color: var(--rose-deep); }
 
         .ftr-bottom {
           display: flex;

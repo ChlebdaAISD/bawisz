@@ -14,7 +14,7 @@ export function Contact() {
         <div>
           <Reveal className="eyebrow">[ Kontakt ]</Reveal>
           <Reveal delay={80}>
-            <h2 className="display ctc-h">
+            <h2 className="ctc-h">
               Pytanie?<br />
               Zadzwoń<br />
               <span className="hero-italic">albo napisz.</span>
@@ -56,7 +56,15 @@ export function Contact() {
         .ctc-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 60px; align-items: center; }
         @media (max-width: 900px) { .ctc-grid { grid-template-columns: 1fr; gap: 40px; } }
 
-        .ctc-h { font-size: clamp(48px, 7vw, 110px); margin: 16px 0 24px; color: var(--ink); }
+        .ctc-h {
+          font-family: var(--font-heading);
+          font-weight: 600;
+          font-size: clamp(48px, 7vw, 110px);
+          line-height: 1.05;
+          letter-spacing: -0.01em;
+          margin: 16px 0 24px;
+          color: var(--ink);
+        }
         .ctc-sub { max-width: 46ch; margin-bottom: 32px; }
         .ctc-call { font-size: 18px; padding: 18px 28px; }
 
@@ -69,20 +77,24 @@ export function Contact() {
           gap: 16px;
           padding: 18px 20px;
           background: var(--bone);
-          border: 1.5px solid var(--line);
+          border: 1px solid var(--line-soft);
           border-radius: var(--r-lg);
-          transition: background 0.2s, transform 0.2s;
+          transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+          box-shadow: 0 4px 24px -16px rgba(168,128,98,0.35);
         }
-        .ctc-card:hover { background: var(--sage); transform: translateY(-2px); }
+        .ctc-card:hover { background: var(--rose-soft); transform: translateY(-2px); box-shadow: 0 12px 30px -18px rgba(168,128,98,0.4); }
         .ctc-card-icon {
           width: 44px; height: 44px;
           border-radius: 50%;
-          border: 1.5px solid var(--line);
+          border: none;
           display: inline-flex;
           align-items: center;
           justify-content: center;
-          background: var(--cream);
+          background: var(--rose-soft);
+          color: var(--brand-deep);
+          transition: background 0.2s;
         }
+        .ctc-card:hover .ctc-card-icon { background: var(--bone); }
         .ctc-card-text { flex: 1; }
         .ctc-card-l { font-weight: 700; color: var(--ink); }
         .ctc-card-s { font-size: 12px; color: var(--ink-mute); }

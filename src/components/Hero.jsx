@@ -4,159 +4,173 @@ import { Decoration } from './Decoration.jsx'
 export function Hero({ onBookBirthday }) {
   return (
     <section className="hero" id="top">
-      <div className="hero-fb">
-        <img src="/assets/photo4.jpg" alt="Wnętrze bawialni Bawisz" className="hero-fb-img" />
-        <div className="hero-fb-overlay" />
-        <div className="hero-fb-grain" />
+      <div className="hero-shell shell">
+        <div className="hero-grid">
+          <div className="hero-text">
+            <span className="eyebrow fade-up">[ Bawialnia &amp; Kawiarnia · Nowy Targ ]</span>
 
-        <Decoration
-          type="balloon"
-          color="var(--pastel-rose)"
-          size={120}
-          rotate={-12}
-          opacity={0.45}
-          animate="float"
-          style={{ right: '6%', top: '14%', zIndex: 2 }}
-        />
+            <h1 className="hero-headline fade-up" style={{ animationDelay: '0.05s' }}>
+              <span className="line">Sala zabaw</span>
+              <span className="line hero-italic">i kawiarnia,</span>
+              <span className="line">do której dziecko</span>
+              <span className="line hero-italic">chce wracać.</span>
+            </h1>
 
-        <div className="shell hero-fb-content">
-          <h1 className="hero-headline display fade-up">
-            <span className="line">Sala zabaw</span>
-            <span className="line"><span className="hero-italic">i kawiarnia</span></span>
-            <span className="line">w Nowym Targu.</span>
-          </h1>
+            <p className="hero-sub body-lg fade-up" style={{ animationDelay: '0.2s' }}>
+              Kreatywna, drewniana przestrzeń dla dzieci 0–12 lat.<br />
+              Ty pijesz kawę i jesz ciasto. One bawią się, tworzą i odkrywają.
+            </p>
 
-          <p className="hero-sub body-lg fade-up" style={{ animationDelay: '0.2s' }}>
-            Kreatywna przestrzeń dla dzieci 0–12 lat.<br />
-            Ty pijesz kawę i jesz ciasto. One bawią się, tworzą i odkrywają.
-          </p>
+            <div className="hero-ctas fade-up" style={{ animationDelay: '0.35s' }}>
+              <button className="btn btn-pop" onClick={onBookBirthday}>
+                Zarezerwuj urodziny <IconArrow size={16} />
+              </button>
+              <a href="#oferta" className="btn btn-ghost">Co u nas znajdziesz</a>
+            </div>
 
-          <div className="hero-ctas fade-up" style={{ animationDelay: '0.35s' }}>
-            <button className="btn btn-pop" onClick={onBookBirthday}>
-              Zarezerwuj urodziny <IconArrow size={16} />
-            </button>
-            <a href="#oferta" className="btn btn-cream">Co u nas znajdziesz</a>
+            <div className="hero-meta fade-up" style={{ animationDelay: '0.5s' }}>
+              <div>
+                <div className="hero-meta-num display">0–12</div>
+                <div className="hero-meta-lbl">lat</div>
+              </div>
+              <div className="hero-meta-div" />
+              <div>
+                <div className="hero-meta-num display">200 m²</div>
+                <div className="hero-meta-lbl">sali zabaw</div>
+              </div>
+              <div className="hero-meta-div" />
+              <div>
+                <div className="hero-meta-num display">7 dni</div>
+                <div className="hero-meta-lbl">w tygodniu</div>
+              </div>
+            </div>
           </div>
 
-          <div className="hero-meta fade-up" style={{ animationDelay: '0.5s' }}>
-            <div>
-              <div className="hero-meta-num display">0–12</div>
-              <div className="hero-meta-lbl">lat</div>
+          <div className="hero-visual fade-up" style={{ animationDelay: '0.15s' }}>
+            <div className="hero-photo">
+              <img src="/assets/photo4.jpg" alt="Wnętrze bawialni Bawisz" />
             </div>
-            <div className="hero-meta-div" />
-            <div>
-              <div className="hero-meta-num display">200 m²</div>
-              <div className="hero-meta-lbl">sali zabaw</div>
-            </div>
-            <div className="hero-meta-div" />
-            <div>
-              <div className="hero-meta-num display">7 dni</div>
-              <div className="hero-meta-lbl">w tygodniu</div>
-            </div>
+            <Decoration
+              type="bear"
+              color="var(--brand)"
+              size={130}
+              rotate={-8}
+              opacity={0.95}
+              animate="float"
+              style={{ left: '-30px', top: '-40px', zIndex: 3 }}
+            />
+            <Decoration
+              type="balloon"
+              color="var(--rose)"
+              size={90}
+              rotate={12}
+              opacity={0.85}
+              animate="float"
+              style={{ right: '-18px', bottom: '40px', zIndex: 3 }}
+            />
           </div>
         </div>
       </div>
 
       <style>{`
-        .hero-fb {
+        .hero {
           position: relative;
-          padding: 200px 0 100px;
-          min-height: 92vh;
+          padding: 140px 0 100px;
+          background: var(--cream);
           overflow: hidden;
-          color: var(--bone);
         }
-        .hero-fb-img {
-          position: absolute;
-          inset: 0;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          z-index: 0;
-          filter: saturate(1.05) contrast(1.02);
+
+        .hero-grid {
+          display: grid;
+          grid-template-columns: 1.05fr 1fr;
+          gap: 80px;
+          align-items: center;
         }
-        .hero-fb-overlay {
-          position: absolute;
-          inset: 0;
-          z-index: 1;
-          background:
-            linear-gradient(100deg, rgba(58,46,31,0.78) 0%, rgba(58,46,31,0.55) 40%, rgba(58,46,31,0.25) 70%, rgba(58,46,31,0.45) 100%),
-            linear-gradient(180deg, rgba(58,46,31,0.35) 0%, rgba(58,46,31,0.15) 50%, rgba(58,46,31,0.55) 100%);
+        @media (max-width: 980px) {
+          .hero-grid { grid-template-columns: 1fr; gap: 50px; }
         }
-        .hero-fb-grain {
-          position: absolute;
-          inset: 0;
-          z-index: 2;
-          opacity: 0.18;
-          pointer-events: none;
-          background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-          mix-blend-mode: overlay;
-        }
-        .hero-fb-content {
-          position: relative;
-          z-index: 3;
-          max-width: 880px;
-          padding: 0 28px;
-        }
+
+        .hero-text { position: relative; z-index: 2; }
 
         .hero-headline {
-          font-size: clamp(44px, 7.5vw, 108px);
-          color: var(--bone);
-          margin: 0;
+          font-family: var(--font-heading);
+          font-weight: 600;
+          font-size: clamp(38px, 5.5vw, 72px);
+          line-height: 1.05;
+          letter-spacing: -0.015em;
+          color: var(--ink);
+          margin: 22px 0 0;
         }
         .hero-headline .line { display: block; }
-        .hero-fb .hero-italic { color: var(--terracotta); }
 
         .hero-sub {
-          margin: 32px 0 40px;
-          max-width: 50ch;
-          color: rgba(255, 253, 246, 0.92);
+          margin: 30px 0 36px;
+          max-width: 48ch;
         }
 
         .hero-ctas {
           display: flex;
           flex-wrap: wrap;
-          gap: 18px;
+          gap: 14px;
           align-items: center;
         }
 
-        .btn-cream {
-          background: var(--bone);
-          color: var(--ink);
-          border: 1.5px solid var(--bone);
-        }
-        .btn-cream:hover { background: var(--cream); border-color: var(--cream); }
-
         .hero-meta {
-          margin-top: 64px;
+          margin-top: 56px;
           display: flex;
           align-items: center;
           gap: 28px;
         }
         .hero-meta-num {
-          font-size: 36px;
-          color: var(--bone);
-          display: inline-flex;
-          align-items: center;
-          gap: 6px;
+          font-family: var(--font-display);
+          font-size: 44px;
+          font-weight: 700;
+          color: var(--brand-deep);
+          line-height: 1;
         }
         .hero-meta-lbl {
           font-size: 12px;
-          color: rgba(255, 253, 246, 0.7);
-          letter-spacing: 0.06em;
+          color: var(--ink-mute);
+          letter-spacing: 0.08em;
           text-transform: uppercase;
-          margin-top: 6px;
+          margin-top: 4px;
+          font-weight: 600;
         }
         .hero-meta-div {
           width: 1px;
-          height: 40px;
-          background: rgba(255, 253, 246, 0.25);
+          height: 36px;
+          background: var(--line-soft);
+        }
+
+        .hero-visual {
+          position: relative;
+        }
+        .hero-photo {
+          position: relative;
+          aspect-ratio: 4/5;
+          border-radius: var(--r-xl);
+          overflow: hidden;
+          box-shadow: 0 30px 80px -30px rgba(119,98,88,0.35);
+        }
+        .hero-photo::before {
+          content: "";
+          position: absolute;
+          inset: -8px;
+          border-radius: calc(var(--r-xl) + 8px);
+          border: 1.5px dashed var(--brand-soft);
+          z-index: -1;
+        }
+        .hero-photo img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
         }
 
         @media (max-width: 720px) {
-          .hero-fb { padding: 160px 0 80px; min-height: 88vh; }
+          .hero { padding: 110px 0 60px; }
           .hero-meta { gap: 16px; flex-wrap: wrap; }
-          .hero-meta-num { font-size: 28px; }
-          .hero-ctas { gap: 12px; }
+          .hero-meta-num { font-size: 36px; }
+          .hero-ctas { gap: 10px; }
           .hero-ctas .btn { width: 100%; justify-content: center; }
         }
       `}</style>

@@ -41,7 +41,7 @@ export function Menu() {
         <div className="menu-left">
           <Reveal className="eyebrow">[ Kawiarnia ]</Reveal>
           <Reveal delay={80}>
-            <h2 className="display menu-h">
+            <h2 className="menu-h">
               Kawa, dla której<br />
               <span className="hero-italic">tu wracasz.</span>
             </h2>
@@ -93,11 +93,19 @@ export function Menu() {
       </div>
 
       <style>{`
-        .menu { padding: 120px 0 100px; background: var(--paper); border-top: 1.5px solid var(--line); border-bottom: 1.5px solid var(--line); }
+        .menu { padding: 120px 0 100px; background: var(--paper); border-top: 1px solid var(--line-soft); border-bottom: 1px solid var(--line-soft); }
         .menu-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 60px; align-items: start; }
         @media (max-width: 980px) { .menu-grid { grid-template-columns: 1fr; gap: 40px; } }
 
-        .menu-h { font-size: clamp(40px, 6vw, 88px); margin: 16px 0 20px; color: var(--ink); }
+        .menu-h {
+          font-family: var(--font-heading);
+          font-weight: 600;
+          font-size: clamp(40px, 6vw, 88px);
+          line-height: 1.05;
+          letter-spacing: -0.01em;
+          margin: 16px 0 20px;
+          color: var(--ink);
+        }
         .menu-sub { max-width: 50ch; margin-bottom: 36px; }
 
         .menu-tabs {
@@ -105,7 +113,7 @@ export function Menu() {
           gap: 6px;
           padding: 6px;
           background: var(--cream);
-          border: 1.5px solid var(--line);
+          border: 1px solid var(--line-soft);
           border-radius: var(--r-pill);
           margin-bottom: 28px;
           width: fit-content;
@@ -121,7 +129,7 @@ export function Menu() {
           transition: background 0.2s, color 0.2s;
         }
         .menu-tab.is-active {
-          background: var(--ink);
+          background: var(--brand-deep);
           color: var(--bone);
         }
         @media (max-width: 480px) { .menu-tab { padding: 9px 14px; font-size: 12px; } }
@@ -132,15 +140,15 @@ export function Menu() {
           align-items: baseline;
           gap: 14px;
           padding: 16px 0;
-          border-top: 1.5px dashed var(--line-soft);
+          border-top: 1px dashed var(--line-soft);
           animation: fade-up 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) both;
         }
-        .menu-item:last-child { border-bottom: 1.5px dashed var(--line-soft); }
+        .menu-item:last-child { border-bottom: 1px dashed var(--line-soft); }
         .menu-item-l { flex-shrink: 0; }
         .menu-item-n { font-weight: 700; color: var(--ink); font-size: 16px; }
         .menu-item-d { color: var(--ink-mute); font-size: 13px; margin-top: 2px; max-width: 36ch; }
-        .menu-dotted { flex: 1; border-bottom: 1.5px dotted var(--line-soft); transform: translateY(-4px); }
-        .menu-item-p { font-size: 26px; color: var(--terracotta-deep); white-space: nowrap; }
+        .menu-dotted { flex: 1; border-bottom: 1px dotted var(--line-soft); transform: translateY(-4px); }
+        .menu-item-p { font-size: 26px; color: var(--rose-deep); white-space: nowrap; }
         .menu-item-p span { font-size: 13px; opacity: 0.7; }
 
         .menu-foot { margin-top: 18px; }
@@ -149,9 +157,10 @@ export function Menu() {
         .menu-photo-wrap {
           position: relative;
           aspect-ratio: 4/5;
-          border: 1.5px solid var(--line);
+          border: 1px solid var(--line-soft);
           border-radius: var(--r-xl);
           overflow: hidden;
+          box-shadow: 0 30px 80px -30px rgba(119,98,88,0.35);
         }
         .menu-photo-wrap .img-reveal { width: 100%; height: 100%; }
         .menu-photo-cap {
@@ -161,8 +170,9 @@ export function Menu() {
           right: 18px;
           padding: 14px 18px;
           background: var(--bone);
-          border: 1.5px solid var(--line);
+          border: 1px solid var(--line-soft);
           border-radius: var(--r-md);
+          box-shadow: 0 4px 18px -10px rgba(168,128,98,0.3);
         }
         .menu-photo-cap .display { font-size: 24px; color: var(--ink); }
       `}</style>

@@ -21,7 +21,7 @@ export function Hours() {
         <div className="hrs-left">
           <Reveal className="eyebrow">[ Godziny ]</Reveal>
           <Reveal delay={80}>
-            <h2 className="display hrs-h">
+            <h2 className="hrs-h">
               Codziennie <span className="hero-italic">otwarte.</span>
             </h2>
           </Reveal>
@@ -45,7 +45,7 @@ export function Hours() {
 
         <Reveal className="hrs-card">
           <div className="hrs-card-eyebrow">[ Jak do nas trafić? ]</div>
-          <div className="display hrs-card-h">ul. Krzywa 19B<br />Nowy Targ</div>
+          <div className="hrs-card-h">ul. Krzywa 19B<br />Nowy Targ</div>
 
           <div className="hrs-info">
             <div className="hrs-info-row">
@@ -90,11 +90,19 @@ export function Hours() {
       </div>
 
       <style>{`
-        .hrs { padding: 120px 0 100px; background: var(--paper); border-top: 1.5px solid var(--line); border-bottom: 1.5px solid var(--line); }
+        .hrs { padding: 120px 0 100px; background: var(--paper); border-top: 1px solid var(--line-soft); border-bottom: 1px solid var(--line-soft); }
         .hrs-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 60px; align-items: start; }
         @media (max-width: 980px) { .hrs-grid { grid-template-columns: 1fr; gap: 40px; } }
 
-        .hrs-h { font-size: clamp(40px, 6vw, 88px); margin: 16px 0 32px; color: var(--ink); }
+        .hrs-h {
+          font-family: var(--font-heading);
+          font-weight: 600;
+          font-size: clamp(40px, 6vw, 88px);
+          line-height: 1.05;
+          letter-spacing: -0.01em;
+          margin: 16px 0 32px;
+          color: var(--ink);
+        }
 
         .hrs-table { display: flex; flex-direction: column; }
         .hrs-row {
@@ -102,33 +110,41 @@ export function Hours() {
           justify-content: space-between;
           align-items: center;
           padding: 18px 4px;
-          border-top: 1.5px dashed var(--line-soft);
+          border-top: 1px dashed var(--line-soft);
           font-size: 17px;
         }
-        .hrs-row:last-child { border-bottom: 1.5px dashed var(--line-soft); }
+        .hrs-row:last-child { border-bottom: 1px dashed var(--line-soft); }
         .hrs-row.is-today {
           background: var(--sage);
           padding: 18px 14px;
           border-radius: var(--r-md);
-          border: 1.5px solid var(--forest-deep);
-          color: var(--forest-deep);
+          border: 1px solid var(--brand-deep);
+          color: var(--brand-deep);
           font-weight: 700;
         }
         .hrs-day { display: inline-flex; align-items: center; gap: 12px; }
-        .hrs-marker { color: var(--terracotta); font-weight: 700; }
+        .hrs-marker { color: var(--rose-deep); font-weight: 700; }
         .hrs-time { font-feature-settings: "tnum" 1; color: var(--ink-mute); display: inline-flex; align-items: center; }
-        .hrs-row.is-today .hrs-time { color: var(--forest-deep); }
+        .hrs-row.is-today .hrs-time { color: var(--brand-deep); }
 
         .hrs-card {
           background: var(--bone);
-          border: 1.5px solid var(--line);
+          border: 1px solid var(--line-soft);
           border-radius: var(--r-xl);
           padding: 32px;
           position: sticky;
           top: 110px;
+          box-shadow: 0 4px 24px -16px rgba(168,128,98,0.35);
         }
         .hrs-card-eyebrow { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-mute); margin-bottom: 12px; }
-        .hrs-card-h { font-size: 36px; color: var(--ink); margin-bottom: 28px; line-height: 1; }
+        .hrs-card-h {
+          font-family: var(--font-heading);
+          font-weight: 600;
+          font-size: 36px;
+          color: var(--ink);
+          margin-bottom: 28px;
+          line-height: 1;
+        }
 
         .hrs-info { display: flex; flex-direction: column; gap: 18px; margin-bottom: 28px; }
         .hrs-info-row { display: flex; gap: 14px; align-items: flex-start; }
@@ -136,9 +152,9 @@ export function Hours() {
           width: 42px; height: 42px;
           flex-shrink: 0;
           border-radius: 50%;
-          border: 1.5px solid var(--line);
-          background: var(--sage);
-          color: var(--forest-deep);
+          border: none;
+          background: var(--rose-soft);
+          color: var(--brand-deep);
           display: inline-flex;
           align-items: center;
           justify-content: center;
@@ -151,7 +167,7 @@ export function Hours() {
         .hrs-map {
           margin-top: 22px;
           height: 200px;
-          border: 1.5px solid var(--line);
+          border: 1px solid var(--line-soft);
           border-radius: var(--r-md);
           overflow: hidden;
           background: var(--cream);

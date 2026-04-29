@@ -18,7 +18,7 @@ export function Pricing({ onBookBirthday }) {
       unit: 'zł / bez limitu',
       desc: 'Dla stałych bywalców — wchodzisz, kiedy chcesz, ile chcesz.',
       includes: ['Bez limitu wejść', '1 miesiąc kalendarzowy', 'Najlepszy stosunek do ceny'],
-      tone: 'peach',
+      tone: 'sage',
       badge: 'Najlepsza wartość',
     },
     {
@@ -27,7 +27,7 @@ export function Pricing({ onBookBirthday }) {
       unit: 'zł / od · za dziecko',
       desc: 'Dla przedszkoli, szkół i większych rodzin. Cena maleje przy większej grupie.',
       includes: ['Min. 10 dzieci', 'Możliwość rezerwacji terminu', 'Indywidualna wycena dla grup'],
-      tone: 'sage',
+      tone: 'cream',
     },
   ]
 
@@ -43,18 +43,18 @@ export function Pricing({ onBookBirthday }) {
     <section id="cennik" className="prc">
       <Decoration
         type="balloon"
-        color="var(--pastel-lilac)"
-        size={130}
+        color="var(--rose)"
+        size={110}
         rotate={10}
-        opacity={0.4}
+        opacity={0.7}
         animate="float"
-        style={{ right: '6%', top: '80px' }}
+        style={{ right: '6%', top: '70px' }}
       />
       <div className="shell">
         <div className="prc-head">
           <Reveal className="eyebrow">[ Cennik ]</Reveal>
           <Reveal delay={80}>
-            <h2 className="display prc-h">
+            <h2 className="prc-h">
               Prosto. <span className="hero-italic">Bez gwiazdek.</span>
             </h2>
           </Reveal>
@@ -69,7 +69,7 @@ export function Pricing({ onBookBirthday }) {
               {p.badge && <div className="prc-badge">{p.badge}</div>}
               <div className="prc-name">{p.name}</div>
               <div className="prc-price-row">
-                <span className="display prc-price">{p.price}</span>
+                <span className="prc-price">{p.price}</span>
                 <span className="prc-unit">{p.unit}</span>
               </div>
               <p className="prc-desc">{p.desc}</p>
@@ -84,7 +84,7 @@ export function Pricing({ onBookBirthday }) {
 
         <Reveal className="prc-extras">
           <div className="prc-extras-head">
-            <div className="display prc-extras-h">Drobny druczek, którego nie ma.</div>
+            <div className="prc-extras-h">Drobny druczek, którego nie ma.</div>
             <div className="body-md prc-extras-s">Dodatki, zniżki i wszystko, o co zwykle pytacie.</div>
           </div>
           <div className="prc-extras-table">
@@ -103,9 +103,17 @@ export function Pricing({ onBookBirthday }) {
       </div>
 
       <style>{`
-        .prc { padding: 120px 0 100px; background: var(--cream); }
-        .prc-head { max-width: 760px; margin: 0 0 56px; }
-        .prc-h { font-size: clamp(40px, 6.5vw, 88px); margin: 16px 0 20px; color: var(--ink); }
+        .prc { padding: 110px 0 90px; background: var(--paper); }
+        .prc-head { max-width: 760px; margin: 0 0 50px; }
+        .prc-h {
+          font-family: var(--font-heading);
+          font-weight: 600;
+          font-size: clamp(36px, 5.5vw, 68px);
+          line-height: 1.05;
+          letter-spacing: -0.01em;
+          margin: 14px 0 18px;
+          color: var(--ink);
+        }
         .prc-sub { max-width: 56ch; }
 
         .prc-grid {
@@ -118,41 +126,58 @@ export function Pricing({ onBookBirthday }) {
 
         .prc-card {
           position: relative;
-          padding: 28px 28px 32px;
-          border: 1.5px solid var(--line);
+          padding: 32px 30px 36px;
+          background: var(--bone);
+          border: 1px solid var(--line-soft);
           border-radius: var(--r-lg);
+          color: var(--ink);
+          box-shadow: 0 4px 24px -16px rgba(168,128,98,0.35);
         }
-        .prc-cream { background: var(--bone); color: var(--ink); }
-        .prc-pop   { background: var(--terracotta); color: var(--ink); transform: translateY(-12px); }
-        .prc-peach { background: var(--pastel-peach); color: var(--ink); transform: translateY(-12px); }
-        .prc-sage  { background: var(--sage); color: var(--ink); }
-        .prc-rose  { background: var(--pastel-rose); color: var(--ink); }
-        .prc-butter{ background: var(--pastel-butter); color: var(--ink); }
-        .prc-lilac { background: var(--pastel-lilac); color: var(--ink); }
+        .prc-cream { background: var(--bone); }
+        .prc-sand  { background: var(--sand); }
+        .prc-sage  {
+          background: var(--sage);
+          transform: translateY(-12px);
+          box-shadow: 0 18px 42px -22px rgba(208,177,146,0.55);
+        }
+        .prc-rose  { background: var(--rose-soft); }
 
-        @media (max-width: 900px) { .prc-pop, .prc-peach { transform: none; } }
+        @media (max-width: 900px) { .prc-sage { transform: none; } }
 
         .prc-badge {
           position: absolute;
           top: -14px;
           left: 24px;
-          background: var(--ink);
+          background: var(--rose-deep);
           color: var(--bone);
           font-size: 11px;
           font-weight: 700;
           letter-spacing: 0.1em;
-          padding: 6px 12px;
+          padding: 6px 14px;
           border-radius: var(--r-pill);
-          border: 1.5px solid var(--ink);
+          border: none;
           text-transform: uppercase;
         }
 
-        .prc-name { font-size: 14px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; opacity: 0.9; margin-bottom: 16px; }
-        .prc-price-row { display: flex; align-items: baseline; gap: 10px; }
-        .prc-price { font-size: 88px; line-height: 0.9; }
-        .prc-unit { font-size: 14px; opacity: 0.75; }
+        .prc-name {
+          font-size: 13px;
+          font-weight: 700;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+          color: var(--brand);
+          margin-bottom: 16px;
+        }
+        .prc-price-row { display: flex; align-items: baseline; gap: 12px; }
+        .prc-price {
+          font-family: var(--font-display);
+          font-size: 96px;
+          font-weight: 700;
+          line-height: 0.9;
+          color: var(--brand-deep);
+        }
+        .prc-unit { font-size: 14px; color: var(--ink-mute); font-weight: 500; }
 
-        .prc-desc { margin: 16px 0 22px; font-size: 14px; line-height: 1.55; opacity: 0.85; }
+        .prc-desc { margin: 18px 0 24px; font-size: 14.5px; line-height: 1.6; color: var(--ink-soft); }
 
         .prc-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
         .prc-list li {
@@ -160,27 +185,36 @@ export function Pricing({ onBookBirthday }) {
           align-items: center;
           gap: 10px;
           font-size: 14px;
-          padding-top: 10px;
-          border-top: 1.5px dashed currentColor;
-          opacity: 0.95;
+          font-weight: 500;
+          color: var(--ink-soft);
+          padding-top: 12px;
+          border-top: 1px dashed var(--line-soft);
         }
-        .prc-list li:first-child { border-top: 1.5px dashed currentColor; }
+        .prc-sage .prc-list li { border-top-color: rgba(255,253,248,0.55); color: var(--ink); }
 
         .prc-extras {
-          margin-top: 32px;
-          padding: 40px;
-          border: 1.5px solid var(--line);
+          margin-top: 36px;
+          padding: 44px;
+          border: 1px solid var(--line-soft);
           border-radius: var(--r-lg);
-          background: var(--paper);
+          background: var(--bone);
           display: grid;
           grid-template-columns: 1fr 1.2fr;
           gap: 40px;
           align-items: center;
+          box-shadow: 0 6px 28px -18px rgba(168,128,98,0.4);
         }
         @media (max-width: 900px) { .prc-extras { grid-template-columns: 1fr; padding: 28px; } }
 
         .prc-extras-head { grid-column: 1; }
-        .prc-extras-h { font-size: 36px; margin-bottom: 8px; color: var(--ink); }
+        .prc-extras-h {
+          font-family: var(--font-display);
+          font-weight: 700;
+          font-size: 42px;
+          line-height: 1;
+          margin-bottom: 10px;
+          color: var(--brand-deep);
+        }
         .prc-extras-s { color: var(--ink-mute); }
 
         .prc-extras-table {
@@ -195,14 +229,17 @@ export function Pricing({ onBookBirthday }) {
           justify-content: space-between;
           align-items: center;
           padding: 14px 0;
-          border-top: 1.5px dashed var(--line-soft);
+          border-top: 1px dashed var(--line-soft);
           font-size: 15px;
+          font-weight: 500;
+          color: var(--ink-soft);
         }
-        .prc-row:last-child { border-bottom: 1.5px dashed var(--line-soft); }
+        .prc-row:last-child { border-bottom: 1px dashed var(--line-soft); }
         .prc-row-v {
           font-family: var(--font-display);
-          font-size: 22px;
-          color: var(--terracotta-deep);
+          font-size: 24px;
+          font-weight: 700;
+          color: var(--rose-deep);
         }
 
         .prc-extras-cta {

@@ -1,46 +1,47 @@
 :root {
-  /* PALETTE — pastelowa tęcza + ciepły brąz z logo. Inspirowane grafikami IG
-     (Nowości 2026 — kolorowe ołówki, Mały Artysta — pastelowe plamy farby). */
-  --cream:        #F6F1E7;
-  --cream-deep:   #EFE7D6;
-  --paper:        #FBF7EE;
+  /* PALETTE — cozy beż / brąz z logo + dusty rose + sage. Inspiracja: Skoczek,
+     Bawi się, paleta brązów klienta (#776258 / #a98062 / #d0b192 / #ead8c4). */
+  --cream:        #FBF7EE;
+  --cream-deep:   #F4EBDB;
+  --paper:        #FAF3EA;
   --bone:         #FFFDF8;
+  --sand:         #EAD8C4;
+  --sand-deep:    #D0B192;
 
-  --brand:        #8B6F47;
-  --brand-deep:   #5C4830;
+  --brand:        #A98062;
+  --brand-deep:   #776258;
+  --brand-soft:   #D0B192;
 
-  --sage:         #B8D0A0;
-  --sage-deep:    #8FA67D;
-  --forest:       #5C4830;
-  --forest-deep:  #3A2E1F;
+  --sage:         #EAD8C4;
+  --sage-deep:    #D0B192;
 
-  --terracotta:   #E89B5C;
-  --terracotta-deep: #C97A42;
-  --apricot:      #F2B88A;
+  --rose:         #E8B4B8;
+  --rose-deep:    #C98F94;
+  --rose-soft:    #F2D3D5;
 
-  --pastel-rose:   #F4B6B6;
-  --pastel-butter: #F5D970;
-  --pastel-peach:  #F2B88A;
-  --pastel-lilac:  #C9B8DD;
+  --terracotta:      #E8B4B8;
+  --terracotta-deep: #C98F94;
+  --apricot:         #EAD8C4;
 
-  --ink:          #3A2E1F;
-  --ink-soft:     #5C4F3F;
-  --ink-mute:     #8A7E6B;
-  --ink-faint:    #B5A993;
+  --ink:          #5C4F47;
+  --ink-soft:     #776258;
+  --ink-mute:     #9E8C7E;
+  --ink-faint:    #C7B5A2;
 
-  --line:         #3A2E1F;
-  --line-soft:    rgba(58,46,31,0.14);
+  --line:         rgba(168,128,98,0.32);
+  --line-soft:    rgba(168,128,98,0.16);
 
-  /* radius — tweakable */
-  --r-sm: 10px;
-  --r-md: 18px;
-  --r-lg: 28px;
-  --r-xl: 44px;
+  /* radius — soft, rounded */
+  --r-sm: 14px;
+  --r-md: 22px;
+  --r-lg: 32px;
+  --r-xl: 48px;
   --r-pill: 999px;
 
-  --font-display: "Fraunces", "Cooper Black", Georgia, serif;
-  --font-body: "Manrope", system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --font-display:  "Fraunces", Georgia, serif;
+  --font-heading:  "Fraunces", Georgia, serif;
+  --font-body:     "Cabin", system-ui, sans-serif;
+  --font-mono:     "JetBrains Mono", ui-monospace, monospace;
 }
 
 [data-theme="forest"] {
@@ -68,28 +69,37 @@ img { display: block; max-width: 100%; }
 a { color: inherit; text-decoration: none; }
 button { font-family: inherit; cursor: pointer; }
 
-::selection { background: var(--terracotta); color: var(--bone); }
+::selection { background: var(--rose-soft); color: var(--ink); }
 
-/* DISPLAY TYPE */
+/* DISPLAY TYPE — Fraunces italic (akcent w nagłówkach, photo captions) */
 .display {
   font-family: var(--font-display);
-  font-weight: 700;
-  font-variation-settings: "opsz" 144;
-  letter-spacing: -0.02em;
-  line-height: 0.95;
+  font-style: italic;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  line-height: 1.05;
+}
+
+/* HEADING — Fraunces serif (drobne tytuły, gdzie potrzebny jest klasyczny ton) */
+.heading {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
 }
 
 .eyebrow {
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: 11px;
-  letter-spacing: 0.18em;
+  font-weight: 700;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--ink-soft);
+  color: var(--brand);
 }
 
-.body-lg { font-size: 18px; line-height: 1.55; color: var(--ink-soft); }
-.body-md { font-size: 16px; line-height: 1.6;  color: var(--ink-soft); }
-.body-sm { font-size: 14px; line-height: 1.55; color: var(--ink-mute); }
+.body-lg { font-size: 18px; line-height: 1.65; color: var(--ink-soft); font-weight: 500; }
+.body-md { font-size: 16px; line-height: 1.7;  color: var(--ink-soft); font-weight: 500; }
+.body-sm { font-size: 14px; line-height: 1.6;  color: var(--ink-mute); font-weight: 500; }
 
 /* LAYOUT */
 .shell {
@@ -108,41 +118,42 @@ section { position: relative; }
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 14px 22px;
-  font-weight: 600;
+  padding: 14px 24px;
+  font-weight: 700;
   font-size: 14px;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.01em;
   border-radius: var(--r-pill);
   border: 1.5px solid transparent;
-  transition: transform .15s ease, background .2s, color .2s, border-color .2s;
+  transition: transform .15s ease, background .2s, color .2s, border-color .2s, box-shadow .25s;
   white-space: nowrap;
 }
 .btn:active { transform: scale(0.97); }
 
 .btn-primary {
-  background: var(--ink);
+  background: var(--brand-deep);
   color: var(--bone);
 }
-.btn-primary:hover { background: var(--terracotta-deep); }
+.btn-primary:hover { background: var(--ink); box-shadow: 0 6px 20px -10px rgba(92,79,71,0.6); }
 
 .btn-pop {
-  background: var(--terracotta);
+  background: var(--rose);
   color: var(--ink);
 }
-.btn-pop:hover { background: var(--terracotta-deep); color: var(--bone); }
+.btn-pop:hover { background: var(--rose-deep); color: var(--bone); box-shadow: 0 8px 24px -10px rgba(201,143,148,0.55); }
 
 .btn-ghost {
   background: transparent;
-  color: var(--ink);
+  color: var(--ink-soft);
   border-color: var(--line);
 }
-.btn-ghost:hover { background: var(--ink); color: var(--bone); }
+.btn-ghost:hover { background: var(--brand-deep); color: var(--bone); border-color: var(--brand-deep); }
 
 .btn-cream {
-  background: var(--cream);
-  color: var(--ink);
+  background: var(--bone);
+  color: var(--ink-soft);
+  border: 1.5px solid var(--line-soft);
 }
-.btn-cream:hover { background: var(--bone); }
+.btn-cream:hover { background: var(--cream-deep); }
 
 /* CHIPS / BADGES */
 .chip {
@@ -152,20 +163,21 @@ section { position: relative; }
   padding: 6px 12px;
   border-radius: var(--r-pill);
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.02em;
-  border: 1.5px solid var(--line);
+  border: 1.5px solid var(--line-soft);
   background: var(--bone);
-  color: var(--ink);
+  color: var(--ink-soft);
 }
-.chip-sage { background: var(--sage); border-color: var(--ink); color: var(--ink); }
-.chip-pop { background: var(--terracotta); border-color: var(--terracotta-deep); color: var(--ink); }
+.chip-sage { background: var(--sage); border-color: var(--sage-deep); color: var(--ink); }
+.chip-pop { background: var(--rose-soft); border-color: var(--rose); color: var(--ink); }
 
 /* CARDS */
 .card {
   background: var(--bone);
-  border: 1.5px solid var(--line);
+  border: 1px solid var(--line-soft);
   border-radius: var(--r-lg);
+  box-shadow: 0 6px 28px -18px rgba(168,128,98,0.4);
 }
 
 /* KEYFRAMES */
@@ -233,12 +245,15 @@ section { position: relative; }
   .decoration { transform: scale(0.7) rotate(var(--rot, 0deg)) !important; }
 }
 
-/* ITALIC ACCENT — used in H1/H2 across sections */
+/* ITALIC ACCENT — Fraunces italic jako podświetlenie w nagłówkach ("i kawiarnia") */
 .hero-italic {
+  font-family: var(--font-heading);
+  font-weight: 500;
   font-style: italic;
-  color: var(--terracotta-deep);
+  color: var(--rose-deep);
   position: relative;
-  padding: 0 0.05em;
+  padding: 0 0.04em;
+  letter-spacing: -0.01em;
 }
 
 /* DASHED DIVIDER */
@@ -252,17 +267,18 @@ section { position: relative; }
 .marquee {
   overflow: hidden;
   white-space: nowrap;
-  border-top: 1.5px solid var(--line);
-  border-bottom: 1.5px solid var(--line);
-  background: var(--terracotta);
-  color: var(--ink);
+  border-top: 1px solid var(--line-soft);
+  border-bottom: 1px solid var(--line-soft);
+  background: var(--sand);
+  color: var(--ink-soft);
 }
 .marquee-track {
   display: inline-block;
   animation: marquee 38s linear infinite;
   padding: 18px 0;
   font-family: var(--font-display);
-  font-size: 28px;
+  font-weight: 600;
+  font-size: 32px;
 }
 .marquee-track > span {
   margin: 0 22px;
@@ -320,11 +336,12 @@ html { scrollbar-width: thin; scrollbar-color: var(--ink-faint) transparent; }
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  background: var(--terracotta);
-  color: var(--ink);
+  background: var(--rose-soft);
+  color: var(--ink-soft);
   font-family: var(--font-display);
-  font-size: 22px;
-  border: 1.5px solid var(--line);
+  font-weight: 600;
+  font-size: 26px;
+  border: 1.5px solid var(--rose);
 }
 
 /* GRID HELPERS */

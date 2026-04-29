@@ -60,14 +60,14 @@ export function Gallery() {
         type="rainbow"
         size={170}
         rotate={8}
-        opacity={0.4}
+        opacity={0.6}
         style={{ right: '4%', top: '90px' }}
       />
       <div className="shell">
         <div className="gal-head">
           <Reveal className="eyebrow">[ Galeria ]</Reveal>
           <Reveal delay={80}>
-            <h2 className="display gal-h">
+            <h2 className="gal-h">
               Zajrzyj <span className="hero-italic">do środka.</span>
             </h2>
           </Reveal>
@@ -135,9 +135,17 @@ export function Gallery() {
       )}
 
       <style>{`
-        .gal { padding: 120px 0 100px; background: var(--paper); border-top: 1.5px solid var(--line); border-bottom: 1.5px solid var(--line); }
+        .gal { padding: 120px 0 100px; background: var(--paper); border-top: 1px solid var(--line-soft); border-bottom: 1px solid var(--line-soft); }
         .gal-head { text-align: center; max-width: 720px; margin: 0 auto 56px; }
-        .gal-h { font-size: clamp(40px, 6vw, 88px); margin: 16px 0 20px; color: var(--ink); }
+        .gal-h {
+          font-family: var(--font-heading);
+          font-weight: 600;
+          font-size: clamp(40px, 6vw, 88px);
+          line-height: 1.05;
+          letter-spacing: -0.01em;
+          margin: 16px 0 20px;
+          color: var(--ink);
+        }
 
         .gal-grid {
           display: grid;
@@ -147,9 +155,10 @@ export function Gallery() {
         }
         .gal-cell {
           position: relative;
-          border: 1.5px solid var(--line);
+          border: 1px solid var(--line-soft);
           border-radius: var(--r-lg);
           overflow: hidden;
+          box-shadow: 0 4px 24px -16px rgba(168,128,98,0.35);
         }
         .gal-cell .img-reveal { width: 100%; height: 100%; }
         .gal-tile {
@@ -160,7 +169,7 @@ export function Gallery() {
           cursor: zoom-in;
           position: relative;
         }
-        .gal-tile:focus-visible { outline: 2px solid var(--terracotta); outline-offset: 2px; }
+        .gal-tile:focus-visible { outline: 2px solid var(--rose-deep); outline-offset: 2px; }
         .gal-tile .img-reveal img { transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1); }
         .gal-tile:hover .img-reveal img { transform: scale(1.04); }
 
@@ -229,7 +238,7 @@ export function Gallery() {
           cursor: pointer;
           transition: background 0.2s, border-color 0.2s;
         }
-        .lb-close:hover { background: var(--terracotta); border-color: var(--terracotta); }
+        .lb-close:hover { background: var(--rose-deep); border-color: var(--rose-deep); }
 
         .lb-nav {
           flex: none;
@@ -245,7 +254,7 @@ export function Gallery() {
           cursor: pointer;
           transition: background 0.2s, border-color 0.2s, transform 0.2s;
         }
-        .lb-nav:hover { background: var(--terracotta); border-color: var(--terracotta); }
+        .lb-nav:hover { background: var(--rose-deep); border-color: var(--rose-deep); }
         .lb-prev:hover { transform: translateX(-2px); }
         .lb-next:hover { transform: translateX(2px); }
 

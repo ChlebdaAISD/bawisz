@@ -19,7 +19,7 @@ export function BirthdayModal({ open, onClose }) {
 
   const packages = [
     { id: 'mini', name: 'MINI', price: '45 zł / dziecko', desc: '2h zabawy, dekoracje, poczęstunek dla dzieci, obsługa', tone: 'cream' },
-    { id: 'standard', name: 'STANDARD', price: '74 zł / dziecko', desc: '2,5h, sala na wyłączność (od 10 dzieci), prezent dla solenizanta, motyw lasu lub kwiatów', tone: 'pop' },
+    { id: 'standard', name: 'STANDARD', price: '74 zł / dziecko', desc: '2,5h, sala na wyłączność (od 10 dzieci), prezent dla solenizanta, motyw lasu lub kwiatów', tone: 'rose' },
     { id: 'parents', name: 'Pakiet dla rodziców', price: '+55 zł / osoba', desc: 'Dodatek do MINI lub STANDARD: kawa, herbata, ciasto, przekąski dla dorosłych', tone: 'sage' },
   ]
 
@@ -145,37 +145,38 @@ export function BirthdayModal({ open, onClose }) {
           max-height: 92vh;
           overflow-y: auto;
           background: var(--paper);
-          border: 1.5px solid var(--line);
+          border: 1px solid var(--line-soft);
           border-radius: var(--r-xl);
           padding: 32px;
           position: relative;
           animation: fade-up 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+          box-shadow: 0 30px 80px -30px rgba(119,98,88,0.45);
         }
         .bm-close {
           position: absolute; top: 18px; right: 18px;
           width: 38px; height: 38px;
-          border: 1.5px solid var(--line);
+          border: 1px solid var(--line-soft);
           border-radius: 50%;
           background: var(--bone);
           display: inline-flex; align-items: center; justify-content: center;
           color: var(--ink);
         }
-        .bm-close:hover { background: var(--ink); color: var(--bone); }
+        .bm-close:hover { background: var(--brand-deep); color: var(--cream); }
 
         .bm-head { display: flex; gap: 14px; align-items: center; margin-bottom: 20px; }
         .bm-icon {
           width: 48px; height: 48px;
           border-radius: 50%;
-          background: var(--terracotta);
-          color: var(--ink);
-          border: 1.5px solid var(--line);
+          background: var(--rose-soft);
+          color: var(--brand-deep);
+          border: none;
           display: inline-flex; align-items: center; justify-content: center;
         }
         .bm-eyebrow { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-mute); }
         .bm-h { font-size: 32px; color: var(--ink); margin: 4px 0 0; }
 
         .bm-progress { height: 4px; background: var(--cream-deep); border-radius: var(--r-pill); margin-bottom: 28px; overflow: hidden; }
-        .bm-progress-bar { height: 100%; background: var(--terracotta); border-radius: var(--r-pill); transition: width 0.4s cubic-bezier(0.2, 0.8, 0.2, 1); }
+        .bm-progress-bar { height: 100%; background: var(--rose-deep); border-radius: var(--r-pill); transition: width 0.4s cubic-bezier(0.2, 0.8, 0.2, 1); }
 
         .bm-body { display: flex; flex-direction: column; gap: 14px; min-height: 200px; }
         .bm-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
@@ -185,7 +186,7 @@ export function BirthdayModal({ open, onClose }) {
         .bm-field span { font-size: 12px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--ink-mute); }
         .bm-field input, .bm-field select, .bm-field textarea {
           padding: 12px 14px;
-          border: 1.5px solid var(--line);
+          border: 1px solid var(--line-soft);
           border-radius: var(--r-md);
           background: var(--bone);
           font-family: inherit;
@@ -195,7 +196,7 @@ export function BirthdayModal({ open, onClose }) {
         }
         .bm-field input:focus, .bm-field select:focus, .bm-field textarea:focus {
           outline: none;
-          border-color: var(--terracotta);
+          border-color: var(--rose-deep);
         }
 
         .bm-pkgs { display: flex; flex-direction: column; gap: 10px; }
@@ -203,23 +204,27 @@ export function BirthdayModal({ open, onClose }) {
           text-align: left;
           padding: 18px 20px;
           border-radius: var(--r-md);
-          border: 1.5px solid var(--line);
+          border: 1px solid var(--line-soft);
           background: var(--bone);
           color: var(--ink);
           transition: transform 0.15s, box-shadow 0.2s;
+          box-shadow: 0 4px 18px -14px rgba(168,128,98,0.35);
         }
+        .bm-pkg-cream { background: var(--bone); }
+        .bm-pkg-rose  { background: var(--rose-soft); }
+        .bm-pkg-sage  { background: var(--sage); }
         .bm-pkg:hover { transform: translateY(-2px); }
-        .bm-pkg.is-on { box-shadow: 0 0 0 3px var(--terracotta); }
+        .bm-pkg.is-on { box-shadow: 0 0 0 3px var(--rose-deep); }
         .bm-pkg-top { display: flex; justify-content: space-between; align-items: center; }
         .bm-pkg-name { font-weight: 700; font-size: 14px; letter-spacing: 0.02em; }
         .bm-pkg-tick {
           width: 26px; height: 26px;
           border-radius: 50%;
-          background: var(--terracotta);
-          color: var(--ink);
+          background: var(--rose-deep);
+          color: var(--bone);
           display: inline-flex; align-items: center; justify-content: center;
         }
-        .bm-pkg-price { font-size: 32px; margin: 8px 0 4px; color: var(--terracotta-deep); }
+        .bm-pkg-price { font-size: 32px; margin: 8px 0 4px; color: var(--rose-deep); }
         .bm-pkg-desc { font-size: 13px; color: var(--ink-mute); }
 
         .bm-foot {
@@ -228,7 +233,7 @@ export function BirthdayModal({ open, onClose }) {
           gap: 10px;
           margin-top: 24px;
           padding-top: 20px;
-          border-top: 1.5px dashed var(--line-soft);
+          border-top: 1px dashed var(--line-soft);
         }
         .bm-foot .btn:disabled { opacity: 0.4; pointer-events: none; }
 
@@ -237,8 +242,8 @@ export function BirthdayModal({ open, onClose }) {
           width: 72px; height: 72px;
           border-radius: 50%;
           background: var(--sage);
-          color: var(--forest-deep);
-          border: 1.5px solid var(--forest-deep);
+          color: var(--brand-deep);
+          border: 1px solid var(--sage-deep);
           display: inline-flex; align-items: center; justify-content: center;
           margin-bottom: 18px;
         }
