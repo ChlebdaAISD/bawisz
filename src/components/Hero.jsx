@@ -51,22 +51,11 @@ export function Hero({ onBookBirthday }) {
               <img src="/assets/photo4.jpg" alt="Wnętrze bawialni Bawisz" />
             </div>
             <Decoration
-              type="bear"
-              color="var(--brand)"
-              size={130}
+              type="rainbow"
+              size={150}
               rotate={-8}
-              opacity={0.95}
-              animate="float"
-              style={{ left: '-30px', top: '-40px', zIndex: 3 }}
-            />
-            <Decoration
-              type="balloon"
-              color="var(--rose)"
-              size={90}
-              rotate={12}
               opacity={0.85}
-              animate="float"
-              style={{ right: '-18px', bottom: '40px', zIndex: 3 }}
+              style={{ left: '-40px', top: '-30px', zIndex: 3 }}
             />
           </div>
         </div>

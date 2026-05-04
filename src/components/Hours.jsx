@@ -90,7 +90,7 @@ export function Hours() {
       </div>
 
       <style>{`
-        .hrs { padding: 120px 0 100px; background: var(--paper); border-top: 1px solid var(--line-soft); border-bottom: 1px solid var(--line-soft); }
+        .hrs { padding: 120px 0 100px; background: var(--cream); border-top: 1px solid var(--line-soft); border-bottom: 1px solid var(--line-soft); }
         .hrs-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 60px; align-items: start; }
         @media (max-width: 980px) { .hrs-grid { grid-template-columns: 1fr; gap: 40px; } }
 
@@ -128,13 +128,13 @@ export function Hours() {
         .hrs-row.is-today .hrs-time { color: var(--brand-deep); }
 
         .hrs-card {
-          background: var(--bone);
-          border: 1px solid var(--line-soft);
+          background: var(--paper);
+          border: 1px solid var(--line);
           border-radius: var(--r-xl);
           padding: 32px;
           position: sticky;
           top: 110px;
-          box-shadow: 0 4px 24px -16px rgba(168,128,98,0.35);
+          box-shadow: 0 8px 28px -18px rgba(168,128,98,0.45);
         }
         .hrs-card-eyebrow { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-mute); margin-bottom: 12px; }
         .hrs-card-h {

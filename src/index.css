@@ -1,10 +1,10 @@
 :root {
   /* PALETTE — cozy beż / brąz z logo + dusty rose + sage. Inspiracja: Skoczek,
      Bawi się, paleta brązów klienta (#776258 / #a98062 / #d0b192 / #ead8c4). */
-  --cream:        #FDFBF6;
-  --cream-deep:   #F8F0E2;
-  --paper:        #FCF8F0;
-  --bone:         #FFFEFB;
+  --cream:        #FFFFFF;
+  --cream-deep:   #F4EBDB;
+  --paper:        #F8F0E0;
+  --bone:         #FFFFFF;
   --sand:         #EAD8C4;
   --sand-deep:    #D0B192;
 

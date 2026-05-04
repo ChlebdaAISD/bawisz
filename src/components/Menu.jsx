@@ -93,7 +93,7 @@ export function Menu() {
       </div>
 
       <style>{`
-        .menu { padding: 120px 0 100px; background: var(--paper); border-top: 1px solid var(--line-soft); border-bottom: 1px solid var(--line-soft); }
+        .menu { padding: 120px 0 100px; background: var(--cream); border-top: 1px solid var(--line-soft); border-bottom: 1px solid var(--line-soft); }
         .menu-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 60px; align-items: start; }
         @media (max-width: 980px) { .menu-grid { grid-template-columns: 1fr; gap: 40px; } }
 
@@ -112,7 +112,7 @@ export function Menu() {
           display: flex;
           gap: 6px;
           padding: 6px;
-          background: var(--cream);
+          background: var(--paper);
           border: 1px solid var(--line-soft);
           border-radius: var(--r-pill);
           margin-bottom: 28px;

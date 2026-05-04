@@ -52,7 +52,7 @@ export function Contact() {
       </div>
 
       <style>{`
-        .ctc { padding: 120px 0 100px; background: var(--cream); }
+        .ctc { padding: 120px 0 100px; background: var(--paper); }
         .ctc-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 60px; align-items: center; }
         @media (max-width: 900px) { .ctc-grid { grid-template-columns: 1fr; gap: 40px; } }
 

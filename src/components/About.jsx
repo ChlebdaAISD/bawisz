@@ -1,11 +1,12 @@
 import { Reveal } from './Reveal.jsx'
-import { IconLeaf, IconHeart, IconShield, IconArrow } from './icons.jsx'
+import { IconArrow } from './icons.jsx'
+import { AnimalDeer, AnimalBear, AnimalFox } from './animals.jsx'
 
 export function About() {
   const values = [
-    { icon: IconLeaf, t: 'Naturalność', s: 'Drewno, sklejka, tkaniny. Zabawki, w które chce się bawić — bez plastikowego hałasu.' },
-    { icon: IconHeart, t: 'Samodzielność', s: 'Wszystko na wysokości dziecka. Wybiera samo, próbuje samo, jest dumne z efektu.' },
-    { icon: IconShield, t: 'Spokój', s: 'Dużo światła, dużo przestrzeni. Dzieci się bawią, rodzice naprawdę odpoczywają.' },
+    { icon: AnimalDeer, t: 'Naturalność', s: 'Drewno, sklejka, tkaniny. Zabawki, w które chce się bawić — bez plastikowego hałasu.' },
+    { icon: AnimalBear, t: 'Spokój',       s: 'Dużo światła, dużo przestrzeni. Dzieci się bawią, rodzice naprawdę odpoczywają.' },
+    { icon: AnimalFox,  t: 'Samodzielność',s: 'Wszystko na wysokości dziecka. Wybiera samo, próbuje samo, jest dumne z efektu.' },
   ]
 
   return (
@@ -30,7 +31,7 @@ export function About() {
           <div className="about-values">
             {values.map((v, i) => (
               <Reveal key={v.t} delay={240 + i * 80} className="about-value">
-                <div className="about-value-icon"><v.icon size={22} /></div>
+                <div className="about-value-icon"><v.icon size={68} /></div>
                 <div>
                   <div className="about-value-t">{v.t}</div>
                   <div className="about-value-s">{v.s}</div>
@@ -74,24 +75,23 @@ export function About() {
         }
         .about-value {
           display: flex;
-          gap: 16px;
+          align-items: center;
+          gap: 20px;
           padding: 18px 0;
           border-top: 1px dashed var(--line-soft);
         }
         .about-value:last-child { border-bottom: 1px dashed var(--line-soft); }
         .about-value-icon {
           flex-shrink: 0;
-          width: 44px; height: 44px;
-          border-radius: 50%;
-          background: var(--rose-soft);
-          color: var(--rose-deep);
-          border: none;
+          width: 72px;
+          height: 72px;
           display: inline-flex;
           align-items: center;
           justify-content: center;
         }
-        .about-value-t { font-weight: 700; color: var(--ink); margin-bottom: 4px; font-size: 16px; }
-        .about-value-s { font-size: 14px; color: var(--ink-mute); line-height: 1.6; font-weight: 500; }
+        .about-value-icon svg { display: block; filter: drop-shadow(0 3px 6px rgba(91,71,55,0.15)); }
+        .about-value-t { font-weight: 700; color: var(--ink); margin-bottom: 4px; font-size: 17px; }
+        .about-value-s { font-size: 14.5px; color: var(--ink-mute); line-height: 1.6; font-weight: 500; }
 
         .about-cta { margin-top: 12px; }
       `}</style>

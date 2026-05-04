@@ -103,12 +103,11 @@ export function Testimonials() {
   return (
     <section className="tst">
       <Decoration
-        type="bear"
-        color="var(--brand)"
-        size={120}
-        rotate={6}
-        opacity={0.85}
-        animate="float"
+        type="pencil"
+        color="var(--brand-soft)"
+        size={150}
+        rotate={12}
+        opacity={0.6}
         style={{ right: '5%', top: '60px' }}
       />
       <div className="shell">
@@ -177,7 +176,7 @@ export function Testimonials() {
       </div>
 
       <style>{`
-        .tst { padding: 110px 0 90px; background: var(--cream); overflow: hidden; }
+        .tst { padding: 110px 0 90px; background: var(--paper); overflow: hidden; }
         .tst-head { display: flex; flex-direction: column; gap: 18px; margin-bottom: 50px; }
         .tst-rating { display: flex; align-items: center; gap: 14px; }
         .tst-stars { display: flex; gap: 4px; color: var(--rose-deep); }

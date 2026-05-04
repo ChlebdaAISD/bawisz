@@ -6,6 +6,7 @@ const NAV_LINKS = [
   { label: 'Co u nas', href: '#oferta' },
   { label: 'Galeria', href: '#galeria' },
   { label: 'Cennik', href: '#cennik' },
+  { label: 'Urodziny', href: '#urodziny' },
   { label: 'Kawiarnia', href: '#menu' },
   { label: 'Kontakt', href: '#kontakt' },
 ]

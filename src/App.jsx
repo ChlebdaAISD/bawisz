@@ -5,6 +5,7 @@ import { About } from './components/About.jsx'
 import { Offer } from './components/Offer.jsx'
 import { Gallery } from './components/Gallery.jsx'
 import { Pricing } from './components/Pricing.jsx'
+import { Birthdays } from './components/Birthdays.jsx'
 import { Menu } from './components/Menu.jsx'
 import { Testimonials } from './components/Testimonials.jsx'
 import { Hours } from './components/Hours.jsx'
@@ -13,10 +14,10 @@ import { Footer } from './components/Footer.jsx'
 import { BirthdayModal } from './components/BirthdayModal.jsx'
 
 const COZY = {
-  '--cream':       '#FDFBF6',
-  '--cream-deep':  '#F8F0E2',
-  '--paper':       '#FCF8F0',
-  '--bone':        '#FFFEFB',
+  '--cream':       '#FFFFFF',
+  '--cream-deep':  '#F4EBDB',
+  '--paper':       '#F8F0E0',
+  '--bone':        '#FFFFFF',
   '--sand':        '#EAD8C4',
   '--sand-deep':   '#D0B192',
 
@@ -63,6 +64,7 @@ export default function App() {
         <Offer />
         <Gallery />
         <Pricing onBookBirthday={() => setBookOpen(true)} />
+        <Birthdays onBookBirthday={() => setBookOpen(true)} />
         <Menu />
         <Testimonials />
         <Hours />

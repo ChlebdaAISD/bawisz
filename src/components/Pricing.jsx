@@ -1,42 +1,20 @@
 import { Reveal } from './Reveal.jsx'
-import { IconCheck, IconArrow } from './icons.jsx'
+import { IconArrow } from './icons.jsx'
 import { Decoration } from './Decoration.jsx'
+import { AnimalDeer, AnimalBear, AnimalFox, AnimalWolf } from './animals.jsx'
 
 export function Pricing({ onBookBirthday }) {
-  const plans = [
-    {
-      name: 'Wejście indywidualne',
-      price: '25',
-      unit: 'zł / od',
-      desc: 'Wpadnijcie na godzinę albo zostańcie cały dzień — Wy decydujecie.',
-      includes: ['1h, 2h, 3h lub cały dzień', 'Opiekun zawsze gratis', 'Pełen dostęp do strefy'],
-      tone: 'cream',
-    },
-    {
-      name: 'Karnet miesięczny',
-      price: '215',
-      unit: 'zł / bez limitu',
-      desc: 'Dla stałych bywalców — wchodzisz, kiedy chcesz, ile chcesz.',
-      includes: ['Bez limitu wejść', '1 miesiąc kalendarzowy', 'Najlepszy stosunek do ceny'],
-      tone: 'sage',
-      badge: 'Najlepsza wartość',
-    },
-    {
-      name: 'Grupa 10+ osób',
-      price: '15',
-      unit: 'zł / od · za dziecko',
-      desc: 'Dla przedszkoli, szkół i większych rodzin. Cena maleje przy większej grupie.',
-      includes: ['Min. 10 dzieci', 'Możliwość rezerwacji terminu', 'Indywidualna wycena dla grup'],
-      tone: 'cream',
-    },
+  const tiers = [
+    { time: '1h',     price: '25', Animal: AnimalDeer, bg: 'var(--bone)' },
+    { time: '1,5 h',  price: '29', Animal: AnimalBear, bg: 'var(--paper)' },
+    { time: '2 h',    price: '33', Animal: AnimalFox,  bg: 'var(--bone)' },
+    { time: 'NO\u00a0LIMIT', price: '45', Animal: AnimalWolf, bg: 'var(--paper)', noLimit: true },
   ]
 
-  const extras = [
-    ['Rodzeństwo', '−25%'],
-    ['Karta podarunkowa', '29 / 75 / 135 zł'],
-    ['Urodziny MINI (2h)', '45 zł / dziecko'],
-    ['Urodziny STANDARD (2,5h)', '74 zł / dziecko'],
-    ['Pakiet dla rodziców', '55 zł / osoba'],
+  const giftCard = [
+    { label: '1 wejście × 1,5 h',  price: '29 zł'  },
+    { label: '3 wejścia × 1,5 h', price: '75 zł'  },
+    { label: '5 wejść × 1,5 h',   price: '135 zł' },
   ]
 
   return (
@@ -46,8 +24,7 @@ export function Pricing({ onBookBirthday }) {
         color="var(--rose)"
         size={110}
         rotate={10}
-        opacity={0.7}
-        animate="float"
+        opacity={0.6}
         style={{ right: '6%', top: '70px' }}
       />
       <div className="shell">
@@ -55,56 +32,64 @@ export function Pricing({ onBookBirthday }) {
           <Reveal className="eyebrow">[ Cennik ]</Reveal>
           <Reveal delay={80}>
             <h2 className="prc-h">
-              Prosto. <span className="hero-italic">Bez gwiazdek.</span>
+              Zabawa — <span className="hero-italic">oferta indywidualna</span>
             </h2>
           </Reveal>
           <Reveal delay={160} className="body-lg prc-sub">
-            Jasne stawki, bez ukrytych kosztów. Opiekun zawsze gratis, rodzeństwo z rabatem.
+            Jasne stawki, bez ukrytych kosztów. Opiekun zawsze gratis, rodzeństwo z rabatem 25%.
           </Reveal>
         </div>
 
         <div className="prc-grid">
-          {plans.map((p, i) => (
-            <Reveal key={p.name} delay={i * 100} className={`prc-card prc-${p.tone}`}>
-              {p.badge && <div className="prc-badge">{p.badge}</div>}
-              <div className="prc-name">{p.name}</div>
-              <div className="prc-price-row">
-                <span className="prc-price">{p.price}</span>
-                <span className="prc-unit">{p.unit}</span>
+          {tiers.map((t, i) => (
+            <Reveal key={t.time} delay={i * 100} className="prc-tier" style={{ background: t.bg }}>
+              <div className="prc-animal">
+                <t.Animal size={120} />
               </div>
-              <p className="prc-desc">{p.desc}</p>
-              <ul className="prc-list">
-                {p.includes.map((inc) => (
-                  <li key={inc}><IconCheck size={16} /> <span>{inc}</span></li>
-                ))}
-              </ul>
+              <div className="prc-time-circle">
+                <span className={t.noLimit ? 'prc-time-small' : 'prc-time'}>{t.time}</span>
+              </div>
+              <div className="prc-price-circle">
+                <span className="prc-price">{t.price} zł</span>
+              </div>
             </Reveal>
           ))}
         </div>
 
-        <Reveal className="prc-extras">
-          <div className="prc-extras-head">
-            <div className="prc-extras-h">Drobny druczek, którego nie ma.</div>
-            <div className="body-md prc-extras-s">Dodatki, zniżki i wszystko, o co zwykle pytacie.</div>
+        <Reveal className="prc-discount">
+          Zniżki dla rodzeństwa <strong>−25%</strong> <span className="prc-discount-mute">(drugie i kolejne dziecko)</span>
+        </Reveal>
+
+        <Reveal className="prc-row-feature">
+          <div className="prc-row-feature-l">
+            <div className="prc-row-feature-h">Karnet miesięczny</div>
+            <div className="prc-row-feature-s">no limit · cały miesiąc kalendarzowy</div>
           </div>
-          <div className="prc-extras-table">
-            {extras.map(([k, v]) => (
-              <div key={k} className="prc-row">
-                <span>{k}</span>
-                <span className="prc-row-v">{v}</span>
+          <div className="prc-row-feature-r">215 zł</div>
+        </Reveal>
+
+        <Reveal className="prc-gift">
+          <div className="prc-gift-h">Karta podarunkowa</div>
+          <div className="prc-gift-list">
+            {giftCard.map(({ label, price }) => (
+              <div key={label} className="prc-gift-row">
+                <span className="prc-gift-label">{label}</span>
+                <span className="prc-gift-dots" aria-hidden="true" />
+                <span className="prc-gift-price">{price}</span>
               </div>
             ))}
           </div>
-          <div className="prc-extras-cta">
-            <button className="btn btn-pop" onClick={onBookBirthday}>Zarezerwuj urodziny <IconArrow size={16} /></button>
-            <a href="tel:+48693766049" className="btn btn-ghost">Zadzwoń · 693 766 049</a>
-          </div>
+        </Reveal>
+
+        <Reveal className="prc-cta-row">
+          <button className="btn btn-pop" onClick={onBookBirthday}>Zarezerwuj urodziny <IconArrow size={16} /></button>
+          <a href="tel:+48693766049" className="btn btn-ghost">Zadzwoń · 693 766 049</a>
         </Reveal>
       </div>
 
       <style>{`
-        .prc { padding: 110px 0 90px; background: var(--paper); }
-        .prc-head { max-width: 760px; margin: 0 0 50px; }
+        .prc { padding: 110px 0 90px; background: var(--bone); }
+        .prc-head { max-width: 760px; margin: 0 auto 60px; text-align: center; }
         .prc-h {
           font-family: var(--font-heading);
           font-weight: 600;
@@ -113,140 +98,182 @@ export function Pricing({ onBookBirthday }) {
           letter-spacing: -0.01em;
           margin: 14px 0 18px;
           color: var(--ink);
+          text-transform: uppercase;
         }
-        .prc-sub { max-width: 56ch; }
+        .prc-h .hero-italic { text-transform: none; }
+        .prc-sub { max-width: 56ch; margin: 0 auto; }
 
         .prc-grid {
           display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 18px;
-          margin-bottom: 32px;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 16px;
+          margin-bottom: 36px;
+          max-width: 880px;
+          margin-left: auto;
+          margin-right: auto;
         }
-        @media (max-width: 900px) { .prc-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 900px) { .prc-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; } }
 
-        .prc-card {
+        .prc-tier {
           position: relative;
-          padding: 32px 30px 36px;
-          background: var(--bone);
-          border: 1px solid var(--line-soft);
+          padding: 14px 12px 24px;
           border-radius: var(--r-lg);
-          color: var(--ink);
-          box-shadow: 0 4px 24px -16px rgba(168,128,98,0.35);
-        }
-        .prc-cream { background: var(--bone); }
-        .prc-sand  { background: var(--sand); }
-        .prc-sage  {
-          background: var(--sage);
-          transform: translateY(-12px);
-          box-shadow: 0 18px 42px -22px rgba(208,177,146,0.55);
-        }
-        .prc-rose  { background: var(--rose-soft); }
-
-        @media (max-width: 900px) { .prc-sage { transform: none; } }
-
-        .prc-badge {
-          position: absolute;
-          top: -14px;
-          left: 24px;
-          background: var(--rose-deep);
-          color: var(--bone);
-          font-size: 11px;
-          font-weight: 700;
-          letter-spacing: 0.1em;
-          padding: 6px 14px;
-          border-radius: var(--r-pill);
-          border: none;
-          text-transform: uppercase;
-        }
-
-        .prc-name {
-          font-size: 13px;
-          font-weight: 700;
-          letter-spacing: 0.1em;
-          text-transform: uppercase;
-          color: var(--brand);
-          margin-bottom: 16px;
-        }
-        .prc-price-row { display: flex; align-items: baseline; gap: 12px; }
-        .prc-price {
-          font-family: var(--font-display);
-          font-size: 96px;
-          font-weight: 700;
-          line-height: 0.9;
-          color: var(--brand-deep);
-        }
-        .prc-unit { font-size: 14px; color: var(--ink-mute); font-weight: 500; }
-
-        .prc-desc { margin: 18px 0 24px; font-size: 14.5px; line-height: 1.6; color: var(--ink-soft); }
-
-        .prc-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
-        .prc-list li {
-          display: flex;
-          align-items: center;
-          gap: 10px;
-          font-size: 14px;
-          font-weight: 500;
-          color: var(--ink-soft);
-          padding-top: 12px;
-          border-top: 1px dashed var(--line-soft);
-        }
-        .prc-sage .prc-list li { border-top-color: rgba(255,253,248,0.55); color: var(--ink); }
-
-        .prc-extras {
-          margin-top: 36px;
-          padding: 44px;
           border: 1px solid var(--line-soft);
-          border-radius: var(--r-lg);
-          background: var(--bone);
-          display: grid;
-          grid-template-columns: 1fr 1.2fr;
-          gap: 40px;
-          align-items: center;
-          box-shadow: 0 6px 28px -18px rgba(168,128,98,0.4);
-        }
-        @media (max-width: 900px) { .prc-extras { grid-template-columns: 1fr; padding: 28px; } }
-
-        .prc-extras-head { grid-column: 1; }
-        .prc-extras-h {
-          font-family: var(--font-display);
-          font-weight: 700;
-          font-size: 42px;
-          line-height: 1;
-          margin-bottom: 10px;
-          color: var(--brand-deep);
-        }
-        .prc-extras-s { color: var(--ink-mute); }
-
-        .prc-extras-table {
-          grid-column: 2;
-          grid-row: 1 / span 2;
           display: flex;
           flex-direction: column;
+          align-items: center;
+          box-shadow: 0 6px 26px -18px rgba(168,128,98,0.5);
+          transition: transform .35s ease;
         }
-        @media (max-width: 900px) { .prc-extras-table { grid-column: 1; grid-row: auto; } }
-        .prc-row {
+        .prc-tier:hover { transform: translateY(-6px); }
+
+        .prc-animal {
+          display: flex;
+          align-items: flex-end;
+          justify-content: center;
+          margin-bottom: -18px;
+          z-index: 2;
+          pointer-events: none;
+        }
+        .prc-animal svg { display: block; filter: drop-shadow(0 4px 8px rgba(91,71,55,0.15)); }
+        @media (max-width: 520px) { .prc-animal svg { width: 86px !important; height: 86px !important; } }
+
+        .prc-time-circle {
+          width: 100px;
+          height: 100px;
+          border-radius: 50%;
+          background: #FFFFFF;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-shadow: 0 6px 18px -10px rgba(119,98,88,0.4);
+          border: 1px solid var(--line-soft);
+          z-index: 1;
+          position: relative;
+        }
+        @media (max-width: 520px) { .prc-time-circle { width: 78px; height: 78px; } }
+
+        .prc-time {
+          font-family: var(--font-display);
+          font-weight: 700;
+          font-size: 34px;
+          color: var(--brand-deep);
+          letter-spacing: -0.01em;
+        }
+        @media (max-width: 520px) { .prc-time { font-size: 26px; } }
+
+        .prc-time-small {
+          font-family: var(--font-body);
+          font-weight: 700;
+          font-size: 14px;
+          line-height: 1.05;
+          letter-spacing: 0.06em;
+          color: var(--brand-deep);
+          text-align: center;
+          text-transform: uppercase;
+        }
+        @media (max-width: 520px) { .prc-time-small { font-size: 11px; } }
+
+        .prc-price-circle {
+          margin-top: -26px;
+          width: 100px;
+          height: 100px;
+          border-radius: 50%;
+          background: var(--brand);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: #fff;
+          box-shadow: 0 12px 28px -16px rgba(119,98,88,0.55);
+          z-index: 0;
+        }
+        @media (max-width: 520px) { .prc-price-circle { width: 78px; height: 78px; margin-top: -20px; } }
+
+        .prc-price {
+          font-family: var(--font-display);
+          font-weight: 700;
+          font-size: 26px;
+          color: #fff;
+          letter-spacing: -0.01em;
+        }
+        @media (max-width: 520px) { .prc-price { font-size: 19px; } }
+
+        .prc-discount {
+          text-align: center;
+          font-size: 17px;
+          color: var(--ink-soft);
+          margin: 14px 0 50px;
+        }
+        .prc-discount strong { color: var(--brand-deep); font-weight: 800; }
+        .prc-discount-mute { color: var(--ink-mute); }
+
+        .prc-row-feature {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          padding: 14px 0;
-          border-top: 1px dashed var(--line-soft);
-          font-size: 15px;
-          font-weight: 500;
-          color: var(--ink-soft);
+          gap: 24px;
+          padding: 28px 36px;
+          border-top: 1.5px solid var(--brand);
+          border-bottom: 1.5px solid var(--brand);
+          margin-bottom: 36px;
         }
-        .prc-row:last-child { border-bottom: 1px dashed var(--line-soft); }
-        .prc-row-v {
-          font-family: var(--font-display);
-          font-size: 24px;
+        @media (max-width: 600px) { .prc-row-feature { flex-direction: column; padding: 22px 20px; text-align: center; } }
+        .prc-row-feature-h {
+          font-family: var(--font-heading);
+          font-size: clamp(24px, 3vw, 32px);
           font-weight: 700;
-          color: var(--rose-deep);
+          letter-spacing: 0.02em;
+          color: var(--ink);
+          text-transform: uppercase;
+        }
+        .prc-row-feature-s {
+          font-size: 14px;
+          color: var(--ink-mute);
+          margin-top: 4px;
+        }
+        .prc-row-feature-r {
+          font-family: var(--font-display);
+          font-weight: 700;
+          font-size: clamp(28px, 4vw, 42px);
+          color: var(--brand-deep);
+          letter-spacing: -0.01em;
         }
 
-        .prc-extras-cta {
-          grid-column: 1;
+        .prc-gift { margin-bottom: 40px; }
+        .prc-gift-h {
+          font-family: var(--font-heading);
+          font-size: clamp(22px, 2.6vw, 28px);
+          font-weight: 700;
+          letter-spacing: 0.02em;
+          color: var(--ink);
+          text-transform: uppercase;
+          margin-bottom: 18px;
+        }
+        .prc-gift-list { display: flex; flex-direction: column; }
+        .prc-gift-row {
+          display: flex;
+          align-items: baseline;
+          gap: 10px;
+          padding: 14px 4px;
+          border-bottom: 1px dashed var(--line);
+          font-size: 16px;
+          color: var(--ink-soft);
+        }
+        .prc-gift-row:first-child { border-top: 1px dashed var(--line); }
+        .prc-gift-label { letter-spacing: 0.04em; text-transform: uppercase; font-weight: 600; color: var(--brand); font-size: 14px; }
+        .prc-gift-dots { flex: 1; border-bottom: 2px dotted var(--line); transform: translateY(-4px); }
+        .prc-gift-price {
+          font-family: var(--font-display);
+          font-weight: 700;
+          font-size: 22px;
+          color: var(--brand-deep);
+        }
+
+        .prc-cta-row {
           display: flex;
           flex-wrap: wrap;
-          gap: 10px;
+          gap: 12px;
+          justify-content: center;
         }
       `}</style>
     </section>
