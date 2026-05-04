@@ -5,16 +5,16 @@ import { AnimalDeer, AnimalBear, AnimalFox, AnimalWolf } from './animals.jsx'
 
 export function Pricing({ onBookBirthday }) {
   const tiers = [
-    { time: '1h',     price: '25', Animal: AnimalDeer, bg: 'var(--bone)' },
-    { time: '1,5 h',  price: '29', Animal: AnimalBear, bg: 'var(--paper)' },
-    { time: '2 h',    price: '33', Animal: AnimalFox,  bg: 'var(--bone)' },
-    { time: 'NO\u00a0LIMIT', price: '45', Animal: AnimalWolf, bg: 'var(--paper)', noLimit: true },
+    { time: '1h', price: '25', Animal: AnimalDeer, bg: 'var(--bone)', shift: -12 },
+    { time: '1,5 h', price: '29', Animal: AnimalBear, bg: 'var(--paper)', shift: -9 },
+    { time: '2 h', price: '33', Animal: AnimalFox, bg: 'var(--bone)', shift: -16 },
+    { time: 'NO\u00a0LIMIT', price: '45', Animal: AnimalWolf, bg: 'var(--paper)', noLimit: true, shift: -12 },
   ]
 
   const giftCard = [
-    { label: '1 wejście × 1,5 h',  price: '29 zł'  },
-    { label: '3 wejścia × 1,5 h', price: '75 zł'  },
-    { label: '5 wejść × 1,5 h',   price: '135 zł' },
+    { label: '1 wejście × 1,5 h', price: '29 zł' },
+    { label: '3 wejścia × 1,5 h', price: '75 zł' },
+    { label: '5 wejść × 1,5 h', price: '135 zł' },
   ]
 
   return (
@@ -43,8 +43,8 @@ export function Pricing({ onBookBirthday }) {
         <div className="prc-grid">
           {tiers.map((t, i) => (
             <Reveal key={t.time} delay={i * 100} className="prc-tier" style={{ background: t.bg }}>
-              <div className="prc-animal">
-                <t.Animal size={120} />
+              <div className="prc-animal" style={{ '--shift': `${t.shift}px` }}>
+                <t.Animal size={140} />
               </div>
               <div className="prc-time-circle">
                 <span className={t.noLimit ? 'prc-time-small' : 'prc-time'}>{t.time}</span>
@@ -131,12 +131,19 @@ export function Pricing({ onBookBirthday }) {
           display: flex;
           align-items: flex-end;
           justify-content: center;
-          margin-bottom: -18px;
-          z-index: 2;
+          margin-bottom: -55px;
+          position: relative;
+          z-index: 0;
           pointer-events: none;
         }
-        .prc-animal svg { display: block; filter: drop-shadow(0 4px 8px rgba(91,71,55,0.15)); }
-        @media (max-width: 520px) { .prc-animal svg { width: 86px !important; height: 86px !important; } }
+        .prc-animal > span { transform: translateY(var(--shift, 0)); }
+        .prc-animal svg,
+        .prc-animal img { display: block; filter: drop-shadow(0 4px 8px rgba(91,71,55,0.15)); }
+        @media (max-width: 520px) {
+          .prc-animal { margin-bottom: -38px; }
+          .prc-animal > span { transform: translateY(calc(var(--shift, 0) * 0.7)); width: 100px !important; height: 100px !important; }
+          .prc-animal svg { width: 100px !important; height: 100px !important; }
+        }
 
         .prc-time-circle {
           width: 100px;
@@ -148,7 +155,7 @@ export function Pricing({ onBookBirthday }) {
           justify-content: center;
           box-shadow: 0 6px 18px -10px rgba(119,98,88,0.4);
           border: 1px solid var(--line-soft);
-          z-index: 1;
+          z-index: 2;
           position: relative;
         }
         @media (max-width: 520px) { .prc-time-circle { width: 78px; height: 78px; } }

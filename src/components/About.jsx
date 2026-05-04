@@ -89,7 +89,8 @@ export function About() {
           align-items: center;
           justify-content: center;
         }
-        .about-value-icon svg { display: block; filter: drop-shadow(0 3px 6px rgba(91,71,55,0.15)); }
+        .about-value-icon svg,
+        .about-value-icon img { display: block; filter: drop-shadow(0 3px 6px rgba(91,71,55,0.15)); }
         .about-value-t { font-weight: 700; color: var(--ink); margin-bottom: 4px; font-size: 17px; }
         .about-value-s { font-size: 14.5px; color: var(--ink-mute); line-height: 1.6; font-weight: 500; }
 

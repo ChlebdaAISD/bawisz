@@ -280,7 +280,7 @@ export function Testimonials() {
         .tst-dot.is-active {
           width: 28px;
           border-radius: 999px;
-          background: var(--rose-deep);
+          background: var(--brand);
         }
       `}</style>
     </section>

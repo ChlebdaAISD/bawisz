@@ -16,7 +16,7 @@ import { BirthdayModal } from './components/BirthdayModal.jsx'
 const COZY = {
   '--cream':       '#FFFFFF',
   '--cream-deep':  '#F4EBDB',
-  '--paper':       '#F8F0E0',
+  '--paper':       '#FDF9F0',
   '--bone':        '#FFFFFF',
   '--sand':        '#EAD8C4',
   '--sand-deep':   '#D0B192',

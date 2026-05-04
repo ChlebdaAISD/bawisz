@@ -3,7 +3,7 @@
      Bawi się, paleta brązów klienta (#776258 / #a98062 / #d0b192 / #ead8c4). */
   --cream:        #FFFFFF;
   --cream-deep:   #F4EBDB;
-  --paper:        #F8F0E0;
+  --paper:        #FDF9F0;
   --bone:         #FFFFFF;
   --sand:         #EAD8C4;
   --sand-deep:    #D0B192;
@@ -136,10 +136,10 @@ section { position: relative; }
 .btn-primary:hover { background: var(--ink); box-shadow: 0 6px 20px -10px rgba(92,79,71,0.6); }
 
 .btn-pop {
-  background: var(--rose);
-  color: var(--ink);
+  background: var(--brand);
+  color: var(--bone);
 }
-.btn-pop:hover { background: var(--rose-deep); color: var(--bone); box-shadow: 0 8px 24px -10px rgba(157,181,133,0.55); }
+.btn-pop:hover { background: var(--brand-deep); color: var(--bone); box-shadow: 0 8px 24px -10px rgba(119,98,88,0.55); }
 
 .btn-ghost {
   background: transparent;

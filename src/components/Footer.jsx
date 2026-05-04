@@ -141,7 +141,7 @@ export function Footer({ onBookBirthday }) {
           color: var(--cream);
           transition: background 0.2s, border-color 0.2s;
         }
-        .ftr-socials a:hover { background: var(--rose-deep); border-color: var(--rose-deep); color: var(--cream); }
+        .ftr-socials a:hover { background: var(--brand); border-color: var(--brand); color: var(--cream); }
 
         .ftr-form { display: flex; gap: 6px; }
         .ftr-form input {
@@ -155,18 +155,18 @@ export function Footer({ onBookBirthday }) {
           font-size: 14px;
         }
         .ftr-form input::placeholder { color: rgba(255,255,255,0.4); }
-        .ftr-form input:focus { outline: none; border-color: var(--rose-deep); }
+        .ftr-form input:focus { outline: none; border-color: var(--brand); }
         .ftr-form button {
           width: 42px; height: 42px;
           border-radius: 50%;
-          background: var(--rose-deep);
-          border: 1.5px solid var(--rose-deep);
+          background: var(--brand);
+          border: 1.5px solid var(--brand);
           color: var(--bone);
           display: inline-flex;
           align-items: center;
           justify-content: center;
         }
-        .ftr-form button:hover { background: var(--rose-deep); border-color: var(--rose-deep); }
+        .ftr-form button:hover { background: var(--brand-deep); border-color: var(--brand-deep); }
 
         .ftr-bottom {
           display: flex;

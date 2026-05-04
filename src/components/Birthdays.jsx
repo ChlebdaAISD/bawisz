@@ -1,7 +1,7 @@
 import { Reveal } from './Reveal.jsx'
 import { IconArrow } from './icons.jsx'
 import { Decoration } from './Decoration.jsx'
-import { AnimalBear, AnimalFox, GiftBox } from './animals.jsx'
+import { AnimalBear, AnimalFox } from './animals.jsx'
 
 export function Birthdays({ onBookBirthday }) {
   const mini = {
@@ -9,6 +9,7 @@ export function Birthdays({ onBookBirthday }) {
     time: '2 h',
     price: '45',
     Animal: AnimalBear,
+    shift: -6,
     perks: [],
     snacks: [
       'woda no limit',
@@ -21,7 +22,6 @@ export function Birthdays({ onBookBirthday }) {
       'kolorowa zastawa lub w naturalnym stylu',
       'balon cyfra',
     ],
-    showGift: false,
   }
 
   const standard = {
@@ -29,6 +29,7 @@ export function Birthdays({ onBookBirthday }) {
     time: '2,5 h',
     price: '74',
     Animal: AnimalFox,
+    shift: -16,
     perks: [
       'sala na wyłączność',
       'minimum 10 dzieci',
@@ -48,7 +49,6 @@ export function Birthdays({ onBookBirthday }) {
       'girlanda balonowa na sali zabaw',
       'cyfrowe zaproszenia w danej tematyce',
     ],
-    showGift: true,
     featured: true,
   }
 
@@ -101,8 +101,8 @@ export function Birthdays({ onBookBirthday }) {
               </div>
 
               <div className="bd-card-visual">
-                <div className="bd-animal">
-                  <pkg.Animal size={120} hat />
+                <div className="bd-animal" style={{ '--shift': `${pkg.shift}px` }}>
+                  <pkg.Animal size={140} hat />
                 </div>
                 <div className="bd-time-circle">
                   <span className="bd-time">{pkg.time}</span>
@@ -111,11 +111,6 @@ export function Birthdays({ onBookBirthday }) {
                   <span className="bd-price">{pkg.price} zł</span>
                   <span className="bd-price-unit">/os.</span>
                 </div>
-                {pkg.showGift && (
-                  <div className="bd-gift">
-                    <GiftBox size={76} />
-                  </div>
-                )}
               </div>
             </Reveal>
           ))}
@@ -254,12 +249,19 @@ export function Birthdays({ onBookBirthday }) {
         @media (max-width: 720px) { .bd-card-visual { padding-top: 14px; } }
 
         .bd-animal {
-          margin-bottom: -18px;
-          z-index: 3;
+          margin-bottom: -55px;
+          position: relative;
+          z-index: 0;
           pointer-events: none;
         }
-        .bd-animal svg { display: block; filter: drop-shadow(0 4px 8px rgba(91,71,55,0.15)); }
-        @media (max-width: 520px) { .bd-animal svg { width: 86px !important; height: 86px !important; } }
+        .bd-animal > span { transform: translateY(var(--shift, 0)); }
+        .bd-animal svg,
+        .bd-animal img { display: block; filter: drop-shadow(0 4px 8px rgba(91,71,55,0.15)); }
+        @media (max-width: 520px) {
+          .bd-animal { margin-bottom: -38px; }
+          .bd-animal > span { transform: translateY(calc(var(--shift, 0) * 0.7)); width: 100px !important; height: 100px !important; }
+          .bd-animal svg { width: 100px !important; height: 100px !important; }
+        }
 
         .bd-time-circle {
           width: 100px;
@@ -272,6 +274,7 @@ export function Birthdays({ onBookBirthday }) {
           box-shadow: 0 6px 18px -10px rgba(119,98,88,0.4);
           border: 1px solid var(--line-soft);
           z-index: 2;
+          position: relative;
         }
         @media (max-width: 520px) { .bd-time-circle { width: 78px; height: 78px; } }
 
@@ -319,12 +322,6 @@ export function Birthdays({ onBookBirthday }) {
           letter-spacing: 0.04em;
         }
         @media (max-width: 520px) { .bd-price-unit { font-size: 10px; } }
-
-        .bd-gift {
-          margin-top: -8px;
-          z-index: 0;
-        }
-        .bd-gift svg { display: block; filter: drop-shadow(0 6px 10px rgba(91,71,55,0.18)); }
 
         .bd-cta-row {
           display: flex;

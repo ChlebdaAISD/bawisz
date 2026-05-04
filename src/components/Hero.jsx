@@ -48,7 +48,7 @@ export function Hero({ onBookBirthday }) {
 
           <div className="hero-visual fade-up" style={{ animationDelay: '0.15s' }}>
             <div className="hero-photo">
-              <img src="/assets/photo4.jpg" alt="Wnętrze bawialni Bawisz" />
+              <img src="/assets/zdjecia/Bawisz_poziom_AnnaMrożek-7.webp" alt="Wnętrze bawialni Bawisz" width={1536} height={1024} />
             </div>
             <Decoration
               type="rainbow"

@@ -196,7 +196,7 @@ export function BirthdayModal({ open, onClose }) {
         }
         .bm-field input:focus, .bm-field select:focus, .bm-field textarea:focus {
           outline: none;
-          border-color: var(--rose-deep);
+          border-color: var(--brand);
         }
 
         .bm-pkgs { display: flex; flex-direction: column; gap: 10px; }
@@ -214,13 +214,13 @@ export function BirthdayModal({ open, onClose }) {
         .bm-pkg-rose  { background: var(--rose-soft); }
         .bm-pkg-sage  { background: var(--sage); }
         .bm-pkg:hover { transform: translateY(-2px); }
-        .bm-pkg.is-on { box-shadow: 0 0 0 3px var(--rose-deep); }
+        .bm-pkg.is-on { box-shadow: 0 0 0 3px var(--brand); }
         .bm-pkg-top { display: flex; justify-content: space-between; align-items: center; }
         .bm-pkg-name { font-weight: 700; font-size: 14px; letter-spacing: 0.02em; }
         .bm-pkg-tick {
           width: 26px; height: 26px;
           border-radius: 50%;
-          background: var(--rose-deep);
+          background: var(--brand);
           color: var(--bone);
           display: inline-flex; align-items: center; justify-content: center;
         }

@@ -5,11 +5,13 @@ import { Decoration } from './Decoration.jsx'
 
 export function Gallery() {
   const items = [
-    { src: '/assets/photo4.jpg', span: 'big', alt: 'Wnętrze bawialni — drewniana konstrukcja z piętrami i zjeżdżalnią' },
-    { src: '/assets/photo1.jpg', span: 'tall', alt: 'Ścianka wspinaczkowa i miś' },
-    { src: '/assets/photo3.jpg', span: 'wide', alt: 'Dziecko na drewnianym traktorku' },
-    { src: '/assets/photo5.jpg', span: 'tall', alt: 'Maluch w drewnianym tunelu' },
-    { src: '/assets/photo2.jpg', span: 'wide', alt: 'Latte i ciasto pistacjowe' },
+    { src: '/assets/zdjecia/Bawisz_-13.webp',           span: 'big',  alt: 'Wnętrze bawialni Bawisz' },
+    { src: '/assets/zdjecia/Bawisz_AnnaMrożek-22.webp', span: 'tall', alt: 'Strefa zabaw dla dzieci' },
+    { src: '/assets/zdjecia/Bawisz_-38.webp',           span: 'wide', alt: 'Dziecko bawiące się w bawialni' },
+    { src: '/assets/zdjecia/Bawisz_AnnaMrożek-49.webp', span: 'tall', alt: 'Kawiarnia dla rodziców' },
+    { src: '/assets/zdjecia/Bawisz_AnnaMrożek-39.webp', span: 'wide', alt: 'Zabawki edukacyjne' },
+    { src: '/assets/zdjecia/Bawisz_-22.webp',           span: 'tall', alt: 'Strefa malucha' },
+    { src: '/assets/zdjecia/Bawisz_AnnaMrożek-27.webp', span: 'wide', alt: 'Detal wnętrza bawialni' },
   ]
 
   const [current, setCurrent] = useState(null)
@@ -169,7 +171,7 @@ export function Gallery() {
           cursor: zoom-in;
           position: relative;
         }
-        .gal-tile:focus-visible { outline: 2px solid var(--rose-deep); outline-offset: 2px; }
+        .gal-tile:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
         .gal-tile .img-reveal img { transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1); }
         .gal-tile:hover .img-reveal img { transform: scale(1.04); }
 
@@ -238,7 +240,7 @@ export function Gallery() {
           cursor: pointer;
           transition: background 0.2s, border-color 0.2s;
         }
-        .lb-close:hover { background: var(--rose-deep); border-color: var(--rose-deep); }
+        .lb-close:hover { background: var(--brand); border-color: var(--brand); }
 
         .lb-nav {
           flex: none;
@@ -254,7 +256,7 @@ export function Gallery() {
           cursor: pointer;
           transition: background 0.2s, border-color 0.2s, transform 0.2s;
         }
-        .lb-nav:hover { background: var(--rose-deep); border-color: var(--rose-deep); }
+        .lb-nav:hover { background: var(--brand); border-color: var(--brand); }
         .lb-prev:hover { transform: translateX(-2px); }
         .lb-next:hover { transform: translateX(2px); }
 
