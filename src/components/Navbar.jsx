@@ -1,14 +1,18 @@
 import { useEffect, useState } from 'react'
+import { Link, useLocation } from 'wouter'
 import { IconMenu, IconClose } from './icons.jsx'
 
+// type: 'route' = wouter Link, 'anchor' = section on home (works from any page via /#hash)
 const NAV_LINKS = [
-  { label: 'O nas', href: '#o-nas' },
-  { label: 'Co u nas', href: '#oferta' },
-  { label: 'Galeria', href: '#galeria' },
-  { label: 'Cennik', href: '#cennik' },
-  { label: 'Urodziny', href: '#urodziny' },
-  { label: 'Kawiarnia', href: '#menu' },
-  { label: 'Kontakt', href: '#kontakt' },
+  { label: 'O nas', href: '/o-nas/', type: 'route' },
+  { label: 'Co u nas', href: '/#oferta', type: 'anchor' },
+  { label: 'Galeria', href: '/#galeria', type: 'anchor' },
+  { label: 'Cennik', href: '/#cennik', type: 'anchor' },
+  { label: 'Urodziny', href: '/urodziny/', type: 'route' },
+  { label: 'Warsztaty', href: '/warsztaty/', type: 'route' },
+  { label: 'Dla przedszkoli', href: '/oferta-grupowa/', type: 'route' },
+  { label: 'Kawiarnia', href: '/kawiarnia/', type: 'route' },
+  { label: 'Kontakt', href: '/#kontakt', type: 'anchor' },
 ]
 
 function useOpenStatus() {
@@ -53,18 +57,22 @@ export function Navbar({ onBookBirthday }) {
     <>
       <div className="nav-rail">
         <nav className={`nav ${scrolled ? 'is-scrolled' : ''}`} aria-label="Główna nawigacja">
-          <a href="#" className="nav-brand" aria-label="BAWISZ — strona główna">
+          <Link href="/" className="nav-brand" aria-label="BAWISZ — strona główna">
             <img src="/assets/logo_small.png" alt="" />
             <div className="nav-brand-text">
               <div className="nav-brand-name">BAWISZ</div>
               <div className="nav-brand-sub">Bawialnia · Kawiarnia</div>
             </div>
-          </a>
+          </Link>
 
           <ul className="nav-links">
             {NAV_LINKS.map((l) => (
               <li key={l.href}>
-                <a href={l.href} className="nav-link">{l.label}</a>
+                {l.type === 'route' ? (
+                  <Link href={l.href} className="nav-link">{l.label}</Link>
+                ) : (
+                  <a href={l.href} className="nav-link">{l.label}</a>
+                )}
               </li>
             ))}
           </ul>
@@ -84,9 +92,9 @@ export function Navbar({ onBookBirthday }) {
       {mobileOpen && (
         <div className="mobile-menu" role="dialog" aria-modal="true">
           <div className="mobile-menu-top">
-            <a href="#" className="mobile-menu-brand" onClick={() => setMobileOpen(false)} aria-label="BAWISZ — strona główna">
+            <Link href="/" className="mobile-menu-brand" onClick={() => setMobileOpen(false)} aria-label="BAWISZ — strona główna">
               <img src="/assets/logo_small.png" alt="" />
-            </a>
+            </Link>
             <button className="nav-burger" aria-label="Zamknij" onClick={() => setMobileOpen(false)}>
               <IconClose size={22} />
             </button>
@@ -94,7 +102,11 @@ export function Navbar({ onBookBirthday }) {
           <ul className="mobile-links">
             {NAV_LINKS.map((l, i) => (
               <li key={l.href} style={{ animationDelay: `${i * 60}ms` }}>
-                <a href={l.href} onClick={() => setMobileOpen(false)} className="display">{l.label}</a>
+                {l.type === 'route' ? (
+                  <Link href={l.href} onClick={() => setMobileOpen(false)} className="display">{l.label}</Link>
+                ) : (
+                  <a href={l.href} onClick={() => setMobileOpen(false)} className="display">{l.label}</a>
+                )}
               </li>
             ))}
           </ul>

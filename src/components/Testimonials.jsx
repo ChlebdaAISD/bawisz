@@ -119,7 +119,7 @@ export function Testimonials() {
             </div>
             <div>
               <div className="tst-rate-num">4.9</div>
-              <div className="body-sm">na 127 opinii w Google</div>
+              <div className="body-sm">ocena w Google</div>
             </div>
           </div>
         </div>

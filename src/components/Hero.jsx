@@ -1,62 +1,56 @@
 import { IconArrow } from './icons.jsx'
-import { Decoration } from './Decoration.jsx'
 
 export function Hero({ onBookBirthday }) {
   return (
     <section className="hero" id="top">
+      <div className="hero-bg">
+        <img
+          src="/assets/zdjecia/foto_2025 (2).jpg"
+          alt="Wnętrze bawialni Bawisz"
+          width={2400}
+          height={1600}
+        />
+        <div className="hero-overlay" />
+      </div>
+
       <div className="hero-shell shell">
-        <div className="hero-grid">
-          <div className="hero-text">
-            <span className="eyebrow fade-up">[ Bawialnia &amp; Kawiarnia · Nowy Targ ]</span>
+        <div className="hero-text">
+          <span className="eyebrow fade-up">[ Bawialnia &amp; Kawiarnia · Nowy Targ ]</span>
 
-            <h1 className="hero-headline fade-up" style={{ animationDelay: '0.05s' }}>
-              <span className="line">Sala zabaw</span>
-              <span className="line hero-italic">i kawiarnia,</span>
-              <span className="line">do której dziecko</span>
-              <span className="line hero-italic">chce wracać.</span>
-            </h1>
+          <h1 className="hero-headline fade-up" style={{ animationDelay: '0.05s' }}>
+            <span className="line">Sala zabaw</span>
+            <span className="line hero-italic">i kawiarnia,</span>
+            <span className="line">do której dziecko</span>
+            <span className="line hero-italic">chce wracać.</span>
+          </h1>
 
-            <p className="hero-sub body-lg fade-up" style={{ animationDelay: '0.2s' }}>
-              Kreatywna, drewniana przestrzeń dla dzieci 0–12 lat.<br />
-              Ty pijesz kawę i jesz ciasto. One bawią się, tworzą i odkrywają.
-            </p>
+          <p className="hero-sub body-lg fade-up" style={{ animationDelay: '0.2s' }}>
+            Kreatywna, drewniana przestrzeń dla dzieci 0–12 lat.<br />
+            Ty pijesz kawę i jesz ciasto. One bawią się, tworzą i odkrywają.
+          </p>
 
-            <div className="hero-ctas fade-up" style={{ animationDelay: '0.35s' }}>
-              <button className="btn btn-pop" onClick={onBookBirthday}>
-                Zarezerwuj urodziny <IconArrow size={16} />
-              </button>
-              <a href="#oferta" className="btn btn-ghost">Co u nas znajdziesz</a>
-            </div>
-
-            <div className="hero-meta fade-up" style={{ animationDelay: '0.5s' }}>
-              <div>
-                <div className="hero-meta-num display">0–12</div>
-                <div className="hero-meta-lbl">lat</div>
-              </div>
-              <div className="hero-meta-div" />
-              <div>
-                <div className="hero-meta-num display">200 m²</div>
-                <div className="hero-meta-lbl">sali zabaw</div>
-              </div>
-              <div className="hero-meta-div" />
-              <div>
-                <div className="hero-meta-num display">7 dni</div>
-                <div className="hero-meta-lbl">w tygodniu</div>
-              </div>
-            </div>
+          <div className="hero-ctas fade-up" style={{ animationDelay: '0.35s' }}>
+            <button className="btn btn-pop" onClick={onBookBirthday}>
+              Zarezerwuj urodziny <IconArrow size={16} />
+            </button>
+            <a href="#oferta" className="btn btn-ghost-light">Co u nas znajdziesz</a>
           </div>
 
-          <div className="hero-visual fade-up" style={{ animationDelay: '0.15s' }}>
-            <div className="hero-photo">
-              <img src="/assets/zdjecia/Bawisz_poziom_AnnaMrożek-7.webp" alt="Wnętrze bawialni Bawisz" width={1536} height={1024} />
+          <div className="hero-meta fade-up" style={{ animationDelay: '0.5s' }}>
+            <div>
+              <div className="hero-meta-num display">0–10</div>
+              <div className="hero-meta-lbl">lat</div>
             </div>
-            <Decoration
-              type="rainbow"
-              size={150}
-              rotate={-8}
-              opacity={0.85}
-              style={{ left: '-40px', top: '-30px', zIndex: 3 }}
-            />
+            <div className="hero-meta-div" />
+            <div>
+              <div className="hero-meta-num display">220 m²</div>
+              <div className="hero-meta-lbl">sali zabaw</div>
+            </div>
+            <div className="hero-meta-div" />
+            <div>
+              <div className="hero-meta-num display">7 dni</div>
+              <div className="hero-meta-lbl">w tygodniu</div>
+            </div>
           </div>
         </div>
       </div>
@@ -64,22 +58,49 @@ export function Hero({ onBookBirthday }) {
       <style>{`
         .hero {
           position: relative;
-          padding: 140px 0 100px;
-          background: var(--cream);
+          padding: 180px 0 120px;
+          min-height: 100vh;
+          background: var(--brand-deep);
           overflow: hidden;
-        }
-
-        .hero-grid {
-          display: grid;
-          grid-template-columns: 1.05fr 1fr;
-          gap: 80px;
+          display: flex;
           align-items: center;
         }
-        @media (max-width: 980px) {
-          .hero-grid { grid-template-columns: 1fr; gap: 50px; }
+
+        .hero-bg {
+          position: absolute;
+          inset: 0;
+          z-index: 0;
+        }
+        .hero-bg img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
+        }
+        .hero-overlay {
+          position: absolute;
+          inset: 0;
+          background:
+            linear-gradient(180deg, rgba(58,46,31,0.55) 0%, rgba(58,46,31,0.35) 40%, rgba(58,46,31,0.75) 100%),
+            linear-gradient(90deg, rgba(58,46,31,0.55) 0%, rgba(58,46,31,0.15) 60%, rgba(58,46,31,0) 100%);
         }
 
-        .hero-text { position: relative; z-index: 2; }
+        .hero-shell {
+          position: relative;
+          z-index: 1;
+          width: 100%;
+        }
+
+        .hero-text {
+          position: relative;
+          max-width: 720px;
+          color: var(--bone);
+        }
+
+        .hero-text .eyebrow {
+          color: var(--bone);
+          opacity: 0.85;
+        }
 
         .hero-headline {
           font-family: var(--font-heading);
@@ -87,14 +108,17 @@ export function Hero({ onBookBirthday }) {
           font-size: clamp(38px, 5.5vw, 72px);
           line-height: 1.05;
           letter-spacing: -0.015em;
-          color: var(--ink);
+          color: var(--bone);
           margin: 22px 0 0;
+          text-shadow: 0 2px 24px rgba(0,0,0,0.25);
         }
         .hero-headline .line { display: block; }
 
         .hero-sub {
           margin: 30px 0 36px;
-          max-width: 48ch;
+          max-width: 52ch;
+          color: rgba(255,255,255,0.92);
+          text-shadow: 0 1px 12px rgba(0,0,0,0.25);
         }
 
         .hero-ctas {
@@ -102,6 +126,18 @@ export function Hero({ onBookBirthday }) {
           flex-wrap: wrap;
           gap: 14px;
           align-items: center;
+        }
+
+        .btn-ghost-light {
+          background: rgba(255,255,255,0.08);
+          color: var(--bone);
+          border: 1.5px solid rgba(255,255,255,0.55);
+          backdrop-filter: blur(6px);
+          -webkit-backdrop-filter: blur(6px);
+        }
+        .btn-ghost-light:hover {
+          background: rgba(255,255,255,0.18);
+          border-color: rgba(255,255,255,0.85);
         }
 
         .hero-meta {
@@ -114,12 +150,12 @@ export function Hero({ onBookBirthday }) {
           font-family: var(--font-display);
           font-size: 44px;
           font-weight: 700;
-          color: var(--brand-deep);
+          color: var(--bone);
           line-height: 1;
         }
         .hero-meta-lbl {
           font-size: 12px;
-          color: var(--ink-mute);
+          color: rgba(255,255,255,0.78);
           letter-spacing: 0.08em;
           text-transform: uppercase;
           margin-top: 4px;
@@ -128,39 +164,19 @@ export function Hero({ onBookBirthday }) {
         .hero-meta-div {
           width: 1px;
           height: 36px;
-          background: var(--line-soft);
-        }
-
-        .hero-visual {
-          position: relative;
-        }
-        .hero-photo {
-          position: relative;
-          aspect-ratio: 4/5;
-          border-radius: var(--r-xl);
-          overflow: hidden;
-          box-shadow: 0 30px 80px -30px rgba(119,98,88,0.35);
-        }
-        .hero-photo::before {
-          content: "";
-          position: absolute;
-          inset: -8px;
-          border-radius: calc(var(--r-xl) + 8px);
-          border: 1.5px dashed var(--brand-soft);
-          z-index: -1;
-        }
-        .hero-photo img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
+          background: rgba(255,255,255,0.35);
         }
 
         @media (max-width: 720px) {
-          .hero { padding: 110px 0 60px; }
+          .hero { padding: 130px 0 80px; min-height: auto; }
           .hero-meta { gap: 16px; flex-wrap: wrap; }
           .hero-meta-num { font-size: 36px; }
           .hero-ctas { gap: 10px; }
           .hero-ctas .btn { width: 100%; justify-content: center; }
+          .hero-overlay {
+            background:
+              linear-gradient(180deg, rgba(58,46,31,0.6) 0%, rgba(58,46,31,0.55) 40%, rgba(58,46,31,0.85) 100%);
+          }
         }
       `}</style>
     </section>

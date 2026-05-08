@@ -1,3 +1,4 @@
+import { Link } from 'wouter'
 import { IconInstagram, IconFacebook, IconTiktok } from './icons.jsx'
 
 export function Footer({ onBookBirthday }) {
@@ -38,20 +39,20 @@ export function Footer({ onBookBirthday }) {
           <div className="ftr-col">
             <div className="ftr-col-h">Co u nas</div>
             <ul className="ftr-list">
-              <li><a href="#oferta" className="link-u">Sala zabaw</a></li>
-              <li><a href="#cennik" className="link-u">Cennik</a></li>
-              <li><a href="#oferta" className="link-u">Warsztaty</a></li>
-              <li><a href="#" onClick={(e) => { e.preventDefault(); onBookBirthday() }} className="link-u">Urodziny</a></li>
+              <li><a href="/#oferta" className="link-u">Sala zabaw</a></li>
+              <li><a href="/#cennik" className="link-u">Cennik</a></li>
+              <li><a href="/#oferta" className="link-u">Warsztaty</a></li>
+              <li><Link href="/urodziny/" className="link-u">Urodziny</Link></li>
             </ul>
           </div>
 
           <div className="ftr-col">
             <div className="ftr-col-h">Odwiedź</div>
             <ul className="ftr-list">
-              <li><a href="#godziny" className="link-u">Godziny otwarcia</a></li>
-              <li><a href="#kontakt" className="link-u">Kontakt</a></li>
+              <li><a href="/#godziny" className="link-u">Godziny otwarcia</a></li>
+              <li><a href="/#kontakt" className="link-u">Kontakt</a></li>
               <li><a href="https://maps.google.com/?q=Krzywa+19B+Nowy+Targ" target="_blank" rel="noopener noreferrer" className="link-u">Nawigacja</a></li>
-              <li><a href="#menu" className="link-u">Kawiarnia</a></li>
+              <li><Link href="/kawiarnia/" className="link-u">Kawiarnia</Link></li>
             </ul>
           </div>
 
@@ -75,7 +76,7 @@ export function Footer({ onBookBirthday }) {
 
       <style>{`
         .ftr {
-          background: var(--brand-deep);
+          background: var(--ink);
           color: var(--cream);
           padding: 64px 0 32px;
         }
@@ -102,7 +103,7 @@ export function Footer({ onBookBirthday }) {
         }
         @media (max-width: 720px) { .ftr-logo { height: 64px; } }
         .ftr-mark span:first-child, .ftr-mark span:last-child { color: var(--ink-faint); }
-        .ftr-italic { font-family: var(--font-display); font-style: normal; color: var(--rose-soft); }
+        .ftr-italic { font-style: italic; color: var(--terracotta); }
 
         .ftr-cta { display: flex; flex-wrap: wrap; gap: 10px; align-self: flex-end; }
 
@@ -141,7 +142,7 @@ export function Footer({ onBookBirthday }) {
           color: var(--cream);
           transition: background 0.2s, border-color 0.2s;
         }
-        .ftr-socials a:hover { background: var(--brand); border-color: var(--brand); color: var(--cream); }
+        .ftr-socials a:hover { background: var(--terracotta); border-color: var(--terracotta); }
 
         .ftr-form { display: flex; gap: 6px; }
         .ftr-form input {
@@ -155,18 +156,18 @@ export function Footer({ onBookBirthday }) {
           font-size: 14px;
         }
         .ftr-form input::placeholder { color: rgba(255,255,255,0.4); }
-        .ftr-form input:focus { outline: none; border-color: var(--brand); }
+        .ftr-form input:focus { outline: none; border-color: var(--terracotta); }
         .ftr-form button {
           width: 42px; height: 42px;
           border-radius: 50%;
-          background: var(--brand);
-          border: 1.5px solid var(--brand);
+          background: var(--terracotta);
+          border: 1.5px solid var(--terracotta);
           color: var(--bone);
           display: inline-flex;
           align-items: center;
           justify-content: center;
         }
-        .ftr-form button:hover { background: var(--brand-deep); border-color: var(--brand-deep); }
+        .ftr-form button:hover { background: var(--terracotta-deep); border-color: var(--terracotta-deep); }
 
         .ftr-bottom {
           display: flex;

@@ -1,17 +1,14 @@
 import { useEffect, useState } from 'react'
+import { Router, Switch, Route, useLocation } from 'wouter'
 import { Navbar } from './components/Navbar.jsx'
-import { Hero } from './components/Hero.jsx'
-import { About } from './components/About.jsx'
-import { Offer } from './components/Offer.jsx'
-import { Gallery } from './components/Gallery.jsx'
-import { Pricing } from './components/Pricing.jsx'
-import { Birthdays } from './components/Birthdays.jsx'
-import { Menu } from './components/Menu.jsx'
-import { Testimonials } from './components/Testimonials.jsx'
-import { Hours } from './components/Hours.jsx'
-import { Contact } from './components/Contact.jsx'
 import { Footer } from './components/Footer.jsx'
 import { BirthdayModal } from './components/BirthdayModal.jsx'
+import Home from './pages/Home.jsx'
+import Urodziny from './pages/Urodziny.jsx'
+import Kawiarnia from './pages/Kawiarnia.jsx'
+import Warsztaty from './pages/Warsztaty.jsx'
+import ONas from './pages/ONas.jsx'
+import OfertaGrupowa from './pages/OfertaGrupowa.jsx'
 
 const COZY = {
   '--cream':       '#FFFFFF',
@@ -46,8 +43,19 @@ const COZY = {
 
 const SOFT = { '--r-sm': '14px', '--r-md': '22px', '--r-lg': '32px', '--r-xl': '48px', '--r-pill': '999px' }
 
+function ScrollToTop() {
+  const [location] = useLocation()
+  useEffect(() => {
+    if (!window.location.hash) {
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
+    }
+  }, [location])
+  return null
+}
+
 export default function App() {
   const [bookOpen, setBookOpen] = useState(false)
+  const openBook = () => setBookOpen(true)
 
   useEffect(() => {
     const root = document.documentElement
@@ -56,22 +64,29 @@ export default function App() {
   }, [])
 
   return (
-    <>
-      <Navbar onBookBirthday={() => setBookOpen(true)} />
+    <Router>
+      <ScrollToTop />
+      <Navbar onBookBirthday={openBook} />
       <main>
-        <Hero onBookBirthday={() => setBookOpen(true)} />
-        <About />
-        <Offer />
-        <Gallery />
-        <Pricing onBookBirthday={() => setBookOpen(true)} />
-        <Birthdays onBookBirthday={() => setBookOpen(true)} />
-        <Menu />
-        <Testimonials />
-        <Hours />
-        <Contact />
+        <Switch>
+          <Route path="/" component={() => <Home onBookBirthday={openBook} />} />
+          <Route path="/urodziny" component={() => <Urodziny onBookBirthday={openBook} />} />
+          <Route path="/urodziny/" component={() => <Urodziny onBookBirthday={openBook} />} />
+          <Route path="/kawiarnia" component={() => <Kawiarnia onBookBirthday={openBook} />} />
+          <Route path="/kawiarnia/" component={() => <Kawiarnia onBookBirthday={openBook} />} />
+          <Route path="/warsztaty" component={() => <Warsztaty />} />
+          <Route path="/warsztaty/" component={() => <Warsztaty />} />
+          <Route path="/o-nas" component={() => <ONas onBookBirthday={openBook} />} />
+          <Route path="/o-nas/" component={() => <ONas onBookBirthday={openBook} />} />
+          <Route path="/oferta-grupowa" component={() => <OfertaGrupowa />} />
+          <Route path="/oferta-grupowa/" component={() => <OfertaGrupowa />} />
+          <Route>
+            <Home onBookBirthday={openBook} />
+          </Route>
+        </Switch>
       </main>
-      <Footer onBookBirthday={() => setBookOpen(true)} />
+      <Footer onBookBirthday={openBook} />
       <BirthdayModal open={bookOpen} onClose={() => setBookOpen(false)} />
-    </>
+    </Router>
   )
 }
