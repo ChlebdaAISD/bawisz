@@ -2,9 +2,18 @@ import { useEffect } from 'react'
 import { Breadcrumb } from '../components/Breadcrumb.jsx'
 import { Reveal } from '../components/Reveal.jsx'
 import { Decoration } from '../components/Decoration.jsx'
+import { ServiceGallery } from '../components/ServiceGallery.jsx'
 import { IconArrow, IconInstagram } from '../components/icons.jsx'
 import { OFERTA_GRUPOWA_FAQ as FAQ, OFERTA_GRUPOWA_META as META } from '../data/oferta-grupowa.js'
 import { updateHead } from '../lib/head.js'
+
+const GALLERY = [
+  { src: '/assets/zdjecia/Bawisz_-13.webp',           alt: 'Grupa przedszkolna w Bawiszu — placeholder' },
+  { src: '/assets/zdjecia/Bawisz_AnnaMrożek-22.webp', alt: 'Sala dla grup — placeholder' },
+  { src: '/assets/zdjecia/Bawisz_-38.webp',           alt: 'Wyjście grupowe — placeholder' },
+  { src: '/assets/zdjecia/Bawisz_AnnaMrożek-49.webp', alt: 'Strefy zabaw dla grup — placeholder' },
+  { src: '/assets/zdjecia/Bawisz_AnnaMrożek-39.webp', alt: 'Dzieci w sali Montessori — placeholder' },
+]
 
 const AUDIENCES = [
   {
@@ -197,6 +206,15 @@ export default function OfertaGrupowa() {
           </Reveal>
         </div>
       </section>
+
+      {/* GALERIA */}
+      <ServiceGallery
+        eyebrow="[ Galeria ]"
+        heading="Tak wyglądają wyjścia grupowe."
+        italic="grupowe"
+        subtitle="220 m² drewna, strefy podzielone wiekiem, opiekun w polu widzenia. Kliknij zdjęcie, żeby powiększyć."
+        items={GALLERY}
+      />
 
       {/* JAK TO WYGLĄDA (proces) */}
       <section className="svc-proc">

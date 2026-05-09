@@ -4,9 +4,8 @@ import { IconMenu, IconClose } from './icons.jsx'
 
 // type: 'route' = wouter Link, 'anchor' = section on home (works from any page via /#hash)
 const NAV_LINKS = [
+  { label: 'Home', href: '/', type: 'route' },
   { label: 'O nas', href: '/o-nas/', type: 'route' },
-  { label: 'Co u nas', href: '/#oferta', type: 'anchor' },
-  { label: 'Galeria', href: '/#galeria', type: 'anchor' },
   { label: 'Cennik', href: '/#cennik', type: 'anchor' },
   { label: 'Urodziny', href: '/urodziny/', type: 'route' },
   { label: 'Warsztaty', href: '/warsztaty/', type: 'route' },
@@ -290,10 +289,14 @@ export function Navbar({ onBookBirthday }) {
         }
         .mobile-links a {
           display: block;
-          padding: 12px 4px;
-          font-size: 44px;
+          padding: 10px 4px;
+          font-size: 28px;
+          line-height: 1.1;
           color: var(--ink);
           border-bottom: 1.5px dashed var(--line-soft);
+        }
+        @media (max-height: 700px) {
+          .mobile-links a { font-size: 24px; padding: 8px 4px; }
         }
         .mobile-cta {
           display: flex;

@@ -1,12 +1,12 @@
 import { Reveal } from './Reveal.jsx'
-import { IconBlock, IconCoffee, IconCake, IconPalette, IconArrow } from './icons.jsx'
+import { IconArrow } from './icons.jsx'
 import { Decoration } from './Decoration.jsx'
 
 export function Offer() {
   const items = [
     {
       n: '01',
-      icon: IconBlock,
+      img: '/assets/animals/Canva_zwierzatka_bez_tła_cennik.png',
       t: 'Sala zabaw',
       s: '220 m² drewnianej przestrzeni Montessori — naturalne zabawki, strefy dla najmłodszych i starszych. Bawisz się ze swoim dzieckiem, nie zostawiasz go z animatorem.',
       tags: ['0–10 lat', 'Montessori', 'Drewno'],
@@ -14,7 +14,7 @@ export function Offer() {
     },
     {
       n: '02',
-      icon: IconCoffee,
+      img: '/assets/animals/zapisane_relacje_wypieki.png',
       t: 'Kawiarnia',
       s: 'Kawa specialty, domowe ciasta (też bez cukru i bezglutenowe), menu dla dzieci. Pijesz kawę obok sali — dziecko w zasięgu wzroku, bez wstawania.',
       tags: ['Specialty', 'Domowe ciasta', 'Bez cukru'],
@@ -22,7 +22,7 @@ export function Offer() {
     },
     {
       n: '03',
-      icon: IconCake,
+      img: '/assets/animals/zapisane_relacje_urodzinki.png',
       t: 'Urodziny',
       s: 'Pakiet MINI 45 zł/os. (2 h) albo STANDARD 74 zł/os. (2,5 h, sala tylko dla was). Dekoracje, poczęstunek i prezent dla solenizanta — my robimy resztę.',
       tags: ['MINI · STANDARD', 'Sala na wyłączność', 'Prezent od nas'],
@@ -30,7 +30,7 @@ export function Offer() {
     },
     {
       n: '04',
-      icon: IconPalette,
+      img: '/assets/animals/zapisane_relacje_warsztaty.png',
       t: 'Warsztaty',
       s: 'Plastyka, sensoplastyka, glina, joga dla dzieci. Małe grupy, prowadzące prowadzą zajęcia — ty siedzisz w kawiarni i masz chwilę.',
       tags: ['Plastyka', 'Sensoplastyka', 'Małe grupy'],
@@ -68,7 +68,9 @@ export function Offer() {
             <Reveal key={item.n} delay={i * 100} className={`offer-card tone-${item.tone}`}>
               <div className="offer-card-top">
                 <div className="offer-num">{item.n}</div>
-                <div className="offer-icon"><item.icon size={24} /></div>
+                <div className="offer-icon">
+                  <img src={item.img} alt={item.t} loading="lazy" />
+                </div>
               </div>
               <h3 className="offer-title">{item.t}</h3>
               <p className="offer-desc body-md">{item.s}</p>
@@ -136,16 +138,18 @@ export function Offer() {
           opacity: 0.85;
         }
         .offer-icon {
-          width: 54px; height: 54px;
-          border-radius: 50%;
-          background: var(--rose-soft);
-          color: var(--brand-deep);
-          border: none;
+          width: 96px; height: 96px;
           display: inline-flex;
           align-items: center;
           justify-content: center;
+          flex-shrink: 0;
         }
-        .offer-card.tone-sage .offer-icon { background: rgba(255,253,248,0.55); }
+        .offer-icon img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+          display: block;
+        }
 
         .offer-title {
           font-family: var(--font-heading);
