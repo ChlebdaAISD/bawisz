@@ -8,7 +8,7 @@ export function Menu() {
     kawa: [
       ['Espresso', '— mocne i krótkie, jak trzeba'],
       ['Flat white', '— jedwabista mleczna pianka'],
-      ['Latte', '— do wyboru z syropem (wanilia, orzech, karmel)'],
+      ['Latte', '— z syropem waniliowym, orzechowym lub karmelowym'],
       ['Cappuccino', '— klasyka, której nie trzeba przedstawiać'],
       ['Matcha latte', '— mleko zwykłe lub roślinne'],
       ['Czekolada na gorąco', '— rozgrzewa lepiej niż piec kaflowy'],
@@ -32,7 +32,7 @@ export function Menu() {
   const tabs = [
     { id: 'kawa', label: 'Kawa & napoje' },
     { id: 'ciasta', label: 'Ciasta' },
-    { id: 'dzieciaki', label: 'Dla maluchów' },
+    { id: 'dzieciaki', label: 'Dla dzieci' },
   ]
 
   return (
@@ -47,8 +47,8 @@ export function Menu() {
             </h2>
           </Reveal>
           <Reveal delay={160} className="body-lg menu-sub">
-            Dobra kawa, domowe ciasta i coś dla maluchów. Mała kawiarnia z dużym sercem —
-            zaprojektowana tak, żebyś naprawdę odpoczął, kiedy dziecko się bawi.
+            Specialty kawa, domowe ciasta (też bez cukru i bezglutenowe), menu dla dzieci bez cukru.
+            Mała kawiarnia obok sali zabaw — pijesz, jesz, dziecko się bawi w zasięgu wzroku.
           </Reveal>
 
           <div className="menu-tabs" role="tablist">

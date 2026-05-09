@@ -1,48 +1,35 @@
 import { useEffect } from 'react'
+import { Breadcrumb } from '../components/Breadcrumb.jsx'
 import { Reveal } from '../components/Reveal.jsx'
 import { Decoration } from '../components/Decoration.jsx'
 import { IconArrow, IconInstagram } from '../components/icons.jsx'
-import { WARSZTATY_FAQ as FAQ, WARSZTATY_META as META } from '../data/warsztaty.js'
+import {
+  WARSZTATY_FAQ as FAQ,
+  WARSZTATY_META as META,
+  WARSZTATY_EXAMPLES as EXAMPLES,
+} from '../data/warsztaty.js'
 import { updateHead } from '../lib/head.js'
-
-const TYPES = [
-  {
-    h: 'Sensoplastyka',
-    age: 'od 6 mies. do 4 lat',
-    p: 'Bezpieczne masy sensoryczne z produktów spożywczych — mąka, żelatyna, kolorowy ryż, kasze, owoce. Dziecko ugniata, miesza, przesypuje, a przy okazji ćwiczy małą motorykę i poznaje tekstury. Najmłodsi siedzą na podłodze z tobą obok.',
-  },
-  {
-    h: 'Warsztaty plastyczne',
-    age: 'od 3 do 10 lat',
-    p: 'Malowanie farbami, lepienie z masy solnej, prace z naturalnych materiałów (drewno, szyszki, liście), kolaże. Każde dziecko zabiera własną pracę do domu. Prowadząca pokazuje technikę, ale nie poprawia po dziecku — efekt jest jego.',
-  },
-  {
-    h: 'Zajęcia kreatywne tematyczne',
-    age: 'dobrane pod wiek grupy',
-    p: 'Pory roku, święta, ulubione książki dla dzieci. Łączymy elementy sensoplastyki, plastyki i swobodnej zabawy w drewnianej sali Montessori. Dobre na pierwszy warsztat, jeśli nie wiesz, co dziecko najbardziej polubi.',
-  },
-]
 
 const PROCESS = [
   {
     n: '1',
-    h: 'Telefon i wybór warsztatu',
-    p: 'Dzwonisz na +48 693 766 049 albo piszesz na Instagramie. Mówisz, ile dziecko ma lat i co was interesuje (sensoplastyka, plastyka, zajęcia tematyczne). Wspólnie wybieramy termin, temat i długość spotkania.',
+    h: 'Śledź Instagram',
+    p: 'Najbliższe warsztaty ogłaszamy na profilu @bawisz_bawialnia z 1-2 tygodniowym wyprzedzeniem. W ogłoszeniu znajdziesz datę, prowadzącego, dla jakiego wieku, ile trwa i ile kosztuje. Włącz powiadomienia — część terminów wyprzedaje się w kilka dni.',
   },
   {
     n: '2',
-    h: 'Przygotowanie sali',
-    p: 'Zanim przyjdziecie, układamy materiały: bezpieczne masy sensoryczne, papier, farby, naturalne dodatki. Prowadząca zna program co do minuty — bez wymyślania w trakcie, bez improwizowania na żywo.',
+    h: 'Zadzwoń, żeby zarezerwować',
+    p: 'Po zobaczeniu ogłoszenia dzwonisz na +48 693 766 049 albo piszesz na Instagramie. Mówisz, na który warsztat i ile dzieci. Potwierdzamy miejsce — liczba miejsc ograniczona, zwykle 6-10 dzieci na warsztat.',
   },
   {
     n: '3',
     h: 'Zajęcia z prowadzącą',
-    p: 'Na warsztatach prowadząca aktywnie pracuje z dziećmi: prowadzi zabawę, pokazuje techniki, pomaga przy trudniejszych krokach. Zostajesz w sali, jeśli chcesz — przy najmłodszych zwykle warto, przy starszych możesz poczekać w kawiarni.',
+    p: '1,5 godziny zajęć z zaproszoną prowadzącą — pokazuje technikę, prowadzi zabawę, pomaga przy trudniejszych krokach. Zostajesz w sali, jeśli chcesz, albo czekasz w kawiarni obok. Przy najmłodszych warto być na sali.',
   },
   {
     n: '4',
     h: 'Po zajęciach — kawa i ciasto',
-    p: 'Dziecko zabiera swoją pracę do domu. Wy macie chwilę na kawę i ciasto domowe w kawiarni obok sali. Sala posprzątana, ręce odmyte, ubrania (zwykle) bez większych strat — masy sensoryczne piorą się normalnie.',
+    p: 'Dziecko zabiera swoją pracę do domu (jeśli warsztat plastyczny). Wy macie chwilę na kawę i ciasto domowe w kawiarni przy sali. Materiały sprząta prowadząca — wracacie spokojnie do auta.',
   },
 ]
 
@@ -65,25 +52,29 @@ export default function Warsztaty() {
 
         <div className="svc-hero-shell shell">
           <div className="svc-hero-text">
+            <Breadcrumb items={[
+              { name: 'Strona główna', href: '/' },
+              { name: 'Warsztaty', href: '/warsztaty/' },
+            ]} />
             <span className="eyebrow fade-up">[ Warsztaty dla dzieci · Nowy Targ ]</span>
 
             <h1 className="svc-h1 fade-up" style={{ animationDelay: '0.05s' }}>
               <span className="line">Warsztaty dla dzieci.</span>
-              <span className="line hero-italic">Nowy Targ — sensoplastyka,</span>
-              <span className="line">plastyka i drewniana sala.</span>
+              <span className="line hero-italic">Nowy Targ — plastyka, glina,</span>
+              <span className="line">joga, animaloterapia.</span>
             </h1>
 
             <div className="svc-hero-ctas fade-up" style={{ animationDelay: '0.35s' }}>
-              <a href="tel:+48693766049" className="btn btn-pop">
-                Zadzwoń · 693 766 049 <IconArrow size={16} />
-              </a>
               <a
                 href="https://www.instagram.com/bawisz_bawialnia/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn btn-ghost-light"
+                className="btn btn-pop"
               >
-                <IconInstagram size={16} /> Napisz na Instagramie
+                <IconInstagram size={16} /> Sprawdź terminy na Instagramie <IconArrow size={16} />
+              </a>
+              <a href="tel:+48693766049" className="btn btn-ghost-light">
+                Zadzwoń · 693 766 049
               </a>
             </div>
           </div>
@@ -95,13 +86,22 @@ export default function Warsztaty() {
         <div className="shell">
           <Reveal>
             <p className="svc-intro-p body-lg">
-              Warsztaty dla dzieci w Bawiszu to sensoplastyka, plastyka i zajęcia kreatywne w drewnianej sali Montessori przy ul. Krzywej 19B w Nowym Targu. Małe grupy (do 8 dzieci), prowadząca prowadzi zajęcia od początku do końca, a ty zostajesz w sali albo siadasz obok przy kawie — jak wam pasuje. Dla dzieci od 6 miesięcy do 10 lat. Termin i cenę ustalamy przez telefon — gdy wiemy, jaki warsztat was interesuje.
+              Warsztaty dla dzieci w Bawiszu w Nowym Targu prowadzą zaproszeni partnerzy — w drewnianej sali Montessori przy ul. Krzywej 19B. Repertuar zmienia się: plastyka, glina, joga dla dzieci, animaloterapia, sensoryka. Wszystkie najbliższe terminy ogłaszamy na Instagramie{' '}
+              <a
+                href="https://www.instagram.com/bawisz_bawialnia/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="svc-intro-link"
+              >
+                @bawisz_bawialnia
+              </a>{' '}
+              — tam znajdziesz datę, prowadzącego, wiek dziecka i cenę. Standardowo 1,5 h zajęć, 60-80 zł od osoby.
             </p>
           </Reveal>
         </div>
       </section>
 
-      {/* CO PROWADZIMY — typy warsztatów */}
+      {/* PRZYKŁADY — warsztaty, które już prowadziliśmy */}
       <section className="svc-types">
         <Decoration
           type="leaf"
@@ -113,23 +113,25 @@ export default function Warsztaty() {
         />
         <div className="shell">
           <div className="svc-head">
-            <Reveal className="eyebrow">[ Co prowadzimy ]</Reveal>
+            <Reveal className="eyebrow">[ Co już u nas było ]</Reveal>
             <Reveal delay={80}>
               <h2 className="svc-h2">
-                Trzy typy <span className="hero-italic">warsztatów.</span>
+                Przykłady <span className="hero-italic">warsztatów.</span>
               </h2>
             </Reveal>
             <Reveal delay={160} className="body-lg svc-sub">
-              Wybierasz po wieku dziecka i tym, co was interesuje. Każdy z trzech typów prowadzimy w drewnianej sali Montessori, w grupie maks. 8 dzieci.
+              Warsztaty robimy nieregularnie — z różnymi prowadzącymi i tematami. Poniżej kilka, które już u nas były. Najbliższe terminy zawsze na Instagramie.
             </Reveal>
           </div>
 
           <div className="svc-types-grid">
-            {TYPES.map((t, i) => (
+            {EXAMPLES.map((t, i) => (
               <Reveal key={t.h} delay={i * 80} className="svc-type-card">
                 <div className="svc-type-age">{t.age}</div>
                 <h3 className="svc-type-h">{t.h}</h3>
+                <div className="svc-type-meta">{t.meta}</div>
                 <p className="svc-type-p">{t.p}</p>
+                <div className="svc-type-by">{t.by}</div>
               </Reveal>
             ))}
           </div>
@@ -151,11 +153,11 @@ export default function Warsztaty() {
             <Reveal className="eyebrow">[ Jak to wygląda ]</Reveal>
             <Reveal delay={80}>
               <h2 className="svc-h2">
-                Cztery kroki. <span className="hero-italic">Bez improwizacji.</span>
+                Cztery kroki. <span className="hero-italic">Zaczynamy od Instagrama.</span>
               </h2>
             </Reveal>
             <Reveal delay={160} className="body-lg svc-sub">
-              Najczęstsze pytanie: „czy moje dziecko da radę?". Odpowiedź: prowadząca dobiera trudność pod wiek grupy, więc 2-latek robi co innego niż 6-latek — i każde wraca zadowolone.
+              Najczęstsze pytanie: „skąd mam wiedzieć, kiedy będzie warsztat?". Odpowiedź: ogłaszamy je z 1-2 tygodniowym wyprzedzeniem na Instagramie — zaobserwuj profil, żeby nie przegapić.
             </Reveal>
           </div>
 
@@ -179,23 +181,23 @@ export default function Warsztaty() {
           <Reveal className="svc-mid-box">
             <div className="svc-mid-text">
               <h2 className="svc-mid-h">
-                Termin <span className="hero-italic">warsztatów</span>?
+                Najbliższy <span className="hero-italic">warsztat</span>?
               </h2>
               <p className="svc-mid-p">
-                Wolne terminy w tygodniu po południu i w sobotę rano. Warsztaty na zamówienie (urodziny tematyczne, grupy zorganizowane, przedszkola) — minimum 2 tygodnie wyprzedzenia. Najszybciej przez telefon.
+                Aktualne terminy, ceny i zapisy na profilu @bawisz_bawialnia. Jeśli masz pomysł na warsztat tematyczny dla zamkniętej grupy (urodziny, wyjście przedszkolne) — dzwoń, ustalamy minimum 2 tygodnie wcześniej.
               </p>
             </div>
             <div className="svc-mid-ctas">
-              <a href="tel:+48693766049" className="btn btn-pop">
-                Zadzwoń · 693 766 049
-              </a>
               <a
                 href="https://www.instagram.com/bawisz_bawialnia/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn btn-ghost-light"
+                className="btn btn-pop"
               >
-                <IconInstagram size={16} /> Napisz na Instagramie
+                <IconInstagram size={16} /> Otwórz Instagram
+              </a>
+              <a href="tel:+48693766049" className="btn btn-ghost-light">
+                Zadzwoń · 693 766 049
               </a>
             </div>
           </Reveal>
@@ -233,19 +235,19 @@ export default function Warsztaty() {
               Zapisy na <span className="hero-italic">warsztaty</span>
             </h2>
             <p className="svc-final-p">
-              ul. Krzywa 19B, Nowy Targ. Sensoplastyka, plastyka albo warsztaty na zamówienie — termin i cenę dogadujemy przez telefon, gdy wiemy, na jaki warsztat się decydujecie.
+              ul. Krzywa 19B, Nowy Targ. Aktualny grafik warsztatów (plastyka, glina, joga, animaloterapia) na Instagramie @bawisz_bawialnia. Zapisy telefonicznie albo wiadomością na Instagramie.
             </p>
             <div className="svc-final-ctas">
-              <a href="tel:+48693766049" className="btn btn-pop">
-                Zadzwoń · 693 766 049
-              </a>
               <a
                 href="https://www.instagram.com/bawisz_bawialnia/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn btn-cream"
+                className="btn btn-pop"
               >
-                <IconInstagram size={16} /> Napisz na Instagramie
+                <IconInstagram size={16} /> Otwórz Instagram
+              </a>
+              <a href="tel:+48693766049" className="btn btn-cream">
+                Zadzwoń · 693 766 049
               </a>
             </div>
           </Reveal>

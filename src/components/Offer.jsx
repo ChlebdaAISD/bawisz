@@ -8,23 +8,23 @@ export function Offer() {
       n: '01',
       icon: IconBlock,
       t: 'Sala zabaw',
-      s: 'Drewniane konstrukcje, tunele, zjeżdżalnia, klocki i strefa sensoryczna. Miejsce dla maluchów i starszych dzieci — każdy znajdzie coś dla siebie.',
-      tags: ['0–12 lat', 'Sensoryka', 'Drewno'],
+      s: '220 m² drewnianej przestrzeni Montessori — naturalne zabawki, strefy dla najmłodszych i starszych. Bawisz się ze swoim dzieckiem, nie zostawiasz go z animatorem.',
+      tags: ['0–10 lat', 'Montessori', 'Drewno'],
       tone: 'cream',
     },
     {
       n: '02',
       icon: IconCoffee,
       t: 'Kawiarnia',
-      s: 'Kawa, herbata, ciasta i przekąski. Wygodne miejsce dla rodziców — usiądź, odpocznij, miej dzieci na oku.',
-      tags: ['Kawa', 'Ciasta', 'Przekąski'],
+      s: 'Kawa specialty, domowe ciasta (też bez cukru i bezglutenowe), menu dla dzieci. Pijesz kawę obok sali — dziecko w zasięgu wzroku, bez wstawania.',
+      tags: ['Specialty', 'Domowe ciasta', 'Bez cukru'],
       tone: 'sage',
     },
     {
       n: '03',
       icon: IconCake,
       t: 'Urodziny',
-      s: 'Dwa pakiety urodzinowe, motywy lasu i kwiatów, opcja sali na wyłączność. Dekoracje, poczęstunek i prezent dla solenizanta — my zajmujemy się resztą.',
+      s: 'Pakiet MINI 45 zł/os. (2 h) albo STANDARD 74 zł/os. (2,5 h, sala tylko dla was). Dekoracje, poczęstunek i prezent dla solenizanta — my robimy resztę.',
       tags: ['MINI · STANDARD', 'Sala na wyłączność', 'Prezent od nas'],
       tone: 'cream',
     },
@@ -32,7 +32,7 @@ export function Offer() {
       n: '04',
       icon: IconPalette,
       t: 'Warsztaty',
-      s: 'Plastyka, sensoplastyka, wspólne tworzenie. Daj dziecku spróbować czegoś nowego — w spokojnej atmosferze i niewielkiej grupie.',
+      s: 'Plastyka, sensoplastyka, glina, joga dla dzieci. Małe grupy, prowadzące prowadzą zajęcia — ty siedzisz w kawiarni i masz chwilę.',
       tags: ['Plastyka', 'Sensoplastyka', 'Małe grupy'],
       tone: 'cream',
     },
@@ -58,8 +58,8 @@ export function Offer() {
             </h2>
           </Reveal>
           <Reveal delay={160} className="body-lg offer-sub">
-            Bawialnia, kawiarnia, urodziny i warsztaty — wszystko w jednej, drewnianej przestrzeni.
-            Wchodzisz na chwilę, zostajesz na trzy godziny.
+            Bawialnia, kawiarnia, urodziny i warsztaty — wszystko w jednej drewnianej przestrzeni
+            przy ul. Krzywej 19B w Nowym Targu. Wchodzisz na chwilę, zostajesz na trzy godziny.
           </Reveal>
         </div>
 

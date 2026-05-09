@@ -1,37 +1,75 @@
-export const WARSZTATY_FAQ = [
+export const WARSZTATY_EXAMPLES = [
   {
-    q: 'Jakie warsztaty dla dzieci prowadzicie w Nowym Targu?',
-    a: 'Sensoplastykę (zabawy z masami sensorycznymi z bezpiecznych produktów spożywczych — mąka, żelatyna, kasze), warsztaty plastyczne (malowanie, lepienie, prace z naturalnych materiałów) i zajęcia kreatywne tematyczne (np. wokół pór roku, świąt, książek dla dzieci). Wszystko prowadzone w drewnianej sali Montessori przy ul. Krzywej 19B, w małych grupach.',
+    h: 'Akademia Maluszka',
+    age: 'do 4 roku życia',
+    meta: '1,5 h · 60 zł/os.',
+    by: 'Anna Jagoda Mrożek · Effata Anima',
+    p: 'Cykl spotkań plastycznych dla najmłodszych — zabawa kolorem, proste prace plastyczne, swobodna zabawa po zajęciach. Cztery terminy w sezonie.',
   },
   {
-    q: 'Dla jakiego wieku dziecka są te warsztaty?',
-    a: 'Sensoplastyka — od 6. miesiąca do około 4 lat (najmłodsi razem z rodzicem na podłodze, starsi przy stoliku). Warsztaty plastyczne i kreatywne — od 3 do 10 lat. Grupę dobieramy pod wiek, żeby dzieci ani się nie nudziły, ani nie miały za dużo wszystkiego naraz.',
+    h: 'Mały Artysta',
+    age: 'od 4 roku życia',
+    meta: '1,5 h · 70 zł/os.',
+    by: 'Anna Jagoda Mrożek · Effata Anima',
+    p: 'Cykl plastyczny „Poznajemy mistrzów, tworzymy po swojemu". Dzieci poznają wybranego twórcę i robią własną pracę inspirowaną jego stylem.',
+  },
+  {
+    h: 'Warsztaty z gliny',
+    age: 'od 4 roku życia',
+    meta: '1,5 h · 80 zł/os.',
+    by: 'Anna Jagoda Mrożek · Effata Anima',
+    p: 'Lepienie z gliny — od ugniatania i poznawania faktury, po formowanie pierwszych figurek. Pracę dziecko zabiera do domu po wyschnięciu.',
+  },
+  {
+    h: 'Gimnastyka dla Smyka',
+    age: 'od 2 roku życia',
+    meta: '1,5 h · 60 zł/os.',
+    by: 'Anna Tomalak · Asana Joga',
+    p: 'Cykliczne zajęcia ruchowe dla najmłodszych — joga dla dzieci, pozycje zwierząt, zabawy z chustą i piłką. Bardziej zabawa niż „trening".',
+  },
+  {
+    h: 'Warsztaty z kurami jedwabistymi',
+    age: 'dla dzieci i rodzin',
+    meta: 'animaloterapia · sensoryka',
+    by: 'partner zewnętrzny',
+    p: 'Spotkanie z puszystymi kurami jedwabistymi — przytulanie, karmienie, dotykanie miękkiego pierza. Element wyciszenia, kontaktu z naturą i sensoryki.',
+  },
+]
+
+export const WARSZTATY_FAQ = [
+  {
+    q: 'Skąd dowiem się o najbliższych warsztatach w Bawiszu?',
+    a: 'Wszystkie warsztaty ogłaszamy na bieżąco na Instagramie @bawisz_bawialnia — tam znajdziesz datę, godzinę, prowadzącego, wiek dziecka i cenę. Najszybciej zaobserwować profil i włączyć powiadomienia, bo część terminów wyprzedaje się w 2-3 dni.',
+  },
+  {
+    q: 'Kto prowadzi warsztaty?',
+    a: 'Zapraszamy zewnętrznych prowadzących, którzy specjalizują się w swoim temacie. Stale pracujemy m.in. z Anną Jagodą Mrożek (Effata Anima — Akademia Maluszka, Mały Artysta, warsztaty z gliny) oraz Anną Tomalak (Asana Joga — Gimnastyka dla Smyka). Co jakiś czas dochodzą jednorazowi partnerzy do warsztatów tematycznych (np. animaloterapia z kurami jedwabistymi).',
+  },
+  {
+    q: 'Jakie warsztaty były dotychczas u was?',
+    a: 'Cykliczne: Akademia Maluszka (do 4 lat, plastyka), Mały Artysta (od 4 lat, plastyka), Gimnastyka dla Smyka (od 2 lat, ruch). Jednorazowe: warsztaty z gliny, warsztaty z kurami jedwabistymi (animaloterapia), zajęcia tematyczne wokół pór roku i świąt. Repertuar zmienia się — sprawdź Instagram, co planujemy w najbliższym miesiącu.',
   },
   {
     q: 'Ile kosztują warsztaty i jak długo trwają?',
-    a: 'Cena zależy od rodzaju warsztatu i długości spotkania. Sensoplastyka trwa zwykle 45-60 minut, warsztaty plastyczne 60-90 minut. Konkretną cenę podajemy, gdy wiemy, na jaki warsztat i jak długie spotkanie się decydujecie — najszybciej przez telefon: +48 693 766 049.',
+    a: 'Standardowo 1,5 godziny zajęć z prowadzącą plus swobodna zabawa. Cena 60-80 zł od osoby — dokładna kwota podana jest zawsze przy ogłoszeniu konkretnego warsztatu na Instagramie. Cena obejmuje materiały (farby, glinę, masy sensoryczne i to, co potrzebne na danym warsztacie).',
   },
   {
-    q: 'Czy rodzic zostaje na warsztatach z dzieckiem?',
-    a: 'Przy sensoplastyce dla najmłodszych (do 2 lat) — zostajesz, bo dziecko potrzebuje cię obok. Przy warsztatach plastycznych dla starszych dzieci możesz zostać w sali albo poczekać w kawiarni przy kawie i cieście. Nie zostawiamy nikogo na siłę — robimy tak, jak rodzic i dziecko czują się najlepiej.',
+    q: 'Dla jakiego wieku dziecka są warsztaty?',
+    a: 'Każdy warsztat ma określony wiek — od 2 lat na Gimnastyce dla Smyka, do 4 lat na Akademii Maluszka, od 4 lat na Małym Artyście i warsztatach z gliny, dla dzieci i rodzin razem na warsztatach z kurami. Wiek jest zawsze podany w ogłoszeniu na Instagramie.',
   },
   {
-    q: 'Ile dzieci jest w jednej grupie?',
-    a: 'Maksymalnie 8 dzieci w grupie warsztatowej. To pozwala prowadzącej widzieć każde dziecko, dopasować tempo i pomóc tam, gdzie trzeba. Dla grup zorganizowanych (przedszkola, urodziny tematyczne) ustalamy liczebność indywidualnie.',
+    q: 'Jak się zapisać?',
+    a: 'Zapisy przez telefon: +48 693 766 049 albo wiadomość na Instagramie. Liczba miejsc jest ograniczona (zwykle 6-10 dzieci na warsztat), więc dzwoń od razu po zobaczeniu ogłoszenia. Po telefonie potwierdzamy rezerwację i przypominamy o terminie dzień wcześniej.',
   },
   {
-    q: 'Czy mogę zamówić warsztaty na urodziny dziecka albo dla zamkniętej grupy?',
-    a: 'Tak — prowadzimy warsztaty na zamówienie: urodziny tematyczne z elementami sensoplastyki lub plastyki, wyjścia przedszkolne, spotkania w grupie znajomych mam. Termin i temat ustalamy telefonicznie z minimum 2 tygodniami wyprzedzenia.',
-  },
-  {
-    q: 'Gdzie odbywają się warsztaty i czy jest parking?',
-    a: 'Warsztaty prowadzimy w drewnianej sali Montessori w Bawiszu — ul. Krzywa 19B, 34-400 Nowy Targ, w centrum miasta. Parking jest tuż obok lokalu. Po zajęciach możecie zostać w kawiarni: kawa, ciasto domowe, sok dla dziecka.',
+    q: 'Mam pomysł na warsztat — czy mogę go u was poprowadzić?',
+    a: 'Tak — szukamy nowych partnerów. Prowadzisz zajęcia dla dzieci (plastyka, muzyka, ruch, zwierzęta, kuchnia), masz portfolio i chcesz wynająć drewnianą salę Montessori w Nowym Targu? Napisz na Instagramie albo zadzwoń na +48 693 766 049 — ustalimy szczegóły.',
   },
 ]
 
 export const WARSZTATY_META = {
-  title: 'Warsztaty dla dzieci Nowy Targ — Bawisz | sensoplastyka, plastyka',
-  description: 'Warsztaty dla dzieci w Nowym Targu w drewnianej sali Montessori: sensoplastyka, plastyka, zajęcia kreatywne. Małe grupy, prowadzone zajęcia. Ocena 4.9/5 w Google.',
+  title: 'Warsztaty dla dzieci Nowy Targ — Bawisz | plastyka, glina, joga',
+  description: 'Warsztaty dla dzieci w Nowym Targu w drewnianej sali Montessori: plastyka, glina, joga dla dzieci, animaloterapia. Terminy na Instagramie. 60-80 zł/os, 1,5 h.',
   canonical: 'https://bawialniabawisz.pl/warsztaty/',
   ogImage: 'https://bawialniabawisz.pl/assets/og-warsztaty.jpg',
 }

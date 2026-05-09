@@ -38,7 +38,7 @@
 - szarlotka nowy targ (commercial-local, longtail z menu)
 
 ### `/oferta-grupowa/`
-**Primary:** `oferta dla przedszkoli nowy targ` (verified, used 2026-05-08 — patrz used_keywords.md)
+**Primary:** `oferta dla przedszkoli nowy targ` (verified, used 2026-05-09 — patrz used_keywords.md)
 **Cluster (H2 / supporting):**
 - wyjścia grupowe nowy targ (commercial-local)
 - wyjścia dla przedszkoli nowy targ (commercial-local)

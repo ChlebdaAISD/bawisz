@@ -15,18 +15,18 @@ export function Hero({ onBookBirthday }) {
 
       <div className="hero-shell shell">
         <div className="hero-text">
-          <span className="eyebrow fade-up">[ Bawialnia &amp; Kawiarnia · Nowy Targ ]</span>
+          <span className="eyebrow fade-up">[ Bawialnia Montessori · Nowy Targ ]</span>
 
           <h1 className="hero-headline fade-up" style={{ animationDelay: '0.05s' }}>
-            <span className="line">Sala zabaw</span>
-            <span className="line hero-italic">i kawiarnia,</span>
+            <span className="line">Bawialnia</span>
+            <span className="line hero-italic">w Nowym Targu,</span>
             <span className="line">do której dziecko</span>
             <span className="line hero-italic">chce wracać.</span>
           </h1>
 
           <p className="hero-sub body-lg fade-up" style={{ animationDelay: '0.2s' }}>
-            Kreatywna, drewniana przestrzeń dla dzieci 0–12 lat.<br />
-            Ty pijesz kawę i jesz ciasto. One bawią się, tworzą i odkrywają.
+            Drewniana sala Montessori dla dzieci 0–10 lat przy ul. Krzywej 19B.<br />
+            Ty pijesz kawę i jesz domowe ciasto. Dziecko bawi się obok — przy naturalnych zabawkach.
           </p>
 
           <div className="hero-ctas fade-up" style={{ animationDelay: '0.35s' }}>
@@ -44,7 +44,7 @@ export function Hero({ onBookBirthday }) {
             <div className="hero-meta-div" />
             <div>
               <div className="hero-meta-num display">220 m²</div>
-              <div className="hero-meta-lbl">sali zabaw</div>
+              <div className="hero-meta-lbl">drewnianej sali</div>
             </div>
             <div className="hero-meta-div" />
             <div>

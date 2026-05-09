@@ -9,6 +9,7 @@ import Kawiarnia from './pages/Kawiarnia.jsx'
 import Warsztaty from './pages/Warsztaty.jsx'
 import ONas from './pages/ONas.jsx'
 import OfertaGrupowa from './pages/OfertaGrupowa.jsx'
+import Kontakt from './pages/Kontakt.jsx'
 
 const COZY = {
   '--cream':       '#FFFFFF',
@@ -53,7 +54,7 @@ function ScrollToTop() {
   return null
 }
 
-export default function App() {
+export default function App({ ssrPath }) {
   const [bookOpen, setBookOpen] = useState(false)
   const openBook = () => setBookOpen(true)
 
@@ -64,7 +65,7 @@ export default function App() {
   }, [])
 
   return (
-    <Router>
+    <Router ssrPath={ssrPath}>
       <ScrollToTop />
       <Navbar onBookBirthday={openBook} />
       <main>
@@ -80,6 +81,8 @@ export default function App() {
           <Route path="/o-nas/" component={() => <ONas onBookBirthday={openBook} />} />
           <Route path="/oferta-grupowa" component={() => <OfertaGrupowa />} />
           <Route path="/oferta-grupowa/" component={() => <OfertaGrupowa />} />
+          <Route path="/kontakt" component={() => <Kontakt onBookBirthday={openBook} />} />
+          <Route path="/kontakt/" component={() => <Kontakt onBookBirthday={openBook} />} />
           <Route>
             <Home onBookBirthday={openBook} />
           </Route>

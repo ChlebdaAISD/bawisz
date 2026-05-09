@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { Menu } from '../components/Menu.jsx'
+import { Breadcrumb } from '../components/Breadcrumb.jsx'
 import { Reveal } from '../components/Reveal.jsx'
 import { Decoration } from '../components/Decoration.jsx'
 import { IconArrow, IconInstagram } from '../components/icons.jsx'
@@ -48,6 +49,10 @@ export default function Kawiarnia({ onBookBirthday = () => {} }) {
 
         <div className="svc-hero-shell shell">
           <div className="svc-hero-text">
+            <Breadcrumb items={[
+              { name: 'Strona główna', href: '/' },
+              { name: 'Kawiarnia', href: '/kawiarnia/' },
+            ]} />
             <span className="eyebrow fade-up">[ Kawiarnia · Nowy Targ ]</span>
 
             <h1 className="svc-h1 fade-up" style={{ animationDelay: '0.05s' }}>

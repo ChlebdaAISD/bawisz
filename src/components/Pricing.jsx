@@ -32,11 +32,12 @@ export function Pricing({ onBookBirthday }) {
           <Reveal className="eyebrow">[ Cennik ]</Reveal>
           <Reveal delay={80}>
             <h2 className="prc-h">
-              Zabawa — <span className="hero-italic">oferta indywidualna</span>
+              Wstęp od 25 zł. <span className="hero-italic">Bez niespodzianek.</span>
             </h2>
           </Reveal>
           <Reveal delay={160} className="body-lg prc-sub">
-            Jasne stawki, bez ukrytych kosztów. Opiekun zawsze gratis, rodzeństwo z rabatem 25%.
+            Cztery pakiety czasowe, jeden karnet miesięczny, karty podarunkowe od 29 zł.
+            Opiekun zawsze gratis, rodzeństwo −25%.
           </Reveal>
         </div>
 
