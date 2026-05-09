@@ -62,7 +62,6 @@ export default function Urodziny({ onBookBirthday }) {
               { name: 'Strona główna', href: '/' },
               { name: 'Urodziny', href: '/urodziny/' },
             ]} />
-            <span className="eyebrow fade-up">[ Urodziny dla dziecka · Nowy Targ ]</span>
 
             <h1 className="svc-h1 fade-up" style={{ animationDelay: '0.05s' }}>
               <span className="line">Urodziny dla dziecka.</span>

@@ -1,3 +1,4 @@
+import { Link } from 'wouter'
 import { Reveal } from './Reveal.jsx'
 import { IconArrow } from './icons.jsx'
 import { AnimalDeer, AnimalBear, AnimalFox } from './animals.jsx'
@@ -41,7 +42,7 @@ export function About() {
           </div>
 
           <Reveal delay={520}>
-            <a href="#oferta" className="btn btn-ghost about-cta">Zobacz, co u nas znajdziesz <IconArrow size={16} /></a>
+            <Link href="/o-nas/" className="btn btn-ghost about-cta">Czytaj więcej o nas <IconArrow size={16} /></Link>
           </Reveal>
         </div>
       </div>

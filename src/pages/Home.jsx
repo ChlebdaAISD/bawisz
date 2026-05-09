@@ -4,6 +4,7 @@ import { About } from '../components/About.jsx'
 import { Offer } from '../components/Offer.jsx'
 import { Gallery } from '../components/Gallery.jsx'
 import { Pricing } from '../components/Pricing.jsx'
+import { Birthdays } from '../components/Birthdays.jsx'
 import { Menu } from '../components/Menu.jsx'
 import { Testimonials } from '../components/Testimonials.jsx'
 import { Hours } from '../components/Hours.jsx'
@@ -23,7 +24,8 @@ export default function Home({ onBookBirthday }) {
       <About />
       <Offer />
       <Gallery />
-      <Pricing onBookBirthday={onBookBirthday} />
+      <Pricing />
+      <Birthdays onBookBirthday={onBookBirthday} />
       <Menu />
       <Testimonials />
 

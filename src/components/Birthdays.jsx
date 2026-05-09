@@ -1,3 +1,4 @@
+import { Link } from 'wouter'
 import { Reveal } from './Reveal.jsx'
 import { IconArrow } from './icons.jsx'
 import { Decoration } from './Decoration.jsx'
@@ -120,6 +121,9 @@ export function Birthdays({ onBookBirthday }) {
           <button className="btn btn-pop" onClick={onBookBirthday}>
             Zarezerwuj urodziny <IconArrow size={16} />
           </button>
+          <Link href="/urodziny/" className="btn btn-ghost">
+            Wszystkie szczegóły <IconArrow size={16} />
+          </Link>
           <a href="tel:+48693766049" className="btn btn-ghost">Zadzwoń · 693 766 049</a>
         </Reveal>
       </div>
@@ -130,7 +134,7 @@ export function Birthdays({ onBookBirthday }) {
         .bd-h {
           font-family: var(--font-heading);
           font-weight: 600;
-          font-size: clamp(36px, 5.5vw, 68px);
+          font-size: clamp(38px, 5.2vw, 64px);
           line-height: 1.05;
           letter-spacing: -0.01em;
           margin: 14px 0 18px;
@@ -182,7 +186,7 @@ export function Birthdays({ onBookBirthday }) {
 
         .bd-card-name {
           font-family: var(--font-heading);
-          font-size: clamp(34px, 4.2vw, 48px);
+          font-size: clamp(38px, 5.2vw, 64px);
           font-weight: 700;
           letter-spacing: 0.02em;
           color: var(--ink);

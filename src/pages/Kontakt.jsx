@@ -83,7 +83,6 @@ export default function Kontakt({ onBookBirthday }) {
               { name: 'Strona główna', href: '/' },
               { name: 'Kontakt', href: '/kontakt/' },
             ]} />
-            <span className="eyebrow fade-up">[ Kontakt · Bawisz Nowy Targ ]</span>
 
             <h1 className="svc-h1 fade-up" style={{ animationDelay: '0.05s' }}>
               <span className="line">Kontakt — Bawisz.</span>
@@ -382,7 +381,7 @@ export default function Kontakt({ onBookBirthday }) {
         .kt-place-h {
           font-family: var(--font-heading);
           font-weight: 600;
-          font-size: clamp(36px, 5.4vw, 72px);
+          font-size: clamp(38px, 5.2vw, 64px);
           line-height: 1.05;
           letter-spacing: -0.01em;
           margin: 16px 0 18px;

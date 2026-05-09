@@ -65,7 +65,6 @@ export default function Warsztaty() {
               { name: 'Strona główna', href: '/' },
               { name: 'Warsztaty', href: '/warsztaty/' },
             ]} />
-            <span className="eyebrow fade-up">[ Warsztaty dla dzieci · Nowy Targ ]</span>
 
             <h1 className="svc-h1 fade-up" style={{ animationDelay: '0.05s' }}>
               <span className="line">Warsztaty dla dzieci.</span>

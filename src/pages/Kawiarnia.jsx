@@ -62,7 +62,6 @@ export default function Kawiarnia({ onBookBirthday = () => {} }) {
               { name: 'Strona główna', href: '/' },
               { name: 'Kawiarnia', href: '/kawiarnia/' },
             ]} />
-            <span className="eyebrow fade-up">[ Kawiarnia · Nowy Targ ]</span>
 
             <h1 className="svc-h1 fade-up" style={{ animationDelay: '0.05s' }}>
               <span className="line">Kawiarnia w Nowym Targu.</span>

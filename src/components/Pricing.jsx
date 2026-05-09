@@ -1,9 +1,8 @@
 import { Reveal } from './Reveal.jsx'
-import { IconArrow } from './icons.jsx'
 import { Decoration } from './Decoration.jsx'
 import { AnimalDeer, AnimalBear, AnimalFox, AnimalWolf } from './animals.jsx'
 
-export function Pricing({ onBookBirthday }) {
+export function Pricing() {
   const tiers = [
     { time: '1h', price: '25', Animal: AnimalDeer, bg: 'var(--bone)', shift: -12 },
     { time: '1,5 h', price: '29', Animal: AnimalBear, bg: 'var(--paper)', shift: -9 },
@@ -83,7 +82,6 @@ export function Pricing({ onBookBirthday }) {
         </Reveal>
 
         <Reveal className="prc-cta-row">
-          <button className="btn btn-pop" onClick={onBookBirthday}>Zarezerwuj urodziny <IconArrow size={16} /></button>
           <a href="tel:+48693766049" className="btn btn-ghost">Zadzwoń · 693 766 049</a>
         </Reveal>
       </div>
@@ -94,7 +92,7 @@ export function Pricing({ onBookBirthday }) {
         .prc-h {
           font-family: var(--font-heading);
           font-weight: 600;
-          font-size: clamp(36px, 5.5vw, 68px);
+          font-size: clamp(38px, 5.2vw, 64px);
           line-height: 1.05;
           letter-spacing: -0.01em;
           margin: 14px 0 18px;
