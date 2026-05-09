@@ -52,7 +52,6 @@ export default function ONas({ onBookBirthday }) {
               { name: 'Strona główna', href: '/' },
               { name: 'O nas', href: '/o-nas/' },
             ]} />
-            <span className="eyebrow fade-up">[ O nas · Montessori Nowy Targ ]</span>
 
             <h1 className="svc-h1 fade-up" style={{ animationDelay: '0.05s' }}>
               <span className="line">Bawialnia Montessori</span>

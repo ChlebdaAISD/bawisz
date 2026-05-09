@@ -184,7 +184,7 @@ export function ServiceGallery({ eyebrow = '[ Galeria ]', heading, italic, subti
         .svcgal-h {
           font-family: var(--font-heading);
           font-weight: 600;
-          font-size: clamp(32px, 4.5vw, 56px);
+          font-size: clamp(38px, 5.2vw, 64px);
           line-height: 1.05;
           letter-spacing: -0.01em;
           margin: 14px 0 16px;

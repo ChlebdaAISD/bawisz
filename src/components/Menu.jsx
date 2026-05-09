@@ -1,5 +1,7 @@
 import { useState } from 'react'
+import { Link } from 'wouter'
 import { Reveal, ImgReveal } from './Reveal.jsx'
+import { IconArrow } from './icons.jsx'
 
 export function Menu() {
   const [tab, setTab] = useState('kawa')
@@ -79,6 +81,12 @@ export function Menu() {
           <div className="menu-foot body-sm">
             * Pełne, aktualne menu z cenami znajdziesz na miejscu. Oferta zmienia się sezonowo.
           </div>
+
+          <Reveal delay={120}>
+            <Link href="/kawiarnia/" className="btn btn-ghost menu-cta">
+              Sprawdź kawiarnię <IconArrow size={16} />
+            </Link>
+          </Reveal>
         </div>
 
         <div className="menu-right">
@@ -100,7 +108,7 @@ export function Menu() {
         .menu-h {
           font-family: var(--font-heading);
           font-weight: 600;
-          font-size: clamp(40px, 6vw, 88px);
+          font-size: clamp(38px, 5.2vw, 64px);
           line-height: 1.05;
           letter-spacing: -0.01em;
           margin: 16px 0 20px;
@@ -152,6 +160,7 @@ export function Menu() {
         .menu-item-p span { font-size: 13px; opacity: 0.7; }
 
         .menu-foot { margin-top: 18px; }
+        .menu-cta { margin-top: 24px; }
 
         .menu-right { position: sticky; top: 110px; }
         .menu-photo-wrap {

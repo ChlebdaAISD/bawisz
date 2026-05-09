@@ -97,7 +97,7 @@ export function Hours() {
         .hrs-h {
           font-family: var(--font-heading);
           font-weight: 600;
-          font-size: clamp(40px, 6vw, 88px);
+          font-size: clamp(38px, 5.2vw, 64px);
           line-height: 1.05;
           letter-spacing: -0.01em;
           margin: 16px 0 32px;

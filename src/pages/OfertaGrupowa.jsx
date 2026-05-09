@@ -101,7 +101,6 @@ export default function OfertaGrupowa() {
               { name: 'Strona główna', href: '/' },
               { name: 'Dla przedszkoli', href: '/oferta-grupowa/' },
             ]} />
-            <span className="eyebrow fade-up">[ Wyjścia grupowe · Nowy Targ ]</span>
 
             <h1 className="svc-h1 fade-up" style={{ animationDelay: '0.05s' }}>
               <span className="line">Oferta dla przedszkoli.</span>

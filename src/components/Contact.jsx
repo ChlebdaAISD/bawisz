@@ -1,5 +1,6 @@
+import { Link } from 'wouter'
 import { Reveal } from './Reveal.jsx'
-import { IconPhone, IconInstagram, IconFacebook, IconTiktok, IconArrowUp } from './icons.jsx'
+import { IconPhone, IconInstagram, IconFacebook, IconTiktok, IconArrowUp, IconArrow } from './icons.jsx'
 
 export function Contact() {
   const socials = [
@@ -25,10 +26,13 @@ export function Contact() {
             złapiesz nas telefonicznie. Odpisujemy też na Messengerze i Instagramie.
           </Reveal>
 
-          <Reveal delay={240}>
+          <Reveal delay={240} className="ctc-ctas">
             <a href="tel:+48693766049" className="btn btn-primary ctc-call">
               <IconPhone size={18} /> +48 693 766 049
             </a>
+            <Link href="/kontakt/" className="btn btn-ghost">
+              Pełny kontakt <IconArrow size={16} />
+            </Link>
           </Reveal>
         </div>
 
@@ -59,13 +63,14 @@ export function Contact() {
         .ctc-h {
           font-family: var(--font-heading);
           font-weight: 600;
-          font-size: clamp(48px, 7vw, 110px);
+          font-size: clamp(38px, 5.2vw, 64px);
           line-height: 1.05;
           letter-spacing: -0.01em;
           margin: 16px 0 24px;
           color: var(--ink);
         }
         .ctc-sub { max-width: 46ch; margin-bottom: 32px; }
+        .ctc-ctas { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
         .ctc-call { font-size: 18px; padding: 18px 28px; }
 
         .ctc-social-h { font-family: var(--font-display); font-size: 28px; color: var(--ink); margin-bottom: 18px; }
