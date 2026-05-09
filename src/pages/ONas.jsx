@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { Breadcrumb } from '../components/Breadcrumb.jsx'
 import { Reveal } from '../components/Reveal.jsx'
 import { Decoration } from '../components/Decoration.jsx'
 import { IconArrow, IconInstagram, IconPhone } from '../components/icons.jsx'
@@ -47,6 +48,10 @@ export default function ONas({ onBookBirthday }) {
 
         <div className="svc-hero-shell shell">
           <div className="svc-hero-text">
+            <Breadcrumb items={[
+              { name: 'Strona główna', href: '/' },
+              { name: 'O nas', href: '/o-nas/' },
+            ]} />
             <span className="eyebrow fade-up">[ O nas · Montessori Nowy Targ ]</span>
 
             <h1 className="svc-h1 fade-up" style={{ animationDelay: '0.05s' }}>
@@ -145,50 +150,6 @@ export default function ONas({ onBookBirthday }) {
                 <IconInstagram size={16} /> Napisz na Instagramie
               </a>
             </div>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* NAP block (visible address + hours, not only in JSON-LD) */}
-      <section className="svc-nap">
-        <div className="shell">
-          <Reveal className="svc-nap-box">
-            <div>
-              <div className="svc-nap-h">Adres</div>
-              <p className="svc-nap-p">
-                Bawisz<br />
-                ul. Krzywa 19B<br />
-                34-400 Nowy Targ<br />
-                Centrum, parking obok
-              </p>
-            </div>
-            <div>
-              <div className="svc-nap-h">Kontakt</div>
-              <p className="svc-nap-p">
-                <a href="tel:+48693766049">+48 693 766 049</a><br />
-                Telefon lub SMS<br />
-                <a
-                  href="https://www.instagram.com/bawisz_bawialnia/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >@bawisz_bawialnia</a><br />
-                Facebook: Bawisz · Bawialnia Montessori
-              </p>
-            </div>
-            <div>
-              <div className="svc-nap-h">Godziny</div>
-              <p className="svc-nap-p">
-                Poniedziałek-Piątek: 10:00 — 19:00<br />
-                Sobota-Niedziela: 10:00 — 20:00<br />
-                Otwarte codziennie
-              </p>
-            </div>
-          </Reveal>
-
-          <Reveal className="svc-internal" delay={120}>
-            <p className="svc-internal-p">
-              Zobacz też: <a href="/urodziny/">urodziny dla dziecka</a> · <a href="/kawiarnia/">kawiarnia w Nowym Targu</a> · cennik wstępu na <a href="/#cennik">stronie głównej</a>.
-            </p>
           </Reveal>
         </div>
       </section>

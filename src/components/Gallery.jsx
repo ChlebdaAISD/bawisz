@@ -74,7 +74,7 @@ export function Gallery() {
             </h2>
           </Reveal>
           <Reveal delay={160} className="body-lg gal-sub">
-            200 m² drewna, sklejki i światła. Bez krzykliwego plastiku, bez ekranów.
+            220 m² drewna, sklejki i światła. Bez plastikowego hałasu, bez ekranów.
           </Reveal>
         </div>
 

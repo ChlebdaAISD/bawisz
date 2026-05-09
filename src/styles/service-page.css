@@ -377,3 +377,23 @@
   background: rgba(255,255,255,0.18);
   border-color: rgba(255,255,255,0.85);
 }
+
+/* BREADCRUMB — visible nav above hero eyebrow on dark gradient hero */
+.breadcrumb { margin-bottom: 18px; }
+.breadcrumb ol {
+  list-style: none; padding: 0; margin: 0;
+  display: flex; flex-wrap: wrap; gap: 10px;
+  font-family: var(--font-mono); font-size: 11px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+}
+.breadcrumb li {
+  display: inline-flex; align-items: center; gap: 10px;
+  color: rgba(255, 253, 248, 0.82);
+}
+.breadcrumb a {
+  color: rgba(255, 253, 248, 0.72);
+  text-decoration: none; transition: color 0.2s;
+}
+.breadcrumb a:hover { color: var(--rose-soft); }
+.breadcrumb .sep { color: rgba(255, 253, 248, 0.4); }
+.breadcrumb [aria-current="page"] { color: var(--rose-soft); }

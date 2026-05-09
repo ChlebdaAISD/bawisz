@@ -4,15 +4,14 @@ import { IconMenu, IconClose } from './icons.jsx'
 
 // type: 'route' = wouter Link, 'anchor' = section on home (works from any page via /#hash)
 const NAV_LINKS = [
+  { label: 'Home', href: '/', type: 'route' },
   { label: 'O nas', href: '/o-nas/', type: 'route' },
-  { label: 'Co u nas', href: '/#oferta', type: 'anchor' },
-  { label: 'Galeria', href: '/#galeria', type: 'anchor' },
   { label: 'Cennik', href: '/#cennik', type: 'anchor' },
   { label: 'Urodziny', href: '/urodziny/', type: 'route' },
   { label: 'Warsztaty', href: '/warsztaty/', type: 'route' },
   { label: 'Dla przedszkoli', href: '/oferta-grupowa/', type: 'route' },
   { label: 'Kawiarnia', href: '/kawiarnia/', type: 'route' },
-  { label: 'Kontakt', href: '/#kontakt', type: 'anchor' },
+  { label: 'Kontakt', href: '/kontakt/', type: 'route' },
 ]
 
 function useOpenStatus() {
@@ -58,7 +57,7 @@ export function Navbar({ onBookBirthday }) {
       <div className="nav-rail">
         <nav className={`nav ${scrolled ? 'is-scrolled' : ''}`} aria-label="Główna nawigacja">
           <Link href="/" className="nav-brand" aria-label="BAWISZ — strona główna">
-            <img src="/assets/logo_small.png" alt="" />
+            <img src="/assets/logo_small.png" alt="BAWISZ" />
             <div className="nav-brand-text">
               <div className="nav-brand-name">BAWISZ</div>
               <div className="nav-brand-sub">Bawialnia · Kawiarnia</div>
@@ -93,7 +92,7 @@ export function Navbar({ onBookBirthday }) {
         <div className="mobile-menu" role="dialog" aria-modal="true">
           <div className="mobile-menu-top">
             <Link href="/" className="mobile-menu-brand" onClick={() => setMobileOpen(false)} aria-label="BAWISZ — strona główna">
-              <img src="/assets/logo_small.png" alt="" />
+              <img src="/assets/logo_small.png" alt="BAWISZ" />
             </Link>
             <button className="nav-burger" aria-label="Zamknij" onClick={() => setMobileOpen(false)}>
               <IconClose size={22} />
@@ -290,10 +289,14 @@ export function Navbar({ onBookBirthday }) {
         }
         .mobile-links a {
           display: block;
-          padding: 12px 4px;
-          font-size: 44px;
+          padding: 10px 4px;
+          font-size: 28px;
+          line-height: 1.1;
           color: var(--ink);
           border-bottom: 1.5px dashed var(--line-soft);
+        }
+        @media (max-height: 700px) {
+          .mobile-links a { font-size: 24px; padding: 8px 4px; }
         }
         .mobile-cta {
           display: flex;

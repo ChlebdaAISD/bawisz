@@ -1,10 +1,20 @@
 import { useEffect } from 'react'
 import { Birthdays } from '../components/Birthdays.jsx'
+import { Breadcrumb } from '../components/Breadcrumb.jsx'
 import { Reveal } from '../components/Reveal.jsx'
 import { Decoration } from '../components/Decoration.jsx'
+import { ServiceGallery } from '../components/ServiceGallery.jsx'
 import { IconArrow, IconInstagram } from '../components/icons.jsx'
 import { URODZINY_FAQ as FAQ, URODZINY_META as META } from '../data/urodziny.js'
 import { updateHead } from '../lib/head.js'
+
+const GALLERY = [
+  { src: '/assets/zdjecia/Bawisz_-13.webp',           alt: 'Sala urodzinowa w Bawiszu — placeholder' },
+  { src: '/assets/zdjecia/Bawisz_AnnaMrożek-22.webp', alt: 'Strefa zabaw na urodzinach — placeholder' },
+  { src: '/assets/zdjecia/Bawisz_-38.webp',           alt: 'Dzieci na urodzinach — placeholder' },
+  { src: '/assets/zdjecia/Bawisz_AnnaMrożek-49.webp', alt: 'Stół urodzinowy — placeholder' },
+  { src: '/assets/zdjecia/Bawisz_AnnaMrożek-39.webp', alt: 'Dekoracje urodzinowe — placeholder' },
+]
 
 const PROCESS = [
   {
@@ -48,6 +58,10 @@ export default function Urodziny({ onBookBirthday }) {
 
         <div className="svc-hero-shell shell">
           <div className="svc-hero-text">
+            <Breadcrumb items={[
+              { name: 'Strona główna', href: '/' },
+              { name: 'Urodziny', href: '/urodziny/' },
+            ]} />
             <span className="eyebrow fade-up">[ Urodziny dla dziecka · Nowy Targ ]</span>
 
             <h1 className="svc-h1 fade-up" style={{ animationDelay: '0.05s' }}>
@@ -81,6 +95,15 @@ export default function Urodziny({ onBookBirthday }) {
 
       {/* PAKIETY — reuse istniejący Birthdays component */}
       <Birthdays onBookBirthday={onBookBirthday} />
+
+      {/* GALERIA */}
+      <ServiceGallery
+        eyebrow="[ Galeria ]"
+        heading="Tak wyglądają urodziny w Bawiszu."
+        italic="urodziny"
+        subtitle="Drewniana sala, naturalne zabawki, dekoracje motywowe. Kliknij zdjęcie, żeby powiększyć."
+        items={GALLERY}
+      />
 
       {/* JAK TO WYGLĄDA (proces) */}
       <section className="svc-proc">

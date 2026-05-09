@@ -5,23 +5,47 @@ import { fileURLToPath, pathToFileURL } from 'url'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const distPath = path.resolve(__dirname, '../dist')
 const dataPath = path.resolve(__dirname, '../src/data')
+const ssrEntryPath = path.resolve(__dirname, '../dist/server/entry-server.mjs')
 
 const SITE = 'https://bawialniabawisz.pl'
 
+const { render } = await import(pathToFileURL(ssrEntryPath).href)
+
 // Import FAQ data from shared source
+const { HOME_FAQ, HOME_META } = await import(pathToFileURL(path.join(dataPath, 'home.js')).href)
 const { URODZINY_FAQ } = await import(pathToFileURL(path.join(dataPath, 'urodziny.js')).href)
 const { KAWIARNIA_FAQ } = await import(pathToFileURL(path.join(dataPath, 'kawiarnia.js')).href)
-const { WARSZTATY_FAQ } = await import(pathToFileURL(path.join(dataPath, 'warsztaty.js')).href)
+const { WARSZTATY_FAQ, WARSZTATY_EXAMPLES } = await import(pathToFileURL(path.join(dataPath, 'warsztaty.js')).href)
 const { ONAS_FAQ } = await import(pathToFileURL(path.join(dataPath, 'o-nas.js')).href)
 const { OFERTA_GRUPOWA_FAQ } = await import(pathToFileURL(path.join(dataPath, 'oferta-grupowa.js')).href)
+const { KONTAKT_FAQ } = await import(pathToFileURL(path.join(dataPath, 'kontakt.js')).href)
 
 const ROUTES = [
   {
+    path: '/',
+    title: HOME_META.title,
+    description: HOME_META.description,
+    canonical: HOME_META.canonical,
+    ogImage: HOME_META.ogImage,
+    breadcrumb: [
+      { name: 'Strona główna', url: `${SITE}/` },
+    ],
+    faqSchema: {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: HOME_FAQ.map((f) => ({
+        '@type': 'Question',
+        name: f.q,
+        acceptedAnswer: { '@type': 'Answer', text: f.a },
+      })),
+    },
+  },
+  {
     path: '/urodziny/',
-    title: 'Urodziny dla dziecka Nowy Targ — Bawisz | Pakiety MINI 45 zł, STANDARD 74 zł',
+    title: 'Urodziny dla dziecka Nowy Targ — Bawisz | od 45 zł',
     description: 'Urodziny dla dziecka w Nowym Targu w drewnianej bawialni Montessori. Pakiet MINI od 45 zł/os., STANDARD od 74 zł/os. z salą tylko dla was. Ocena 4.9/5 w Google.',
     canonical: `${SITE}/urodziny/`,
-    ogImage: `${SITE}/assets/og-urodziny.jpg`,
+    ogImage: `${SITE}/assets/zdjecia/Bawisz_-13.webp`,
     breadcrumb: [
       { name: 'Strona główna', url: `${SITE}/` },
       { name: 'Urodziny', url: `${SITE}/urodziny/` },
@@ -162,10 +186,10 @@ const ROUTES = [
   },
   {
     path: '/warsztaty/',
-    title: 'Warsztaty dla dzieci Nowy Targ — Bawisz | sensoplastyka, plastyka',
-    description: 'Warsztaty dla dzieci w Nowym Targu w drewnianej sali Montessori: sensoplastyka, plastyka, zajęcia kreatywne. Małe grupy, prowadzone zajęcia. Ocena 4.9/5 w Google.',
+    title: 'Warsztaty dla dzieci Nowy Targ — Bawisz | plastyka, glina, joga',
+    description: 'Warsztaty dla dzieci w Nowym Targu w drewnianej sali Montessori: plastyka, glina, joga dla dzieci, animaloterapia. Terminy na Instagramie. 60-80 zł/os, 1,5 h.',
     canonical: `${SITE}/warsztaty/`,
-    ogImage: `${SITE}/assets/og-warsztaty.jpg`,
+    ogImage: `${SITE}/assets/zdjecia/Bawisz_AnnaMrożek-39.webp`,
     breadcrumb: [
       { name: 'Strona główna', url: `${SITE}/` },
       { name: 'Warsztaty', url: `${SITE}/warsztaty/` },
@@ -174,7 +198,8 @@ const ROUTES = [
       '@context': 'https://schema.org',
       '@type': 'Service',
       name: 'Warsztaty dla dzieci — Bawisz Nowy Targ',
-      serviceType: 'Warsztaty kreatywne dla dzieci (sensoplastyka, plastyka, zajęcia tematyczne)',
+      serviceType: 'Warsztaty dla dzieci (plastyka, glina, joga, animaloterapia, sensoryka)',
+      url: `${SITE}/warsztaty/`,
       provider: { '@id': `${SITE}/#localbusiness` },
       areaServed: [
         { '@type': 'City', name: 'Nowy Targ' },
@@ -183,33 +208,15 @@ const ROUTES = [
       audience: { '@type': 'PeopleAudience', suggestedMinAge: 0, suggestedMaxAge: 10 },
       hasOfferCatalog: {
         '@type': 'OfferCatalog',
-        name: 'Typy warsztatów',
-        itemListElement: [
-          {
-            '@type': 'Offer',
-            itemOffered: {
-              '@type': 'Service',
-              name: 'Sensoplastyka',
-              description: 'Zabawy z bezpiecznymi masami sensorycznymi z produktów spożywczych (mąka, żelatyna, kasze) dla dzieci od 6 miesięcy do 4 lat.',
-            },
+        name: 'Przykłady warsztatów',
+        itemListElement: WARSZTATY_EXAMPLES.map((ex) => ({
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: ex.h,
+            description: ex.p,
           },
-          {
-            '@type': 'Offer',
-            itemOffered: {
-              '@type': 'Service',
-              name: 'Warsztaty plastyczne',
-              description: 'Malowanie, lepienie z masy solnej, prace z naturalnych materiałów dla dzieci od 3 do 10 lat.',
-            },
-          },
-          {
-            '@type': 'Offer',
-            itemOffered: {
-              '@type': 'Service',
-              name: 'Zajęcia kreatywne tematyczne',
-              description: 'Warsztaty wokół pór roku, świąt i książek dla dzieci, łączące sensoplastykę i plastykę.',
-            },
-          },
-        ],
+        })),
       },
     },
     faqSchema: {
@@ -227,7 +234,7 @@ const ROUTES = [
     title: 'Bawialnia Montessori Nowy Targ | drewniana sala — Bawisz',
     description: 'Bawialnia Montessori w Nowym Targu — drewniana sala, naturalne zabawki, kawiarnia obok. Dzieci 0-10 lat. Wstęp od 25 zł. ul. Krzywa 19B. Ocena 4.9/5.',
     canonical: `${SITE}/o-nas/`,
-    ogImage: `${SITE}/assets/og-default.jpg`,
+    ogImage: `${SITE}/assets/zdjecia/Bawisz_AnnaMrożek-22.webp`,
     breadcrumb: [
       { name: 'Strona główna', url: `${SITE}/` },
       { name: 'O nas', url: `${SITE}/o-nas/` },
@@ -273,7 +280,7 @@ const ROUTES = [
     title: 'Oferta dla przedszkoli Nowy Targ — Bawisz | od 15 zł/dziecko',
     description: 'Wyjścia grupowe dla przedszkoli i szkół w Nowym Targu — drewniana bawialnia Montessori. Od 15 zł za godzinę za dziecko, kawa gratis dla opiekunów. Min. 10 dzieci.',
     canonical: `${SITE}/oferta-grupowa/`,
-    ogImage: `${SITE}/assets/og-oferta-grupowa.jpg`,
+    ogImage: `${SITE}/assets/zdjecia/Bawisz_-38.webp`,
     breadcrumb: [
       { name: 'Strona główna', url: `${SITE}/` },
       { name: 'Dla przedszkoli', url: `${SITE}/oferta-grupowa/` },
@@ -320,6 +327,75 @@ const ROUTES = [
       '@context': 'https://schema.org',
       '@type': 'FAQPage',
       mainEntity: OFERTA_GRUPOWA_FAQ.map((f) => ({
+        '@type': 'Question',
+        name: f.q,
+        acceptedAnswer: { '@type': 'Answer', text: f.a },
+      })),
+    },
+  },
+  {
+    path: '/kontakt/',
+    title: 'Kontakt — Bawisz Nowy Targ | telefon, mapa, godziny',
+    description: 'Kontakt z Bawiszem w Nowym Targu — telefon +48 693 766 049, ul. Krzywa 19B, otwarte codziennie od 10:00. Napisz na Instagramie lub odwiedź nas osobiście.',
+    canonical: `${SITE}/kontakt/`,
+    ogImage: `${SITE}/assets/zdjecia/Bawisz_AnnaMrożek-49.webp`,
+    breadcrumb: [
+      { name: 'Strona główna', url: `${SITE}/` },
+      { name: 'Kontakt', url: `${SITE}/kontakt/` },
+    ],
+    serviceSchema: {
+      '@context': 'https://schema.org',
+      '@type': 'ContactPage',
+      name: 'Kontakt — Bawisz Nowy Targ',
+      url: `${SITE}/kontakt/`,
+      description: 'Telefon, mapa, godziny i adres bawialni Montessori Bawisz w Nowym Targu. Telefon +48 693 766 049, ul. Krzywa 19B, otwarte codziennie od 10:00.',
+      mainEntity: { '@id': `${SITE}/#localbusiness` },
+      about: {
+        '@type': 'ChildCare',
+        name: 'Bawisz — Bawialnia Montessori i Kawiarnia',
+        telephone: '+48693766049',
+        url: SITE,
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress: 'ul. Krzywa 19B',
+          addressLocality: 'Nowy Targ',
+          postalCode: '34-400',
+          addressRegion: 'małopolskie',
+          addressCountry: 'PL',
+        },
+        geo: { '@type': 'GeoCoordinates', latitude: 49.4773, longitude: 20.0303 },
+        openingHoursSpecification: [
+          { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '10:00', closes: '19:00' },
+          { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Saturday', 'Sunday'], opens: '10:00', closes: '20:00' },
+        ],
+        contactPoint: [
+          {
+            '@type': 'ContactPoint',
+            telephone: '+48693766049',
+            contactType: 'customer service',
+            areaServed: 'PL',
+            availableLanguage: ['Polish'],
+            hoursAvailable: [
+              { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '10:00', closes: '19:00' },
+              { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Saturday', 'Sunday'], opens: '10:00', closes: '20:00' },
+            ],
+          },
+        ],
+        sameAs: [
+          'https://www.instagram.com/bawisz_bawialnia/',
+          'https://www.facebook.com/p/Bawisz-bawialnia-Montessori-61572522181693/',
+          'https://www.tiktok.com/@bawisz.bawialnia',
+        ],
+        areaServed: [
+          { '@type': 'City', name: 'Nowy Targ' },
+          { '@type': 'Place', name: 'Podhale' },
+        ],
+      },
+    },
+    faqSchema: {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: KONTAKT_FAQ.map((f) => ({
         '@type': 'Question',
         name: f.q,
         acceptedAnswer: { '@type': 'Answer', text: f.a },
@@ -400,10 +476,10 @@ function injectMeta(html, route) {
 }
 
 function generateSitemap() {
-  const urls = [
-    { loc: `${SITE}/`, priority: '1.0' },
-    ...ROUTES.map((r) => ({ loc: r.canonical, priority: '0.8' })),
-  ]
+  const urls = ROUTES.map((r) => ({
+    loc: r.canonical,
+    priority: r.path === '/' ? '1.0' : '0.8',
+  }))
   const today = new Date().toISOString().slice(0, 10)
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -434,12 +510,30 @@ function prerender() {
   const template = fs.readFileSync(templatePath, 'utf-8')
   console.log('Prerendering routes:')
 
+  const failures = []
   for (const route of ROUTES) {
-    const html = injectMeta(template, route)
-    const outDir = path.join(distPath, route.path)
-    fs.mkdirSync(outDir, { recursive: true })
-    fs.writeFileSync(path.join(outDir, 'index.html'), html)
-    console.log(`  ✓ ${route.path}index.html`)
+    try {
+      let html = injectMeta(template, route)
+      const appHtml = render(route.path)
+      html = replaceOrThrow(
+        html,
+        '<div id="root"></div>',
+        `<div id="root" data-ssr="true">${appHtml}</div>`,
+        'div#root'
+      )
+      const outDir = path.join(distPath, route.path)
+      fs.mkdirSync(outDir, { recursive: true })
+      fs.writeFileSync(path.join(outDir, 'index.html'), html)
+      console.log(`  ✓ ${route.path}index.html`)
+    } catch (err) {
+      console.error(`  ✗ ${route.path}: ${err.message}`)
+      failures.push({ path: route.path, error: err })
+    }
+  }
+
+  if (failures.length) {
+    console.error(`\nPrerender failed for ${failures.length} route(s).`)
+    process.exit(1)
   }
 
   generateSitemap()

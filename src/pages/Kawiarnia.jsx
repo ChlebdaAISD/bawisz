@@ -1,10 +1,20 @@
 import { useEffect } from 'react'
 import { Menu } from '../components/Menu.jsx'
+import { Breadcrumb } from '../components/Breadcrumb.jsx'
 import { Reveal } from '../components/Reveal.jsx'
 import { Decoration } from '../components/Decoration.jsx'
+import { ServiceGallery } from '../components/ServiceGallery.jsx'
 import { IconArrow, IconInstagram } from '../components/icons.jsx'
 import { KAWIARNIA_FAQ as FAQ, KAWIARNIA_META as META } from '../data/kawiarnia.js'
 import { updateHead } from '../lib/head.js'
+
+const GALLERY = [
+  { src: '/assets/zdjecia/Bawisz_-13.webp',           alt: 'Kawiarnia w Bawiszu — placeholder' },
+  { src: '/assets/zdjecia/Bawisz_AnnaMrożek-22.webp', alt: 'Domowe ciasta — placeholder' },
+  { src: '/assets/zdjecia/Bawisz_-38.webp',           alt: 'Specialty coffee — placeholder' },
+  { src: '/assets/zdjecia/Bawisz_AnnaMrożek-49.webp', alt: 'Wnętrze kawiarni — placeholder' },
+  { src: '/assets/zdjecia/Bawisz_AnnaMrożek-39.webp', alt: 'Menu dla dzieci — placeholder' },
+]
 
 const PROCESS = [
   {
@@ -48,6 +58,10 @@ export default function Kawiarnia({ onBookBirthday = () => {} }) {
 
         <div className="svc-hero-shell shell">
           <div className="svc-hero-text">
+            <Breadcrumb items={[
+              { name: 'Strona główna', href: '/' },
+              { name: 'Kawiarnia', href: '/kawiarnia/' },
+            ]} />
             <span className="eyebrow fade-up">[ Kawiarnia · Nowy Targ ]</span>
 
             <h1 className="svc-h1 fade-up" style={{ animationDelay: '0.05s' }}>
@@ -81,6 +95,15 @@ export default function Kawiarnia({ onBookBirthday = () => {} }) {
 
       {/* MENU — reuse istniejący Menu component */}
       <Menu />
+
+      {/* GALERIA */}
+      <ServiceGallery
+        eyebrow="[ Galeria ]"
+        heading="Tak wygląda kawiarnia w Bawiszu."
+        italic="kawiarnia"
+        subtitle="Specialty coffee, domowe ciasta, dziecko bawi się obok. Kliknij zdjęcie, żeby powiększyć."
+        items={GALLERY}
+      />
 
       {/* JAK TO WYGLĄDA (proces) */}
       <section className="svc-proc">

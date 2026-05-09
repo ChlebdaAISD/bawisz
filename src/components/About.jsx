@@ -4,9 +4,9 @@ import { AnimalDeer, AnimalBear, AnimalFox } from './animals.jsx'
 
 export function About() {
   const values = [
-    { icon: AnimalDeer, t: 'Naturalność', s: 'Drewno, sklejka, tkaniny. Zabawki, w które chce się bawić — bez plastikowego hałasu.' },
-    { icon: AnimalBear, t: 'Spokój',       s: 'Dużo światła, dużo przestrzeni. Dzieci się bawią, rodzice naprawdę odpoczywają.' },
-    { icon: AnimalFox,  t: 'Samodzielność',s: 'Wszystko na wysokości dziecka. Wybiera samo, próbuje samo, jest dumne z efektu.' },
+    { icon: AnimalDeer, t: 'Naturalność', s: 'Drewno, sklejka, tkaniny. Zabawki, którym kibicują rodzice — bez plastikowego hałasu i bez ekranów.' },
+    { icon: AnimalBear, t: 'Spokój',       s: 'Dużo światła, mało bodźców. Pijesz kawę obok, dziecko bawi się w zasięgu wzroku.' },
+    { icon: AnimalFox,  t: 'Samodzielność',s: 'Wszystko na wysokości dziecka. Wybiera samo, próbuje samo, wraca dumne z tego, co zrobiło.' },
   ]
 
   return (
@@ -17,15 +17,15 @@ export function About() {
 
           <Reveal delay={80}>
             <h2 className="about-h">
-              Ciepły kąt<br />
+              Drewniana sala<br />
               dla <span className="hero-italic">małych odkrywców.</span>
             </h2>
           </Reveal>
 
           <Reveal delay={160} className="about-p body-lg">
-            BAWISZ to 200 m² kreatywnej przestrzeni — sala zabaw dla dzieci 0–12 lat
-            i kawiarnia dla rodziców pod jednym dachem. Wszystko po to, żeby dziecku było <em>łatwo</em>,
-            a Tobie <em>spokojnie</em>.
+            Bawisz to 220 m² drewnianej przestrzeni Montessori w sercu Nowego Targu — sala zabaw
+            dla dzieci 0–10 lat i kawiarnia dla rodziców pod jednym dachem. Dziecko bawi się samo
+            wśród naturalnych zabawek, a ty masz chwilę przy dobrej kawie.
           </Reveal>
 
           <div className="about-values">
@@ -65,7 +65,6 @@ export function About() {
           color: var(--ink);
         }
         .about-p { margin: 28px 0; max-width: 52ch; }
-        .about-p em { font-family: var(--font-display); font-style: normal; font-weight: 600; font-size: 1.15em; color: var(--rose-deep); }
 
         .about-values {
           display: flex;

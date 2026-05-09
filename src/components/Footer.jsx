@@ -9,7 +9,7 @@ export function Footer({ onBookBirthday }) {
       <div className="shell">
         <div className="ftr-top">
           <div className="ftr-brand">
-            <img src="/assets/logo_small.png" alt="" className="ftr-logo" />
+            <img src="/assets/logo_small.png" alt="BAWISZ" className="ftr-logo" />
             <div className="display ftr-mark">
               <span>po</span><span className="ftr-italic">bawisz</span><span>się?</span>
             </div>
@@ -50,7 +50,7 @@ export function Footer({ onBookBirthday }) {
             <div className="ftr-col-h">Odwiedź</div>
             <ul className="ftr-list">
               <li><a href="/#godziny" className="link-u">Godziny otwarcia</a></li>
-              <li><a href="/#kontakt" className="link-u">Kontakt</a></li>
+              <li><Link href="/kontakt/" className="link-u">Kontakt</Link></li>
               <li><a href="https://maps.google.com/?q=Krzywa+19B+Nowy+Targ" target="_blank" rel="noopener noreferrer" className="link-u">Nawigacja</a></li>
               <li><Link href="/kawiarnia/" className="link-u">Kawiarnia</Link></li>
             </ul>

@@ -1,25 +1,35 @@
 import { useEffect } from 'react'
+import { Breadcrumb } from '../components/Breadcrumb.jsx'
 import { Reveal } from '../components/Reveal.jsx'
 import { Decoration } from '../components/Decoration.jsx'
+import { ServiceGallery } from '../components/ServiceGallery.jsx'
 import { IconArrow, IconInstagram } from '../components/icons.jsx'
 import { OFERTA_GRUPOWA_FAQ as FAQ, OFERTA_GRUPOWA_META as META } from '../data/oferta-grupowa.js'
 import { updateHead } from '../lib/head.js'
+
+const GALLERY = [
+  { src: '/assets/zdjecia/Bawisz_-13.webp',           alt: 'Grupa przedszkolna w Bawiszu — placeholder' },
+  { src: '/assets/zdjecia/Bawisz_AnnaMrożek-22.webp', alt: 'Sala dla grup — placeholder' },
+  { src: '/assets/zdjecia/Bawisz_-38.webp',           alt: 'Wyjście grupowe — placeholder' },
+  { src: '/assets/zdjecia/Bawisz_AnnaMrożek-49.webp', alt: 'Strefy zabaw dla grup — placeholder' },
+  { src: '/assets/zdjecia/Bawisz_AnnaMrożek-39.webp', alt: 'Dzieci w sali Montessori — placeholder' },
+]
 
 const AUDIENCES = [
   {
     age: 'Przedszkola',
     h: 'Wyjścia dla przedszkoli',
-    p: 'Cała grupa wchodzi razem, dzieci bawią się przy drewnianych zabawkach Montessori pod opieką swoich nauczycieli. Strefy są podzielone pod wiek (3-4 lata, 5-6 lat), więc 6-latki nie wchodzą w paradę 3-latkom. Idealne na wycieczkę pieszą z budynku przedszkola — jesteśmy 5-7 minut spacerem od centrum Nowego Targu.',
+    p: 'Cała grupa wchodzi razem, dzieci bawią się przy drewnianych zabawkach Montessori pod opieką swoich nauczycieli. Strefy są podzielone według wieku (3-4 lata, 5-6 lat), więc 6-latki nie wchodzą w paradę 3-latkom. Idealne na wycieczkę pieszą z budynku przedszkola — jesteśmy 5-7 minut spacerem od centrum Nowego Targu.',
   },
   {
     age: 'Szkoły podstawowe',
     h: 'Bawialnia dla szkół',
-    p: 'Klasy 0-3 mieszczą się komfortowo w drewnianej sali. Świetna opcja na zakończenie roku, dzień dziecka, mikołajki klasowe albo nagrodę za projekt. Dzień otwarty (NO LIMIT) sprawdza się przy klasach łączonych — dzieci same wybierają, gdzie chcą się bawić, nauczyciel ma je w polu widzenia.',
+    p: 'Klasy 0-3 mieszczą się komfortowo w drewnianej sali. Świetne na zakończenie roku, dzień dziecka, mikołajki klasowe albo jako nagroda za projekt. Dzień otwarty (NO LIMIT) sprawdza się przy klasach łączonych — dzieci same wybierają, gdzie chcą się bawić, nauczyciel ma je w polu widzenia.',
   },
   {
     age: 'Grupy zorganizowane',
     h: 'Imprezy dla grup',
-    p: 'Spotkania urodzinowe całych klas, zajęcia integracyjne dla zespołów dziecięcych, wyjścia organizacji typu klub mam, drużyna harcerska albo świetlica. Łączymy wejście grupowe z dodatkami: poczęstunek, warsztat sensoplastyki, dekoracje urodzinowe — co potrzeba, to dokładamy.',
+    p: 'Spotkania urodzinowe całych klas, zajęcia integracyjne dla zespołów dziecięcych, wyjścia takich grup jak klub mam, drużyna harcerska albo świetlica. Łączymy wejście grupowe z dodatkami: poczęstunek, warsztat sensoplastyki, dekoracje urodzinowe — co potrzeba, to dokładamy.',
   },
 ]
 
@@ -28,7 +38,7 @@ const PAKIETY = [
     czas: '1 godzina',
     cena: '15 zł',
     jednostka: '/ dziecko',
-    p: 'Krótkie wyjście, pełen dostęp do drewnianej sali. Sprawdza się gdy grupa wraca do przedszkola na obiad albo łączy wizytę z innym punktem programu.',
+    p: 'Krótkie wyjście, pełen dostęp do drewnianej sali. Sprawdza się, gdy grupa wraca do przedszkola na obiad albo łączy wizytę z innym punktem programu.',
   },
   {
     czas: '2 godziny',
@@ -54,7 +64,7 @@ const PROCES = [
   {
     n: '2',
     h: 'Przygotowanie sali',
-    p: 'Zanim grupa przyjdzie, ustawiamy strefy pod wiek dzieci, sprawdzamy bezpieczeństwo, parzymy kawę i herbatę dla opiekunów. Jeśli zamówiliście poczęstunek — przygotowujemy go tak, żeby był gotowy na wejście grupy.',
+    p: 'Zanim grupa przyjdzie, ustawiamy strefy według wieku dzieci, sprawdzamy bezpieczeństwo, parzymy kawę i herbatę dla opiekunów. Jeśli zamówiliście poczęstunek — przygotowujemy go tak, żeby był gotowy na wejście grupy.',
   },
   {
     n: '3',
@@ -64,7 +74,7 @@ const PROCES = [
   {
     n: '4',
     h: 'Rozliczenie z placówką',
-    p: 'Wystawiamy fakturę na przedszkole lub szkołę z odroczonym terminem płatności (przelew po wizycie). Potrzebujemy NIP placówki i danych do faktury — przesyłacie je SMS-em albo mailem po ustaleniu terminu.',
+    p: 'Wystawiamy fakturę dla przedszkola lub szkoły z odroczonym terminem płatności (przelew po wizycie). Potrzebujemy NIP placówki i danych do faktury — przesyłacie je SMS-em albo mailem po ustaleniu terminu.',
   },
 ]
 
@@ -87,6 +97,10 @@ export default function OfertaGrupowa() {
 
         <div className="svc-hero-shell shell">
           <div className="svc-hero-text">
+            <Breadcrumb items={[
+              { name: 'Strona główna', href: '/' },
+              { name: 'Dla przedszkoli', href: '/oferta-grupowa/' },
+            ]} />
             <span className="eyebrow fade-up">[ Wyjścia grupowe · Nowy Targ ]</span>
 
             <h1 className="svc-h1 fade-up" style={{ animationDelay: '0.05s' }}>
@@ -117,7 +131,7 @@ export default function OfertaGrupowa() {
         <div className="shell">
           <Reveal>
             <p className="svc-intro-p body-lg">
-              Wyjścia grupowe dla przedszkoli i szkół z Nowego Targu i okolic w drewnianej bawialni Montessori przy ul. Krzywej 19B. Minimum 10 dzieci, od 15 zł za godzinę za dziecko (23 zł za 2 godziny, 35 zł NO LIMIT na cały dzień). Kawa lub herbata gratis dla 1 opiekuna na 5 dzieci. Sala dla wieku 0-10 lat, naturalne zabawki, strefy dopasowane pod wiek. Faktura na placówkę z odroczonym terminem płatności. Termin rezerwujemy telefonicznie — najlepiej z 1-2 tygodniami wyprzedzenia.
+              Wyjścia grupowe dla przedszkoli i szkół z Nowego Targu i okolic w drewnianej bawialni Montessori przy ul. Krzywej 19B. Minimum 10 dzieci, od 15 zł za godzinę za dziecko (23 zł za 2 godziny, 35 zł NO LIMIT na cały dzień). Kawa lub herbata gratis dla 1 opiekuna na 5 dzieci. Sala dla wieku 0-10 lat, naturalne zabawki, strefy dopasowane do wieku. Faktura dla placówki z odroczonym terminem płatności. Termin rezerwujemy telefonicznie — najlepiej z 1-2 tygodniami wyprzedzenia.
             </p>
           </Reveal>
         </div>
@@ -142,7 +156,7 @@ export default function OfertaGrupowa() {
               </h2>
             </Reveal>
             <Reveal delay={160} className="body-lg svc-sub">
-              Cennik jest jeden, sala ta sama — drewniana, podzielona na strefy pod wiek. Rodzaj wyjścia ma znaczenie po to, żebyśmy ustawili strefy pod konkretny wiek dzieci i przygotowali poczęstunek pod dietę grupy.
+              Cennik jest jeden, sala ta sama — drewniana, podzielona na strefy według wieku. Rodzaj wyjścia ma znaczenie po to, żebyśmy ustawili strefy pod konkretne grupy wiekowe i przygotowali poczęstunek pod dietę grupy.
             </Reveal>
           </div>
 
@@ -193,6 +207,15 @@ export default function OfertaGrupowa() {
         </div>
       </section>
 
+      {/* GALERIA */}
+      <ServiceGallery
+        eyebrow="[ Galeria ]"
+        heading="Tak wyglądają wyjścia grupowe."
+        italic="grupowe"
+        subtitle="220 m² drewna, strefy podzielone wiekiem, opiekun w polu widzenia. Kliknij zdjęcie, żeby powiększyć."
+        items={GALLERY}
+      />
+
       {/* JAK TO WYGLĄDA (proces) */}
       <section className="svc-proc">
         <Decoration
@@ -218,7 +241,7 @@ export default function OfertaGrupowa() {
 
           <div className="svc-proc-grid">
             {PROCES.map((step, i) => (
-              <Reveal key={step.n} delay={i * 80} className="svc-proc-card">
+              <Reveal key={step.h} delay={i * 80} className="svc-proc-card">
                 <div className="svc-proc-num">{step.n}</div>
                 <div className="svc-proc-body">
                   <h3 className="svc-proc-h">{step.h}</h3>
@@ -290,7 +313,7 @@ export default function OfertaGrupowa() {
               Rezerwacja <span className="hero-italic">wyjścia grupowego</span>
             </h2>
             <p className="svc-final-p">
-              ul. Krzywa 19B, Nowy Targ. Pakiety od 15 zł za godzinę za dziecko, faktura na placówkę z odroczonym terminem płatności. Termin i szczegóły ustalamy telefonicznie — najlepiej 1-2 tygodnie wcześniej.
+              ul. Krzywa 19B, Nowy Targ. Pakiety od 15 zł za godzinę za dziecko, faktura dla placówki z odroczonym terminem płatności. Termin i szczegóły ustalamy telefonicznie — najlepiej 1-2 tygodnie wcześniej.
             </p>
             <div className="svc-final-ctas">
               <a href="tel:+48693766049" className="btn btn-pop">

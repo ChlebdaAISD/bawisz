@@ -8,18 +8,13 @@ import { Menu } from '../components/Menu.jsx'
 import { Testimonials } from '../components/Testimonials.jsx'
 import { Hours } from '../components/Hours.jsx'
 import { Contact } from '../components/Contact.jsx'
-
-const META = {
-  title: 'BAWISZ — Bawialnia Montessori i Kawiarnia w Nowym Targu',
-  description: 'Bawialnia Montessori dla dzieci 0-10 lat w Nowym Targu. Drewniana architektura, naturalne zabawki, kawiarnia dla rodziców, urodziny. Ocena 4.9/5 w Google.',
-  canonical: 'https://bawialniabawisz.pl/',
-}
+import { Reveal } from '../components/Reveal.jsx'
+import { HOME_FAQ, HOME_META } from '../data/home.js'
+import { updateHead } from '../lib/head.js'
 
 export default function Home({ onBookBirthday }) {
   useEffect(() => {
-    document.title = META.title
-    const desc = document.querySelector('meta[name="description"]')
-    if (desc) desc.setAttribute('content', META.description)
+    updateHead(HOME_META)
   }, [])
 
   return (
@@ -31,6 +26,30 @@ export default function Home({ onBookBirthday }) {
       <Pricing onBookBirthday={onBookBirthday} />
       <Menu />
       <Testimonials />
+
+      {/* FAQ — najczęstsze pytania o bawialnię w Nowym Targu */}
+      <section className="svc-faq">
+        <div className="shell">
+          <div className="svc-head">
+            <Reveal className="eyebrow">[ FAQ ]</Reveal>
+            <Reveal delay={80}>
+              <h2 className="svc-h2">
+                Najczęstsze <span className="hero-italic">pytania.</span>
+              </h2>
+            </Reveal>
+          </div>
+
+          <div className="svc-faq-list">
+            {HOME_FAQ.map((item, i) => (
+              <Reveal key={item.q} delay={i * 50} className="svc-faq-item">
+                <h3 className="svc-faq-q">{item.q}</h3>
+                <p className="svc-faq-a">{item.a}</p>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <Hours />
       <Contact />
     </>

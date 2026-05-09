@@ -20,12 +20,12 @@ export const OFERTA_GRUPOWA_FAQ = [
     a: 'Najlepiej 1-2 tygodnie wcześniej. W sezonie (październik-grudzień, marzec-czerwiec) terminy zapełniają się szybko, więc warto pisać miesiąc wcześniej. W okresach spokojniejszych udaje się zarezerwować nawet w tym samym tygodniu — najszybciej przez telefon: +48 693 766 049.',
   },
   {
-    q: 'Czy wystawiacie fakturę na placówkę?',
-    a: 'Tak. Wystawiamy fakturę na przedszkole lub szkołę z odroczonym terminem płatności (przelew po wizycie). Potrzebujemy NIP placówki i danych do faktury — najlepiej wysłać je SMS-em albo na Instagramie po ustaleniu terminu.',
+    q: 'Czy wystawiacie fakturę dla placówki?',
+    a: 'Tak. Wystawiamy fakturę dla przedszkola lub szkoły z odroczonym terminem płatności (przelew po wizycie). Potrzebujemy NIP placówki i danych do faktury — najlepiej wysłać je SMS-em albo na Instagramie po ustaleniu terminu.',
   },
   {
     q: 'Dla jakiego wieku dzieci jest sala i czy mamy wyłączność?',
-    a: 'Sala jest dla dzieci od 0 do 10 lat — strefy są podzielone pod wiek, więc 3-latek bawi się w innej części niż 7-latek. Wyłączność na sali nie wchodzi w cenę pakietu grupowego, ale w godzinach porannych (przed 12:00 w dni powszednie) zwykle jesteście jedyną grupą. Pełną wyłączność można wykupić indywidualnie — pytaj telefonicznie.',
+    a: 'Sala jest dla dzieci od 0 do 10 lat — strefy są podzielone według wieku, więc 3-latek bawi się w innej części niż 7-latek. Wyłączność na sali nie wchodzi w cenę pakietu grupowego, ale w godzinach porannych (przed 12:00 w dni powszednie) zwykle jesteście jedyną grupą. Pełną wyłączność można wykupić indywidualnie — pytaj telefonicznie.',
   },
   {
     q: 'Czy można połączyć wyjście grupowe z urodzinami przedszkolaka?',
