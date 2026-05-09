@@ -70,7 +70,7 @@ export function Footer({ onBookBirthday }) {
 
         <div className="ftr-bottom">
           <span>&copy; {year} Bawisz · Sala zabaw i kawiarnia · Nowy Targ</span>
-          <span>Made with ☕ in Nowy Targ</span>
+          <span>Design i wykonanie <a href="https://www.aisolutions.design/" target="_blank" rel="noopener" className="link-u">AI Solutions Design</a></span>
         </div>
       </div>
 
