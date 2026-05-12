@@ -3,7 +3,7 @@ import path from 'path'
 import { fileURLToPath, pathToFileURL } from 'url'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
-const distPath = path.resolve(__dirname, '../dist')
+const distPath = path.resolve(__dirname, '../dist/public')
 const dataPath = path.resolve(__dirname, '../src/data')
 const ssrEntryPath = path.resolve(__dirname, '../dist/server/entry-server.mjs')
 
