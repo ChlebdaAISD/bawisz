@@ -3,14 +3,8 @@ import { IconArrow } from './icons.jsx'
 export function Hero({ onBookBirthday }) {
   return (
     <section className="hero" id="top">
-      <div className="hero-bg">
-        <img
-          src="/assets/zdjecia/foto_2025 (2).jpg"
-          alt="Wnętrze bawialni Bawisz"
-          width={2400}
-          height={1600}
-        />
-        <div className="hero-overlay" />
+      <div className="hero-bg" style={{ background: '#FF1493' }}>
+        {/* DEV PREVIEW TEST — różowy kwadrat zamiast hero image */}
       </div>
 
       <div className="hero-shell shell">
