@@ -9,11 +9,11 @@ import { OFERTA_GRUPOWA_FAQ as FAQ, OFERTA_GRUPOWA_META as META } from '../data/
 import { updateHead } from '../lib/head.js'
 
 const GALLERY = [
-  { src: '/assets/zdjecia/Bawisz_-13.webp',           alt: 'Grupa przedszkolna w Bawisz — placeholder' },
-  { src: '/assets/zdjecia/Bawisz_AnnaMrożek-22.webp', alt: 'Sala dla grup — placeholder' },
-  { src: '/assets/zdjecia/Bawisz_-38.webp',           alt: 'Wejście grupowe — placeholder' },
-  { src: '/assets/zdjecia/Bawisz_AnnaMrożek-49.webp', alt: 'Strefy zabaw dla grup — placeholder' },
-  { src: '/assets/zdjecia/Bawisz_AnnaMrożek-39.webp', alt: 'Dzieci w sali Montessori — placeholder' },
+  { src: '/assets/zdjecia/strona_glowna/Bawisz_-13.webp', alt: 'Grupa przedszkolna w Bawisz — placeholder' },
+  { src: '/assets/zdjecia/dla_grup/Bawisz_AnnaMrożek-22.webp', alt: 'Sala dla grup — placeholder' },
+  { src: '/assets/zdjecia/dla_grup/Bawisz_-38.webp',           alt: 'Wejście grupowe — placeholder' },
+  { src: '/assets/zdjecia/dla_grup/Bawisz_AnnaMrożek-49.webp', alt: 'Strefy zabaw dla grup — placeholder' },
+  { src: '/assets/zdjecia/dla_grup/Bawisz_AnnaMrożek-39.webp', alt: 'Dzieci w sali Montessori — placeholder' },
 ]
 
 const AUDIENCES = [
