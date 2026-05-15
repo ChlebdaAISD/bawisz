@@ -5,7 +5,7 @@ export function Hero({ onBookBirthday }) {
     <section className="hero" id="top">
       <div className="hero-bg">
         <img
-          src="/assets/zdjecia/hero.jpg"
+          src="/assets/zdjecia/strona_glowna/hero.jpg"
           alt="Sala zabaw Bawisz w Nowym Targu"
           width={2400}
           height={1600}
