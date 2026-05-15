@@ -9,11 +9,11 @@ import { URODZINY_FAQ as FAQ, URODZINY_META as META } from '../data/urodziny.js'
 import { updateHead } from '../lib/head.js'
 
 const GALLERY = [
-  { src: '/assets/zdjecia/Bawisz_-13.webp',           alt: 'Sala urodzinowa w Bawisz — placeholder' },
-  { src: '/assets/zdjecia/Bawisz_AnnaMrożek-22.webp', alt: 'Strefa zabaw na urodzinach — placeholder' },
-  { src: '/assets/zdjecia/Bawisz_-38.webp',           alt: 'Dzieci na urodzinach — placeholder' },
-  { src: '/assets/zdjecia/Bawisz_AnnaMrożek-49.webp', alt: 'Stół urodzinowy — placeholder' },
-  { src: '/assets/zdjecia/Bawisz_AnnaMrożek-39.webp', alt: 'Dekoracje urodzinowe — placeholder' },
+  { src: '/assets/zdjecia/urodziny/URODZINY.jpg',                 alt: 'Urodziny w Bawiszu' },
+  { src: '/assets/zdjecia/urodziny/IMG_20260428_181013_605.webp', alt: 'Stół urodzinowy w Bawiszu' },
+  { src: '/assets/zdjecia/urodziny/IMG_20260428_181130_510.webp', alt: 'Dekoracje urodzinowe w Bawiszu' },
+  { src: '/assets/zdjecia/urodziny/IMG_20260428_181441_242.webp', alt: 'Sala urodzinowa Bawisz' },
+  { src: '/assets/zdjecia/urodziny/IMG_20260428_181737_026.webp', alt: 'Przyjęcie urodzinowe w Bawiszu' },
 ]
 
 const PROCESS = [

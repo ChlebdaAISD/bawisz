@@ -9,11 +9,15 @@ import { KAWIARNIA_FAQ as FAQ, KAWIARNIA_META as META } from '../data/kawiarnia.
 import { updateHead } from '../lib/head.js'
 
 const GALLERY = [
-  { src: '/assets/zdjecia/Bawisz_-13.webp',           alt: 'Kawiarnia w Bawiszu — placeholder' },
-  { src: '/assets/zdjecia/Bawisz_AnnaMrożek-22.webp', alt: 'Domowe ciasta — placeholder' },
-  { src: '/assets/zdjecia/Bawisz_-38.webp',           alt: 'Specialty coffee — placeholder' },
-  { src: '/assets/zdjecia/Bawisz_AnnaMrożek-49.webp', alt: 'Wnętrze kawiarni — placeholder' },
-  { src: '/assets/zdjecia/Bawisz_AnnaMrożek-39.webp', alt: 'Menu dla dzieci — placeholder' },
+  { src: '/assets/zdjecia/kawiarnia/KAWIARNIA 1.jpg', alt: 'Wnętrze kawiarni Bawisz' },
+  { src: '/assets/zdjecia/kawiarnia/KAWIARNIA 2.jpg', alt: 'Kawa specialty w Bawiszu' },
+  { src: '/assets/zdjecia/kawiarnia/KAWIARNIA 3.jpg', alt: 'Domowe ciasto w kawiarni Bawisz' },
+  { src: '/assets/zdjecia/kawiarnia/KAWIARNIA 4.jpg', alt: 'Stolik w kawiarni Bawisz' },
+  { src: '/assets/zdjecia/kawiarnia/KAWIARNIA 5.jpg', alt: 'Menu kawiarni Bawisz' },
+  { src: '/assets/zdjecia/kawiarnia/KAWIARNIA 6.jpg', alt: 'Strefa kawiarni w Bawiszu' },
+  { src: '/assets/zdjecia/kawiarnia/KAWIARNIA 7.jpg', alt: 'Wypieki w kawiarni Bawisz' },
+  { src: '/assets/zdjecia/kawiarnia/KAWIARNIA 8.jpg', alt: 'Atmosfera kawiarni Bawisz' },
+  { src: '/assets/zdjecia/kawiarnia/KAWIARNIA.jpg',   alt: 'Kawiarnia Bawisz w Nowym Targu' },
 ]
 
 const PROCESS = [

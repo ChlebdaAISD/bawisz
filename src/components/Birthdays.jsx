@@ -97,39 +97,44 @@ export function Birthdays({ onBookBirthday }) {
           {[mini, standard, parents].map((pkg) => (
             <Reveal key={pkg.name} className={`bd-card ${pkg.featured ? 'bd-featured' : ''}`}>
               {pkg.featured && <div className="bd-badge">Najczęściej wybierany</div>}
-              <div className="bd-card-text">
+
+              <div className="bd-card-head">
                 <div className="bd-card-name">{pkg.name}</div>
                 <div className="bd-card-rule" />
-
-                {pkg.perks.length > 0 && (
-                  <ul className="bd-perks">
-                    {pkg.perks.map((perk) => <li key={perk}>{perk}</li>)}
-                  </ul>
-                )}
-
-                <div className="bd-section-h">Poczęstunek</div>
-                <ul className="bd-list">
-                  {pkg.snacks.map((s) => <li key={s}>{s}</li>)}
-                </ul>
-
-                <div className="bd-section-h">Dekoracje</div>
-                <ul className="bd-list">
-                  {pkg.decor.map((d) => <li key={d}>{d}</li>)}
-                </ul>
               </div>
 
-              <div className="bd-card-visual">
-                <div className="bd-animal" style={{ '--shift': `${pkg.shift}px` }}>
-                  <pkg.Animal size={140} hat />
+              <div className="bd-card-body">
+                <div className="bd-card-text">
+                  {pkg.perks.length > 0 && (
+                    <ul className="bd-perks">
+                      {pkg.perks.map((perk) => <li key={perk}>{perk}</li>)}
+                    </ul>
+                  )}
+
+                  <div className="bd-section-h">Poczęstunek</div>
+                  <ul className="bd-list">
+                    {pkg.snacks.map((s) => <li key={s}>{s}</li>)}
+                  </ul>
+
+                  <div className="bd-section-h">Dekoracje</div>
+                  <ul className="bd-list">
+                    {pkg.decor.map((d) => <li key={d}>{d}</li>)}
+                  </ul>
                 </div>
-                <div className="bd-time-circle">
-                  <span className={pkg.timeSmall ? 'bd-time-small' : 'bd-time'}>
-                    {pkg.timeLabel ?? pkg.time}
-                  </span>
-                </div>
-                <div className="bd-price-circle">
-                  <span className="bd-price">{pkg.price} zł</span>
-                  <span className="bd-price-unit">/os.</span>
+
+                <div className="bd-card-visual">
+                  <div className="bd-animal" style={{ '--shift': `${pkg.shift}px` }}>
+                    <pkg.Animal size={120} hat />
+                  </div>
+                  <div className="bd-time-circle">
+                    <span className={pkg.timeSmall ? 'bd-time-small' : 'bd-time'}>
+                      {pkg.timeLabel ?? pkg.time}
+                    </span>
+                  </div>
+                  <div className="bd-price-circle">
+                    <span className="bd-price">{pkg.price} zł</span>
+                    <span className="bd-price-unit">/os.</span>
+                  </div>
                 </div>
               </div>
             </Reveal>
@@ -162,12 +167,11 @@ export function Birthdays({ onBookBirthday }) {
 
         .bd-grid {
           display: grid;
-          grid-template-columns: repeat(3, 1fr);
+          grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
           gap: 24px;
           margin-bottom: 40px;
         }
-        @media (max-width: 1100px) { .bd-grid { grid-template-columns: 1fr 1fr; gap: 28px; } }
-        @media (max-width: 720px) { .bd-grid { grid-template-columns: 1fr; gap: 36px; } }
+        @media (max-width: 720px) { .bd-grid { gap: 28px; } }
 
         .bd-card {
           position: relative;
@@ -175,13 +179,20 @@ export function Birthdays({ onBookBirthday }) {
           border: 1px solid var(--line-soft);
           border-radius: var(--r-lg);
           padding: 36px 28px 32px;
-          display: grid;
-          grid-template-columns: 1.2fr 1fr;
-          gap: 20px;
+          display: flex;
+          flex-direction: column;
+          gap: 18px;
           box-shadow: 0 8px 30px -20px rgba(168,128,98,0.5);
         }
-        @media (max-width: 1100px) { .bd-card { padding: 40px 32px 36px; gap: 28px; } }
-        @media (max-width: 720px) { .bd-card { grid-template-columns: 1fr; padding: 30px 24px; } }
+        @media (max-width: 720px) { .bd-card { padding: 30px 24px; } }
+
+        .bd-card-body {
+          display: grid;
+          grid-template-columns: 1fr auto;
+          gap: 24px;
+          align-items: start;
+        }
+        @media (max-width: 720px) { .bd-card-body { grid-template-columns: 1fr; gap: 20px; } }
 
         .bd-featured {
           border-color: var(--brand);
@@ -204,13 +215,16 @@ export function Birthdays({ onBookBirthday }) {
 
         .bd-card-name {
           font-family: var(--font-heading);
-          font-size: clamp(38px, 5.2vw, 64px);
+          font-size: clamp(30px, 2.6vw, 38px);
           font-weight: 700;
           letter-spacing: 0.02em;
           color: var(--ink);
           text-transform: uppercase;
-          line-height: 1;
+          line-height: 1.05;
+          word-break: break-word;
+          hyphens: auto;
         }
+        @media (max-width: 720px) { .bd-card-name { font-size: 42px; } }
         .bd-card-rule {
           height: 2px;
           background: var(--brand);
