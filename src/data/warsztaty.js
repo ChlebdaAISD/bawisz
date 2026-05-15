@@ -2,64 +2,76 @@ export const WARSZTATY_EXAMPLES = [
   {
     h: 'Akademia Maluszka',
     age: 'do 4 roku życia',
-    meta: '1,5 h · 60 zł/os.',
+    meta: '1,5 h ·',
     by: 'Anna Jagoda Mrożek · Effata Anima',
-    p: 'Cykl spotkań plastycznych dla najmłodszych — zabawa kolorem, proste prace plastyczne, swobodna zabawa po zajęciach. Cztery terminy w sezonie.',
+    p: 'Cykl spotkań plastycznych dla najmłodszych — zabawa kolorem,  proste prace plastyczne, swobodna zabawa po zajęciach. Cykl spotkań.',
+    image: '/assets/zdjecia/warsztaty/WARSZTATY 6.jpg',
+    imageAlt: 'Akademia Maluszka — zajęcia plastyczne dla dzieci do 4 lat w Bawiszu',
   },
   {
     h: 'Mały Artysta',
     age: 'od 4 roku życia',
-    meta: '1,5 h · 70 zł/os.',
+    meta: '1,5 h ·',
     by: 'Anna Jagoda Mrożek · Effata Anima',
     p: 'Cykl plastyczny „Poznajemy mistrzów, tworzymy po swojemu". Dzieci poznają wybranego twórcę i robią własną pracę inspirowaną jego stylem.',
+    image: '/assets/zdjecia/warsztaty/WARSZTATY 4.jpg',
+    imageAlt: 'Mały Artysta — warsztaty plastyczne dla dzieci od 4 lat',
   },
   {
     h: 'Warsztaty z gliny',
-    age: 'od 4 roku życia',
-    meta: '1,5 h · 80 zł/os.',
+    age: 'od 3,5 roku życia',
+    meta: '1,5 h ·',
     by: 'Anna Jagoda Mrożek · Effata Anima',
     p: 'Lepienie z gliny — od ugniatania i poznawania faktury, po formowanie pierwszych figurek. Pracę dziecko zabiera do domu po wyschnięciu.',
+    image: '/assets/zdjecia/warsztaty/WARSZTATY 2.jpg',
+    imageAlt: 'Warsztaty z gliny dla dzieci w bawialni Bawisz w Nowym Targu',
   },
   {
     h: 'Gimnastyka dla Smyka',
     age: 'od 2 roku życia',
-    meta: '1,5 h · 60 zł/os.',
+    meta: '1,5 h ·',
     by: 'Anna Tomalak · Asana Joga',
-    p: 'Cykliczne zajęcia ruchowe dla najmłodszych — joga dla dzieci, pozycje zwierząt, zabawy z chustą i piłką. Bardziej zabawa niż „trening".',
+    p: 'Cykliczne zajęcia ruchowe— sensoryczne doznania dla małych odkrywców, nauka prawidłowego oddychania, elemety jogi dla dzieci.',
+    image: '/assets/zdjecia/warsztaty/WARSZTATY 5.jpg',
+    imageAlt: 'Gimnastyka dla Smyka — zajęcia ruchowe dla dzieci od 2 lat',
   },
   {
     h: 'Warsztaty z kurami jedwabistymi',
     age: 'dla dzieci i rodzin',
     meta: 'animaloterapia · sensoryka',
     by: 'partner zewnętrzny',
-    p: 'Spotkanie z puszystymi kurami jedwabistymi — przytulanie, karmienie, dotykanie miękkiego pierza. Element wyciszenia, kontaktu z naturą i sensoryki.',
+    p: 'Spotkanie z puszystymi kurami jedwabistymi — przytulanie, karmienie, dotykanie miękkiego pierza. Element wyciszenia, kontaktu z naturą i sensoryki. Żywa lekcja przyrody.',
+    image: '/assets/zdjecia/warsztaty/WARSZTATY.webp',
+    imageAlt: 'Warsztaty animaloterapii z kurami jedwabistymi w Bawiszu',
   },
 ]
 
 export const WARSZTATY_FAQ = [
   {
-    q: 'Skąd dowiem się o najbliższych warsztatach w Bawiszu?',
-    a: 'Wszystkie warsztaty ogłaszamy na bieżąco na Instagramie @bawisz_bawialnia — tam znajdziesz datę, godzinę, prowadzącego, wiek dziecka i cenę. Najszybciej zaobserwować profil i włączyć powiadomienia, bo część terminów wyprzedaje się w 2-3 dni.',
+    q: 'Skąd dowiem się o najbliższych warsztatach w Bawisz?',
+    a: 'Wszystkie warsztaty ogłaszamy na bieżąco na Instagramie @bawisz_bawialnia i Facebook Bawisz - bawialnia Montessori — tam znajdziesz datę, godzinę, prowadzącego, wiek dziecka i cenę. Najszybciej zaobserwować profil i włączyć powiadomienia, bo część terminów wyprzedaje się w 2-3 dni.',
   },
   {
     q: 'Kto prowadzi warsztaty?',
-    a: 'Zapraszamy zewnętrznych prowadzących, którzy specjalizują się w swoim temacie. Stale pracujemy m.in. z Anną Jagodą Mrożek (Effata Anima — Akademia Maluszka, Mały Artysta, warsztaty z gliny) oraz Anną Tomalak (Asana Joga — Gimnastyka dla Smyka). Co jakiś czas dochodzą jednorazowi partnerzy do warsztatów tematycznych (np. animaloterapia z kurami jedwabistymi).',
+    a: `Warsztaty w Bawisz prowadzi wykwalifikowana kadra, oraz zapraszani przez nas zewnętrzni partnerzy i instruktorzy, którzy specjalizują się w danej tematyce.
+Dbamy o wysoki poziom zajęć, dlatego współpracujemy z osobami, które posiadają doświadczenie i wiedzę, a także są uwielbiane przez dzieci i potrafią tworzyć swobodną atmosferę do nauki i zabawy.
+Prowadzisz ciekawe warsztaty dla dzieci? Chętnie poznamy nowe, inspirujące osoby i pomysły na kreatywne zajęcia w Bawisz.`,
   },
   {
     q: 'Jakie warsztaty były dotychczas u was?',
-    a: 'Cykliczne: Akademia Maluszka (do 4 lat, plastyka), Mały Artysta (od 4 lat, plastyka), Gimnastyka dla Smyka (od 2 lat, ruch). Jednorazowe: warsztaty z gliny, warsztaty z kurami jedwabistymi (animaloterapia), zajęcia tematyczne wokół pór roku i świąt. Repertuar zmienia się — sprawdź Instagram, co planujemy w najbliższym miesiącu.',
+    a: 'Cykliczne: Akademia Maluszka (do 4 lat, plastyka), Mały Artysta (od 4 lat, plastyka), Gimnastyka dla Smyka (od 2 lat, ruch). Warsztaty z gliny (ceramika dla dzieci), Malarstwo na szkle (od 3 lat) Gordonki (od 6 m-cy), a także wiele innych tematycznych i okazjonalnych. Repertuar zmienia się — sprawdź Instagram, lub Facebook, co planujemy w najbliższym miesiącu.',
   },
   {
     q: 'Ile kosztują warsztaty i jak długo trwają?',
-    a: 'Standardowo 1,5 godziny zajęć z prowadzącą plus swobodna zabawa. Cena 60-80 zł od osoby — dokładna kwota podana jest zawsze przy ogłoszeniu konkretnego warsztatu na Instagramie. Cena obejmuje materiały (farby, glinę, masy sensoryczne i to, co potrzebne na danym warsztacie).',
+    a: 'Najczęściej to 1,5 godziny, warsztaty plus swobodna zabawa w bawialni. Ceny zależą od rodzaju zajęć, tematyki oraz zaproszonych prowadzących — dokładna kwota podana jest zawsze przy ogłaszaniu konkretnych warsztatów na Instagramie i Facebooku.',
   },
   {
     q: 'Dla jakiego wieku dziecka są warsztaty?',
-    a: 'Każdy warsztat ma określony wiek — od 2 lat na Gimnastyce dla Smyka, do 4 lat na Akademii Maluszka, od 4 lat na Małym Artyście i warsztatach z gliny, dla dzieci i rodzin razem na warsztatach z kurami. Wiek jest zawsze podany w ogłoszeniu na Instagramie.',
+    a: 'Wiek dzieci zależy od konkretnych warsztatów. Zazwyczaj podajemy sugerowany przedział wiekowy na plakacie lub w opisie zajęć. Jeśli nie ma informacji o minimalnym wieku, oznacza to,  że również najmłodsze dzieci mogą wziąść udział.',
   },
   {
     q: 'Jak się zapisać?',
-    a: 'Zapisy przez telefon: +48 693 766 049 albo wiadomość na Instagramie. Liczba miejsc jest ograniczona (zwykle 6-10 dzieci na warsztat), więc dzwoń od razu po zobaczeniu ogłoszenia. Po telefonie potwierdzamy rezerwację i przypominamy o terminie dzień wcześniej.',
+    a: 'Zapisy przez telefon: +48 693 766 049 albo wiadomość na Instagramie lub Messenger. Liczba miejsc jest ograniczona (zwykle 6-10 dzieci na warsztat), więc dzwoń od razu po zobaczeniu ogłoszenia. Po telefonie potwierdzamy rezerwację i przypominamy o terminie wcześniej.',
   },
   {
     q: 'Mam pomysł na warsztat — czy mogę go u was poprowadzić?',
@@ -69,7 +81,7 @@ export const WARSZTATY_FAQ = [
 
 export const WARSZTATY_META = {
   title: 'Warsztaty dla dzieci Nowy Targ — Bawisz | plastyka, glina, joga',
-  description: 'Warsztaty dla dzieci w Nowym Targu w drewnianej sali Montessori: plastyka, glina, joga dla dzieci, animaloterapia. Terminy na Instagramie. 60-80 zł/os, 1,5 h.',
+  description: 'Warsztaty dla dzieci w Nowym Targu w drewnianej sali Montessori: plastyka, glina, gimnastyka dla dzieci, animaloterapia. Terminy na Instagramie. 60-90 zł/os, 1,5 h.',
   canonical: 'https://bawialniabawisz.pl/warsztaty/',
   ogImage: 'https://bawialniabawisz.pl/assets/og-warsztaty.jpg',
 }

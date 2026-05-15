@@ -5,9 +5,9 @@ import { AnimalDeer, AnimalBear, AnimalFox } from './animals.jsx'
 
 export function About() {
   const values = [
-    { icon: AnimalDeer, t: 'Naturalność', s: 'Drewno, sklejka, tkaniny. Zabawki, którym kibicują rodzice — bez plastikowego hałasu i bez ekranów.' },
-    { icon: AnimalBear, t: 'Spokój',       s: 'Dużo światła, mało bodźców. Pijesz kawę obok, dziecko bawi się w zasięgu wzroku.' },
-    { icon: AnimalFox,  t: 'Samodzielność',s: 'Wszystko na wysokości dziecka. Wybiera samo, próbuje samo, wraca dumne z tego, co zrobiło.' },
+    { icon: AnimalDeer, t: 'Naturalność', s: 'Drewno, sklejka, tkaniny. Zabawki, które wspierają rozwój — bez plastikowego hałasu.' },
+    { icon: AnimalBear, t: 'Spokój',       s: 'Ciepłe barwy, brak nadmiaru bodźców.  Pijesz kawę, dziecko bawi się w zasięgu twojego wzroku.' },
+    { icon: AnimalFox,  t: 'Samodzielność',s: 'Konstrukcje na wysokości dziecka, wszystko w zasięgu ręki. Dziecko wybiera samo, próbuje samo, wraca dumne z tego, co osiągnęło.' },
   ]
 
   return (
@@ -18,22 +18,22 @@ export function About() {
 
           <Reveal delay={80}>
             <h2 className="about-h">
-              Drewniana sala<br />
+              Kreatywna przestrzeń<br />
               dla <span className="hero-italic">małych odkrywców.</span>
             </h2>
           </Reveal>
 
           <Reveal delay={160} className="about-p body-lg">
             Bawisz to 220 m² drewnianej przestrzeni Montessori w sercu Nowego Targu — sala zabaw
-            dla dzieci 0–10 lat i kawiarnia dla rodziców pod jednym dachem. Dziecko bawi się samo
-            wśród naturalnych zabawek, a ty masz chwilę przy dobrej kawie.
+            dla dzieci 0–10 lat i kawiarnia dla rodziców pod jednym dachem.
+            Dziecko bawi się wśród kreatywnych zabawek, a ty masz chwilę dla siebie przy dobrej kawie.
           </Reveal>
 
           <div className="about-values">
             {values.map((v, i) => (
               <Reveal key={v.t} delay={240 + i * 80} className="about-value">
-                <div className="about-value-icon"><v.icon size={68} /></div>
-                <div>
+                <div className="about-value-icon"><v.icon size={140} /></div>
+                <div className="about-value-body">
                   <div className="about-value-t">{v.t}</div>
                   <div className="about-value-s">{v.s}</div>
                 </div>
@@ -54,7 +54,7 @@ export function About() {
           border-top: 1px solid var(--line-soft);
           border-bottom: 1px solid var(--line-soft);
         }
-        .about-text { max-width: 720px; }
+        .about-text { max-width: 820px; }
 
         .about-h {
           font-family: var(--font-heading);
@@ -70,29 +70,37 @@ export function About() {
         .about-values {
           display: flex;
           flex-direction: column;
-          gap: 4px;
-          margin: 32px 0;
+          gap: 6px;
+          margin: 36px 0;
         }
         .about-value {
           display: flex;
           align-items: center;
-          gap: 20px;
-          padding: 18px 0;
+          gap: 28px;
+          padding: 22px 0;
           border-top: 1px dashed var(--line-soft);
         }
         .about-value:last-child { border-bottom: 1px dashed var(--line-soft); }
         .about-value-icon {
           flex-shrink: 0;
-          width: 72px;
-          height: 72px;
+          width: 140px;
+          height: 140px;
           display: inline-flex;
           align-items: center;
           justify-content: center;
+          transition: transform 0.4s ease;
         }
+        .about-value:hover .about-value-icon { transform: scale(1.04); }
         .about-value-icon svg,
-        .about-value-icon img { display: block; filter: drop-shadow(0 3px 6px rgba(91,71,55,0.15)); }
-        .about-value-t { font-weight: 700; color: var(--ink); margin-bottom: 4px; font-size: 17px; }
-        .about-value-s { font-size: 14.5px; color: var(--ink-mute); line-height: 1.6; font-weight: 500; }
+        .about-value-icon img { display: block; filter: drop-shadow(0 6px 12px rgba(91,71,55,0.18)); }
+        .about-value-body { flex: 1; min-width: 0; }
+        .about-value-t { font-weight: 700; color: var(--ink); margin-bottom: 6px; font-size: 19px; }
+        .about-value-s { font-size: 15.5px; color: var(--ink-mute); line-height: 1.6; font-weight: 500; }
+
+        @media (max-width: 640px) {
+          .about-value { gap: 18px; }
+          .about-value-icon { width: 96px; height: 96px; }
+        }
 
         .about-cta { margin-top: 12px; }
       `}</style>

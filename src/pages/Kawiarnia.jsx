@@ -9,28 +9,32 @@ import { KAWIARNIA_FAQ as FAQ, KAWIARNIA_META as META } from '../data/kawiarnia.
 import { updateHead } from '../lib/head.js'
 
 const GALLERY = [
-  { src: '/assets/zdjecia/Bawisz_-13.webp',           alt: 'Kawiarnia w Bawiszu — placeholder' },
-  { src: '/assets/zdjecia/Bawisz_AnnaMrożek-22.webp', alt: 'Domowe ciasta — placeholder' },
-  { src: '/assets/zdjecia/Bawisz_-38.webp',           alt: 'Specialty coffee — placeholder' },
-  { src: '/assets/zdjecia/Bawisz_AnnaMrożek-49.webp', alt: 'Wnętrze kawiarni — placeholder' },
-  { src: '/assets/zdjecia/Bawisz_AnnaMrożek-39.webp', alt: 'Menu dla dzieci — placeholder' },
+  { src: '/assets/zdjecia/kawiarnia/KAWIARNIA 1.jpg', alt: 'Wnętrze kawiarni Bawisz' },
+  { src: '/assets/zdjecia/kawiarnia/KAWIARNIA 2.jpg', alt: 'Kawa specialty w Bawiszu' },
+  { src: '/assets/zdjecia/kawiarnia/KAWIARNIA 3.jpg', alt: 'Domowe ciasto w kawiarni Bawisz' },
+  { src: '/assets/zdjecia/kawiarnia/KAWIARNIA 4.jpg', alt: 'Stolik w kawiarni Bawisz' },
+  { src: '/assets/zdjecia/kawiarnia/KAWIARNIA 5.jpg', alt: 'Menu kawiarni Bawisz' },
+  { src: '/assets/zdjecia/kawiarnia/KAWIARNIA 6.jpg', alt: 'Strefa kawiarni w Bawiszu' },
+  { src: '/assets/zdjecia/kawiarnia/KAWIARNIA 7.jpg', alt: 'Wypieki w kawiarni Bawisz' },
+  { src: '/assets/zdjecia/kawiarnia/KAWIARNIA 8.jpg', alt: 'Atmosfera kawiarni Bawisz' },
+  { src: '/assets/zdjecia/kawiarnia/KAWIARNIA.jpg',   alt: 'Kawiarnia Bawisz w Nowym Targu' },
 ]
 
 const PROCESS = [
   {
     n: '1',
     h: 'Wpadasz na kawę',
-    p: 'Bez rezerwacji. Wchodzisz, wybierasz kawę i ciasto z lady (sezonowe domowe, brownie, sernik, szarlotka), rozsiadasz się przy stoliku. Do kawiarni nie potrzebujesz biletu — kupujesz go tylko jeśli dziecko ma się bawić w sali.',
+    p: 'Bez rezerwacji. Wchodzisz, wybierasz kawę i ciasto z naszej witryny. Do kawiarni nie potrzebujesz biletu — kupujesz go tylko jeśli dziecko będzie bawić się na sali zabaw.',
   },
   {
     n: '2',
     h: 'Decydujesz, czy bawialnia',
-    p: 'Jeśli dziecko jest z tobą i ma się pobawić — kupujesz wstęp do drewnianej sali Montessori (25 zł / 1 h, 29 zł / 1,5 h, 33 zł / 2 h, 45 zł no limit). Opiekun zawsze gratis. Drugie dziecko w rodzinie — 25% taniej.',
+    p: 'Jeśli dziecko jest z tobą i chcecie się pobawić — kupujesz wstęp do sali Montessori (25 zł / 1 h, 29 zł / 1,5 h, 33 zł / 2 h, 45 zł no limit). Opiekun zawsze gratis. Drugie dziecko w rodzinie — 25% taniej.',
   },
   {
     n: '3',
     h: 'Pijesz kawę, dziecko się bawi',
-    p: 'Siedzisz obok sali zabaw, masz dziecko w polu widzenia, kawa zostaje gorąca. Dziecko bawi się przy naturalnych zabawkach z drewna — sensoplastyka, zabawy w role, kącik czytelniczy.',
+    p: 'Siedzisz przy wygodnym stoliku, masz dziecko w zasięgu wzroku, kawa zostaje gorąca. Dziecko bawi się swobodnie  w sali zabaw— ma do dyspozycji naturalne zabawki, domki tematyczne,wspinaczki, zjeżdżalnie, kąciki czytelnicze.',
   },
   {
     n: '4',
@@ -65,7 +69,7 @@ export default function Kawiarnia({ onBookBirthday = () => {} }) {
 
             <h1 className="svc-h1 fade-up" style={{ animationDelay: '0.05s' }}>
               <span className="line">Kawiarnia w Nowym Targu.</span>
-              <span className="line hero-italic">Z drewnianą bawialnią</span>
+              <span className="line hero-italic">Z naturalną bawialnią</span>
               <span className="line">Montessori obok.</span>
             </h1>
 
@@ -86,7 +90,7 @@ export default function Kawiarnia({ onBookBirthday = () => {} }) {
         <div className="shell">
           <Reveal>
             <p className="svc-intro-p body-lg">
-              Kawiarnia w Nowym Targu, w której kawa zostaje gorąca, a dziecko nie ciągnie cię za rękę, żeby już wracać do domu. Przy ul. Krzywej 19B parzymy specialty espresso, flat white, latte i matcha latte, pieczemy ciasta domowe (też bez cukru i bezglutenowe), a obok mamy drewnianą salę Montessori dla dzieci od 0 do 10 lat. Pijesz kawę, dziecko bawi się tuż obok — przy naturalnych zabawkach, w spokojnej przestrzeni, bez plastiku. Wstęp do bawialni od 25 zł za godzinę, sama kawiarnia bez biletu. Ocena 4.9/5 w Google.
+              Kawiarnia w Nowym Targu, w której kawa zostaje gorąca, a dziecko nie ciągnie cię za rękę, żeby już wracać do domu. Przy ul. Krzywej 19B parzymy specialty espresso, americano, latte i cappuccino, serwujemy domowe ciasta, a obok mamy drewnianą salę Montessori dla dzieci od 0 do 10 lat. Pijesz kawę, dziecko bawi się tuż obok — przy naturalnych zabawkach, w spokojnej przestrzeni, bez plastiku. Wstęp do bawialni od 25 zł za godzinę, sama kawiarnia bez biletu. Ocena 4.9/5 w Google.
             </p>
           </Reveal>
         </div>
@@ -123,7 +127,7 @@ export default function Kawiarnia({ onBookBirthday = () => {} }) {
               </h2>
             </Reveal>
             <Reveal delay={160} className="body-lg svc-sub">
-              Najczęstsze pytanie: „muszę kupować bilet, żeby napić się kawy?". Odpowiedź: nie. Bilet jest tylko jeśli dziecko ma się bawić w sali.
+              Najczęstsze pytanie: „muszę kupować bilet, żeby napić się kawy?". Odpowiedź: nie. Za wejście zapłacisz tylko jeśli dziecko będzie bawiło się na sali zabaw.
             </Reveal>
           </div>
 
@@ -150,7 +154,7 @@ export default function Kawiarnia({ onBookBirthday = () => {} }) {
                 Zamówienie <span className="hero-italic">na imprezę</span>?
               </h2>
               <p className="svc-mid-p">
-                Cały sernik, blacha brownie, ciasta na chrzciny albo urodziny w domu — ustalamy z minimum 24-48 h wyprzedzeniem. Najszybciej przez telefon.
+                Cały sernik, blacha brownie, monoporcje czy tort na chrzciny lub urodziny w domu — ustalamy z minimum 24-48 h wyprzedzeniem. Najszybciej przez telefon.
               </p>
             </div>
             <div className="svc-mid-ctas">

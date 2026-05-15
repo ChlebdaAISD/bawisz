@@ -9,11 +9,11 @@ export const HOME_FAQ = [
   },
   {
     q: 'Czym Bawisz różni się od zwykłego placu zabaw?',
-    a: 'Trzy konkrety. Po pierwsze — drewniany wystrój sali i naturalne zabawki, bez plastikowego hałasu. Po drugie — kawiarnia obok, więc pijesz prawdziwą kawę i jesz domowe ciasto, kiedy dziecko się bawi. Po trzecie — w codziennym wstępie nie ma animatorów, bawisz się ze swoim dzieckiem w przestrzeni, w której wszystko jest pod ręką.',
+    a: 'Trzy konkrety. Po pierwsze — drewniana, naturalna przestrzeń bez plastikowego chaosu i nadmiaru bodźców. Po drugie — kawiarnia tuż obok, więc pijesz prawdziwą kawę i jesz domowe ciasto, mając dziecko cały czas w zasięgu wzroku. Po trzecie — Bawisz powstało z myślą o wspólnym, komfortowym czasie dzieci i rodziców- miękka wykładzina i wygodne miejsca sprawiają, że naprawdę możecie bawić się razem.',
   },
   {
     q: 'Czy trzeba rezerwować wejście do bawialni?',
-    a: 'Na codzienny wstęp nie. Wpadasz, kiedy chcesz, w godzinach otwarcia (10:00 — 19:00 w tygodniu, 10:00 — 20:00 w weekendy). Rezerwujemy tylko urodziny, warsztaty i wyjścia grupowe dla przedszkoli — wtedy zadzwoń pod +48 693 766 049 albo napisz na Instagramie.',
+    a: 'Na codzienny wstęp nie. Wpadasz, kiedy chcesz, w godzinach otwarcia (10:00 — 19:00 w tygodniu, 10:00 — 20:00 w weekendy). Rezerwujemy tylko urodziny, warsztaty i wejścia grupowe dla przedszkoli — wtedy zadzwoń pod +48 693 766 049 albo napisz na Instagramie.',
   },
   {
     q: 'Czy jest parking przy bawialni w Nowym Targu?',
@@ -21,11 +21,11 @@ export const HOME_FAQ = [
   },
   {
     q: 'Co to jest bawialnia Montessori i dlaczego to ważne?',
-    a: 'W Montessori dziecko wybiera samo, próbuje samo, jest dumne z efektu. Wszystko jest na jego wysokości — drewniane konstrukcje, sklejka, tkaniny, zabawki bez baterii i ekranów. Mniej hałasu, więcej skupienia. Dzieci wciągają się tak, że trudno je wyciągnąć po dwóch godzinach.',
+    a: 'Bawialnia Montessori to przestrzeń, która wspiera samodzielność, kreatywność i naturalny rozwój dziecka. Drewniane zabawki, różnorodne faktury i przyjazna sensoryczna przestrzeń pomagają dzieciom poznawać świat wszystkimi zmysłami, rozwijać koncentrację, motorykę oraz wyobraźnię- bez nadmiaru bodźców i hałasu. Wspólna zabawa sprzyja także budowaniu pierwszych relacji, nauce współpracy i swobodnym kontaktom z rówieśnikami.',
   },
   {
-    q: 'Czy mogę zostawić dziecko pod opieką personelu?',
-    a: 'Nie — i to jest świadome. Bawisz to przestrzeń, w której bawisz się ze swoim dzieckiem, a nie miejsce, gdzie zostawiasz dziecko z animatorem. Sala jest dograna pod dziecko, więc nie musisz pilnować na każdym kroku — siedzisz z kawą obok, dziecko ma wszystko w zasięgu ręki. Wyjątek to urodziny i warsztaty — tam prowadzący prowadzą program.',
+    q: 'Czy drewniana sala zabaw jest bezpieczna?',
+    a: 'Tak — nasza przestrzeń została zaprojektowana zgodnie z normą PN-EN 1176 i stworzona z myślą o bezpieczeństwie najmłodszych. Stabilne konstrukcje, zaokrąglone formy, miękka wykładzina oraz trwałe, starannie dobrane materiały pozwalają dzieciom bawić się  swobodnie, komfortowo i bezpiecznie każdego dnia.',
   },
   {
     q: 'Czy są zniżki dla rodzeństwa?',

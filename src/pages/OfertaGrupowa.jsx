@@ -4,54 +4,65 @@ import { Reveal } from '../components/Reveal.jsx'
 import { Decoration } from '../components/Decoration.jsx'
 import { ServiceGallery } from '../components/ServiceGallery.jsx'
 import { IconArrow, IconInstagram } from '../components/icons.jsx'
+import { AnimalDeer, AnimalBear, AnimalWolf } from '../components/animals.jsx'
 import { OFERTA_GRUPOWA_FAQ as FAQ, OFERTA_GRUPOWA_META as META } from '../data/oferta-grupowa.js'
 import { updateHead } from '../lib/head.js'
 
 const GALLERY = [
-  { src: '/assets/zdjecia/Bawisz_-13.webp',           alt: 'Grupa przedszkolna w Bawiszu — placeholder' },
+  { src: '/assets/zdjecia/Bawisz_-13.webp',           alt: 'Grupa przedszkolna w Bawisz — placeholder' },
   { src: '/assets/zdjecia/Bawisz_AnnaMrożek-22.webp', alt: 'Sala dla grup — placeholder' },
-  { src: '/assets/zdjecia/Bawisz_-38.webp',           alt: 'Wyjście grupowe — placeholder' },
+  { src: '/assets/zdjecia/Bawisz_-38.webp',           alt: 'Wejście grupowe — placeholder' },
   { src: '/assets/zdjecia/Bawisz_AnnaMrożek-49.webp', alt: 'Strefy zabaw dla grup — placeholder' },
   { src: '/assets/zdjecia/Bawisz_AnnaMrożek-39.webp', alt: 'Dzieci w sali Montessori — placeholder' },
 ]
 
 const AUDIENCES = [
   {
-    age: 'Przedszkola',
-    h: 'Wyjścia dla przedszkoli',
-    p: 'Cała grupa wchodzi razem, dzieci bawią się przy drewnianych zabawkach Montessori pod opieką swoich nauczycieli. Strefy są podzielone według wieku (3-4 lata, 5-6 lat), więc 6-latki nie wchodzą w paradę 3-latkom. Idealne na wycieczkę pieszą z budynku przedszkola — jesteśmy 5-7 minut spacerem od centrum Nowego Targu.',
+    age: 'Żłobki i przedszkola',
+    h: 'Wejścia dla żłobków i przedszkoli',
+    p: 'Cała grupa wchodzi razem, dzieci bawią się przy edukacyjnych zabawkach Montessori na miękkiej wykładzinie, bezpiecznie i komfortowo, pod opieką swoich opiekunów. Idealne na wycieczkę pieszą z budynku przedszkola — jesteśmy 5-7 minut spacerem od centrum Nowego Targu.',
   },
   {
     age: 'Szkoły podstawowe',
     h: 'Bawialnia dla szkół',
-    p: 'Klasy 0-3 mieszczą się komfortowo w drewnianej sali. Świetne na zakończenie roku, dzień dziecka, mikołajki klasowe albo jako nagroda za projekt. Dzień otwarty (NO LIMIT) sprawdza się przy klasach łączonych — dzieci same wybierają, gdzie chcą się bawić, nauczyciel ma je w polu widzenia.',
+    p: 'Klasy 0-3 mieszczą się komfortowo w drewnianej sali. Świetne na zakończenie roku, dzień dziecka, mikołajki klasowe albo jako nagroda za projekt. Dzień otwarty (NO LIMIT) sprawdza się przy klasach łączonych — dzieci same wybierają, gdzie chcą się bawić, nauczyciel mają je zawsze w zasiegu wzroku.',
   },
   {
     age: 'Grupy zorganizowane',
     h: 'Imprezy dla grup',
-    p: 'Spotkania urodzinowe całych klas, zajęcia integracyjne dla zespołów dziecięcych, wyjścia takich grup jak klub mam, drużyna harcerska albo świetlica. Łączymy wejście grupowe z dodatkami: poczęstunek, warsztat sensoplastyki, dekoracje urodzinowe — co potrzeba, to dokładamy.',
+    p: 'Spotkania urodzinowe całych klas, zajęcia integracyjne dla zespołów dziecięcych, wyjścia takich grup jak klub mam, drużyna harcerska albo świetlica. Łączymy wejście grupowe z dodatkami: poczęstunek, warsztatyi, dekoracje urodzinowe — szczegóły ustalamy indywidualnie.',
   },
 ]
 
 const PAKIETY = [
   {
-    czas: '1 godzina',
-    cena: '15 zł',
-    jednostka: '/ dziecko',
-    p: 'Krótkie wyjście, pełen dostęp do drewnianej sali. Sprawdza się, gdy grupa wraca do przedszkola na obiad albo łączy wizytę z innym punktem programu.',
+    czas: '1 h',
+    cena: '15',
+    jednostka: '/dziecko',
+    Animal: AnimalDeer,
+    bg: 'var(--bone)',
+    shift: -12,
+    p: 'Krótkie wejście, pełen dostęp do kreatywnej sali. Sprawdza się, gdy grupa wraca do przedszkola na obiad albo łączy wizytę z innym punktem programu.',
   },
   {
-    czas: '2 godziny',
-    cena: '23 zł',
-    jednostka: '/ dziecko',
+    czas: '2 h',
+    cena: '23',
+    jednostka: '/dziecko',
+    Animal: AnimalBear,
+    bg: 'var(--paper)',
+    shift: -9,
     badge: 'Najczęstszy wybór',
-    p: 'Czas, by każde dziecko spróbowało wszystkich stref: zabawy w role, kącik czytelniczy, drewniane zabawki sensoryczne, sala ruchowa. Najczęstszy wybór przedszkoli z Nowego Targu i okolic.',
+    p: 'Czas, by każde dziecko wytestowało wszystkie atrakcje: domki tematyczne, kącik czytelniczy, drewniane zabawki, sensoryczne tory przeszkód, ścianki wspinaczkowe, czy zjeżdżalnie. Najczęstszy wybór przedszkoli z Nowego Targu i okolic.',
   },
   {
-    czas: 'NO LIMIT',
-    cena: '35 zł',
-    jednostka: '/ dziecko · cały dzień',
-    p: 'Cały dzień otwarcia — od 10:00 do zamknięcia. Kawa i herbata bez limitu dla opiekunów (1:5). Dobre na wycieczki całodniowe i dni, kiedy dzieci wracają do sali po przerwie obiadowej.',
+    czas: 'NO\u00a0LIMIT',
+    cena: '35',
+    jednostka: '/dziecko · cały dzień',
+    Animal: AnimalWolf,
+    bg: 'var(--bone)',
+    shift: -12,
+    noLimit: true,
+    p: 'Cały dzień od otwarcia — 10:00 do zamknięcia. Kawa i herbata dla opiekunów (1:5). Dobre na wycieczki całodniowe i dni, kiedy dzieci wracają do sali po przerwie obiadowej.',
   },
 ]
 
@@ -59,22 +70,22 @@ const PROCES = [
   {
     n: '1',
     h: 'Telefon i ustalenie szczegółów',
-    p: 'Dzwonisz na +48 693 766 049 albo piszesz na Instagramie. Podajesz datę, liczbę dzieci, czas trwania (1 h, 2 h albo NO LIMIT) oraz to, czy chcecie poczęstunek. Sprawdzamy wolny termin i potwierdzamy rezerwację.',
+    p: 'Dzwonisz na +48 693 766 049 albo piszesz na Instagram/Messenger.  Podajesz datę, liczbę dzieci, czas trwania (1 h, 2 h albo NO LIMIT) oraz to, czy chcecie poczęstunek lub warsztaty. Sprawdzamy wolny termin, potwierdzamy rezerwację.',
   },
   {
     n: '2',
     h: 'Przygotowanie sali',
-    p: 'Zanim grupa przyjdzie, ustawiamy strefy według wieku dzieci, sprawdzamy bezpieczeństwo, parzymy kawę i herbatę dla opiekunów. Jeśli zamówiliście poczęstunek — przygotowujemy go tak, żeby był gotowy na wejście grupy.',
+    p: 'Przed przyjazdem odpowiednio przygotowujemy przestrzeń dla waszej  grupy, sprawdzamy bezpieczeństwo, parzymy kawę i herbatę dla opiekunów, dbamy o każdy detal, aby zabawa była komfortowa i bezpieczna.',
   },
   {
     n: '3',
     h: 'Wejście grupy i zabawa',
-    p: 'Dzieci wchodzą i bawią się przy drewnianych zabawkach Montessori — sensoplastyka, zabawy w role, kącik czytelniczy, sala ruchowa. Nauczyciele zostają z grupą, my dbamy o przestrzeń, poczęstunek i to, żeby nic nie zabrakło.',
+    p: 'Dzieci wchodzą i bawią się przy drewnianych zabawkach Montessori — sensoryka, zabawy w role, kąciki czytelnicze, tory przeszkód. Nauczyciele zostają z grupą, mając ją ciągle w zasięgu wzroku, my dbamy o przestrzeń i o wasz komfort.',
   },
   {
     n: '4',
     h: 'Rozliczenie z placówką',
-    p: 'Wystawiamy fakturę dla przedszkola lub szkoły z odroczonym terminem płatności (przelew po wizycie). Potrzebujemy NIP placówki i danych do faktury — przesyłacie je SMS-em albo mailem po ustaleniu terminu.',
+    p: 'W celu rezerwacji terminu przyjmujemy zaliczke w wysokości 50% wartości rezeracji. Calość rozliczana jest po zakończonej wizycie, zgodnie z faktyczną liczba uczestników. Oczywiście istnieje możliwość wystawienia faktury.',
   },
 ]
 
@@ -99,12 +110,12 @@ export default function OfertaGrupowa() {
           <div className="svc-hero-text">
             <Breadcrumb items={[
               { name: 'Strona główna', href: '/' },
-              { name: 'Dla przedszkoli', href: '/oferta-grupowa/' },
+              { name: 'Dla grup', href: '/oferta-grupowa/' },
             ]} />
 
             <h1 className="svc-h1 fade-up" style={{ animationDelay: '0.05s' }}>
-              <span className="line">Oferta dla przedszkoli.</span>
-              <span className="line hero-italic">Nowy Targ — drewniana</span>
+              <span className="line">Oferta dla grup</span>
+              <span className="line hero-italic">Nowy Targ — naturalna</span>
               <span className="line">bawialnia Montessori.</span>
             </h1>
 
@@ -130,8 +141,48 @@ export default function OfertaGrupowa() {
         <div className="shell">
           <Reveal>
             <p className="svc-intro-p body-lg">
-              Wyjścia grupowe dla przedszkoli i szkół z Nowego Targu i okolic w drewnianej bawialni Montessori przy ul. Krzywej 19B. Minimum 10 dzieci, od 15 zł za godzinę za dziecko (23 zł za 2 godziny, 35 zł NO LIMIT na cały dzień). Kawa lub herbata gratis dla 1 opiekuna na 5 dzieci. Sala dla wieku 0-10 lat, naturalne zabawki, strefy dopasowane do wieku. Faktura dla placówki z odroczonym terminem płatności. Termin rezerwujemy telefonicznie — najlepiej z 1-2 tygodniami wyprzedzenia.
+              W Bawisz wierzymy, że wspólna zabawa to najlepszy sposób na naukę, integrację i rozwijanie dziecięcej wyobraźni. Wejścia grupowe dla żłobków, przedszkoli i szkół z Nowego Targu oraz okolic do naturalnej bawialni Montessori przy ul. Krzywej 19B, już od 15 zł za godzinę  (23 zł za 2 godziny, 35 zł NO LIMIT na cały dzień) dla grup od 10 osób. Opiekunowie zawsze bezpłatnie. Podział na strefy wiekowe, kreatywna atmosfera oraz wnętrze bez nadmiaru bodźców, z edukacyjnymi zabawkami. Organizujemy zarówno swobodną zabawę, jak i wizyty połaczone z warsztatami, czy poczestunkiem dla grup. Termin rezerwujemy telefonicznie — najlepiej z 2-3 tygodniowym wyprzedzeniem.
             </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* PAKIETY — cennik czasowy */}
+      <section className="svc-pakt">
+        <div className="shell">
+          <div className="svc-head">
+            <Reveal className="eyebrow">[ Pakiety czasowe ]</Reveal>
+            <Reveal delay={80}>
+              <h2 className="svc-h2">
+                Jasne zasady. <span className="hero-italic">Bez gwiazdek.</span>
+              </h2>
+            </Reveal>
+            <Reveal delay={160} className="body-lg svc-sub">
+              Atrakcyjna cena dla grup już od 10 osób. Opiekunowie wchodzą gratis, 1 na 5 dzieci ma kawę albo herbatę z naszej kawiarni w cenie pakietu.
+            </Reveal>
+          </div>
+
+          <div className="svc-pakt-grid">
+            {PAKIETY.map((p, i) => (
+              <Reveal key={p.czas} delay={i * 100} className={`svc-pakt-tier ${p.badge ? 'is-pop' : ''}`} style={{ background: p.bg }}>
+                {p.badge && <div className="svc-pakt-badge">{p.badge}</div>}
+                <div className="svc-pakt-animal" style={{ '--shift': `${p.shift}px` }}>
+                  <p.Animal size={140} />
+                </div>
+                <div className="svc-pakt-time-circle">
+                  <span className={p.noLimit ? 'svc-pakt-time-small' : 'svc-pakt-time'}>{p.czas}</span>
+                </div>
+                <div className="svc-pakt-price-circle">
+                  <span className="svc-pakt-price">{p.cena} zł</span>
+                  <span className="svc-pakt-unit">{p.jednostka}</span>
+                </div>
+                <p className="svc-pakt-p">{p.p}</p>
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal className="svc-pakt-note">
+            <p>Minimum: <strong>10 dzieci</strong> w grupie. Kawa lub herbata <strong>gratis</strong> dla 1 opiekuna na 5 dzieci. Poczęstunek dla dzieci na zamówienie — ustalamy zakres telefonicznie.</p>
           </Reveal>
         </div>
       </section>
@@ -151,11 +202,11 @@ export default function OfertaGrupowa() {
             <Reveal className="eyebrow">[ Dla kogo ]</Reveal>
             <Reveal delay={80}>
               <h2 className="svc-h2">
-                Trzy rodzaje <span className="hero-italic">wyjść grupowych.</span>
+                Trzy rodzaje <span className="hero-italic">wejść grupowych.</span>
               </h2>
             </Reveal>
             <Reveal delay={160} className="body-lg svc-sub">
-              Cennik jest jeden, sala ta sama — drewniana, podzielona na strefy według wieku. Rodzaj wyjścia ma znaczenie po to, żebyśmy ustawili strefy pod konkretne grupy wiekowe i przygotowali poczęstunek pod dietę grupy.
+              Oferta grupowa już od 10 dzieci. Naturalna sala zabaw z nowoczesną, przyjazną sensorycznie przestrzenią, drewnianymi zabakami i podziałem na strefy dopasowane do wieku dzieci. Oprócz swobodnej zabawy oferujemy możliwość przygotowania poczęstunku, drugiego śniadania lub obiadu, dostosowujemy szystko do potrzeb dzieci i grupy.
             </Reveal>
           </div>
 
@@ -171,47 +222,12 @@ export default function OfertaGrupowa() {
         </div>
       </section>
 
-      {/* PAKIETY — cennik czasowy */}
-      <section className="svc-pakt">
-        <div className="shell">
-          <div className="svc-head">
-            <Reveal className="eyebrow">[ Pakiety czasowe ]</Reveal>
-            <Reveal delay={80}>
-              <h2 className="svc-h2">
-                Trzy ceny. <span className="hero-italic">Bez gwiazdek.</span>
-              </h2>
-            </Reveal>
-            <Reveal delay={160} className="body-lg svc-sub">
-              Cena za dziecko za czas zabawy. Opiekunowie wchodzą gratis, 1 na 5 dzieci ma kawę albo herbatę z naszej kawiarni w cenie pakietu.
-            </Reveal>
-          </div>
-
-          <div className="svc-pakt-grid">
-            {PAKIETY.map((p, i) => (
-              <Reveal key={p.czas} delay={i * 100} className={`svc-pakt-card ${p.badge ? 'is-pop' : ''}`}>
-                {p.badge && <div className="svc-pakt-badge">{p.badge}</div>}
-                <div className="svc-pakt-czas">{p.czas}</div>
-                <div className="svc-pakt-price-row">
-                  <span className="svc-pakt-price">{p.cena}</span>
-                  <span className="svc-pakt-unit">{p.jednostka}</span>
-                </div>
-                <p className="svc-pakt-p">{p.p}</p>
-              </Reveal>
-            ))}
-          </div>
-
-          <Reveal className="svc-pakt-note">
-            <p>Minimum: <strong>10 dzieci</strong> w grupie. Kawa lub herbata <strong>gratis</strong> dla 1 opiekuna na 5 dzieci. Poczęstunek dla dzieci na zamówienie — ustalamy zakres telefonicznie.</p>
-          </Reveal>
-        </div>
-      </section>
-
       {/* GALERIA */}
       <ServiceGallery
         eyebrow="[ Galeria ]"
-        heading="Tak wyglądają wyjścia grupowe."
+        heading="Tak wyglądają wejścia grupowe."
         italic="grupowe"
-        subtitle="220 m² drewna, strefy podzielone wiekiem, opiekun w polu widzenia. Kliknij zdjęcie, żeby powiększyć."
+        subtitle="220 m² atrakcji, strefy podzielone wiekiem, opiekun ma dzieci ciągle w polu widzenia. Kliknij zdjęcie, żeby powiększyć."
         items={GALLERY}
       />
 
@@ -261,7 +277,7 @@ export default function OfertaGrupowa() {
                 Termin <span className="hero-italic">wyjścia</span>?
               </h2>
               <p className="svc-mid-p">
-                Wolne terminy w godzinach porannych i wczesnym popołudniem (od 10:00 do około 14:00 — przed otwarciem dla rodzin indywidualnych). Najszybciej przez telefon — od razu sprawdzamy wolne daty i ustalamy szczegóły.
+                Wolne terminy w godzinach porannych i wczesnym popołudniem (od 9:00 do ok. 14:00). Najszybciej przez telefon — od razu sprawdzamy wolne daty i ustalamy szczegóły.
               </p>
             </div>
             <div className="svc-mid-ctas">
@@ -309,10 +325,10 @@ export default function OfertaGrupowa() {
         <div className="shell">
           <Reveal className="svc-final-box">
             <h2 className="svc-final-h">
-              Rezerwacja <span className="hero-italic">wyjścia grupowego</span>
+              Rezerwacja <span className="hero-italic">dla grup</span>
             </h2>
             <p className="svc-final-p">
-              ul. Krzywa 19B, Nowy Targ. Pakiety od 15 zł za godzinę za dziecko, faktura dla placówki z odroczonym terminem płatności. Termin i szczegóły ustalamy telefonicznie — najlepiej 1-2 tygodnie wcześniej.
+              Nowy Targ ul. Krzywa 19B. Pakiety grupowe od 15 zł za godzinę za dziecko, faktura dla placówki. Termin i szczegóły ustalamy telefonicznie — najlepiej 1-2 tygodnie wcześniej.
             </p>
             <div className="svc-final-ctas">
               <a href="tel:+48693766049" className="btn btn-pop">
@@ -336,60 +352,144 @@ export default function OfertaGrupowa() {
         .svc-pakt-grid {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
-          gap: 18px;
-          max-width: 1180px;
+          gap: 28px;
+          max-width: 1080px;
           margin: 0 auto 32px;
         }
         @media (max-width: 980px) { .svc-pakt-grid { grid-template-columns: repeat(2, 1fr); } }
         @media (max-width: 600px) { .svc-pakt-grid { grid-template-columns: 1fr; } }
-        .svc-pakt-card {
+
+        .svc-pakt-tier {
           position: relative;
-          padding: 28px 28px 32px;
-          background: var(--bone);
-          border: 1px solid var(--line-soft);
+          padding: 14px 20px 28px;
           border-radius: var(--r-lg);
+          border: 1px solid var(--line-soft);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          box-shadow: 0 6px 26px -18px rgba(168,128,98,0.5);
+          transition: transform .35s ease;
         }
-        .svc-pakt-card.is-pop {
-          background: var(--brand-deep);
-          color: var(--bone);
-          transform: translateY(-12px);
-        }
-        @media (max-width: 600px) { .svc-pakt-card.is-pop { transform: none; } }
+        .svc-pakt-tier:hover { transform: translateY(-6px); }
+        .svc-pakt-tier.is-pop { border-color: var(--brand); box-shadow: 0 14px 40px -22px rgba(119,98,88,0.6); }
+
         .svc-pakt-badge {
           position: absolute;
           top: -14px;
-          left: 24px;
-          background: var(--ink);
+          left: 50%;
+          transform: translateX(-50%);
+          background: var(--brand-deep);
           color: var(--bone);
           font-size: 11px;
           font-weight: 700;
-          letter-spacing: 0.1em;
-          padding: 6px 12px;
+          letter-spacing: 0.12em;
+          padding: 6px 14px;
           border-radius: var(--r-pill);
           text-transform: uppercase;
+          white-space: nowrap;
         }
-        .svc-pakt-czas {
-          font-family: var(--font-mono);
-          font-size: 11px;
-          letter-spacing: 0.16em;
+
+        .svc-pakt-animal {
+          display: flex;
+          align-items: flex-end;
+          justify-content: center;
+          margin-bottom: -55px;
+          position: relative;
+          z-index: 0;
+          pointer-events: none;
+        }
+        .svc-pakt-animal > span { transform: translateY(var(--shift, 0)); }
+        .svc-pakt-animal svg,
+        .svc-pakt-animal img { display: block; filter: drop-shadow(0 4px 8px rgba(91,71,55,0.15)); }
+        @media (max-width: 520px) {
+          .svc-pakt-animal { margin-bottom: -38px; }
+          .svc-pakt-animal > span { transform: translateY(calc(var(--shift, 0) * 0.7)); width: 100px !important; height: 100px !important; }
+          .svc-pakt-animal svg { width: 100px !important; height: 100px !important; }
+        }
+
+        .svc-pakt-time-circle {
+          width: 100px;
+          height: 100px;
+          border-radius: 50%;
+          background: #FFFFFF;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-shadow: 0 6px 18px -10px rgba(119,98,88,0.4);
+          border: 1px solid var(--line-soft);
+          z-index: 2;
+          position: relative;
+        }
+        @media (max-width: 520px) { .svc-pakt-time-circle { width: 78px; height: 78px; } }
+
+        .svc-pakt-time {
+          font-family: var(--font-display);
+          font-weight: 700;
+          font-size: 34px;
+          color: var(--brand-deep);
+          letter-spacing: -0.01em;
+        }
+        @media (max-width: 520px) { .svc-pakt-time { font-size: 26px; } }
+
+        .svc-pakt-time-small {
+          font-family: var(--font-body);
+          font-weight: 700;
+          font-size: 14px;
+          line-height: 1.05;
+          letter-spacing: 0.06em;
+          color: var(--brand-deep);
+          text-align: center;
           text-transform: uppercase;
-          opacity: 0.85;
-          margin-bottom: 16px;
         }
-        .svc-pakt-price-row { display: flex; align-items: baseline; gap: 10px; }
+        @media (max-width: 520px) { .svc-pakt-time-small { font-size: 11px; } }
+
+        .svc-pakt-price-circle {
+          margin-top: -26px;
+          width: 100px;
+          height: 100px;
+          border-radius: 50%;
+          background: var(--brand);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          color: #fff;
+          box-shadow: 0 12px 28px -16px rgba(119,98,88,0.55);
+          z-index: 1;
+          padding: 0 6px;
+          text-align: center;
+        }
+        @media (max-width: 520px) { .svc-pakt-price-circle { width: 78px; height: 78px; margin-top: -20px; } }
+
         .svc-pakt-price {
           font-family: var(--font-display);
-          font-size: 64px;
-          line-height: 0.9;
           font-weight: 700;
+          font-size: 24px;
+          color: #fff;
+          letter-spacing: -0.01em;
+          line-height: 1;
         }
-        .svc-pakt-unit { font-size: 14px; opacity: 0.78; }
+        @media (max-width: 520px) { .svc-pakt-price { font-size: 18px; } }
+
+        .svc-pakt-unit {
+          font-size: 10px;
+          font-weight: 600;
+          color: #fff;
+          opacity: 0.9;
+          margin-top: 4px;
+          letter-spacing: 0.04em;
+          line-height: 1.1;
+        }
+        @media (max-width: 520px) { .svc-pakt-unit { font-size: 9px; } }
+
         .svc-pakt-p {
-          margin: 18px 0 0;
+          margin: 22px 0 0;
           font-size: 15px;
           line-height: 1.55;
-          opacity: 0.92;
+          color: var(--ink-soft);
+          text-align: center;
         }
+
         .svc-pakt-note {
           max-width: 820px;
           margin: 12px auto 0;

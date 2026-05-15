@@ -5,30 +5,54 @@ import { IconChevronLeft, IconChevronRight, IconClose } from './icons.jsx'
 export function ServiceGallery({ eyebrow = '[ Galeria ]', heading, italic, subtitle, items }) {
   const [current, setCurrent] = useState(null)
   const [activeSlide, setActiveSlide] = useState(0)
+  const [visiblePerView, setVisiblePerView] = useState(1)
   const trackRef = useRef(null)
   const total = items.length
   const isOpen = current !== null
+  const isCarousel = total > 5
+  const maxIdx = Math.max(0, total - visiblePerView)
+
+  useEffect(() => {
+    const el = trackRef.current
+    if (!el) return
+    const compute = () => {
+      const slideWidth = el.scrollWidth / total
+      if (slideWidth === 0) return
+      const visible = Math.max(1, Math.round(el.clientWidth / slideWidth))
+      setVisiblePerView(visible)
+    }
+    compute()
+    const ro = new ResizeObserver(compute)
+    ro.observe(el)
+    return () => ro.disconnect()
+  }, [total])
 
   useEffect(() => {
     const el = trackRef.current
     if (!el) return
     const onScroll = () => {
       const slideWidth = el.scrollWidth / total
+      if (slideWidth === 0) return
       const idx = Math.round(el.scrollLeft / slideWidth)
-      setActiveSlide(Math.max(0, Math.min(total - 1, idx)))
+      setActiveSlide(Math.max(0, Math.min(maxIdx, idx)))
     }
     el.addEventListener('scroll', onScroll, { passive: true })
     return () => el.removeEventListener('scroll', onScroll)
-  }, [total])
+  }, [total, maxIdx])
 
   const scrollToSlide = (idx) => {
     const el = trackRef.current
     if (!el) return
-    const slide = el.children[idx]
-    if (slide) slide.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' })
+    const target = Math.max(0, Math.min(maxIdx, idx))
+    const slide = el.children[target]
+    if (!slide) return
+    const slideRect = slide.getBoundingClientRect()
+    const trackRect = el.getBoundingClientRect()
+    const left = slideRect.left - trackRect.left + el.scrollLeft
+    el.scrollTo({ left, behavior: 'smooth' })
   }
-  const goPrev = () => scrollToSlide(Math.max(0, activeSlide - 1))
-  const goNext = () => scrollToSlide(Math.min(total - 1, activeSlide + 1))
+  const goPrev = () => scrollToSlide(activeSlide - 1)
+  const goNext = () => scrollToSlide(activeSlide + 1)
 
   const close = () => setCurrent(null)
   const prev = useCallback(() => setCurrent((i) => (i - 1 + total) % total), [total])
@@ -80,7 +104,7 @@ export function ServiceGallery({ eyebrow = '[ Galeria ]', heading, italic, subti
     : heading
 
   return (
-    <section className="svcgal">
+    <section className={`svcgal${isCarousel ? ' svcgal--carousel' : ''}`}>
       <div className="shell">
         <div className="svcgal-head">
           <Reveal className="eyebrow">{eyebrow}</Reveal>
@@ -114,28 +138,31 @@ export function ServiceGallery({ eyebrow = '[ Galeria ]', heading, italic, subti
             type="button"
             className="svcgal-arrow"
             onClick={goPrev}
-            disabled={activeSlide === 0}
+            disabled={activeSlide <= 0}
             aria-label="Poprzednie zdjęcie"
           >
             <IconChevronLeft size={20} />
           </button>
           <div className="svcgal-dots" role="tablist">
-            {items.map((_, i) => (
-              <button
-                key={i}
-                type="button"
-                className={`svcgal-dot ${i === activeSlide ? 'is-active' : ''}`}
-                onClick={() => scrollToSlide(i)}
-                aria-label={`Zdjęcie ${i + 1} z ${total}`}
-                aria-selected={i === activeSlide}
-              />
-            ))}
+            {items.map((_, i) => {
+              const isActive = i >= activeSlide && i < activeSlide + visiblePerView
+              return (
+                <button
+                  key={i}
+                  type="button"
+                  className={`svcgal-dot ${isActive ? 'is-active' : ''}`}
+                  onClick={() => scrollToSlide(i)}
+                  aria-label={`Zdjęcie ${i + 1} z ${total}`}
+                  aria-selected={isActive}
+                />
+              )
+            })}
           </div>
           <button
             type="button"
             className="svcgal-arrow"
             onClick={goNext}
-            disabled={activeSlide === total - 1}
+            disabled={activeSlide >= maxIdx}
             aria-label="Następne zdjęcie"
           >
             <IconChevronRight size={20} />
@@ -222,8 +249,39 @@ export function ServiceGallery({ eyebrow = '[ Galeria ]', heading, italic, subti
           .svcgal-track { grid-template-columns: repeat(3, 1fr); }
         }
 
-        /* CAROUSEL CONTROLS — mobile only */
+        /* DESKTOP/TABLET CAROUSEL — when items > 5 (mobile keeps its own rules below) */
+        @media (min-width: 721px) {
+          .svcgal--carousel .svcgal-track {
+            display: flex;
+            grid-template-columns: none;
+            gap: 12px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-padding-left: 0;
+            padding: 4px 0 16px;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+          }
+          .svcgal--carousel .svcgal-track::-webkit-scrollbar { display: none; }
+          .svcgal--carousel .svcgal-cell {
+            flex: 0 0 calc((100% - 36px) / 4);
+            aspect-ratio: 4 / 5;
+            scroll-snap-align: start;
+          }
+        }
+        @media (min-width: 721px) and (max-width: 1100px) {
+          .svcgal--carousel .svcgal-cell { flex: 0 0 calc((100% - 24px) / 3); }
+        }
+
+        /* CAROUSEL CONTROLS — visible on mobile always, on desktop only in carousel mode */
         .svcgal-controls { display: none; }
+        .svcgal--carousel .svcgal-controls {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 14px;
+          margin-top: 18px;
+        }
         @media (max-width: 720px) {
           .svcgal-controls {
             display: flex;

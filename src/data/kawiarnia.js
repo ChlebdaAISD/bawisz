@@ -1,23 +1,26 @@
 export const KAWIARNIA_FAQ = [
   {
-    q: 'Czy mogę przyjść z dzieckiem na kawę i mieć gdzie je posadzić?',
-    a: 'Tak — to po to powstał Bawisz. Pijesz kawę w kawiarni przy ul. Krzywej 19B, a dziecko obok bawi się w drewnianej sali Montessori. Wstęp do bawialni: od 25 zł za godzinę, opiekun zawsze gratis. Nie musisz żonglować dzieckiem na kolanach — siedzisz spokojnie, a dziecko ma wszystko, czego potrzebuje, pod ręką.',
+    q: 'Czy mogę przyjść z dzieckiem na kawę?',
+    a: 'Oczywiście — to po to powstał Bawisz. Pijesz kawę w kawiarni przy ul. Krzywej 19B, a dziecko bawi się obok w drewnianej sali Montessori. Wstęp do bawialni: od 25 zł za godzinę, opiekun zawsze gratis. Nie musisz pić w pośpiechu— siedzisz spokojnie, a dziecko ma wszystko, czego potrzebuje, pod ręką.',
   },
   {
-    q: 'Jakie ciasta pieczecie na miejscu?',
-    a: 'Sezonowe ciasta domowe (zmieniają się co tydzień), brownie, sernik i szarlotkę. Mamy też wersje bez cukru i bezglutenowe — zapytaj na miejscu, bo dostępność zależy od dnia. Wszystko pieczemy u nas, nie zamawiamy z hurtowni.',
+    q: 'Jakie ciasta serwujecie?',
+    a: `W naszej witrynie znajdziesz naturalne, domowe wypieki - kremowe serniki (w tym uwielbiany sernik pistacjowy), mocno czekoladowe brownie, aromatyczne ciasto marchewkowe, klasyczną szarlotkę czy pyszne monoporcje, a także inne ciasta sezonowe.
+Oferta zmienia się na bieżąco, dlatego zawsze czeka coś świeżego i wyjątkowego.`,
   },
   {
     q: 'Jaką kawę serwujecie?',
-    a: 'Espresso, flat white, latte (z syropem waniliowym, orzechowym lub karmelowym), cappuccino, matcha latte (mleko zwykłe lub roślinne), gorącą czekoladę. Pełne menu z cenami jest na miejscu — oferta zmienia się sezonowo.',
+    a: `Espresso, americano, latte (z syropami), cappuccino (również pistacjowe). Wszystkie kawy dostępne  także w wersji bezkofeinowej, na mleku zwykłym, bez laktozy lub owsianym.
+Serwujemy również Matchę (na ciepło, zimno i  z syropami).
+Pełne menu z cenami dostępne na miejscu.`,
   },
   {
     q: 'Czy macie coś dla dziecka do jedzenia i picia?',
-    a: 'Mamy: krojone owoce sezonowe, ciepłe lub zimne mleko i kakao, soczki naturalne bez dodatku cukru, babeczki bananowe bez cukru i kanapki z dżemem. Dla dziecka, które ma alergię albo dietę bez cukru, znajdziesz opcję, której nie ma w sieciówce.',
+    a: 'Mamy: tosty, gofry z dodatkami, ciepłe lub zimne mleko i kakao,  naturalne soki tłoczone bez dodatku cukru, a tak ze zdrowe przekąski dopasowane do wieku.',
   },
   {
     q: 'Czy muszę kupować bilet do bawialni, żeby zjeść u was ciasto?',
-    a: 'Nie — kawiarnia jest dostępna bez biletu do bawialni. Wpadasz na kawę i ciasto, siadasz, jesz. Bilet kupujesz tylko jeśli dziecko ma się bawić w sali Montessori. Niejedna mama przychodzi rano sama na kawę i wraca po południu już z dzieckiem.',
+    a: 'Nie — kawiarnia jest dostępna bez biletu do bawialni. Wpadasz na kawę i ciasto, siadasz, jesz. Bilet kupujesz tylko jeśli dziecko będzie się bawić w sali Montessori. Niektóre  mamy przychodzą  rano tylko na kawę, a po południu wracają z dzieckiem na wspólną zabawę.',
   },
   {
     q: 'Gdzie was szukać i czy jest parking?',
@@ -25,7 +28,7 @@ export const KAWIARNIA_FAQ = [
   },
   {
     q: 'Czy mogę zamówić ciasto na wynos albo na zamówienie?',
-    a: 'Ciasta z lady bierzesz na wynos bez problemu — pakujemy w pudełko. Większe zamówienia (cały sernik, blacha brownie, ciasta na imprezę domową) ustalamy telefonicznie z minimum 24-48 h wyprzedzeniem. Zadzwoń na +48 693 766 049 i powiedz, na kiedy i ile potrzebujesz.',
+    a: 'Ciasta z witryny bierzesz na wynos bez problemu — pakujemy w pudełko. Większe zamówienia (cały sernik, blacha brownie, ciasta na imprezę domową) ustalamy telefonicznie z minimum 24-48 h wyprzedzeniem. Zadzwoń na +48 693 766 049 i powiedz, na kiedy i ile potrzebujesz.',
   },
 ]
 

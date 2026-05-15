@@ -9,33 +9,33 @@ import { URODZINY_FAQ as FAQ, URODZINY_META as META } from '../data/urodziny.js'
 import { updateHead } from '../lib/head.js'
 
 const GALLERY = [
-  { src: '/assets/zdjecia/Bawisz_-13.webp',           alt: 'Sala urodzinowa w Bawiszu — placeholder' },
-  { src: '/assets/zdjecia/Bawisz_AnnaMrożek-22.webp', alt: 'Strefa zabaw na urodzinach — placeholder' },
-  { src: '/assets/zdjecia/Bawisz_-38.webp',           alt: 'Dzieci na urodzinach — placeholder' },
-  { src: '/assets/zdjecia/Bawisz_AnnaMrożek-49.webp', alt: 'Stół urodzinowy — placeholder' },
-  { src: '/assets/zdjecia/Bawisz_AnnaMrożek-39.webp', alt: 'Dekoracje urodzinowe — placeholder' },
+  { src: '/assets/zdjecia/urodziny/URODZINY.jpg',                 alt: 'Urodziny w Bawiszu' },
+  { src: '/assets/zdjecia/urodziny/IMG_20260428_181013_605.webp', alt: 'Stół urodzinowy w Bawiszu' },
+  { src: '/assets/zdjecia/urodziny/IMG_20260428_181130_510.webp', alt: 'Dekoracje urodzinowe w Bawiszu' },
+  { src: '/assets/zdjecia/urodziny/IMG_20260428_181441_242.webp', alt: 'Sala urodzinowa Bawisz' },
+  { src: '/assets/zdjecia/urodziny/IMG_20260428_181737_026.webp', alt: 'Przyjęcie urodzinowe w Bawiszu' },
 ]
 
 const PROCESS = [
   {
     n: '1',
-    h: 'Telefon i ustalenie terminu',
-    p: 'Dzwonisz na +48 693 766 049 albo piszesz na Instagramie. Wspólnie wybieramy dzień, godzinę, pakiet (MINI lub STANDARD), liczbę dzieci i motyw dekoracji (przy pakiecie STANDARD).',
+    h: 'Kontakt i rezerwacja',
+    p: 'Dzwonisz na +48 693 766 049 albo piszesz na Instagram/Messenger, wspólnie ustalimy termin, motyw przewodni i szczegóły przyjęcia. Zalecamy rezerwację terminu z 1-2 miesięcznym wyprzedzeniem, rezerwacja wiąże się z wpłatą 50% zadatku ustalonej kwoty.',
   },
   {
     n: '2',
     h: 'Przygotowanie sali',
-    p: 'Zanim przyjdziecie, ustawiamy stoły, dekoracje, balon-cyfrę i poczęstunek. W pakiecie STANDARD dostajesz cyfrowe zaproszenie, żeby rozesłać je gościom.',
+    p: 'My zajmujemy się przygotowaniem przestrzeni, dekoracji i poczęstunku, aby wszystko było gotowe na wasze przyjęcie, możemy zaproponoać  salę na wyłączność lub prywatny stolik, to ty decydujesz. Tworzymy przytulną atmosferę, dopasowaną do wybranego motywu, przygotowujemy cyfrowe zaproszenia, aby  rozesłać je gościom.',
   },
   {
     n: '3',
     h: 'Bawicie się razem',
-    p: 'Dzieci bawią się z tobą przy naturalnych zabawkach Montessori (drewno, sensoplastyka, zabawy w role). Bez animatora i wyreżyserowanych zabaw. Sala jest przemyślana — bawicie się spokojnie, bo wszystko jest bezpieczne i pod ręką.',
+    p: 'Dzieci bawią się przy kreatywnych zabawkach Montessori (drewno, sensoryka, odgrywanie ról, wspinaczki, tunele). Jeśli chcecie pomożemy również zorganizować animację lub ciekawe warsztaty, dla dzieci. Świętujecie  spokojnie, bo dzieci są bezpieczne i mają wszystko pod ręką, a ty masz czas dla gości.',
   },
   {
     n: '4',
-    h: 'Tort i pamiątkowe zdjęcia',
-    p: 'Tort solenizanta przynosicie wy — my serwujemy i pomagamy przy świeczkach. W pakiecie STANDARD solenizant dostaje od nas prezent. Zdjęcia, jedzenie, świętowanie.',
+    h: 'Tort i słodkie zakończenie',
+    p: 'Możecie przynieść własny tort — my serwujemy i pomagamy przy świeczkach. Możemy również zamówić go dla was u naszych sprawdzonych partnerów. Chętnie pomożemy w organizacji słodkiego stołu i dodatkowego poczęstunku.  W pakiecie STANDARD solenizant dostaje od nas prezent.',
   },
 ]
 
@@ -65,7 +65,7 @@ export default function Urodziny({ onBookBirthday }) {
 
             <h1 className="svc-h1 fade-up" style={{ animationDelay: '0.05s' }}>
               <span className="line">Urodziny dla dziecka.</span>
-              <span className="line hero-italic">Nowy Targ — drewniana</span>
+              <span className="line hero-italic">Nowy Targ — naturalna</span>
               <span className="line">bawialnia Montessori.</span>
             </h1>
 
@@ -86,7 +86,9 @@ export default function Urodziny({ onBookBirthday }) {
         <div className="shell">
           <Reveal>
             <p className="svc-intro-p body-lg">
-              Urodziny w Bawiszu to drewniana sala w duchu Montessori przy ul. Krzywej 19B w Nowym Targu, dwa pakiety (MINI 45 zł/os. za 2 godziny, STANDARD 74 zł/os. za 2,5 godziny z salą tylko dla was i minimum 10 dzieci), pełne dekoracje, poczęstunek i kawiarnia obok. Tort przynosisz ty, resztę robimy my. Sala jest dla dzieci od 0 do 10 lat — nikt nie zabiera ci dziecka, bawicie się razem w przestrzeni, w której wszystko jest dograne pod dziecko.
+              Urodziny w Bawisz to wyjątkowy czas pełen radości, wspólnej zabawy i pięknych chwil. 
+Naturalna przestrzeń, dopracowane dekoracje, swobodna zabawa i przytulna atmosfera sprawiają, że każde przyjęcie staje się wyjątkowym wspomnieniem- dla dzieci jak i dla dorosłych.
+Zogranizujesz u nas zarówno rodzinne przyjecie, jak i wyjątkowe urodziny z grupą rówieśników czy przedszkolnych przyjaciół.
             </p>
           </Reveal>
         </div>
@@ -100,7 +102,7 @@ export default function Urodziny({ onBookBirthday }) {
         eyebrow="[ Galeria ]"
         heading="Tak wyglądają urodziny w Bawiszu."
         italic="urodziny"
-        subtitle="Drewniana sala, naturalne zabawki, dekoracje motywowe. Kliknij zdjęcie, żeby powiększyć."
+        subtitle="Naturalna przestrzeń, drewniane zabawki, dekoracje w wybranym motywie. Kliknij zdjęcie, żeby powiększyć."
         items={GALLERY}
       />
 
@@ -123,7 +125,7 @@ export default function Urodziny({ onBookBirthday }) {
               </h2>
             </Reveal>
             <Reveal delay={160} className="body-lg svc-sub">
-              Najczęstsze pytanie: „co mam zrobić, a co robicie wy?". Odpowiedź: ty przynosisz tort i gości, resztę robimy my.
+              Najczęstsze pytanie: „co mam zrobić, a co robicie wy?". Odpowiedź: Podaj termin i liczbę gości, resztę zrobimy za ciebie.
             </Reveal>
           </div>
 
@@ -150,7 +152,7 @@ export default function Urodziny({ onBookBirthday }) {
                 Termin <span className="hero-italic">urodzin</span>?
               </h2>
               <p className="svc-mid-p">
-                Pakiet STANDARD rezerwuje się 3-6 tygodni wcześniej. Najszybciej przez telefon — od razu sprawdzamy wolne daty i ustalamy motyw dekoracji.
+                Pakiet STANDARD rezerwuje się z 1-2 miesięcznym wyprzedzeniem. Najszybciej przez telefon — od razu sprawdzamy wolne daty i umawiamy się na spotkanie w celu omówienia szczegółów.
               </p>
             </div>
             <div className="svc-mid-ctas">
@@ -201,7 +203,7 @@ export default function Urodziny({ onBookBirthday }) {
               Rezerwacja <span className="hero-italic">urodzin</span>
             </h2>
             <p className="svc-final-p">
-              Pakiet MINI od 45 zł/os. albo STANDARD 74 zł/os. z salą tylko dla was. Decyzję podejmujesz, kiedy ustalimy datę i motyw dekoracji.
+              Pakiet MINI od 45 zł/os. albo STANDARD 74 zł/os. Pakiet DLA RODZICÓW od 55zł/os. z salą tylko dla was. Ustalamy datę i motyw dekoracji.
             </p>
             <div className="svc-final-ctas">
               <button className="btn btn-pop" onClick={onBookBirthday}>

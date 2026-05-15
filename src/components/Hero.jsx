@@ -5,8 +5,8 @@ export function Hero({ onBookBirthday }) {
     <section className="hero" id="top">
       <div className="hero-bg">
         <img
-          src="/assets/zdjecia/foto_2025 (2).jpg"
-          alt="Wnętrze bawialni Bawisz"
+          src="/assets/zdjecia/hero.jpg"
+          alt="Sala zabaw Bawisz w Nowym Targu"
           width={2400}
           height={1600}
         />
@@ -15,7 +15,7 @@ export function Hero({ onBookBirthday }) {
 
       <div className="hero-shell shell">
         <div className="hero-text">
-          <span className="eyebrow fade-up">[ Bawialnia Montessori · Nowy Targ ]</span>
+          <span className="eyebrow fade-up">[ BAWISZ · Bawialnia Montessori · Nowy Targ ]</span>
 
           <h1 className="hero-headline fade-up" style={{ animationDelay: '0.05s' }}>
             <span className="line">Bawialnia</span>
@@ -25,8 +25,8 @@ export function Hero({ onBookBirthday }) {
           </h1>
 
           <p className="hero-sub body-lg fade-up" style={{ animationDelay: '0.2s' }}>
-            Drewniana sala Montessori dla dzieci 0–10 lat przy ul. Krzywej 19B.<br />
-            Ty pijesz kawę i jesz domowe ciasto. Dziecko bawi się obok — przy naturalnych zabawkach.
+            Naturalna sala Montessori dla dzieci 0–10 lat przy ul. Krzywej 19B.<br />
+            Ty pijesz kawę i jesz domowe ciasto. Dziecko bawi się obok — przy kreatywnych zabawkach.
           </p>
 
           <div className="hero-ctas fade-up" style={{ animationDelay: '0.35s' }}>
@@ -44,7 +44,7 @@ export function Hero({ onBookBirthday }) {
             <div className="hero-meta-div" />
             <div>
               <div className="hero-meta-num display">220 m²</div>
-              <div className="hero-meta-lbl">drewnianej sali</div>
+              <div className="hero-meta-lbl">naturalnej przestrzeni</div>
             </div>
             <div className="hero-meta-div" />
             <div>
