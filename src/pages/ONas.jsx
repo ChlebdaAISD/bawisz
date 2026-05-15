@@ -10,22 +10,23 @@ const VALUES = [
   {
     n: '1',
     h: 'Drewno, nie plastik.',
-    p: 'Cała architektura sali jest z drewna i sklejki. Zabawki są z drewna, sklejki i tkanin — bez krzykliwych kolorów, bez plastikowego hałasu, bez baterii. To nie estetyka, tylko spokojna przestrzeń, w której dziecku łatwiej się skupić, a ty słyszysz własne myśli.',
+    p: 'Cała przestrzeń bawialni  wykonana jest z naturalnych materiałów. Zabawki są drewniane, bez plastikowego przebodźcowania, sklejka i tkaniny — bez krzykliwych kolorów. Bawisz to miejsce stworzone z myślą o dzieciach i ich rozwoju. To nie estetyka, to przestrzeń wspierająca koncentrację, w której dziecko bawi się bezpiecznie, a ty słyszysz własne myśli.',
   },
   {
     n: '2',
     h: 'Wszystko na wysokości dziecka.',
-    p: 'Półki niskie, koszyki dostępne, każda zabawka w swoim miejscu. Dziecko samo wybiera, co chce robić, samo odkłada na miejsce. To jest sedno Montessori — samodzielność, nie wykonywany program zajęć ani zadania od kogoś dorosłego.',
+    p: 'Konstrukcje na wysokości dziecka, wszystko na wyciągnięcie ręki, każda zabawka na swoim miejscu. Dziecko samo wybiera, co chce robić, samo odkłada na miejsce. To jest sedno Montessori — samodzielność.',
   },
   {
     n: '3',
     h: 'Bawisz się ze swoim dzieckiem.',
-    p: 'Nie zabieramy ci dziecka. Nie ma animatorów, nie ma „zostaw je u nas, my się zajmiemy". Bawicie się razem — przy klockach, sensoplastyce, w kąciku czytelniczym, w strefie zabaw w role. Sala jest tak przemyślana, że nie musisz pilnować na każdym kroku.',
+    p: `Bawicie się razem — na miękkiej wykładzinie, przy klockach, w kącikach tematycznych.
+To prawdziwa rodzinna przestrzeń, bez chaosu i pośpiechu. Przestrzeń w której spędzisz wartościowy czas z dzieckiem czy wnukiem.`,
   },
   {
     n: '4',
     h: 'Kawiarnia obok, nie poczekalnia.',
-    p: 'Po drugiej stronie szyby parzymy specialty espresso, flat white, latte i matcha latte. Pieczemy ciasta domowe — sezonowe, brownie, sernik, szarlotka, w wersjach bezglutenowych i bez cukru. Dla dzieci owoce, mleko, soczki bez cukru, kanapka z dżemem. Kawa zostaje gorąca, dziecko ma wszystko pod ręką.',
+    p: 'Sala jest tak przemyślana, że nie musisz pilnować dziecka na każdym kroku. To miejsce, w którym możesz na chwilę zwolnić-  popracować przy laptopie, poczytać książkę lub gazetę, których u nas nie brak. Możesz spotkać się z przyjaciółką przy kawie i ciastku, podczas gdy wasze dzieci bawią sie spokojnie tuż obok.',
   },
 ]
 
@@ -81,7 +82,7 @@ export default function ONas({ onBookBirthday }) {
         <div className="shell">
           <Reveal>
             <p className="svc-intro-p body-lg">
-              Bawisz to bawialnia Montessori i kawiarnia pod jednym dachem przy ul. Krzywej 19B w Nowym Targu. Pedagogika Montessori w praktyce — drewniane wnętrze, naturalne zabawki z drewna i sklejki, samodzielność dziecka. Bez plastiku, bez krzykliwego oświetlenia, bez animatorów zabawiających dzieci za rodzica. Dzieci od 0 do 10 lat bawią się ze swoimi rodzicami, ty pijesz kawę specialty obok. Wstęp do bawialni od 25 zł za godzinę, kawiarnia bez biletu. Ocena 4.9/5 w Google.
+              Bawisz to bawialnia Montessori i kawiarnia pod jednym dachem przy ul. Krzywej 19B w Nowym Targu. Pedagogika Montessori w praktyce — naturalne wnętrze, drewniane i kreatywne zabawki, samodzielność dziecka. Bez plastiku, bez zbędnego hałasu i przebodźcowania. Dzieci od 0 do 10 lat bawią się swobodnie, ty pijesz kawę specialty obok. Wstęp do bawialni od 25 zł za godzinę, kawiarnia bez biletu. Ocena 4.9/5 w Google.
             </p>
           </Reveal>
         </div>
@@ -130,10 +131,10 @@ export default function ONas({ onBookBirthday }) {
           <Reveal className="svc-mid-box">
             <div className="svc-mid-text">
               <h2 className="svc-mid-h">
-                Wpadnij <span className="hero-italic">na kawę.</span>
+                Wpadnij <span className="hero-italic">na kawę i zabawę.</span>
               </h2>
               <p className="svc-mid-p">
-                Bez rezerwacji w tygodniu — wchodzisz, kupujesz bilet do bawialni przy ladzie (25 zł za godzinę), bierzesz kawę z lady. Urodziny, warsztaty i grupy zorganizowane ustalamy przez telefon albo Instagram.
+                Bez rezerwacji w tygodniu — wchodzisz za pierwszą godzinę płacisz 25zł, jeśli zostajesz dłużej masz taniej,  bierzesz kawę z lady. Urodziny, warsztaty i grupy zorganizowane ustalamy przez telefon albo Instagram/Messenger.
               </p>
             </div>
             <div className="svc-mid-ctas">
@@ -184,7 +185,7 @@ export default function ONas({ onBookBirthday }) {
               Wpadnij <span className="hero-italic">do nas.</span>
             </h2>
             <p className="svc-final-p">
-              Sala otwarta od 10:00, kawa parzona od pierwszego klienta. Wstęp do bawialni od 25 zł za godzinę, opiekun zawsze gratis. ul. Krzywa 19B w Nowym Targu — centrum, parking obok.
+              Sala otwarta od 10:00, kawa parzona od pierwszego klienta, zabierzesz ją także na wynos. Wstęp do bawialni od 25 zł za godzinę, opiekun zawsze gratis. ul. Krzywa 19B w Nowym Targu — centrum, parking obok.
             </p>
             <div className="svc-final-ctas">
               <a href="tel:+48693766049" className="btn btn-pop">

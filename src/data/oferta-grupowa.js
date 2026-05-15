@@ -1,11 +1,11 @@
 export const OFERTA_GRUPOWA_FAQ = [
   {
-    q: 'Ile kosztuje wyjście grupowe dla przedszkola w Bawiszu?',
+    q: 'Ile kosztuje wejście grupowe dla przedszkola w Bawisz?',
     a: 'Cennik startuje od 15 zł za dziecko za godzinę zabawy. 2 godziny — 23 zł, cały dzień (NO LIMIT) — 35 zł. Minimum to grupa od 10 dzieci. Kawa lub herbata dla opiekunów gratis (1 opiekun na 5 dzieci).',
   },
   {
-    q: 'Od ilu dzieci minimum mogę zarezerwować wyjście grupowe?',
-    a: 'Minimum to 10 dzieci. Mniejsze grupy obsługujemy po cenie indywidualnego biletu wstępu (od 25 zł za godzinę za dziecko). Górnej granicy nie podajemy z głowy — przy większej grupie ustalamy szczegóły organizacyjne telefonicznie, żeby każde dziecko miało komfort.',
+    q: 'Od ilu dzieci minimum mogę zarezerwować wejście grupowe?',
+    a: 'Minimum to 10 dzieci. Mniejsze grupy obsługujemy po cenie indywidualnego biletu wstępu (od 25 zł za godzinę za dziecko).',
   },
   {
     q: 'Czy opiekunowie wchodzą gratis i dostają coś do picia?',
@@ -13,7 +13,7 @@ export const OFERTA_GRUPOWA_FAQ = [
   },
   {
     q: 'Czy zapewniacie poczęstunek dla dzieci?',
-    a: 'Tak, na zamówienie. Standardowo poczęstunku w cenie wejścia nie ma — możemy go przygotować dodatkowo, ustalamy zakres (np. paluszki, owoce, soczki, kanapki) telefonicznie. Cena dopasowana do liczby dzieci i tego, co dokładnie zamawiacie.',
+    a: 'Tak, na zamówienie. Standardowo poczęstunku w cenie wejścia nie ma — możemy go przygotować dodatkowo, ustalamy zakres. Cena dopasowana do liczby dzieci i tego, co dokładnie zamawiacie.',
   },
   {
     q: 'Z jakim wyprzedzeniem trzeba rezerwować termin?',
@@ -24,18 +24,18 @@ export const OFERTA_GRUPOWA_FAQ = [
     a: 'Tak. Wystawiamy fakturę dla przedszkola lub szkoły z odroczonym terminem płatności (przelew po wizycie). Potrzebujemy NIP placówki i danych do faktury — najlepiej wysłać je SMS-em albo na Instagramie po ustaleniu terminu.',
   },
   {
-    q: 'Dla jakiego wieku dzieci jest sala i czy mamy wyłączność?',
-    a: 'Sala jest dla dzieci od 0 do 10 lat — strefy są podzielone według wieku, więc 3-latek bawi się w innej części niż 7-latek. Wyłączność na sali nie wchodzi w cenę pakietu grupowego, ale w godzinach porannych (przed 12:00 w dni powszednie) zwykle jesteście jedyną grupą. Pełną wyłączność można wykupić indywidualnie — pytaj telefonicznie.',
+    q: 'Czy możemy zarezerować całą bawialnie  i czy mamy wyłączność?',
+    a: 'Wyłączność zależy od liczby uczestników, oczywiście istnieje taka możliwoość— pytaj telefonicznie.',
   },
   {
-    q: 'Czy można połączyć wyjście grupowe z urodzinami przedszkolaka?',
-    a: 'Tak — robimy mieszane wyjścia: rano wejście grupowe dla całej grupy, później pakiet urodzinowy dla solenizanta. Łączymy oba cenniki, ustalamy szczegóły i poczęstunek telefonicznie. Najprościej napisać, ile dzieci, jakie urodziny i jaki czas trwania.',
+    q: 'Czy można połączyć wejście grupowe z urodzinami przedszkolaka?',
+    a: 'Tak — robimy mieszane wejścia: rano wejście grupowe dla całej grupy, później pakiet urodzinowy dla solenizanta. Łączymy oba cenniki, ustalamy szczegóły i poczęstunek telefonicznie. Najprościej napisać, ile dzieci, jakie urodziny i jaki czas trwania.',
   },
 ]
 
 export const OFERTA_GRUPOWA_META = {
   title: 'Oferta dla przedszkoli Nowy Targ — Bawisz | od 15 zł/dziecko',
-  description: 'Wyjścia grupowe dla przedszkoli i szkół w Nowym Targu — drewniana bawialnia Montessori. Od 15 zł za godzinę za dziecko, kawa gratis dla opiekunów. Min. 10 dzieci.',
+  description: 'Wejścia grupowe dla przedszkoli i szkół w Nowym Targu — edukacyjna bawialnia Montessori. Od 15 zł za godzinę za dziecko, kawa gratis dla opiekunów. Min. 10 dzieci.',
   canonical: 'https://bawialniabawisz.pl/oferta-grupowa/',
   ogImage: 'https://bawialniabawisz.pl/assets/og-oferta-grupowa.jpg',
 }

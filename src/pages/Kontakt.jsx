@@ -112,7 +112,7 @@ export default function Kontakt({ onBookBirthday }) {
         <div className="shell">
           <Reveal>
             <p className="svc-intro-p body-lg">
-              Najszybszy kontakt z Bawiszem w Nowym Targu to telefon lub SMS na +48 693 766 049 — odbieramy codziennie od 10:00 (w tygodniu do 19:00, w weekendy do 20:00). Możesz też napisać na Instagramie albo na Messengerze, albo po prostu wpaść — ul. Krzywa 19B, 34-400 Nowy Targ, dwie minuty od Rynku, parking obok lokalu. Wstęp do bawialni jest bez rezerwacji. Urodziny, warsztaty i wyjścia grupowe ustalamy wcześniej, najlepiej telefonem.
+              Najszybszy kontakt z Bawisz w Nowym Targu to telefon lub SMS na +48 693 766 049 — odbieramy codziennie od 10:00 (w tygodniu do 19:00, w weekendy do 20:00). Możesz też napisać na Instagramie albo na Messengerze, albo po prostu wpaść — ul. Krzywa 19B, 34-400 Nowy Targ, dwie minuty od Rynku, parking obok lokalu. Wstęp do bawialni jest bez rezerwacji. Urodziny, warsztaty i wejścia grupowe ustalamy wcześniej, najlepiej telefonicznie.
             </p>
           </Reveal>
         </div>
@@ -165,7 +165,7 @@ export default function Kontakt({ onBookBirthday }) {
               </h2>
             </Reveal>
             <Reveal delay={160} className="body-lg kt-place-sub">
-              Otwarte przez cały rok — nie zamykamy się w wakacje ani między świętami. Ostatnie wejście do bawialni przyjmujemy 30 minut przed zamknięciem.
+              Otwarte przez cały rok — nie zamykamy się w wakacje ani święta.
             </Reveal>
 
             <div className="kt-table">
@@ -242,7 +242,7 @@ export default function Kontakt({ onBookBirthday }) {
                 Termin <span className="hero-italic">urodzin?</span>
               </h2>
               <p className="svc-mid-p">
-                Pakiet STANDARD rezerwuje się 3-6 tygodni wcześniej, MINI często łapiemy w tym samym tygodniu. Najszybciej telefonem — od razu sprawdzamy wolne daty i ustalamy motyw dekoracji. Prowadząca poprowadzi program — ty siedzisz przy kawie.
+                Pakiet STANDARD rezerwuje się 3-6 tygodni wcześniej, MINI często łapiemy z tygodniowym wyprzedzeniem. Najszybciej telefonem — od razu sprawdzamy wolne daty i ustalamy szczegóły - rodzinne przyjęcie czy wspólna zabawa z grupą z przedszkola
               </p>
             </div>
             <div className="svc-mid-ctas">
@@ -288,7 +288,7 @@ export default function Kontakt({ onBookBirthday }) {
               Pytanie <span className="hero-italic">albo wątpliwość?</span>
             </h2>
             <p className="svc-final-p">
-              Najszybciej telefonem — odpowiadamy od ręki w godzinach otwarcia. Z urodzinami, warsztatami i grupami pisz albo dzwoń wcześniej, terminy znikają szybciej niż się wydaje.
+              Najszybciej telefonem — odpowiadamy w godzinach otwarcia. Z urodzinami, warsztatami i grupami pisz albo dzwoń wcześniej, terminy znikają szybciej niż się wydaje.
             </p>
             <div className="svc-final-ctas">
               <a href="tel:+48693766049" className="btn btn-pop">

@@ -8,19 +8,19 @@ export function Offer() {
       n: '01',
       img: '/assets/animals/Canva_zwierzatka_bez_tła_cennik.png',
       t: 'Sala zabaw',
-      s: '220 m² drewnianej przestrzeni Montessori — naturalne zabawki, strefy dla najmłodszych i starszych. Bawisz się ze swoim dzieckiem, nie zostawiasz go z animatorem.',
+      s: '220 m² naturalnej przestrzeni Montessori — drewniane zabawki, domki i strefy dla najmłodszych i starszych. Miejsce stworzone do swobodnej zabawy i spędzania czasu z dzieckiem.',
       tags: ['0–10 lat', 'Montessori', 'Drewno'],
       tone: 'cream',
       href: '/o-nas/',
       type: 'route',
-      cta: 'Czytaj więcej o Bawiszu',
+      cta: 'Czytaj więcej o Bawisz',
     },
     {
       n: '02',
       img: '/assets/animals/zapisane_relacje_wypieki.png',
       t: 'Kawiarnia',
-      s: 'Kawa specialty, domowe ciasta (też bez cukru i bezglutenowe), menu dla dzieci. Pijesz kawę obok sali — dziecko w zasięgu wzroku, bez wstawania.',
-      tags: ['Specialty', 'Domowe ciasta', 'Bez cukru'],
+      s: 'Kawa specialty, domowe ciasta, menu dla dzieci. Pijesz kawę w kawiarni — dziecko bezpiecznie bawi się w zasięgu wzroku.',
+      tags: ['Specialty', 'Domowe ciasta'],
       tone: 'sage',
       href: '/kawiarnia/',
       type: 'route',
@@ -30,7 +30,7 @@ export function Offer() {
       n: '03',
       img: '/assets/animals/zapisane_relacje_urodzinki.png',
       t: 'Urodziny',
-      s: 'Pakiet MINI 45 zł/os. (2 h) albo STANDARD 74 zł/os. (2,5 h, sala tylko dla was). Dekoracje, poczęstunek i prezent dla solenizanta — my robimy resztę.',
+      s: 'Pakiet MINI albo STANDARD. Pakiet DLA RODZICÓW. Ty wybierasz, my robimy resztę —  dekoracje, poczęstunek, prezent dla solenizanta.',
       tags: ['MINI · STANDARD', 'Sala na wyłączność', 'Prezent od nas'],
       tone: 'cream',
       href: '/urodziny/',
@@ -41,8 +41,9 @@ export function Offer() {
       n: '04',
       img: '/assets/animals/zapisane_relacje_warsztaty.png',
       t: 'Warsztaty',
-      s: 'Plastyka, sensoplastyka, glina, joga dla dzieci. Małe grupy, prowadzące prowadzą zajęcia — ty siedzisz w kawiarni i masz chwilę.',
-      tags: ['Plastyka', 'Sensoplastyka', 'Małe grupy'],
+      s: `Tematyczne, okazjonalne a także cykliczne zajęcia dla dzieci.
+Od warsztatów plastycznych, przez muzyczne,  po ruchowe i sensoryczne, zawsze kreatywne, angażujące i dopasowane do wieku oraz rozwoju dziecka.`,
+      tags: ['Plastyka', 'Gimnastyka', 'Małe grupy'],
       tone: 'cream',
       href: '/warsztaty/',
       type: 'route',
@@ -63,18 +64,18 @@ export function Offer() {
           </Reveal>
           <Reveal delay={160} className="body-lg offer-sub">
             Bawialnia, kawiarnia, urodziny i warsztaty — wszystko w jednej drewnianej przestrzeni
-            przy ul. Krzywej 19B w Nowym Targu. Wchodzisz na chwilę, zostajesz na trzy godziny.
+            przy ul. Krzywej 19B w Nowym Targu. Wchodzisz na chwilę, zostajesz na dłużej.
           </Reveal>
         </div>
 
         <div className="offer-grid">
           {items.map((item, i) => (
-            <Reveal key={item.n} delay={i * 100} className={`offer-card tone-${item.tone}`}>
+            <Reveal key={item.n} delay={i * 100} className={`offer-card tone-${item.tone} peek-${i % 4}`}>
+              <div className="offer-peek" aria-hidden="true">
+                <img src={item.img} alt="" loading="lazy" />
+              </div>
               <div className="offer-card-top">
                 <div className="offer-num">{item.n}</div>
-                <div className="offer-icon">
-                  <img src={item.img} alt={item.t} loading="lazy" />
-                </div>
               </div>
               <h3 className="offer-title">{item.t}</h3>
               <p className="offer-desc body-md">{item.s}</p>
@@ -118,6 +119,8 @@ export function Offer() {
         }
         @media (max-width: 820px) { .offer-grid { grid-template-columns: 1fr; } }
 
+        .offer-grid { padding-top: 70px; }
+
         .offer-card {
           position: relative;
           padding: 22px 24px 20px;
@@ -131,6 +134,7 @@ export function Offer() {
           transition: transform 0.35s ease, box-shadow 0.35s;
           box-shadow: 0 4px 24px -16px rgba(168,128,98,0.35);
           cursor: pointer;
+          overflow: visible;
         }
         .offer-card:hover { transform: translateY(-4px); box-shadow: 0 18px 42px -22px rgba(168,128,98,0.5); }
         .offer-card.tone-sage  { background: var(--sage); }
@@ -138,9 +142,34 @@ export function Offer() {
         .offer-card.tone-sand  { background: var(--sand); }
         .offer-card.tone-rose  { background: var(--rose-soft); }
 
+        .offer-peek {
+          position: absolute;
+          width: 140px;
+          height: 140px;
+          pointer-events: none;
+          z-index: 1;
+          filter: drop-shadow(0 8px 14px rgba(91,71,55,0.18));
+          transition: transform 0.4s ease;
+        }
+        .offer-peek img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+          display: block;
+        }
+        .offer-card.peek-0 .offer-peek { top: -78px; right: -8px; transform: rotate(8deg); }
+        .offer-card.peek-1 .offer-peek { top: -82px; right: -6px; transform: rotate(10deg); }
+        .offer-card.peek-2 .offer-peek { top: -80px; right: -10px; transform: rotate(7deg); }
+        .offer-card.peek-3 .offer-peek { top: -84px; right: -4px; transform: rotate(9deg); }
+
+        .offer-card.peek-0:hover .offer-peek { transform: rotate(11deg) translateY(-6px); }
+        .offer-card.peek-1:hover .offer-peek { transform: rotate(13deg) translateY(-6px); }
+        .offer-card.peek-2:hover .offer-peek { transform: rotate(10deg) translateY(-6px); }
+        .offer-card.peek-3:hover .offer-peek { transform: rotate(12deg) translateY(-6px); }
+
         .offer-card-top {
           display: flex;
-          justify-content: space-between;
+          justify-content: flex-start;
           align-items: center;
           margin-bottom: 12px;
         }
@@ -152,18 +181,13 @@ export function Offer() {
           color: var(--brand-deep);
           opacity: 0.85;
         }
-        .offer-icon {
-          width: 64px; height: 64px;
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          flex-shrink: 0;
-        }
-        .offer-icon img {
-          width: 100%;
-          height: 100%;
-          object-fit: contain;
-          display: block;
+
+        @media (max-width: 820px) {
+          .offer-peek { width: 110px; height: 110px; }
+          .offer-card.peek-0 .offer-peek,
+          .offer-card.peek-1 .offer-peek,
+          .offer-card.peek-2 .offer-peek,
+          .offer-card.peek-3 .offer-peek { top: -64px; right: -6px; }
         }
 
         .offer-title {

@@ -8,26 +8,29 @@ export function Menu() {
 
   const data = {
     kawa: [
-      ['Espresso', '— mocne i krótkie, jak trzeba'],
-      ['Flat white', '— jedwabista mleczna pianka'],
-      ['Latte', '— z syropem waniliowym, orzechowym lub karmelowym'],
-      ['Cappuccino', '— klasyka, której nie trzeba przedstawiać'],
-      ['Matcha latte', '— mleko zwykłe lub roślinne'],
-      ['Czekolada na gorąco', '— rozgrzewa lepiej niż piec kaflowy'],
+      ['Espresso', '— mocne, jak trzeba'],
+      ['Americano', '— czarne i aromatyczne'],
+      ['Latte', '— z syropem lub klasyczne'],
+      ['Cappuccino', '— małe lub duże'],
+      ['Cappuccino pistacjowe', '— smak, który pokochasz'],
+      ['Kawa mrożona', '— orzeźwiający klasyk'],
+      ['Matcha', '— na ciepło lub zimno, z syropem malinowym lub mango'],
+      ['Lemoniada', '— truskawka-liczi, mango-cytryna'],
+      ['Herbaty sypane', '— lub sezonowe'],
     ],
     ciasta: [
-      ['Sezonowe ciasta domowe', '— pieczone u nas, zmieniają się co tydzień'],
-      ['Brownie', '— ciemna czekolada, na zimno albo lekko podgrzane'],
-      ['Sernik', '— klasyczny lub z sezonowym dodatkiem'],
-      ['Szarlotka', '— jabłka, cynamon, opcjonalnie z lodami'],
-      ['Wersje bez cukru i bezglutenowe', '— pytaj na miejscu'],
+      ['Sezonowe ciasta domowe i monoporcje', '— zapytaj o dostępność'],
+      ['Brownie', '— mocno czekoladowe, lekko podgrzane'],
+      ['Ciasto marchewkowe', '— aromatyczne, z delikatną masą'],
+      ['Malinowa Chmurka', '— krucha i kremowa'],
+      ['Sernik pistacjowy', '— ulubieniec naszych gości'],
     ],
     dzieciaki: [
-      ['Owoce sezonowe', '— prosto z talerza, krojone na kawałki'],
-      ['Mleko / kakao', '— ciepłe albo zimne'],
-      ['Soczki naturalne', '— bez dodatku cukru'],
-      ['Babeczki bananowe', '— bez cukru, zawsze świeże'],
-      ['Kanapka z dżemem', '— prosto i pewnie'],
+      ['Szarlotka', '— jabłka, cynamon, opcjonalnie z lodami i bitą śmietaną'],
+      ['Gofry', '— solo, z cukrem pudrem, bitą śmietaną, frużeliną lub kremem pistacjowym'],
+      ['Tosty', '— z serem i szynką'],
+      ['Bejbiczino / Mleko / Kakao / Naturalne soki tłoczone', '— '],
+      ['Zdrowe przekąski', '— '],
     ],
   }
 
@@ -49,8 +52,8 @@ export function Menu() {
             </h2>
           </Reveal>
           <Reveal delay={160} className="body-lg menu-sub">
-            Specialty kawa, domowe ciasta (też bez cukru i bezglutenowe), menu dla dzieci bez cukru.
-            Mała kawiarnia obok sali zabaw — pijesz, jesz, dziecko się bawi w zasięgu wzroku.
+            Specialty kawa, domowe ciasta, menu dla dzieci.
+            Kawiarnia obok sali zabaw — pijesz, jesz, dziecko bawi się w zasięgu wzroku.
           </Reveal>
 
           <div className="menu-tabs" role="tablist">
@@ -79,7 +82,7 @@ export function Menu() {
           </div>
 
           <div className="menu-foot body-sm">
-            * Pełne, aktualne menu z cenami znajdziesz na miejscu. Oferta zmienia się sezonowo.
+            * Pełne, aktualne menu z cenami znajdziesz na miejscu. Wybór ciast zmienia się wraz z dostępnością świeżych wypieków.
           </div>
 
           <Reveal delay={120}>

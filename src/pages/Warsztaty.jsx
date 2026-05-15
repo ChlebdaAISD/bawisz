@@ -2,7 +2,6 @@ import { useEffect } from 'react'
 import { Breadcrumb } from '../components/Breadcrumb.jsx'
 import { Reveal } from '../components/Reveal.jsx'
 import { Decoration } from '../components/Decoration.jsx'
-import { ServiceGallery } from '../components/ServiceGallery.jsx'
 import { IconArrow, IconInstagram } from '../components/icons.jsx'
 import {
   WARSZTATY_FAQ as FAQ,
@@ -11,34 +10,26 @@ import {
 } from '../data/warsztaty.js'
 import { updateHead } from '../lib/head.js'
 
-const GALLERY = [
-  { src: '/assets/zdjecia/Bawisz_-13.webp',           alt: 'Warsztaty plastyczne w Bawiszu — placeholder' },
-  { src: '/assets/zdjecia/Bawisz_AnnaMrożek-22.webp', alt: 'Dzieci na warsztacie — placeholder' },
-  { src: '/assets/zdjecia/Bawisz_-38.webp',           alt: 'Sensoplastyka — placeholder' },
-  { src: '/assets/zdjecia/Bawisz_AnnaMrożek-49.webp', alt: 'Glina dla dzieci — placeholder' },
-  { src: '/assets/zdjecia/Bawisz_AnnaMrożek-39.webp', alt: 'Joga dla dzieci — placeholder' },
-]
-
 const PROCESS = [
   {
     n: '1',
-    h: 'Śledź Instagram',
-    p: 'Najbliższe warsztaty ogłaszamy na profilu @bawisz_bawialnia z 1-2 tygodniowym wyprzedzeniem. W ogłoszeniu znajdziesz datę, prowadzącego, dla jakiego wieku, ile trwa i ile kosztuje. Włącz powiadomienia — część terminów wyprzedaje się w kilka dni.',
+    h: 'Śledź Instagram i Facebook',
+    p: 'Najbliższe warsztaty ogłaszamy na profilu @bawisz_bawialnia i Bawisz- bawialnia Montessori z 1-2 tygodniowym wyprzedzeniem. Na plakacie  znajdziesz datę, cenę, tematykę, oraz informację od jakiego wieku można uczestniczyć. Włącz powiadomienia — część terminów wyprzedaje się w kilka dni.',
   },
   {
     n: '2',
     h: 'Zadzwoń, żeby zarezerwować',
-    p: 'Po zobaczeniu ogłoszenia dzwonisz na +48 693 766 049 albo piszesz na Instagramie. Mówisz, na który warsztat i ile dzieci. Potwierdzamy miejsce — liczba miejsc ograniczona, zwykle 6-10 dzieci na warsztat.',
+    p: 'Jesteś zainteresowany, dzwonisz na +48 693 766 049 albo piszesz na Instagramie lub Messenger. Mówisz, na który warsztat i ile dzieci. Potwierdzamy miejsce — liczba miejsc ograniczona, zwykle 6-10 dzieci na spotkanie.',
   },
   {
     n: '3',
     h: 'Zajęcia z prowadzącą',
-    p: '1,5 godziny zajęć z zaproszoną prowadzącą — pokazuje technikę, prowadzi zabawę, pomaga przy trudniejszych krokach. Zostajesz w sali, jeśli chcesz, albo czekasz w kawiarni obok. Przy najmłodszych warto być na sali.',
+    p: '1,5 godziny zajęć z zaproszoną prowadzącą — pokazuje technikę, prowadzi zabawę, pomaga przy trudniejszych krokach. Zostajesz w sali, jeśli chcesz, albo czekasz w kawiarni obok.',
   },
   {
     n: '4',
     h: 'Po zajęciach — kawa i ciasto',
-    p: 'Dziecko zabiera swoją pracę do domu (jeśli warsztat plastyczny). Wy macie chwilę na kawę i ciasto domowe w kawiarni przy sali. Materiały sprząta prowadząca — wracacie spokojnie do auta.',
+    p: 'Po zakończeniu warsztatów czas na swobodną zabawę w bawialni.  Rodzice  mają chwilę na kawę i domowe ciasto, a dzieci czas na dalszą zabawę i integrację z grupą.',
   },
 ]
 
@@ -69,7 +60,7 @@ export default function Warsztaty() {
             <h1 className="svc-h1 fade-up" style={{ animationDelay: '0.05s' }}>
               <span className="line">Warsztaty dla dzieci.</span>
               <span className="line hero-italic">Nowy Targ — plastyka, glina,</span>
-              <span className="line">joga, animaloterapia.</span>
+              <span className="line">gimnastyka, animaloterapia .</span>
             </h1>
 
             <div className="svc-hero-ctas fade-up" style={{ animationDelay: '0.35s' }}>
@@ -94,7 +85,7 @@ export default function Warsztaty() {
         <div className="shell">
           <Reveal>
             <p className="svc-intro-p body-lg">
-              Warsztaty dla dzieci w Bawiszu w Nowym Targu prowadzą zaproszeni partnerzy — w drewnianej sali Montessori przy ul. Krzywej 19B. Repertuar zmienia się: plastyka, glina, joga dla dzieci, animaloterapia, sensoryka. Wszystkie najbliższe terminy ogłaszamy na Instagramie{' '}
+              Warsztaty dla dzieci w Bawisz w Nowym Targu prowadzą zapraszani partnerzy — w drewnianej sali Montessori przy ul. Krzywej 19B. W Bawisz odbywają się ciekawe warsztaty tematyczne, okazjonalne, a także cykliczne zajęcia dla dzieci. Sensoplastyka, gordonki, glina, joga dla dzieci, animaloterapia, gimnastyka, sensoryka, plastyka. Wszystkie aktualne terminy ogłaszamy na Instagramie{' '}
               <a
                 href="https://www.instagram.com/bawisz_bawialnia/"
                 target="_blank"
@@ -103,7 +94,7 @@ export default function Warsztaty() {
               >
                 @bawisz_bawialnia
               </a>{' '}
-              — tam znajdziesz datę, prowadzącego, wiek dziecka i cenę. Standardowo 1,5 h zajęć, 60-80 zł od osoby.
+              i Facebooku BAWISZ - bawialnia Montessori — tam znajdziesz datę, tematykę i cenę.
             </p>
           </Reveal>
         </div>
@@ -128,32 +119,28 @@ export default function Warsztaty() {
               </h2>
             </Reveal>
             <Reveal delay={160} className="body-lg svc-sub">
-              Warsztaty robimy nieregularnie — z różnymi prowadzącymi i tematami. Poniżej kilka, które już u nas były. Najbliższe terminy zawsze na Instagramie.
+              Warsztaty pojawiają się bardzo często, okazjonalne tematyczne a także cykliczne.  Poniżej opis wybranych zajęć . Najbliższe terminy zawsze na Instagramie i Facebooku.
             </Reveal>
           </div>
 
-          <div className="svc-types-grid">
+          <div className="svc-types-grid svc-types-grid--imgs">
             {EXAMPLES.map((t, i) => (
-              <Reveal key={t.h} delay={i * 80} className="svc-type-card">
-                <div className="svc-type-age">{t.age}</div>
-                <h3 className="svc-type-h">{t.h}</h3>
-                <div className="svc-type-meta">{t.meta}</div>
-                <p className="svc-type-p">{t.p}</p>
-                <div className="svc-type-by">{t.by}</div>
+              <Reveal key={t.h} delay={i * 80} className="svc-type-card svc-type-card--img">
+                <div className="svc-type-img">
+                  <img src={t.image} alt={t.imageAlt} loading={i === 0 ? 'eager' : 'lazy'} />
+                </div>
+                <div className="svc-type-body">
+                  <div className="svc-type-age">{t.age}</div>
+                  <h3 className="svc-type-h">{t.h}</h3>
+                  <div className="svc-type-meta">{t.meta}</div>
+                  <p className="svc-type-p">{t.p}</p>
+                  <div className="svc-type-by">{t.by}</div>
+                </div>
               </Reveal>
             ))}
           </div>
         </div>
       </section>
-
-      {/* GALERIA */}
-      <ServiceGallery
-        eyebrow="[ Galeria ]"
-        heading="Tak wyglądają warsztaty w Bawiszu."
-        italic="warsztaty"
-        subtitle="Plastyka, glina, sensoryka i joga w drewnianej sali. Kliknij zdjęcie, żeby powiększyć."
-        items={GALLERY}
-      />
 
       {/* JAK TO WYGLĄDA (proces) */}
       <section className="svc-proc">
@@ -174,7 +161,7 @@ export default function Warsztaty() {
               </h2>
             </Reveal>
             <Reveal delay={160} className="body-lg svc-sub">
-              Najczęstsze pytanie: „skąd mam wiedzieć, kiedy będzie warsztat?". Odpowiedź: ogłaszamy je z 1-2 tygodniowym wyprzedzeniem na Instagramie — zaobserwuj profil, żeby nie przegapić.
+              Najczęstsze pytanie: „skąd mam wiedzieć, kiedy będzie warsztat?". Odpowiedź: ogłaszamy je z 1-2 tygodniowym wyprzedzeniem na Instagramie i Facebooku — zaobserwuj profil, żeby nie przegapić.
             </Reveal>
           </div>
 
@@ -201,7 +188,7 @@ export default function Warsztaty() {
                 Najbliższy <span className="hero-italic">warsztat</span>?
               </h2>
               <p className="svc-mid-p">
-                Aktualne terminy, ceny i zapisy na profilu @bawisz_bawialnia. Jeśli masz pomysł na warsztat tematyczny dla zamkniętej grupy (urodziny, wyjście przedszkolne) — dzwoń, ustalamy minimum 2 tygodnie wcześniej.
+                Aktualne terminy, ceny i zapisy na profilu @bawisz_bawialnia i Bawisz - bawialnia Montessori. Jeśli masz pomysł na warsztaty tematyczny dla zamkniętej grupy (urodziny, wyjście przedszkolne) — dzwoń, ustalamy minimum 2 tygodnie wcześniej.
               </p>
             </div>
             <div className="svc-mid-ctas">
@@ -252,7 +239,7 @@ export default function Warsztaty() {
               Zapisy na <span className="hero-italic">warsztaty</span>
             </h2>
             <p className="svc-final-p">
-              ul. Krzywa 19B, Nowy Targ. Aktualny grafik warsztatów (plastyka, glina, joga, animaloterapia) na Instagramie @bawisz_bawialnia. Zapisy telefonicznie albo wiadomością na Instagramie.
+              ul. Krzywa 19B, Nowy Targ. Aktualny grafik warsztatów (plastyka, glina, gimnastyka, animaloterapia) na Instagramie @bawisz_bawialnia i BAWISZ - bawialnia Montessori. Zapisy telefonicznie albo wiadomością na Instagramie i Messenger.
             </p>
             <div className="svc-final-ctas">
               <a
@@ -270,6 +257,49 @@ export default function Warsztaty() {
           </Reveal>
         </div>
       </section>
+
+      <style>{`
+        .svc-types-grid--imgs {
+          grid-template-columns: 1fr 1fr;
+          gap: 28px;
+          max-width: 1180px;
+        }
+        @media (max-width: 980px) { .svc-types-grid--imgs { grid-template-columns: 1fr; } }
+
+        .svc-type-card--img {
+          display: grid;
+          grid-template-columns: 280px 1fr;
+          gap: 24px;
+          padding: 20px;
+          align-items: start;
+        }
+        @media (max-width: 720px) {
+          .svc-type-card--img {
+            grid-template-columns: 1fr;
+            gap: 18px;
+            padding: 16px;
+          }
+        }
+
+        .svc-type-img {
+          border-radius: var(--r-md);
+          overflow: hidden;
+          background: var(--paper);
+          aspect-ratio: 4 / 3;
+        }
+        .svc-type-img img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+        }
+        @media (max-width: 720px) { .svc-type-img { aspect-ratio: 16 / 9; } }
+
+        .svc-type-card--img .svc-type-body {
+          display: flex;
+          flex-direction: column;
+        }
+      `}</style>
     </>
   )
 }

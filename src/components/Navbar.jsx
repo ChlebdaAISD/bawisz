@@ -7,10 +7,10 @@ const NAV_LINKS = [
   { label: 'Home', href: '/', type: 'route' },
   { label: 'O nas', href: '/o-nas/', type: 'route' },
   { label: 'Cennik', href: '/#cennik', type: 'anchor' },
-  { label: 'Urodziny', href: '/urodziny/', type: 'route' },
-  { label: 'Warsztaty', href: '/warsztaty/', type: 'route' },
-  { label: 'Dla przedszkoli', href: '/oferta-grupowa/', type: 'route' },
   { label: 'Kawiarnia', href: '/kawiarnia/', type: 'route' },
+  { label: 'Urodziny', href: '/urodziny/', type: 'route' },
+  { label: 'Dla grup', href: '/oferta-grupowa/', type: 'route' },
+  { label: 'Warsztaty', href: '/warsztaty/', type: 'route' },
   { label: 'Kontakt', href: '/kontakt/', type: 'route' },
 ]
 

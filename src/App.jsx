@@ -44,13 +44,60 @@ const COZY = {
 
 const SOFT = { '--r-sm': '14px', '--r-md': '22px', '--r-lg': '32px', '--r-xl': '48px', '--r-pill': '999px' }
 
-function ScrollToTop() {
+function ScrollToHashOrTop() {
   const [location] = useLocation()
   useEffect(() => {
-    if (!window.location.hash) {
+    const hash = window.location.hash
+    if (!hash) {
       window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
+      return
     }
+    const id = hash.slice(1)
+    let attempts = 0
+    let timer
+    const tryScroll = () => {
+      const el = document.getElementById(id)
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      } else if (attempts < 12) {
+        attempts++
+        timer = setTimeout(tryScroll, 50)
+      }
+    }
+    timer = setTimeout(tryScroll, 50)
+    return () => clearTimeout(timer)
   }, [location])
+  return null
+}
+
+function AnchorLinkHandler() {
+  const [location, setLocation] = useLocation()
+  useEffect(() => {
+    const onClick = (e) => {
+      if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return
+      const a = e.target.closest && e.target.closest('a')
+      if (!a) return
+      const href = a.getAttribute('href')
+      if (!href || !href.startsWith('/#')) return
+      const id = href.slice(2)
+      if (!id) return
+      e.preventDefault()
+      const scroll = () => {
+        const el = document.getElementById(id)
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }
+      if (location === '/') {
+        scroll()
+        window.history.replaceState(null, '', `/#${id}`)
+      } else {
+        setLocation('/')
+        window.history.replaceState(null, '', `/#${id}`)
+        setTimeout(scroll, 100)
+      }
+    }
+    document.addEventListener('click', onClick)
+    return () => document.removeEventListener('click', onClick)
+  }, [location, setLocation])
   return null
 }
 
@@ -66,7 +113,8 @@ export default function App({ ssrPath }) {
 
   return (
     <Router ssrPath={ssrPath}>
-      <ScrollToTop />
+      <ScrollToHashOrTop />
+      <AnchorLinkHandler />
       <Navbar onBookBirthday={openBook} />
       <main>
         <Switch>

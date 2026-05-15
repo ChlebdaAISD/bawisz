@@ -1,8 +1,7 @@
-import { Link } from 'wouter'
 import { Reveal } from './Reveal.jsx'
 import { IconArrow } from './icons.jsx'
 import { Decoration } from './Decoration.jsx'
-import { AnimalBear, AnimalFox } from './animals.jsx'
+import { AnimalBear, AnimalFox, AnimalDeer } from './animals.jsx'
 
 export function Birthdays({ onBookBirthday }) {
   const mini = {
@@ -48,9 +47,27 @@ export function Birthdays({ onBookBirthday }) {
       'ścianka dekoracyjna',
       'balon cyfra',
       'girlanda balonowa na sali zabaw',
-      'cyfrowe zaproszenia w danej tematyce',
+      'cyfrowe zaproszenia w wybranej tematyce',
     ],
     featured: true,
+  }
+
+  const parents = {
+    name: 'DLA RODZICÓW',
+    timeLabel: 'NA CZAS PRZYJĘCIA',
+    timeSmall: true,
+    price: '55',
+    Animal: AnimalDeer,
+    shift: -10,
+    perks: [],
+    snacks: [
+      'woda · sok · lemoniada',
+      'kawa · herbata',
+      'deska przekąsek (bagietka z serkiem i wędzonym łososiem, 3 rodzaje serów, krakersy, orzechy, kabanosy, winogrona, oliwki)',
+    ],
+    decor: [
+      'wydzielony stół z elegancką zastawą',
+    ],
   }
 
   return (
@@ -72,12 +89,12 @@ export function Birthdays({ onBookBirthday }) {
             </h2>
           </Reveal>
           <Reveal delay={160} className="body-lg bd-sub">
-            Dwa pakiety, jedno wspomnienie na lata. Cały dekor, poczęstunek i opieka po naszej stronie — wy bawicie się z dzieckiem.
+            Urodziny, roczki i inne rodzinne przyjęcia z udziałem dzieci  w wyjątkowej atmosferze. Możliwość rezerwacji sali na wyłączność. Dekoracje, poczęstunek i cała organizacja po naszej stronie- Ty cieszysz się czasem z dzieckiem i gośćmi, bez stresu i sprzątania.
           </Reveal>
         </div>
 
         <div className="bd-grid">
-          {[mini, standard].map((pkg) => (
+          {[mini, standard, parents].map((pkg) => (
             <Reveal key={pkg.name} className={`bd-card ${pkg.featured ? 'bd-featured' : ''}`}>
               {pkg.featured && <div className="bd-badge">Najczęściej wybierany</div>}
               <div className="bd-card-text">
@@ -106,7 +123,9 @@ export function Birthdays({ onBookBirthday }) {
                   <pkg.Animal size={140} hat />
                 </div>
                 <div className="bd-time-circle">
-                  <span className="bd-time">{pkg.time}</span>
+                  <span className={pkg.timeSmall ? 'bd-time-small' : 'bd-time'}>
+                    {pkg.timeLabel ?? pkg.time}
+                  </span>
                 </div>
                 <div className="bd-price-circle">
                   <span className="bd-price">{pkg.price} zł</span>
@@ -121,9 +140,6 @@ export function Birthdays({ onBookBirthday }) {
           <button className="btn btn-pop" onClick={onBookBirthday}>
             Zarezerwuj urodziny <IconArrow size={16} />
           </button>
-          <Link href="/urodziny/" className="btn btn-ghost">
-            Wszystkie szczegóły <IconArrow size={16} />
-          </Link>
           <a href="tel:+48693766049" className="btn btn-ghost">Zadzwoń · 693 766 049</a>
         </Reveal>
       </div>
@@ -146,23 +162,25 @@ export function Birthdays({ onBookBirthday }) {
 
         .bd-grid {
           display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 28px;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 24px;
           margin-bottom: 40px;
         }
-        @media (max-width: 900px) { .bd-grid { grid-template-columns: 1fr; gap: 36px; } }
+        @media (max-width: 1100px) { .bd-grid { grid-template-columns: 1fr 1fr; gap: 28px; } }
+        @media (max-width: 720px) { .bd-grid { grid-template-columns: 1fr; gap: 36px; } }
 
         .bd-card {
           position: relative;
           background: var(--bone);
           border: 1px solid var(--line-soft);
           border-radius: var(--r-lg);
-          padding: 44px 40px 40px;
+          padding: 36px 28px 32px;
           display: grid;
           grid-template-columns: 1.2fr 1fr;
-          gap: 32px;
+          gap: 20px;
           box-shadow: 0 8px 30px -20px rgba(168,128,98,0.5);
         }
+        @media (max-width: 1100px) { .bd-card { padding: 40px 32px 36px; gap: 28px; } }
         @media (max-width: 720px) { .bd-card { grid-template-columns: 1fr; padding: 30px 24px; } }
 
         .bd-featured {
@@ -290,6 +308,19 @@ export function Birthdays({ onBookBirthday }) {
           letter-spacing: -0.01em;
         }
         @media (max-width: 520px) { .bd-time { font-size: 24px; } }
+
+        .bd-time-small {
+          font-family: var(--font-body);
+          font-weight: 700;
+          font-size: 12px;
+          line-height: 1.1;
+          letter-spacing: 0.05em;
+          color: var(--brand-deep);
+          text-align: center;
+          text-transform: uppercase;
+          padding: 0 8px;
+        }
+        @media (max-width: 520px) { .bd-time-small { font-size: 10px; padding: 0 6px; } }
 
         .bd-price-circle {
           margin-top: -26px;
