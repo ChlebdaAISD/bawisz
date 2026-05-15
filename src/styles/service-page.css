@@ -144,6 +144,21 @@
   letter-spacing: 0.01em;
 }
 .svc-proc-p { font-size: 15px; line-height: 1.55; color: var(--ink-soft); margin: 0; }
+@media (max-width: 720px) {
+  .svc-proc-card {
+    grid-template-columns: auto 1fr;
+    grid-template-areas:
+      "num h"
+      "p   p";
+    gap: 4px 16px;
+    padding: 22px 22px;
+    align-items: center;
+  }
+  .svc-proc-num { grid-area: num; font-size: 40px; }
+  .svc-proc-body { display: contents; }
+  .svc-proc-h { grid-area: h; margin: 0; font-size: 20px; }
+  .svc-proc-p { grid-area: p; margin-top: 12px; }
+}
 
 /* ============ WHY (3-up reasons grid) ============ */
 .svc-why { padding: 110px 0 90px; background: var(--cream); }
