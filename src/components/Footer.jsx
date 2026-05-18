@@ -1,5 +1,6 @@
 import { Link } from 'wouter'
 import { IconInstagram, IconFacebook, IconTiktok } from './icons.jsx'
+import { CONTACT, telHref } from '../data/contact.js'
 
 export function Footer({ onBookBirthday }) {
   const year = new Date().getFullYear()
@@ -16,7 +17,7 @@ export function Footer({ onBookBirthday }) {
           </div>
           <div className="ftr-cta">
             <button className="btn btn-pop" onClick={onBookBirthday}>Zarezerwuj urodziny</button>
-            <a href="tel:+48693766049" className="btn btn-cream">+48 693 766 049</a>
+            <a href={telHref} className="btn btn-cream">{CONTACT.phone}</a>
           </div>
         </div>
 
@@ -27,12 +28,12 @@ export function Footer({ onBookBirthday }) {
             <div className="ftr-col-h">Bawisz</div>
             <p className="ftr-col-p">
               Kreatywna sala zabaw i kawiarnia.<br />
-              ul. Krzywa 19B, 34-400 Nowy Targ.
+              {CONTACT.address.full}.
             </p>
             <div className="ftr-socials">
-              <a href="https://www.instagram.com/bawisz_bawialnia/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><IconInstagram size={18} /></a>
-              <a href="https://www.facebook.com/p/Bawisz-bawialnia-Montessori-61572522181693/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><IconFacebook size={18} /></a>
-              <a href="https://www.tiktok.com/@bawisz.bawialnia" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><IconTiktok size={18} /></a>
+              <a href={CONTACT.socials.instagram.url} target="_blank" rel="noopener noreferrer" aria-label="Instagram"><IconInstagram size={18} /></a>
+              <a href={CONTACT.socials.facebook.url} target="_blank" rel="noopener noreferrer" aria-label="Facebook"><IconFacebook size={18} /></a>
+              <a href={CONTACT.socials.tiktok.url} target="_blank" rel="noopener noreferrer" aria-label="TikTok"><IconTiktok size={18} /></a>
             </div>
           </div>
 
@@ -42,7 +43,7 @@ export function Footer({ onBookBirthday }) {
               <li><a href="/#oferta" className="link-u">Sala zabaw</a></li>
               <li><a href="/#cennik" className="link-u">Cennik</a></li>
               <li><a href="/#oferta" className="link-u">Warsztaty</a></li>
-              <li><Link href="/urodziny/" className="link-u">Urodziny</Link></li>
+              <li><Link href="/urodziny/" className="link-u">Urodziny i Przyjęcia</Link></li>
             </ul>
           </div>
 
@@ -51,17 +52,18 @@ export function Footer({ onBookBirthday }) {
             <ul className="ftr-list">
               <li><a href="/#godziny" className="link-u">Godziny otwarcia</a></li>
               <li><Link href="/kontakt/" className="link-u">Kontakt</Link></li>
-              <li><a href="https://maps.google.com/?q=Krzywa+19B+Nowy+Targ" target="_blank" rel="noopener noreferrer" className="link-u">Nawigacja</a></li>
+              <li><a href={CONTACT.address.mapsUrl} target="_blank" rel="noopener noreferrer" className="link-u">Nawigacja</a></li>
               <li><Link href="/kawiarnia/" className="link-u">Kawiarnia</Link></li>
+              <li><Link href="/polityka-prywatnosci/" className="link-u">Polityka prywatności</Link></li>
             </ul>
           </div>
 
           <div className="ftr-col">
             <div className="ftr-col-h">Kontakt</div>
             <p className="ftr-col-p">
-              <a href="tel:+48693766049" className="link-u">+48 693 766 049</a><br />
-              Pn–Pt 10:00–19:00<br />
-              Sb–Nd 10:00–20:00
+              <a href={telHref} className="link-u">{CONTACT.phone}</a><br />
+              Pn–Pt {CONTACT.hours.weekdays}<br />
+              Sb–Nd {CONTACT.hours.weekend}
             </p>
           </div>
         </div>
@@ -69,7 +71,7 @@ export function Footer({ onBookBirthday }) {
         <hr className="ftr-line" />
 
         <div className="ftr-bottom">
-          <span>&copy; {year} Bawisz · Sala zabaw i kawiarnia · Nowy Targ</span>
+          <span>&copy; {year} Bawisz · Sala zabaw i kawiarnia · Nowy Targ · <Link href="/polityka-prywatnosci/" className="link-u">Polityka prywatności</Link></span>
           <span>Design i wykonanie <a href="https://www.aisolutions.design/" target="_blank" rel="noopener" className="link-u">AI Solutions Design</a></span>
         </div>
       </div>

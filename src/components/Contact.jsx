@@ -1,12 +1,13 @@
 import { Link } from 'wouter'
 import { Reveal } from './Reveal.jsx'
 import { IconPhone, IconInstagram, IconFacebook, IconTiktok, IconArrowUp, IconArrow } from './icons.jsx'
+import { CONTACT, telHref } from '../data/contact.js'
 
 export function Contact() {
   const socials = [
-    { icon: IconInstagram, label: '@bawisz_bawialnia', sub: 'Codzienne kadry', href: 'https://www.instagram.com/bawisz_bawialnia/' },
-    { icon: IconFacebook, label: 'Bawisz · bawialnia', sub: 'Wydarzenia i info', href: 'https://www.facebook.com/p/Bawisz-bawialnia-Montessori-61572522181693/' },
-    { icon: IconTiktok, label: '@bawisz.bawialnia', sub: 'Kulisy i zabawy', href: 'https://www.tiktok.com/@bawisz.bawialnia' },
+    { icon: IconInstagram, label: CONTACT.socials.instagram.handle, sub: 'Codzienne kadry', href: CONTACT.socials.instagram.url },
+    { icon: IconFacebook, label: 'Bawisz · bawialnia', sub: 'Wydarzenia i info', href: CONTACT.socials.facebook.url },
+    { icon: IconTiktok, label: CONTACT.socials.tiktok.handle, sub: 'Kulisy i zabawy', href: CONTACT.socials.tiktok.url },
   ]
 
   return (
@@ -27,8 +28,8 @@ export function Contact() {
           </Reveal>
 
           <Reveal delay={240} className="ctc-ctas">
-            <a href="tel:+48693766049" className="btn btn-primary ctc-call">
-              <IconPhone size={18} /> +48 693 766 049
+            <a href={telHref} className="btn btn-primary ctc-call">
+              <IconPhone size={18} /> {CONTACT.phone}
             </a>
             <Link href="/kontakt/" className="btn btn-ghost">
               Pełny kontakt <IconArrow size={16} />

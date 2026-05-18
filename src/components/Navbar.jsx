@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'wouter'
 import { IconMenu, IconClose } from './icons.jsx'
+import { CONTACT, telHref } from '../data/contact.js'
 
 // type: 'route' = wouter Link, 'anchor' = section on home (works from any page via /#hash)
 const NAV_LINKS = [
@@ -8,7 +9,7 @@ const NAV_LINKS = [
   { label: 'O nas', href: '/o-nas/', type: 'route' },
   { label: 'Cennik', href: '/#cennik', type: 'anchor' },
   { label: 'Kawiarnia', href: '/kawiarnia/', type: 'route' },
-  { label: 'Urodziny', href: '/urodziny/', type: 'route' },
+  { label: 'Urodziny i Przyjęcia', href: '/urodziny/', type: 'route' },
   { label: 'Dla grup', href: '/oferta-grupowa/', type: 'route' },
   { label: 'Warsztaty', href: '/warsztaty/', type: 'route' },
   { label: 'Kontakt', href: '/kontakt/', type: 'route' },
@@ -113,7 +114,7 @@ export function Navbar({ onBookBirthday }) {
             <button className="btn btn-pop" onClick={() => { setMobileOpen(false); onBookBirthday() }}>
               Zarezerwuj urodziny
             </button>
-            <a href="tel:+48693766049" className="btn btn-ghost">+48 693 766 049</a>
+            <a href={telHref} className="btn btn-ghost">{CONTACT.phone}</a>
           </div>
         </div>
       )}

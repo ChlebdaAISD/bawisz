@@ -30,7 +30,7 @@ export function Offer() {
       n: '03',
       img: '/assets/animals/zapisane_relacje_urodzinki.png',
       t: 'Urodziny',
-      s: 'Pakiet MINI albo STANDARD. Pakiet DLA RODZICÓW. Ty wybierasz, my robimy resztę —  dekoracje, poczęstunek, prezent dla solenizanta.',
+      s: 'Pakiet MINI albo STANDARD. Pakiet DLA RODZICÓW. Ty wybierasz, my robimy resztę — dekoracje, poczęstunek, prezent dla solenizanta.',
       tags: ['MINI · STANDARD', 'Sala na wyłączność', 'Prezent od nas'],
       tone: 'cream',
       href: '/urodziny/',
@@ -42,7 +42,7 @@ export function Offer() {
       img: '/assets/animals/zapisane_relacje_warsztaty.png',
       t: 'Warsztaty',
       s: `Tematyczne, okazjonalne a także cykliczne zajęcia dla dzieci.
-Od warsztatów plastycznych, przez muzyczne,  po ruchowe i sensoryczne, zawsze kreatywne, angażujące i dopasowane do wieku oraz rozwoju dziecka.`,
+Od warsztatów plastycznych, przez muzyczne, po ruchowe i sensoryczne, zawsze kreatywne, angażujące i dopasowane do wieku oraz rozwoju dziecka.`,
       tags: ['Plastyka', 'Gimnastyka', 'Małe grupy'],
       tone: 'cream',
       href: '/warsztaty/',
@@ -63,7 +63,7 @@ Od warsztatów plastycznych, przez muzyczne,  po ruchowe i sensoryczne, zawsze k
             </h2>
           </Reveal>
           <Reveal delay={160} className="body-lg offer-sub">
-            Bawialnia, kawiarnia, urodziny i warsztaty — wszystko w jednej drewnianej przestrzeni
+            Bawialnia, kawiarnia, urodziny, przyjęcia  i warsztaty — wszystko w jednej drewnianej przestrzeni
             przy ul. Krzywej 19B w Nowym Targu. Wchodzisz na chwilę, zostajesz na dłużej.
           </Reveal>
         </div>

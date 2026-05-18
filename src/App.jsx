@@ -10,6 +10,7 @@ import Warsztaty from './pages/Warsztaty.jsx'
 import ONas from './pages/ONas.jsx'
 import OfertaGrupowa from './pages/OfertaGrupowa.jsx'
 import Kontakt from './pages/Kontakt.jsx'
+import PolitykaPrywatnosci from './pages/PolitykaPrywatnosci.jsx'
 
 const COZY = {
   '--cream':       '#FFFFFF',
@@ -131,6 +132,8 @@ export default function App({ ssrPath }) {
           <Route path="/oferta-grupowa/" component={() => <OfertaGrupowa />} />
           <Route path="/kontakt" component={() => <Kontakt onBookBirthday={openBook} />} />
           <Route path="/kontakt/" component={() => <Kontakt onBookBirthday={openBook} />} />
+          <Route path="/polityka-prywatnosci" component={() => <PolitykaPrywatnosci />} />
+          <Route path="/polityka-prywatnosci/" component={() => <PolitykaPrywatnosci />} />
           <Route>
             <Home onBookBirthday={openBook} />
           </Route>

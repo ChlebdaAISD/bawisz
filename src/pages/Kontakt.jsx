@@ -14,34 +14,35 @@ import {
 } from '../components/icons.jsx'
 import { KONTAKT_FAQ as FAQ, KONTAKT_META as META } from '../data/kontakt.js'
 import { updateHead } from '../lib/head.js'
+import { CONTACT, telHref } from '../data/contact.js'
 
 const CHANNELS = [
   {
     icon: IconPhone,
-    label: '+48 693 766 049',
+    label: CONTACT.phone,
     sub: 'Odbieramy najszybciej. SMS poza godzinami — oddzwaniamy rano.',
-    href: 'tel:+48693766049',
+    href: telHref,
     external: false,
   },
   {
     icon: IconInstagram,
-    label: '@bawisz_bawialnia',
+    label: CONTACT.socials.instagram.handle,
     sub: 'Codzienne kadry z sali, stories z urodzin. DM jak telefon.',
-    href: 'https://www.instagram.com/bawisz_bawialnia/',
+    href: CONTACT.socials.instagram.url,
     external: true,
   },
   {
     icon: IconFacebook,
     label: 'Bawisz · bawialnia Montessori',
     sub: 'Wydarzenia, warsztaty, info dla grup. Messenger sprawdzamy w godzinach.',
-    href: 'https://www.facebook.com/p/Bawisz-bawialnia-Montessori-61572522181693/',
+    href: CONTACT.socials.facebook.url,
     external: true,
   },
   {
     icon: IconNav,
-    label: 'Krzywa 19B, Nowy Targ',
+    label: `${CONTACT.address.street}, ${CONTACT.address.city}`,
     sub: 'Centrum miasta, dwie minuty od Rynku, parking obok lokalu.',
-    href: 'https://maps.google.com/?q=Krzywa+19B+Nowy+Targ',
+    href: CONTACT.address.mapsUrl,
     external: true,
   },
 ]
@@ -87,12 +88,12 @@ export default function Kontakt({ onBookBirthday }) {
             <h1 className="svc-h1 fade-up" style={{ animationDelay: '0.05s' }}>
               <span className="line">Kontakt — Bawisz.</span>
               <span className="line hero-italic">Nowy Targ, Krzywa 19B —</span>
-              <span className="line">telefon, Instagram, mapa.</span>
+              <span className="line">telefon, Instagram, Facebook, mapa.</span>
             </h1>
 
             <div className="svc-hero-ctas fade-up" style={{ animationDelay: '0.35s' }}>
-              <a href="tel:+48693766049" className="btn btn-pop">
-                Zadzwoń · 693 766 049 <IconArrow size={16} />
+              <a href={telHref} className="btn btn-pop">
+                Zadzwoń · {CONTACT.phoneDisplay} <IconArrow size={16} />
               </a>
               <a
                 href="https://www.instagram.com/bawisz_bawialnia/"
@@ -125,7 +126,7 @@ export default function Kontakt({ onBookBirthday }) {
             <Reveal className="eyebrow">[ Cztery sposoby ]</Reveal>
             <Reveal delay={80}>
               <h2 className="svc-h2">
-                Wybierz, jak <span className="hero-italic">się łapiemy.</span>
+                Wybierz, jak <span className="hero-italic">się skontaktować</span>
               </h2>
             </Reveal>
             <Reveal delay={160} className="body-lg svc-sub">
@@ -200,7 +201,7 @@ export default function Kontakt({ onBookBirthday }) {
               <div className="kt-info-row">
                 <div className="kt-info-icon"><IconPhone size={20} /></div>
                 <div>
-                  <a href="tel:+48693766049" className="kt-info-t link-u">+48 693 766 049</a>
+                  <a href={telHref} className="kt-info-t link-u">{CONTACT.phone}</a>
                   <div className="kt-info-s">Telefon lub SMS — w godzinach otwarcia</div>
                 </div>
               </div>
@@ -249,8 +250,8 @@ export default function Kontakt({ onBookBirthday }) {
               <button className="btn btn-pop" onClick={onBookBirthday}>
                 Zarezerwuj urodziny <IconArrow size={16} />
               </button>
-              <a href="tel:+48693766049" className="btn btn-ghost-light">
-                Zadzwoń · 693 766 049
+              <a href={telHref} className="btn btn-ghost-light">
+                Zadzwoń · {CONTACT.phoneDisplay}
               </a>
             </div>
           </Reveal>
@@ -291,8 +292,8 @@ export default function Kontakt({ onBookBirthday }) {
               Najszybciej telefonem — odpowiadamy w godzinach otwarcia. Z urodzinami, warsztatami i grupami pisz albo dzwoń wcześniej, terminy znikają szybciej niż się wydaje.
             </p>
             <div className="svc-final-ctas">
-              <a href="tel:+48693766049" className="btn btn-pop">
-                Zadzwoń · 693 766 049 <IconArrow size={16} />
+              <a href={telHref} className="btn btn-pop">
+                Zadzwoń · {CONTACT.phoneDisplay} <IconArrow size={16} />
               </a>
               <button className="btn btn-cream" onClick={onBookBirthday}>
                 Zarezerwuj urodziny

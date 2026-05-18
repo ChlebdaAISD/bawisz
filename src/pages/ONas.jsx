@@ -5,6 +5,7 @@ import { Decoration } from '../components/Decoration.jsx'
 import { IconArrow, IconInstagram, IconPhone } from '../components/icons.jsx'
 import { ONAS_FAQ as FAQ, ONAS_META as META } from '../data/o-nas.js'
 import { updateHead } from '../lib/head.js'
+import { CONTACT, telHref } from '../data/contact.js'
 
 const VALUES = [
   {
@@ -61,8 +62,8 @@ export default function ONas({ onBookBirthday }) {
             </h1>
 
             <div className="svc-hero-ctas fade-up" style={{ animationDelay: '0.35s' }}>
-              <a href="tel:+48693766049" className="btn btn-pop">
-                Zadzwoń · 693 766 049 <IconArrow size={16} />
+              <a href={telHref} className="btn btn-pop">
+                Zadzwoń · {CONTACT.phoneDisplay} <IconArrow size={16} />
               </a>
               <a
                 href="https://www.instagram.com/bawisz_bawialnia/"
@@ -138,8 +139,8 @@ export default function ONas({ onBookBirthday }) {
               </p>
             </div>
             <div className="svc-mid-ctas">
-              <a href="tel:+48693766049" className="btn btn-pop">
-                <IconPhone size={16} /> 693 766 049
+              <a href={telHref} className="btn btn-pop">
+                <IconPhone size={16} /> {CONTACT.phoneDisplay}
               </a>
               <a
                 href="https://www.instagram.com/bawisz_bawialnia/"
@@ -188,8 +189,8 @@ export default function ONas({ onBookBirthday }) {
               Sala otwarta od 10:00, kawa parzona od pierwszego klienta, zabierzesz ją także na wynos. Wstęp do bawialni od 25 zł za godzinę, opiekun zawsze gratis. ul. Krzywa 19B w Nowym Targu — centrum, parking obok.
             </p>
             <div className="svc-final-ctas">
-              <a href="tel:+48693766049" className="btn btn-pop">
-                Zadzwoń · 693 766 049 <IconArrow size={16} />
+              <a href={telHref} className="btn btn-pop">
+                Zadzwoń · {CONTACT.phoneDisplay} <IconArrow size={16} />
               </a>
               <button className="btn btn-cream" onClick={onBookBirthday}>
                 Zarezerwuj urodziny

@@ -334,6 +334,17 @@ const ROUTES = [
     },
   },
   {
+    path: '/polityka-prywatnosci/',
+    title: 'Polityka prywatności — Bawisz · bawialnia Montessori',
+    description: 'Polityka prywatności bawialni Bawisz w Nowym Targu. Informacje o przetwarzaniu danych osobowych zgodnie z RODO.',
+    canonical: `${SITE}/polityka-prywatnosci/`,
+    ogImage: `${SITE}/assets/zdjecia/strona_glowna/Bawisz_-13.webp`,
+    breadcrumb: [
+      { name: 'Strona główna', url: `${SITE}/` },
+      { name: 'Polityka prywatności', url: `${SITE}/polityka-prywatnosci/` },
+    ],
+  },
+  {
     path: '/kontakt/',
     title: 'Kontakt — Bawisz Nowy Targ | telefon, mapa, godziny',
     description: 'Kontakt z Bawiszem w Nowym Targu — telefon +48 693 766 049, ul. Krzywa 19B, otwarte codziennie od 10:00. Napisz na Instagramie lub odwiedź nas osobiście.',

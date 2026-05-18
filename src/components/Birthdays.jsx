@@ -2,6 +2,7 @@ import { Reveal } from './Reveal.jsx'
 import { IconArrow } from './icons.jsx'
 import { Decoration } from './Decoration.jsx'
 import { AnimalBear, AnimalFox, AnimalDeer } from './animals.jsx'
+import { CONTACT, telHref } from '../data/contact.js'
 
 export function Birthdays({ onBookBirthday }) {
   const mini = {
@@ -145,7 +146,7 @@ export function Birthdays({ onBookBirthday }) {
           <button className="btn btn-pop" onClick={onBookBirthday}>
             Zarezerwuj urodziny <IconArrow size={16} />
           </button>
-          <a href="tel:+48693766049" className="btn btn-ghost">Zadzwoń · 693 766 049</a>
+          <a href={telHref} className="btn btn-ghost">Zadzwoń · {CONTACT.phoneDisplay}</a>
         </Reveal>
       </div>
 

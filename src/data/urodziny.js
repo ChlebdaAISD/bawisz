@@ -2,7 +2,7 @@ export const URODZINY_FAQ = [
   {
     q: 'Ile kosztują urodziny dla dziecka w Nowym Targu w Bawisz?',
     a: `Pakiet MINI to 45 zł od osoby (2 godziny, poczęstunek, dekoracje, balon-cyfra). Pakiet STANDARD to 74 zł od osoby (2,5 godziny, sala tylko dla was, prezent dla solenizanta, pełna dekoracja tematyczna, cyfrowe zaproszenia).
-Pakiet DLA RODZICÓW to 55zł od osoby.
+Pakiet DLA RODZICÓW to 55 zł od osoby.
 Istnieje również możliwość przedłużenia przyjęcia o dodatkowe 30 minut.`,
   },
   {
@@ -29,7 +29,7 @@ Pakiet DLA RODZICÓW —  kawa/herbata, napoje bez limitu, poczęstunek oraz wyd
 ]
 
 export const URODZINY_META = {
-  title: 'Urodziny dla dziecka Nowy Targ — Bawisz | Pakiety MINI 45 zł, STANDARD 74 zł RODZICE 55zł',
+  title: 'Urodziny i Przyjęcia Nowy Targ — Bawisz | MINI 45 zł, STANDARD 74 zł',
   description: 'Urodziny dla dziecka w Nowym Targu w drewnianej bawialni Montessori. Pakiet MINI od 45 zł/os., STANDARD od 74 zł/os. z salą tylko dla was. Ocena 4.9/5 w Google.',
   canonical: 'https://bawialniabawisz.pl/urodziny/',
   ogImage: 'https://bawialniabawisz.pl/assets/og-urodziny.jpg',

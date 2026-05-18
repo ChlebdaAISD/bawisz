@@ -7,6 +7,7 @@ import { IconArrow, IconInstagram } from '../components/icons.jsx'
 import { AnimalDeer, AnimalBear, AnimalWolf } from '../components/animals.jsx'
 import { OFERTA_GRUPOWA_FAQ as FAQ, OFERTA_GRUPOWA_META as META } from '../data/oferta-grupowa.js'
 import { updateHead } from '../lib/head.js'
+import { CONTACT, telHref } from '../data/contact.js'
 
 const GALLERY = [
   { src: '/assets/zdjecia/strona_glowna/Bawisz_-13.webp', alt: 'Grupa przedszkolna w Bawisz — placeholder' },
@@ -98,13 +99,7 @@ export default function OfertaGrupowa() {
     <>
       {/* HERO (AIDA) */}
       <section className="svc-hero">
-        <div className="svc-hero-decor">
-          <Decoration type="balloon" color="var(--rose)" size={110} rotate={-14} opacity={0.5} className="dec-keep" style={{ right: '6%', top: '14%' }} />
-          <Decoration type="balloon" color="var(--sand)" size={75} rotate={18} opacity={0.45} style={{ right: '14%', top: '38%' }} />
-          <Decoration type="cloud" color="var(--paper)" size={150} opacity={0.18} style={{ left: '4%', top: '12%' }} />
-          <Decoration type="leaf" color="var(--rose-deep)" size={70} rotate={-28} opacity={0.4} style={{ left: '8%', bottom: '14%' }} />
-          <Decoration type="leaf" color="var(--rose)" size={50} rotate={42} opacity={0.35} style={{ left: '38%', bottom: '6%' }} />
-        </div>
+        <div className="svc-hero-decor" />
 
         <div className="svc-hero-shell shell">
           <div className="svc-hero-text">
@@ -120,8 +115,8 @@ export default function OfertaGrupowa() {
             </h1>
 
             <div className="svc-hero-ctas fade-up" style={{ animationDelay: '0.35s' }}>
-              <a href="tel:+48693766049" className="btn btn-pop">
-                Zadzwoń · 693 766 049 <IconArrow size={16} />
+              <a href={telHref} className="btn btn-pop">
+                Zadzwoń · {CONTACT.phoneDisplay} <IconArrow size={16} />
               </a>
               <a
                 href="https://www.instagram.com/bawisz_bawialnia/"
@@ -281,8 +276,8 @@ export default function OfertaGrupowa() {
               </p>
             </div>
             <div className="svc-mid-ctas">
-              <a href="tel:+48693766049" className="btn btn-pop">
-                Zadzwoń · 693 766 049
+              <a href={telHref} className="btn btn-pop">
+                Zadzwoń · {CONTACT.phoneDisplay}
               </a>
               <a
                 href="https://www.instagram.com/bawisz_bawialnia/"
@@ -331,8 +326,8 @@ export default function OfertaGrupowa() {
               Nowy Targ ul. Krzywa 19B. Pakiety grupowe od 15 zł za godzinę za dziecko, faktura dla placówki. Termin i szczegóły ustalamy telefonicznie — najlepiej 1-2 tygodnie wcześniej.
             </p>
             <div className="svc-final-ctas">
-              <a href="tel:+48693766049" className="btn btn-pop">
-                Zadzwoń · 693 766 049
+              <a href={telHref} className="btn btn-pop">
+                Zadzwoń · {CONTACT.phoneDisplay}
               </a>
               <a
                 href="https://www.instagram.com/bawisz_bawialnia/"
