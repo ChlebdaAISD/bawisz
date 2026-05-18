@@ -1,5 +1,5 @@
-import { useEffect, useMemo, useState } from 'react'
-import { IconClose, IconArrow, IconCheck, IconCake } from './icons.jsx'
+import { useEffect, useMemo, useRef, useState } from 'react'
+import { IconClose, IconArrow, IconCheck, IconCake, IconChevronDown } from './icons.jsx'
 import { CONTACT, telHref } from '../data/contact.js'
 
 const PACKAGES = {
@@ -84,6 +84,9 @@ export function BirthdayModal({ open, onClose }) {
   const [submitting, setSubmitting] = useState(false)
   const [submitError, setSubmitError] = useState(null)
   const [confetti, setConfetti] = useState([])
+  const [expandedPkg, setExpandedPkg] = useState(null)
+  const [parentsExpanded, setParentsExpanded] = useState(false)
+  const cardRef = useRef(null)
 
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : ''
@@ -92,6 +95,8 @@ export function BirthdayModal({ open, onClose }) {
       setSubmitError(null)
       setSubmitting(false)
       setConfetti([])
+      setExpandedPkg(null)
+      setParentsExpanded(false)
     }
     return () => { document.body.style.overflow = '' }
   }, [open])
@@ -102,6 +107,24 @@ export function BirthdayModal({ open, onClose }) {
     const t = setTimeout(() => setConfetti([]), 4200)
     return () => clearTimeout(t)
   }, [step])
+
+  useEffect(() => {
+    if (!open) return
+    const onKey = (e) => { if (e.key === 'Escape') onClose() }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [open, onClose])
+
+  useEffect(() => {
+    if (!open || step === 4) return
+    const t = setTimeout(() => {
+      const card = cardRef.current
+      if (!card) return
+      const target = card.querySelector('input, select, textarea, button:not(.bm-close)')
+      if (target && typeof target.focus === 'function') target.focus()
+    }, 60)
+    return () => clearTimeout(t)
+  }, [open, step])
 
   const total = useMemo(() => calcTotal(data), [data])
   const pkg = PACKAGES[data.package]
@@ -143,6 +166,9 @@ export function BirthdayModal({ open, onClose }) {
     setSubmitting(true)
     setSubmitError(null)
 
+    const submitChildrenCost = pkg.pricePerChild * (Number(data.childrenCount) || 0)
+    const submitParentsCost = data.parentsAddon ? PARENTS_ADDON.pricePerAdult * (Number(data.parentsCount) || 0) : 0
+
     const payload = {
       child_age: data.age,
       children_count: Number(data.childrenCount),
@@ -156,12 +182,12 @@ export function BirthdayModal({ open, onClose }) {
       package_snacks: pkg.snacks,
       package_decor: pkg.decor,
       package_perks: pkg.perks,
-      children_cost: childrenCost,
+      children_cost: submitChildrenCost,
 
       parents_addon: data.parentsAddon,
       parents_count: data.parentsAddon ? Number(data.parentsCount) : 0,
       parents_price_per_person: data.parentsAddon ? PARENTS_ADDON.pricePerAdult : 0,
-      parents_cost: parentsCost,
+      parents_cost: submitParentsCost,
       parents_snacks: data.parentsAddon ? PARENTS_ADDON.snacks : [],
       parents_decor: data.parentsAddon ? PARENTS_ADDON.decor : [],
 
@@ -199,18 +225,18 @@ export function BirthdayModal({ open, onClose }) {
     }
   }
 
-  const allInclusions = pkg ? [...pkg.perks, ...pkg.snacks, ...pkg.decor] : []
-
   return (
     <div className="bm-back" role="dialog" aria-modal="true" aria-label="Rezerwacja urodzin" onClick={onClose}>
-      <div className="bm-card" onClick={(e) => e.stopPropagation()}>
+      <div className="bm-card" ref={cardRef} onClick={(e) => e.stopPropagation()}>
         <button className="bm-close" onClick={onClose} aria-label="Zamknij"><IconClose size={20} /></button>
 
         <div className="bm-head">
           <div className="bm-icon"><IconCake size={22} /></div>
           <div>
             <div className="bm-eyebrow">[ Urodziny w Bawiszu ]</div>
-            <h3 className="display bm-h">{step === 4 ? 'Dzięki!' : `Krok ${step} z 3`}</h3>
+            <h3 className="display bm-h">
+              {step === 4 ? 'Wysłane.' : ['Powiedz nam o urodzinach', 'Wybierz pakiet', 'Twoje dane'][step - 1]}
+            </h3>
           </div>
         </div>
 
@@ -224,9 +250,9 @@ export function BirthdayModal({ open, onClose }) {
           <div className="bm-body">
             <div className="bm-row">
               <label className="bm-field">
-                <span>Wiek solenizanta/-ki</span>
+                <span>Ile latek kończy?</span>
                 <select value={data.age} onChange={(e) => set('age', e.target.value)}>
-                  {[1,2,3,4,5,6,7,8,9,10,11,12].map((a) => <option key={a} value={String(a)}>{a}</option>)}
+                  {[0,1,2,3,4,5,6,7,8,9,10,11,12].map((a) => <option key={a} value={String(a)}>{a}</option>)}
                 </select>
               </label>
               <label className="bm-field">
@@ -246,17 +272,38 @@ export function BirthdayModal({ open, onClose }) {
         {step === 2 && (
           <div className="bm-body">
             <div className="bm-section-label">Wybierz pakiet główny</div>
-            <div className="bm-pkgs-grid">
-              {Object.values(PACKAGES).map((p) => {
+            <div className="bm-pkgs-grid" role="radiogroup" aria-label="Pakiet urodzin">
+              {Object.values(PACKAGES).map((p, idx, arr) => {
                 const cost = p.pricePerChild * (Number(data.childrenCount) || 0)
                 const isOn = data.package === p.id
+                const onCardKey = (e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault()
+                    set('package', p.id)
+                    return
+                  }
+                  if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft' && e.key !== 'ArrowDown' && e.key !== 'ArrowUp') return
+                  e.preventDefault()
+                  const nextIdx = (e.key === 'ArrowRight' || e.key === 'ArrowDown')
+                    ? (idx + 1) % arr.length
+                    : (idx - 1 + arr.length) % arr.length
+                  set('package', arr[nextIdx].id)
+                  const sibling = e.currentTarget.parentElement.children[nextIdx]
+                  if (sibling && sibling.focus) sibling.focus()
+                }
                 return (
-                  <button key={p.id} type="button"
+                  <div key={p.id}
+                    role="radio"
+                    aria-checked={isOn}
+                    tabIndex={isOn || (!data.package && idx === 0) ? 0 : -1}
                     className={`bm-pkg-card bm-pkg-${p.tone} ${isOn ? 'is-on' : ''}`}
-                    onClick={() => set('package', p.id)}>
+                    onClick={() => set('package', p.id)}
+                    onKeyDown={onCardKey}>
                     <div className="bm-pkg-top">
+                      <span className={`bm-pkg-radio ${isOn ? 'is-on' : ''}`} aria-hidden="true">
+                        {isOn && <IconCheck size={12} />}
+                      </span>
                       <span className="bm-pkg-name">{p.name}</span>
-                      {isOn && <span className="bm-pkg-tick"><IconCheck size={14} /></span>}
                     </div>
                     <div className="display bm-pkg-price">{p.pricePerChild} zł<span className="bm-pkg-unit"> / dziecko</span></div>
                     <div className="bm-pkg-duration">{p.duration}</div>
@@ -266,18 +313,30 @@ export function BirthdayModal({ open, onClose }) {
                         {p.perks.map((perk) => <li key={perk}>{perk}</li>)}
                       </ul>
                     )}
-                    <div className="bm-pkg-sublabel">Poczęstunek</div>
-                    <ul className="bm-pkg-list">{p.snacks.map((s) => <li key={s}>{s}</li>)}</ul>
-                    <div className="bm-pkg-sublabel">Dekoracje</div>
-                    <ul className="bm-pkg-list">{p.decor.map((d) => <li key={d}>{d}</li>)}</ul>
+
+                    <button type="button"
+                      className={`bm-pkg-toggle ${expandedPkg === p.id ? 'is-open' : ''}`}
+                      onClick={(e) => { e.stopPropagation(); setExpandedPkg(expandedPkg === p.id ? null : p.id) }}
+                      aria-expanded={expandedPkg === p.id}>
+                      <span>Co dokładnie zawiera?</span>
+                      <IconChevronDown size={14} />
+                    </button>
+                    {expandedPkg === p.id && (
+                      <div className="bm-pkg-details">
+                        <div className="bm-pkg-sublabel">Poczęstunek</div>
+                        <ul className="bm-pkg-list">{p.snacks.map((s) => <li key={s}>{s}</li>)}</ul>
+                        <div className="bm-pkg-sublabel">Dekoracje</div>
+                        <ul className="bm-pkg-list">{p.decor.map((d) => <li key={d}>{d}</li>)}</ul>
+                      </div>
+                    )}
 
                     {isOn && (
                       <div className="bm-pkg-cost">
-                        Szacunkowo: <strong>ok. {cost} zł</strong>
+                        Razem (szacunkowo): <strong>ok. {cost} zł</strong>
                         <span className="bm-pkg-cost-calc">({data.childrenCount} × {p.pricePerChild} zł)</span>
                       </div>
                     )}
-                  </button>
+                  </div>
                 )
               })}
             </div>
@@ -302,13 +361,24 @@ export function BirthdayModal({ open, onClose }) {
                     onChange={(e) => set('parentsCount', e.target.value)} />
                 </label>
 
-                <div className="bm-pkg-sublabel">Poczęstunek</div>
-                <ul className="bm-pkg-list">{PARENTS_ADDON.snacks.map((s) => <li key={s}>{s}</li>)}</ul>
-                <div className="bm-pkg-sublabel">Dekoracje</div>
-                <ul className="bm-pkg-list">{PARENTS_ADDON.decor.map((d) => <li key={d}>{d}</li>)}</ul>
+                <button type="button"
+                  className={`bm-pkg-toggle ${parentsExpanded ? 'is-open' : ''}`}
+                  onClick={() => setParentsExpanded(!parentsExpanded)}
+                  aria-expanded={parentsExpanded}>
+                  <span>Co zawiera pakiet rodziców?</span>
+                  <IconChevronDown size={14} />
+                </button>
+                {parentsExpanded && (
+                  <div className="bm-pkg-details">
+                    <div className="bm-pkg-sublabel">Poczęstunek</div>
+                    <ul className="bm-pkg-list">{PARENTS_ADDON.snacks.map((s) => <li key={s}>{s}</li>)}</ul>
+                    <div className="bm-pkg-sublabel">Dekoracje</div>
+                    <ul className="bm-pkg-list">{PARENTS_ADDON.decor.map((d) => <li key={d}>{d}</li>)}</ul>
+                  </div>
+                )}
 
                 <div className="bm-pkg-cost">
-                  Dodatkowo: <strong>ok. {parentsCost} zł</strong>
+                  Razem (szacunkowo): <strong>ok. {parentsCost} zł</strong>
                   <span className="bm-pkg-cost-calc">({data.parentsCount} × 55 zł)</span>
                 </div>
               </div>
@@ -316,7 +386,7 @@ export function BirthdayModal({ open, onClose }) {
 
             {pkg && (
               <div className="bm-total-callout">
-                <span className="bm-total-label">Szacunkowy koszt łączny</span>
+                <span className="bm-total-label">Razem (szacunkowo)</span>
                 <span className="bm-total-value">ok. {total} zł</span>
               </div>
             )}
@@ -356,9 +426,6 @@ export function BirthdayModal({ open, onClose }) {
                     Pakiet {pkg.name} · {pkg.duration}
                     <span className="bm-summary-cost"> · {pkg.pricePerChild} zł/dziecko × {data.childrenCount}</span>
                   </div>
-                  <ul className="bm-summary-list">
-                    {allInclusions.map((item) => <li key={item}>{item}</li>)}
-                  </ul>
                 </div>
               )}
 
@@ -368,14 +435,11 @@ export function BirthdayModal({ open, onClose }) {
                     + Pakiet dla rodziców · na czas urodzin
                     <span className="bm-summary-cost"> · 55 zł/osoba × {data.parentsCount}</span>
                   </div>
-                  <ul className="bm-summary-list">
-                    {[...PARENTS_ADDON.snacks, ...PARENTS_ADDON.decor].map((item) => <li key={item}>{item}</li>)}
-                  </ul>
                 </div>
               )}
 
               <div className="bm-summary-total">
-                <span>Przybliżony koszt</span>
+                <span>Razem (szacunkowo)</span>
                 <strong>ok. {total} zł</strong>
               </div>
             </div>
@@ -387,22 +451,12 @@ export function BirthdayModal({ open, onClose }) {
                 {data.rodoConsent && <IconCheck size={12} />}
               </span>
               <span className="bm-rodo-text">
-                Wyrażam zgodę na przetwarzanie moich danych osobowych
-                przez {CONTACT.name} w celu odpowiedzi na zapytanie o rezerwację urodzin,
-                zgodnie z{' '}
+                Wyrażam zgodę na przetwarzanie moich danych przez {CONTACT.name}
+                w celu odpowiedzi na to zapytanie, zgodnie z{' '}
                 <a href="/polityka-prywatnosci/" target="_blank" rel="noopener noreferrer">polityką prywatności</a>.
+                Dane wykorzystamy tylko do kontaktu w sprawie tych urodzin — żadnych newsletterów.
               </span>
             </label>
-
-            <p className="bm-rodo-note">
-              Państwa dane wykorzystamy wyłącznie do kontaktu w sprawie tych urodzin.
-              Nie wysyłamy newsletterów ani nie udostępniamy danych osobom trzecim.
-            </p>
-
-            <p className="bm-submit-hint">
-              Wysłanie formularza to <strong>prośba o rezerwację</strong>, nie potwierdzenie.
-              Odezwiemy się w ciągu 24 h, żeby potwierdzić termin.
-            </p>
 
             {submitError && <div className="bm-error">{submitError}</div>}
           </div>
@@ -461,11 +515,14 @@ export function BirthdayModal({ open, onClose }) {
               ) : (
                 <>
                   {!step3Valid && <div className="bm-foot-hint">{step3Hint}</div>}
-                  <button className="btn btn-pop"
-                    disabled={!step3Valid || submitting}
-                    onClick={handleSubmit}>
-                    {submitting ? 'Wysyłam prośbę…' : <>Wyślij prośbę o rezerwację <IconArrow size={16} /></>}
-                  </button>
+                  <div className="bm-submit-wrap">
+                    <button className="btn btn-pop"
+                      disabled={!step3Valid || submitting}
+                      onClick={handleSubmit}>
+                      {submitting ? 'Wysyłam prośbę…' : <>Wyślij prośbę o rezerwację <IconArrow size={16} /></>}
+                    </button>
+                    <small className="bm-submit-note">To prośba o rezerwację — odezwiemy się w 24 h, żeby potwierdzić termin.</small>
+                  </div>
                 </>
               )}
             </div>
@@ -576,14 +633,20 @@ export function BirthdayModal({ open, onClose }) {
         .bm-pkg-card:hover { transform: translateY(-2px); }
         .bm-pkg-card.is-on { border-color: var(--brand); box-shadow: 0 0 0 3px rgba(169,128,98,0.25), 0 8px 22px -14px rgba(168,128,98,0.5); }
 
-        .bm-pkg-top { display: flex; justify-content: space-between; align-items: center; }
+        .bm-pkg-top { display: flex; align-items: center; gap: 10px; }
         .bm-pkg-name { font-weight: 700; font-size: 14px; letter-spacing: 0.06em; color: var(--ink); }
-        .bm-pkg-tick {
-          width: 24px; height: 24px;
+        .bm-pkg-radio {
+          width: 22px; height: 22px; flex: 0 0 22px;
+          border: 1.5px solid var(--brand);
           border-radius: 50%;
-          background: var(--brand);
+          background: var(--bone);
           color: var(--bone);
           display: inline-flex; align-items: center; justify-content: center;
+          transition: background 0.15s, border-color 0.15s;
+        }
+        .bm-pkg-radio.is-on {
+          background: var(--brand-deep);
+          border-color: var(--brand-deep);
         }
         .bm-pkg-price { font-size: 30px; color: var(--brand-deep); line-height: 1.1; }
         .bm-pkg-unit { font-size: 13px; color: var(--ink-mute); font-family: var(--font-body); font-weight: 500; }
@@ -623,6 +686,34 @@ export function BirthdayModal({ open, onClose }) {
         }
         .bm-pkg-perks li { font-weight: 700; color: var(--brand-deep); letter-spacing: 0.02em; }
         .bm-pkg-perks li::before { background: var(--brand-deep); }
+
+        .bm-pkg-toggle {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 8px;
+          width: 100%;
+          margin-top: 10px;
+          padding: 8px 10px;
+          background: transparent;
+          border: 1px dashed var(--line-soft);
+          border-radius: var(--r-sm);
+          font-family: var(--font-mono);
+          font-size: 11px;
+          letter-spacing: 0.12em;
+          text-transform: uppercase;
+          color: var(--brand-deep);
+          cursor: pointer;
+          transition: background 0.15s, border-color 0.15s;
+        }
+        .bm-pkg-toggle:hover { background: rgba(168,128,98,0.06); border-color: var(--brand); }
+        .bm-pkg-toggle svg { transition: transform 0.2s cubic-bezier(0.2,0.8,0.2,1); }
+        .bm-pkg-toggle.is-open svg { transform: rotate(180deg); }
+        .bm-pkg-details { display: flex; flex-direction: column; gap: 4px; margin-top: 6px; animation: bm-fade-down 0.2s ease-out both; }
+        @keyframes bm-fade-down {
+          from { opacity: 0; transform: translateY(-4px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
 
         .bm-pkg-cost {
           margin-top: 12px;
@@ -696,6 +787,13 @@ export function BirthdayModal({ open, onClose }) {
           align-items: baseline;
           gap: 12px;
           flex-wrap: wrap;
+          position: sticky;
+          bottom: -1px;
+          z-index: 5;
+          box-shadow: 0 -10px 18px -10px rgba(27,26,23,0.25);
+        }
+        @media (max-height: 700px) {
+          .bm-total-callout { position: static; box-shadow: none; }
         }
         .bm-total-label {
           font-family: var(--font-mono);
@@ -833,17 +931,9 @@ export function BirthdayModal({ open, onClose }) {
           color: var(--ink-soft);
         }
         .bm-rodo-text a { color: var(--brand-deep); text-decoration: underline; }
-        .bm-rodo-note { font-size: 11.5px; color: var(--ink-mute); line-height: 1.5; margin: -4px 0 0; }
-        .bm-submit-hint {
-          font-size: 12.5px;
-          color: var(--ink-mute);
-          line-height: 1.5;
-          margin: 0;
-          padding: 10px 12px;
-          background: rgba(196,216,174,0.3);
-          border-radius: var(--r-sm);
-        }
-        .bm-submit-hint strong { color: var(--brand-deep); }
+
+        .bm-submit-wrap { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; }
+        .bm-submit-note { font-size: 11.5px; color: var(--ink-mute); line-height: 1.45; max-width: 280px; text-align: right; }
 
         .bm-error {
           padding: 10px 14px;

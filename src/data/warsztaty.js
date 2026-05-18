@@ -5,7 +5,7 @@ export const WARSZTATY_EXAMPLES = [
     meta: '1,5 h ·',
     by: 'Anna Jagoda Mrożek · Effata Anima',
     p: 'Cykl spotkań plastycznych dla najmłodszych — zabawa kolorem,  proste prace plastyczne, swobodna zabawa po zajęciach. Cykl spotkań.',
-    image: '/assets/zdjecia/warsztaty/WARSZTATY 6.jpg',
+    image: '/assets/zdjecia/warsztaty/WARSZTATY 6.webp',
     imageAlt: 'Akademia Maluszka — zajęcia plastyczne dla dzieci do 4 lat w Bawiszu',
   },
   {
@@ -14,7 +14,7 @@ export const WARSZTATY_EXAMPLES = [
     meta: '1,5 h ·',
     by: 'Anna Jagoda Mrożek · Effata Anima',
     p: 'Cykl plastyczny „Poznajemy mistrzów, tworzymy po swojemu". Dzieci poznają wybranego twórcę i robią własną pracę inspirowaną jego stylem.',
-    image: '/assets/zdjecia/warsztaty/WARSZTATY 4.jpg',
+    image: '/assets/zdjecia/warsztaty/WARSZTATY 4.webp',
     imageAlt: 'Mały Artysta — warsztaty plastyczne dla dzieci od 4 lat',
   },
   {
@@ -23,7 +23,7 @@ export const WARSZTATY_EXAMPLES = [
     meta: '1,5 h ·',
     by: 'Anna Jagoda Mrożek · Effata Anima',
     p: 'Lepienie z gliny — od ugniatania i poznawania faktury, po formowanie pierwszych figurek. Pracę dziecko zabiera do domu po wyschnięciu.',
-    image: '/assets/zdjecia/warsztaty/WARSZTATY 2.jpg',
+    image: '/assets/zdjecia/warsztaty/WARSZTATY 2.webp',
     imageAlt: 'Warsztaty z gliny dla dzieci w bawialni Bawisz w Nowym Targu',
   },
   {
@@ -32,7 +32,7 @@ export const WARSZTATY_EXAMPLES = [
     meta: '1,5 h ·',
     by: 'Anna Tomalak · Asana Joga',
     p: 'Cykliczne zajęcia ruchowe— sensoryczne doznania dla małych odkrywców, nauka prawidłowego oddychania, elemety jogi dla dzieci.',
-    image: '/assets/zdjecia/warsztaty/WARSZTATY 5.jpg',
+    image: '/assets/zdjecia/warsztaty/WARSZTATY 5.webp',
     imageAlt: 'Gimnastyka dla Smyka — zajęcia ruchowe dla dzieci od 2 lat',
   },
   {

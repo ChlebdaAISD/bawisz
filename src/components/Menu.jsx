@@ -94,7 +94,7 @@ export function Menu() {
 
         <div className="menu-right">
           <Reveal className="menu-photo-wrap">
-            <ImgReveal src="/assets/zdjecia/kawiarnia/KAWIARNIA 6.jpg" alt="Kawiarnia w Bawiszu" />
+            <ImgReveal src="/assets/zdjecia/kawiarnia/KAWIARNIA 6.webp" alt="Kawiarnia w Bawiszu" />
             <div className="menu-photo-cap">
               <div className="display">Kawa i ciasto</div>
               <div className="body-sm">Tymczasem dzieci bawią się tuż obok.</div>

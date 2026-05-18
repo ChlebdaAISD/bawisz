@@ -245,6 +245,7 @@ const ROUTES = [
       name: 'O Bawiszu — bawialnia Montessori i kawiarnia w Nowym Targu',
       url: `${SITE}/o-nas/`,
       mainEntity: { '@id': `${SITE}/#localbusiness` },
+      audience: { '@type': 'PeopleAudience', suggestedMinAge: 0, suggestedMaxAge: 10 },
       about: {
         '@type': 'ChildCare',
         name: 'Bawisz — Bawialnia Montessori i Kawiarnia',
@@ -262,7 +263,6 @@ const ROUTES = [
           { '@type': 'City', name: 'Nowy Targ' },
           { '@type': 'Place', name: 'Podhale' },
         ],
-        audience: { '@type': 'PeopleAudience', suggestedMinAge: 0, suggestedMaxAge: 10 },
       },
     },
     faqSchema: {

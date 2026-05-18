@@ -10,7 +10,7 @@ import { updateHead } from '../lib/head.js'
 import { CONTACT, telHref } from '../data/contact.js'
 
 const GALLERY = [
-  { src: '/assets/zdjecia/urodziny/URODZINY.jpg',                 alt: 'Urodziny w Bawiszu' },
+  { src: '/assets/zdjecia/urodziny/URODZINY.webp',                alt: 'Urodziny w Bawiszu' },
   { src: '/assets/zdjecia/urodziny/IMG_20260428_181013_605.webp', alt: 'Stół urodzinowy w Bawiszu' },
   { src: '/assets/zdjecia/urodziny/IMG_20260428_181130_510.webp', alt: 'Dekoracje urodzinowe w Bawiszu' },
   { src: '/assets/zdjecia/urodziny/IMG_20260428_181441_242.webp', alt: 'Sala urodzinowa Bawisz' },

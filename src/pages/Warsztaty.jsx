@@ -122,7 +122,7 @@ export default function Warsztaty() {
             {EXAMPLES.map((t, i) => (
               <Reveal key={t.h} delay={i * 80} className="svc-type-card svc-type-card--img">
                 <div className="svc-type-img">
-                  <img src={t.image} alt={t.imageAlt} loading={i === 0 ? 'eager' : 'lazy'} />
+                  <img src={t.image} alt={t.imageAlt} width={560} height={420} loading={i === 0 ? 'eager' : 'lazy'} />
                 </div>
                 <div className="svc-type-body">
                   <div className="svc-type-age">{t.age}</div>

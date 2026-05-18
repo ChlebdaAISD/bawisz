@@ -98,6 +98,11 @@ export const IconChevronRight = (p) => (
     <path d="M9 6l6 6-6 6" />
   </Ico>
 )
+export const IconChevronDown = (p) => (
+  <Ico {...p}>
+    <path d="M6 9l6 6 6-6" />
+  </Ico>
+)
 export const IconClose = (p) => (
   <Ico {...p}>
     <path d="M6 6l12 12M18 6L6 18" />

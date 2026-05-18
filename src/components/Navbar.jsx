@@ -58,7 +58,7 @@ export function Navbar({ onBookBirthday }) {
       <div className="nav-rail">
         <nav className={`nav ${scrolled ? 'is-scrolled' : ''}`} aria-label="Główna nawigacja">
           <Link href="/" className="nav-brand" aria-label="BAWISZ — strona główna">
-            <img src="/assets/logo_small.png" alt="BAWISZ" />
+            <img src="/assets/logo_small.webp" alt="BAWISZ" width={256} height={254} />
             <div className="nav-brand-text">
               <div className="nav-brand-name">BAWISZ</div>
               <div className="nav-brand-sub">Bawialnia · Kawiarnia</div>
@@ -93,7 +93,7 @@ export function Navbar({ onBookBirthday }) {
         <div className="mobile-menu" role="dialog" aria-modal="true">
           <div className="mobile-menu-top">
             <Link href="/" className="mobile-menu-brand" onClick={() => setMobileOpen(false)} aria-label="BAWISZ — strona główna">
-              <img src="/assets/logo_small.png" alt="BAWISZ" />
+              <img src="/assets/logo_small.webp" alt="BAWISZ" width={256} height={254} />
             </Link>
             <button className="nav-burger" aria-label="Zamknij" onClick={() => setMobileOpen(false)}>
               <IconClose size={22} />

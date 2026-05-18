@@ -4,14 +4,14 @@ import { IconInstagram, IconChevronLeft, IconChevronRight, IconClose } from './i
 
 export function Gallery() {
   const items = [
-    { src: '/assets/zdjecia/strona_glowna/O NAS 3.jpg',                span: 'big',  alt: 'Wnętrze kawiarni Bawisz z drewnianym kontuarem' },
-    { src: '/assets/zdjecia/strona_glowna/Bawisz_AnnaMrożek-18.jpg',   span: 'tall', alt: 'Dziecko bawiące się drewnianymi zabawkami' },
-    { src: '/assets/zdjecia/strona_glowna/O NAS 4.jpg',                span: 'tall', alt: 'Kawa specialty i domowe ciasta w Bawiszu' },
-    { src: '/assets/zdjecia/strona_glowna/O NAS 5.jpg',                span: 'wide', alt: 'Skandynawskie wnętrze toalety dla dzieci' },
-    { src: '/assets/zdjecia/strona_glowna/Bawisz_-10.jpg',             span: 'wide', alt: 'Latte art i wypiek od góry' },
-    { src: '/assets/zdjecia/strona_glowna/Bawisz_AnnaMrożek-16.jpg',   span: 'big',  alt: 'Ścianka wspinaczkowa w sali zabaw' },
-    { src: '/assets/zdjecia/strona_glowna/Bawisz_-05.jpg',             span: 'tall', alt: 'Talerz deserów w kawiarni Bawisz' },
-    { src: '/assets/zdjecia/strona_glowna/O NAS.jpg',                  span: 'tall', alt: 'Stolik z drewnianymi klockami w sali zabaw' },
+    { src: '/assets/zdjecia/strona_glowna/O NAS 3.webp',                span: 'big',  alt: 'Wnętrze kawiarni Bawisz z drewnianym kontuarem' },
+    { src: '/assets/zdjecia/strona_glowna/Bawisz_AnnaMrożek-18.webp',   span: 'tall', alt: 'Dziecko bawiące się drewnianymi zabawkami' },
+    { src: '/assets/zdjecia/strona_glowna/O NAS 4.webp',                span: 'tall', alt: 'Kawa specialty i domowe ciasta w Bawiszu' },
+    { src: '/assets/zdjecia/strona_glowna/O NAS 5.webp',                span: 'wide', alt: 'Skandynawskie wnętrze toalety dla dzieci' },
+    { src: '/assets/zdjecia/strona_glowna/Bawisz_-10.webp',             span: 'wide', alt: 'Latte art i wypiek od góry' },
+    { src: '/assets/zdjecia/strona_glowna/Bawisz_AnnaMrożek-16.webp',   span: 'big',  alt: 'Ścianka wspinaczkowa w sali zabaw' },
+    { src: '/assets/zdjecia/strona_glowna/Bawisz_-05.webp',             span: 'tall', alt: 'Talerz deserów w kawiarni Bawisz' },
+    { src: '/assets/zdjecia/strona_glowna/O NAS.webp',                  span: 'tall', alt: 'Stolik z drewnianymi klockami w sali zabaw' },
   ]
 
   const [current, setCurrent] = useState(null)
