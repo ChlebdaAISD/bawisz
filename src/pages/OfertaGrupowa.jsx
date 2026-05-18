@@ -10,11 +10,9 @@ import { updateHead } from '../lib/head.js'
 import { CONTACT, telHref } from '../data/contact.js'
 
 const GALLERY = [
-  { src: '/assets/zdjecia/strona_glowna/Bawisz_-13.webp', alt: 'Grupa przedszkolna w Bawisz — placeholder' },
-  { src: '/assets/zdjecia/dla_grup/Bawisz_AnnaMrożek-22.webp', alt: 'Sala dla grup — placeholder' },
-  { src: '/assets/zdjecia/dla_grup/Bawisz_-38.webp',           alt: 'Wejście grupowe — placeholder' },
-  { src: '/assets/zdjecia/dla_grup/Bawisz_AnnaMrożek-49.webp', alt: 'Strefy zabaw dla grup — placeholder' },
-  { src: '/assets/zdjecia/dla_grup/Bawisz_AnnaMrożek-39.webp', alt: 'Dzieci w sali Montessori — placeholder' },
+  { src: '/assets/zdjecia/dla_grup/GRUPY 1.webp',     alt: 'Wejście grupy przedszkolnej do Bawisz' },
+  { src: '/assets/zdjecia/dla_grup/Grupy 2 (1).webp', alt: 'Dzieci z przedszkola w sali Montessori' },
+  { src: '/assets/zdjecia/dla_grup/GRUPY 3 (1).webp', alt: 'Grupa zorganizowana w bawialni Bawisz' },
 ]
 
 const AUDIENCES = [
@@ -98,7 +96,20 @@ export default function OfertaGrupowa() {
   return (
     <>
       {/* HERO (AIDA) */}
-      <section className="svc-hero">
+      <section className="svc-hero svc-hero--photo">
+        <div className="svc-hero-bg">
+          <picture>
+            <source media="(max-width: 720px)" type="image/webp" srcSet="/assets/zdjecia/dla_grup/glowne-grupy-mobile.webp" />
+            <img
+              src="/assets/zdjecia/dla_grup/glowne-grupy.webp"
+              alt=""
+              width={1600}
+              height={909}
+              fetchPriority="high"
+            />
+          </picture>
+          <div className="svc-hero-overlay" />
+        </div>
         <div className="svc-hero-decor" />
 
         <div className="svc-hero-shell shell">
@@ -109,8 +120,8 @@ export default function OfertaGrupowa() {
             ]} />
 
             <h1 className="svc-h1 fade-up" style={{ animationDelay: '0.05s' }}>
-              <span className="line">Oferta dla grup</span>
-              <span className="line hero-italic">Nowy Targ — naturalna</span>
+              <span className="line">Oferta dla grup dzieci</span>
+              <span className="line hero-italic">z Podhala —</span>
               <span className="line">bawialnia Montessori.</span>
             </h1>
 
@@ -136,7 +147,7 @@ export default function OfertaGrupowa() {
         <div className="shell">
           <Reveal>
             <p className="svc-intro-p body-lg">
-              W Bawisz wierzymy, że wspólna zabawa to najlepszy sposób na naukę, integrację i rozwijanie dziecięcej wyobraźni. Wejścia grupowe dla żłobków, przedszkoli i szkół z Nowego Targu oraz okolic do naturalnej bawialni Montessori przy ul. Krzywej 19B, już od 15 zł za godzinę  (23 zł za 2 godziny, 35 zł NO LIMIT na cały dzień) dla grup od 10 osób. Opiekunowie zawsze bezpłatnie. Podział na strefy wiekowe, kreatywna atmosfera oraz wnętrze bez nadmiaru bodźców, z edukacyjnymi zabawkami. Organizujemy zarówno swobodną zabawę, jak i wizyty połaczone z warsztatami, czy poczestunkiem dla grup. Termin rezerwujemy telefonicznie — najlepiej z 2-3 tygodniowym wyprzedzeniem.
+              W Bawisz wierzymy, że wspólna zabawa to najlepszy sposób na naukę, integrację i rozwijanie dziecięcej wyobraźni. Wejścia grupowe dla żłobków, przedszkoli i szkół z Nowego Targu oraz okolic do naturalnej bawialni Montessori przy ul. Krzywej 19B, już od 15 zł za godzinę  (23 zł za 2 godziny, 35 zł NO LIMIT na cały dzień) dla grup od 10 osób. Opiekunowie zawsze bezpłatnie. Podział na strefy wiekowe, kreatywna atmosfera oraz wnętrze bez nadmiaru bodźców, z edukacyjnymi zabawkami. Organizujemy zarówno swobodną zabawę, jak i wizyty połączone z warsztatami, czy poczęstunkiem dla grup. Termin rezerwujemy telefonicznie — najlepiej z 2-3 tygodniowym wyprzedzeniem.
             </p>
           </Reveal>
         </div>

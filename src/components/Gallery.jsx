@@ -8,10 +8,12 @@ export function Gallery() {
     { src: '/assets/zdjecia/strona_glowna/Bawisz_AnnaMrożek-18.webp',   span: 'tall', alt: 'Dziecko bawiące się drewnianymi zabawkami' },
     { src: '/assets/zdjecia/strona_glowna/O NAS 4.webp',                span: 'tall', alt: 'Kawa specialty i domowe ciasta w Bawisz' },
     { src: '/assets/zdjecia/strona_glowna/O NAS 5.webp',                span: 'wide', alt: 'Skandynawskie wnętrze toalety dla dzieci' },
-    { src: '/assets/zdjecia/strona_glowna/Bawisz_-10.webp',             span: 'wide', alt: 'Latte art i wypiek od góry' },
-    { src: '/assets/zdjecia/strona_glowna/Bawisz_AnnaMrożek-16.webp',   span: 'big',  alt: 'Ścianka wspinaczkowa w sali zabaw' },
+    { src: '/assets/zdjecia/strona_glowna/SALA.webp',                   span: 'wide', alt: 'Drewniana sala zabaw Montessori w Bawisz' },
+    { src: '/assets/zdjecia/strona_glowna/ZBAWIALNI.webp',              span: 'big',  alt: 'Strefa zabaw — wspinaczki i tunele w Bawisz' },
     { src: '/assets/zdjecia/strona_glowna/Bawisz_-05.webp',             span: 'tall', alt: 'Talerz deserów w kawiarni Bawisz' },
     { src: '/assets/zdjecia/strona_glowna/O NAS.webp',                  span: 'tall', alt: 'Stolik z drewnianymi klockami w sali zabaw' },
+    { src: '/assets/zdjecia/strona_glowna/Bawisz- 16.webp',             span: 'wide', alt: 'Dziecko przy stoliku w Bawisz' },
+    { src: '/assets/zdjecia/strona_glowna/Bawisz54.webp',               span: 'wide', alt: 'Atmosfera kawiarni Bawisz' },
   ]
 
   const [current, setCurrent] = useState(null)

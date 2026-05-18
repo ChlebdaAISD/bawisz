@@ -17,7 +17,7 @@ export const HOME_FAQ = [
   },
   {
     q: 'Czy jest parking przy bawialni w Nowym Targu?',
-    a: 'Tak — parkujesz tuż obok lokalu, w centrum miasta. Adres: ul. Krzywa 19B, 34-400 Nowy Targ. To dwie minuty pieszo od rynku.',
+    a: 'Tak — parkujesz w pobliżu lokalu, w centrum miasta. Adres: ul. Krzywa 19B, 34-400 Nowy Targ. To dwie minuty pieszo od rynku.',
   },
   {
     q: 'Co to jest bawialnia Montessori i dlaczego to ważne?',

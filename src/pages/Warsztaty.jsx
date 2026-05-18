@@ -42,7 +42,20 @@ export default function Warsztaty() {
   return (
     <>
       {/* HERO (AIDA) */}
-      <section className="svc-hero">
+      <section className="svc-hero svc-hero--photo">
+        <div className="svc-hero-bg">
+          <picture>
+            <source media="(max-width: 720px)" type="image/webp" srcSet="/assets/zdjecia/warsztaty/glowne-warsztaty-mobile.webp" />
+            <img
+              src="/assets/zdjecia/warsztaty/glowne-warsztaty.webp"
+              alt=""
+              width={1070}
+              height={1366}
+              fetchPriority="high"
+            />
+          </picture>
+          <div className="svc-hero-overlay" />
+        </div>
         <div className="svc-hero-decor" />
 
         <div className="svc-hero-shell shell">

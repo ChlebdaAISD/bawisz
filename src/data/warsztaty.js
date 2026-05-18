@@ -5,7 +5,7 @@ export const WARSZTATY_EXAMPLES = [
     meta: '1,5 h ·',
     by: 'Anna Jagoda Mrożek · Effata Anima',
     p: 'Cykl spotkań plastycznych dla najmłodszych — zabawa kolorem,  proste prace plastyczne, swobodna zabawa po zajęciach. Cykl spotkań.',
-    image: '/assets/zdjecia/warsztaty/WARSZTATY 6.webp',
+    image: '/assets/zdjecia/warsztaty/AkademiaMaluszka.webp',
     imageAlt: 'Akademia Maluszka — zajęcia plastyczne dla dzieci do 4 lat w Bawisz',
   },
   {
@@ -14,7 +14,7 @@ export const WARSZTATY_EXAMPLES = [
     meta: '1,5 h ·',
     by: 'Anna Jagoda Mrożek · Effata Anima',
     p: 'Cykl plastyczny „Poznajemy mistrzów, tworzymy po swojemu". Dzieci poznają wybranego twórcę i robią własną pracę inspirowaną jego stylem.',
-    image: '/assets/zdjecia/warsztaty/WARSZTATY 4.webp',
+    image: '/assets/zdjecia/warsztaty/Mały Artysta.webp',
     imageAlt: 'Mały Artysta — warsztaty plastyczne dla dzieci od 4 lat',
   },
   {
@@ -23,7 +23,7 @@ export const WARSZTATY_EXAMPLES = [
     meta: '1,5 h ·',
     by: 'Anna Jagoda Mrożek · Effata Anima',
     p: 'Lepienie z gliny — od ugniatania i poznawania faktury, po formowanie pierwszych figurek. Pracę dziecko zabiera do domu po wyschnięciu.',
-    image: '/assets/zdjecia/warsztaty/WARSZTATY 2.webp',
+    image: '/assets/zdjecia/warsztaty/Warsztaty z gliny ceramika.webp',
     imageAlt: 'Warsztaty z gliny dla dzieci w bawialni Bawisz w Nowym Targu',
   },
   {
@@ -32,7 +32,7 @@ export const WARSZTATY_EXAMPLES = [
     meta: '1,5 h ·',
     by: 'Anna Tomalak · Asana Joga',
     p: 'Cykliczne zajęcia ruchowe— sensoryczne doznania dla małych odkrywców, nauka prawidłowego oddychania, elemety jogi dla dzieci.',
-    image: '/assets/zdjecia/warsztaty/WARSZTATY 5.webp',
+    image: '/assets/zdjecia/warsztaty/GIMNASTYKA.webp',
     imageAlt: 'Gimnastyka dla Smyka — zajęcia ruchowe dla dzieci od 2 lat',
   },
   {
@@ -41,7 +41,7 @@ export const WARSZTATY_EXAMPLES = [
     meta: 'animaloterapia · sensoryka',
     by: 'partner zewnętrzny',
     p: 'Spotkanie z puszystymi kurami jedwabistymi — przytulanie, karmienie, dotykanie miękkiego pierza. Element wyciszenia, kontaktu z naturą i sensoryki. Żywa lekcja przyrody.',
-    image: '/assets/zdjecia/warsztaty/WARSZTATY.webp',
+    image: '/assets/zdjecia/warsztaty/Animaloterapia.webp',
     imageAlt: 'Warsztaty animaloterapii z kurami jedwabistymi w Bawisz',
   },
 ]

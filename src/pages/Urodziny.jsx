@@ -10,11 +10,17 @@ import { updateHead } from '../lib/head.js'
 import { CONTACT, telHref } from '../data/contact.js'
 
 const GALLERY = [
-  { src: '/assets/zdjecia/urodziny/URODZINY.webp',                alt: 'Urodziny w Bawisz' },
-  { src: '/assets/zdjecia/urodziny/IMG_20260428_181013_605.webp', alt: 'Stół urodzinowy w Bawisz' },
-  { src: '/assets/zdjecia/urodziny/IMG_20260428_181130_510.webp', alt: 'Dekoracje urodzinowe w Bawisz' },
-  { src: '/assets/zdjecia/urodziny/IMG_20260428_181441_242.webp', alt: 'Sala urodzinowa Bawisz' },
-  { src: '/assets/zdjecia/urodziny/IMG_20260428_181737_026.webp', alt: 'Przyjęcie urodzinowe w Bawisz' },
+  { src: '/assets/zdjecia/urodziny/przyjecia.webp',          alt: 'Przyjęcie urodzinowe w Bawisz' },
+  { src: '/assets/zdjecia/urodziny/urodziny-dekoracje.webp', alt: 'Dekoracje urodzinowe w Bawisz' },
+  { src: '/assets/zdjecia/urodziny/Urodziny 2.webp',         alt: 'Sala urodzinowa Bawisz' },
+  { src: '/assets/zdjecia/urodziny/Urodziny 3.webp',         alt: 'Stół urodzinowy w Bawisz' },
+  { src: '/assets/zdjecia/urodziny/Urodziny 4.webp',         alt: 'Goście na urodzinach w Bawisz' },
+  { src: '/assets/zdjecia/urodziny/Urodziny 5.webp',         alt: 'Tort urodzinowy w Bawisz' },
+  { src: '/assets/zdjecia/urodziny/20260321_134615.webp',    alt: 'Urodziny tematyczne w Bawisz' },
+  { src: '/assets/zdjecia/urodziny/20260411_141144.webp',    alt: 'Dzieci na urodzinach w Bawisz' },
+  { src: '/assets/zdjecia/urodziny/20260412_144023.webp',    alt: 'Atmosfera urodzin w Bawisz' },
+  { src: '/assets/zdjecia/urodziny/20260418_155122.webp',    alt: 'Zabawa urodzinowa w Bawisz' },
+  { src: '/assets/zdjecia/urodziny/20260419_144135.webp',    alt: 'Sala dla gości urodzinowych' },
 ]
 
 const PROCESS = [

@@ -17,7 +17,7 @@ export const ONAS_FAQ = [
   },
   {
     q: 'Gdzie jesteście i czy jest parking?',
-    a: 'ul. Krzywa 19B, 34-400 Nowy Targ — centrum, dwie minuty od Rynku. Parking jest tuż obok lokalu, bez problemu zaparkujesz nawet w sobotę po południu. Otwarte codziennie od 10:00 (w tygodniu do 19:00, w weekendy do 20:00).',
+    a: 'ul. Krzywa 19B, 34-400 Nowy Targ — centrum, dwie minuty od Rynku. Parking jest w pobliżu lokalu, bez problemu zaparkujesz nawet w sobotę po południu. Otwarte codziennie od 10:00 (w tygodniu do 19:00, w weekendy do 20:00).',
   },
   {
     q: 'Czy organizujecie urodziny, warsztaty i wejścia grupowe?',

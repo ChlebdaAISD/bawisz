@@ -55,7 +55,7 @@ export function Hours() {
               <div className="hrs-info-icon"><IconPin size={20} /></div>
               <div>
                 <div className="hrs-info-t">34-400 Nowy Targ</div>
-                <div className="hrs-info-s">Centrum, parking obok</div>
+                <div className="hrs-info-s">Centrum, parking w pobliżu</div>
               </div>
             </div>
             <div className="hrs-info-row">
