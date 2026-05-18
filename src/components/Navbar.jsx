@@ -16,15 +16,16 @@ const NAV_LINKS = [
 ]
 
 function useOpenStatus() {
-  const compute = () => {
-    const now = new Date()
-    const day = now.getDay()
-    const h = now.getHours() + now.getMinutes() / 60
-    const close = (day === 0 || day === 6) ? 20 : 19
-    return { open: h >= 10 && h < close, close }
-  }
-  const [s, setS] = useState(compute)
+  const [s, setS] = useState(null)
   useEffect(() => {
+    const compute = () => {
+      const now = new Date()
+      const day = now.getDay()
+      const h = now.getHours() + now.getMinutes() / 60
+      const close = (day === 0 || day === 6) ? 20 : 19
+      return { open: h >= 10 && h < close, close }
+    }
+    setS(compute())
     const id = setInterval(() => setS(compute()), 60000)
     return () => clearInterval(id)
   }, [])
@@ -78,10 +79,12 @@ export function Navbar({ onBookBirthday }) {
           </ul>
 
           <div className="nav-right">
-            <div className="status-pill" title={status.open ? `Otwarte do ${status.close}:00` : 'Aktualnie zamknięte'}>
-              <span className={`status-dot ${status.open ? 'on' : 'off'}`} />
-              <span className="status-text">{status.open ? `Otwarte · do ${status.close}:00` : 'Zamknięte'}</span>
-            </div>
+            {status && (
+              <div className="status-pill" title={status.open ? `Otwarte do ${status.close}:00` : 'Aktualnie zamknięte'}>
+                <span className={`status-dot ${status.open ? 'on' : 'off'}`} />
+                <span className="status-text">{status.open ? `Otwarte · do ${status.close}:00` : 'Zamknięte'}</span>
+              </div>
+            )}
             <button className="nav-burger" aria-label="Menu" onClick={() => setMobileOpen(true)}>
               <IconMenu size={22} />
             </button>

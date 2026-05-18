@@ -152,13 +152,14 @@ export function Testimonials() {
               <IconChevronLeft size={22} />
             </button>
 
-            <div className="tst-dots" role="tablist">
+            <div className="tst-dots" role="group" aria-label="Wybór opinii">
               {Array.from({ length: dotCount }).map((_, i) => (
                 <button
                   key={i}
+                  type="button"
                   className={`tst-dot ${i === activeIndex ? 'is-active' : ''}`}
-                  aria-label={`Przejdź do pozycji ${i + 1}`}
-                  aria-selected={i === activeIndex}
+                  aria-label={`Przejdź do opinii ${i + 1}`}
+                  aria-current={i === activeIndex ? 'true' : undefined}
                   onClick={() => goTo(i)}
                 />
               ))}
@@ -265,19 +266,31 @@ export function Testimonials() {
         .tst-dots {
           display: flex;
           align-items: center;
-          gap: 8px;
+          gap: 0;
         }
         .tst-dot {
+          width: 44px;
+          height: 44px;
+          border-radius: 50%;
+          background: transparent;
+          border: none;
+          padding: 0;
+          cursor: pointer;
+          position: relative;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .tst-dot::before {
+          content: '';
+          display: block;
           width: 8px;
           height: 8px;
           border-radius: 50%;
           background: var(--ink-faint);
-          border: none;
-          padding: 0;
-          cursor: pointer;
           transition: width 0.25s, background 0.2s;
         }
-        .tst-dot.is-active {
+        .tst-dot.is-active::before {
           width: 28px;
           border-radius: 999px;
           background: var(--brand);

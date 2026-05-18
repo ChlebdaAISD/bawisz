@@ -10,7 +10,6 @@ export function Decoration({
 }) {
   const shared = {
     width: size,
-    height: 'auto',
     style: { display: 'block' },
   }
 
