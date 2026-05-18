@@ -4,20 +4,21 @@ export function Hero({ onBookBirthday }) {
   return (
     <section className="hero" id="top">
       <div className="hero-bg">
-        <img
-          src="/assets/zdjecia/strona_glowna/hero.webp"
-          alt="Sala zabaw Bawisz w Nowym Targu"
-          width={1920}
-          height={1281}
-          fetchPriority="high"
-        />
+        <picture>
+          <source media="(max-width: 720px)" type="image/webp" srcSet="/assets/zdjecia/strona_glowna/hero-mobile.webp" />
+          <img
+            src="/assets/zdjecia/strona_glowna/hero.webp"
+            alt="Sala zabaw Bawisz w Nowym Targu"
+            width={1920}
+            height={1281}
+            fetchPriority="high"
+          />
+        </picture>
         <div className="hero-overlay" />
       </div>
 
       <div className="hero-shell shell">
         <div className="hero-text">
-          <span className="eyebrow fade-up">[ BAWISZ · Bawialnia Montessori · Nowy Targ ]</span>
-
           <h1 className="hero-headline fade-up" style={{ animationDelay: '0.05s' }}>
             <span className="line">Bawialnia</span>
             <span className="line hero-italic">w Nowym Targu,</span>

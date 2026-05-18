@@ -10,11 +10,11 @@ import { updateHead } from '../lib/head.js'
 import { CONTACT, telHref } from '../data/contact.js'
 
 const GALLERY = [
-  { src: '/assets/zdjecia/urodziny/URODZINY.webp',                alt: 'Urodziny w Bawiszu' },
-  { src: '/assets/zdjecia/urodziny/IMG_20260428_181013_605.webp', alt: 'Stół urodzinowy w Bawiszu' },
-  { src: '/assets/zdjecia/urodziny/IMG_20260428_181130_510.webp', alt: 'Dekoracje urodzinowe w Bawiszu' },
+  { src: '/assets/zdjecia/urodziny/URODZINY.webp',                alt: 'Urodziny w Bawisz' },
+  { src: '/assets/zdjecia/urodziny/IMG_20260428_181013_605.webp', alt: 'Stół urodzinowy w Bawisz' },
+  { src: '/assets/zdjecia/urodziny/IMG_20260428_181130_510.webp', alt: 'Dekoracje urodzinowe w Bawisz' },
   { src: '/assets/zdjecia/urodziny/IMG_20260428_181441_242.webp', alt: 'Sala urodzinowa Bawisz' },
-  { src: '/assets/zdjecia/urodziny/IMG_20260428_181737_026.webp', alt: 'Przyjęcie urodzinowe w Bawiszu' },
+  { src: '/assets/zdjecia/urodziny/IMG_20260428_181737_026.webp', alt: 'Przyjęcie urodzinowe w Bawisz' },
 ]
 
 const PROCESS = [
@@ -98,7 +98,7 @@ Zogranizujesz u nas zarówno rodzinne przyjecie, jak i wyjątkowe urodziny z gru
       {/* GALERIA */}
       <ServiceGallery
         eyebrow="[ Galeria ]"
-        heading="Tak wyglądają urodziny w Bawiszu."
+        heading="Tak wyglądają urodziny w Bawisz."
         italic="urodziny"
         subtitle="Naturalna przestrzeń, drewniane zabawki, dekoracje w wybranym motywie. Kliknij zdjęcie, żeby powiększyć."
         items={GALLERY}

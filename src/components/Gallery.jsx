@@ -6,7 +6,7 @@ export function Gallery() {
   const items = [
     { src: '/assets/zdjecia/strona_glowna/O NAS 3.webp',                span: 'big',  alt: 'Wnętrze kawiarni Bawisz z drewnianym kontuarem' },
     { src: '/assets/zdjecia/strona_glowna/Bawisz_AnnaMrożek-18.webp',   span: 'tall', alt: 'Dziecko bawiące się drewnianymi zabawkami' },
-    { src: '/assets/zdjecia/strona_glowna/O NAS 4.webp',                span: 'tall', alt: 'Kawa specialty i domowe ciasta w Bawiszu' },
+    { src: '/assets/zdjecia/strona_glowna/O NAS 4.webp',                span: 'tall', alt: 'Kawa specialty i domowe ciasta w Bawisz' },
     { src: '/assets/zdjecia/strona_glowna/O NAS 5.webp',                span: 'wide', alt: 'Skandynawskie wnętrze toalety dla dzieci' },
     { src: '/assets/zdjecia/strona_glowna/Bawisz_-10.webp',             span: 'wide', alt: 'Latte art i wypiek od góry' },
     { src: '/assets/zdjecia/strona_glowna/Bawisz_AnnaMrożek-16.webp',   span: 'big',  alt: 'Ścianka wspinaczkowa w sali zabaw' },

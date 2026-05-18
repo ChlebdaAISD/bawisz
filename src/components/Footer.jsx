@@ -10,7 +10,7 @@ export function Footer({ onBookBirthday }) {
       <div className="shell">
         <div className="ftr-top">
           <div className="ftr-brand">
-            <img src="/assets/logo_small.webp" alt="BAWISZ" width={256} height={254} loading="lazy" className="ftr-logo" />
+            <img src="/assets/logo_small.webp" alt="BAWISZ" width={176} height={176} loading="lazy" className="ftr-logo" />
             <div className="display ftr-mark">
               <span>po</span><span className="ftr-italic">bawisz</span><span>się?</span>
             </div>

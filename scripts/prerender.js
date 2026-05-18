@@ -242,7 +242,7 @@ const ROUTES = [
     serviceSchema: {
       '@context': 'https://schema.org',
       '@type': 'AboutPage',
-      name: 'O Bawiszu — bawialnia Montessori i kawiarnia w Nowym Targu',
+      name: 'O Bawisz — bawialnia Montessori i kawiarnia w Nowym Targu',
       url: `${SITE}/o-nas/`,
       mainEntity: { '@id': `${SITE}/#localbusiness` },
       audience: { '@type': 'PeopleAudience', suggestedMinAge: 0, suggestedMaxAge: 10 },
@@ -347,7 +347,7 @@ const ROUTES = [
   {
     path: '/kontakt/',
     title: 'Kontakt — Bawisz Nowy Targ | telefon, mapa, godziny',
-    description: 'Kontakt z Bawiszem w Nowym Targu — telefon +48 693 766 049, ul. Krzywa 19B, otwarte codziennie od 10:00. Napisz na Instagramie lub odwiedź nas osobiście.',
+    description: 'Kontakt z Bawisz w Nowym Targu — telefon +48 693 766 049, ul. Krzywa 19B, otwarte codziennie od 10:00. Napisz na Instagramie lub odwiedź nas osobiście.',
     canonical: `${SITE}/kontakt/`,
     ogImage: `${SITE}/assets/zdjecia/dla_grup/Bawisz_AnnaMrożek-49.webp`,
     breadcrumb: [
