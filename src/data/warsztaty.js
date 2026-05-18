@@ -83,5 +83,5 @@ export const WARSZTATY_META = {
   title: 'Warsztaty dla dzieci Nowy Targ — Bawisz | plastyka, glina, joga',
   description: 'Warsztaty dla dzieci w Nowym Targu w drewnianej sali Montessori: plastyka, glina, gimnastyka dla dzieci, animaloterapia. Terminy na Instagramie. 60-90 zł/os, 1,5 h.',
   canonical: 'https://bawialniabawisz.pl/warsztaty/',
-  ogImage: 'https://bawialniabawisz.pl/assets/og-warsztaty.jpg',
+  ogImage: 'https://bawialniabawisz.pl/assets/og/og-warsztaty.webp',
 }

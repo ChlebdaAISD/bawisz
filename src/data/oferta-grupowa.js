@@ -37,5 +37,5 @@ export const OFERTA_GRUPOWA_META = {
   title: 'Oferta dla przedszkoli Nowy Targ — Bawisz | od 15 zł/dziecko',
   description: 'Wejścia grupowe dla przedszkoli i szkół w Nowym Targu — edukacyjna bawialnia Montessori. Od 15 zł za godzinę za dziecko, kawa gratis dla opiekunów. Min. 10 dzieci.',
   canonical: 'https://bawialniabawisz.pl/oferta-grupowa/',
-  ogImage: 'https://bawialniabawisz.pl/assets/og-oferta-grupowa.jpg',
+  ogImage: 'https://bawialniabawisz.pl/assets/og/og-oferta-grupowa.webp',
 }

@@ -32,5 +32,5 @@ export const URODZINY_META = {
   title: 'Urodziny i Przyjęcia Nowy Targ — Bawisz | MINI 45 zł, STANDARD 74 zł',
   description: 'Urodziny dla dziecka w Nowym Targu w drewnianej bawialni Montessori. Pakiet MINI od 45 zł/os., STANDARD od 74 zł/os. z salą tylko dla was. Ocena 4.9/5 w Google.',
   canonical: 'https://bawialniabawisz.pl/urodziny/',
-  ogImage: 'https://bawialniabawisz.pl/assets/og-urodziny.jpg',
+  ogImage: 'https://bawialniabawisz.pl/assets/og/og-urodziny.webp',
 }

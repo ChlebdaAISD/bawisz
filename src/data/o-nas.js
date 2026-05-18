@@ -33,5 +33,5 @@ export const ONAS_META = {
   title: 'Bawialnia Montessori Nowy Targ | drewniana sala — Bawisz',
   description: 'Bawialnia Montessori w Nowym Targu — naturalna sala, drewniane zabawki, kawiarnia obok. Dzieci 0-10 lat. Wstęp od 25 zł. ul. Krzywa 19B. Ocena 4.9/5.',
   canonical: 'https://bawialniabawisz.pl/o-nas/',
-  ogImage: 'https://bawialniabawisz.pl/assets/og-default.jpg',
+  ogImage: 'https://bawialniabawisz.pl/assets/og/og-o-nas.webp',
 }

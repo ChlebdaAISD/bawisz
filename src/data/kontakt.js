@@ -34,5 +34,5 @@ export const KONTAKT_META = {
   title: 'Kontakt — Bawisz Nowy Targ | telefon, mapa, godziny',
   description: 'Kontakt z Bawisz w Nowym Targu — telefon +48 693 766 049, ul. Krzywa 19B, otwarte codziennie od 10:00. Napisz na Instagramie, Messenger lub odwiedź nas osobiście.',
   canonical: 'https://bawialniabawisz.pl/kontakt/',
-  ogImage: 'https://bawialniabawisz.pl/assets/og-default.jpg',
+  ogImage: 'https://bawialniabawisz.pl/assets/og/og-kontakt.webp',
 }
