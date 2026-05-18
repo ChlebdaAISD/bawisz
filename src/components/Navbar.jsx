@@ -247,7 +247,7 @@ export function Navbar({ onBookBirthday }) {
           cursor: pointer;
         }
 
-        @media (max-width: 940px) {
+        @media (max-width: 1180px) {
           .nav-links { display: none; }
           .nav-burger { display: inline-flex; }
           .nav-brand-text { display: none; }
@@ -276,7 +276,7 @@ export function Navbar({ onBookBirthday }) {
           align-items: center;
         }
         .mobile-menu-brand { display: inline-flex; align-items: center; }
-        .mobile-menu-top img { height: 56px; }
+        .mobile-menu-top img { height: 56px; width: auto; }
         .mobile-links {
           flex: 1;
           list-style: none;

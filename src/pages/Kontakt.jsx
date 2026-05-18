@@ -41,7 +41,7 @@ const CHANNELS = [
   {
     icon: IconNav,
     label: `${CONTACT.address.street}, ${CONTACT.address.city}`,
-    sub: 'Centrum miasta, dwie minuty od Rynku, parking obok lokalu.',
+    sub: 'Centrum miasta, dwie minuty od Rynku, parking w pobliżu.',
     href: CONTACT.address.mapsUrl,
     external: true,
   },
@@ -70,13 +70,23 @@ export default function Kontakt({ onBookBirthday }) {
   return (
     <>
       {/* HERO (AIDA) */}
-      <section className="svc-hero">
+      <section className="svc-hero svc-hero--photo">
+        <div className="svc-hero-bg">
+          <picture>
+            <source media="(max-width: 720px)" type="image/webp" srcSet="/assets/zdjecia/kontakt/glowne-kontakt-mobile.webp" />
+            <img
+              src="/assets/zdjecia/kontakt/glowne-kontakt.webp"
+              alt=""
+              width={1600}
+              height={1095}
+              fetchPriority="high"
+            />
+          </picture>
+          <div className="svc-hero-overlay" />
+        </div>
         <div className="svc-hero-decor">
-          <Decoration type="cloud" color="var(--paper)" size={150} opacity={0.18} className="dec-keep" style={{ right: '6%', top: '14%' }} />
-          <Decoration type="leaf" color="var(--rose)" size={80} rotate={-18} opacity={0.45} style={{ right: '14%', bottom: '18%' }} />
-          <Decoration type="cloud" color="var(--paper)" size={120} opacity={0.14} style={{ left: '4%', top: '18%' }} />
-          <Decoration type="leaf" color="var(--rose-deep)" size={64} rotate={28} opacity={0.4} style={{ left: '8%', bottom: '14%' }} />
-          <Decoration type="leaf" color="var(--rose)" size={48} rotate={45} opacity={0.35} style={{ left: '38%', bottom: '6%' }} />
+          <Decoration type="leaf" color="var(--rose)" size={64} rotate={-18} opacity={0.25} className="dec-keep" style={{ right: '6%', top: '14%' }} />
+          <Decoration type="leaf" color="var(--rose-soft)" size={48} rotate={28} opacity={0.22} style={{ left: '6%', bottom: '14%' }} />
         </div>
 
         <div className="svc-hero-shell shell">
@@ -104,6 +114,14 @@ export default function Kontakt({ onBookBirthday }) {
               >
                 <IconInstagram size={16} /> @bawisz_bawialnia
               </a>
+              <a
+                href={CONTACT.socials.facebook.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-ghost-light"
+              >
+                <IconFacebook size={16} /> Facebook
+              </a>
             </div>
           </div>
         </div>
@@ -114,7 +132,7 @@ export default function Kontakt({ onBookBirthday }) {
         <div className="shell">
           <Reveal>
             <p className="svc-intro-p body-lg">
-              Najszybszy kontakt z Bawisz w Nowym Targu to telefon lub SMS na +48 693 766 049 — odbieramy codziennie od 10:00 (w tygodniu do 19:00, w weekendy do 20:00). Możesz też napisać na Instagramie albo na Messengerze, albo po prostu wpaść — ul. Krzywa 19B, 34-400 Nowy Targ, dwie minuty od Rynku, parking obok lokalu. Wstęp do bawialni jest bez rezerwacji. Urodziny, warsztaty i wejścia grupowe ustalamy wcześniej, najlepiej telefonicznie.
+              Najszybszy kontakt z Bawisz w Nowym Targu to telefon lub SMS na +48 693 766 049 — odbieramy codziennie od 10:00 (w tygodniu do 19:00, w weekendy do 20:00). Możesz też napisać na Instagramie albo na Messengerze, albo po prostu wpaść — ul. Krzywa 19B, 34-400 Nowy Targ, dwie minuty od Rynku, parking w pobliżu. Wstęp do bawialni jest bez rezerwacji. Urodziny, warsztaty i wejścia grupowe ustalamy wcześniej, najlepiej telefonicznie.
             </p>
           </Reveal>
         </div>
@@ -196,7 +214,7 @@ export default function Kontakt({ onBookBirthday }) {
                 <div className="kt-info-icon"><IconPin size={20} /></div>
                 <div>
                   <div className="kt-info-t">34-400 Nowy Targ</div>
-                  <div className="kt-info-s">Centrum, parking obok lokalu</div>
+                  <div className="kt-info-s">Centrum, parking w pobliżu</div>
                 </div>
               </div>
               <div className="kt-info-row">

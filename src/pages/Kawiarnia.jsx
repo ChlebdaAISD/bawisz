@@ -16,9 +16,11 @@ const GALLERY = [
   { src: '/assets/zdjecia/kawiarnia/KAWIARNIA 4.webp', alt: 'Stolik w kawiarni Bawisz' },
   { src: '/assets/zdjecia/kawiarnia/KAWIARNIA 5.webp', alt: 'Menu kawiarni Bawisz' },
   { src: '/assets/zdjecia/kawiarnia/KAWIARNIA 6.webp', alt: 'Strefa kawiarni w Bawisz' },
-  { src: '/assets/zdjecia/kawiarnia/KAWIARNIA 7.webp', alt: 'Wypieki w kawiarni Bawisz' },
   { src: '/assets/zdjecia/kawiarnia/KAWIARNIA 8.webp', alt: 'Atmosfera kawiarni Bawisz' },
   { src: '/assets/zdjecia/kawiarnia/KAWIARNIA.webp',   alt: 'Kawiarnia Bawisz w Nowym Targu' },
+  { src: '/assets/zdjecia/kawiarnia/Bawisz07.webp',    alt: 'Witryna z domowymi wypiekami w Bawisz' },
+  { src: '/assets/zdjecia/kawiarnia/IMG_6338.webp',    alt: 'Wypieki i napoje w Bawisz' },
+  { src: '/assets/zdjecia/kawiarnia/macha.webp',       alt: 'Matcha latte w Bawisz' },
 ]
 
 const PROCESS = [

@@ -5,7 +5,7 @@ export const KONTAKT_FAQ = [
   },
   {
     q: 'Gdzie jest Bawisz i czy łatwo zaparkować?',
-    a: 'ul. Krzywa 19B, 34-400 Nowy Targ — centrum, dwie minuty od Rynku. Parking jest tuż obok lokalu, bez problemu zaparkujesz nawet w sobotę po południu. Z mapą Google trafisz w 5 minut z dowolnego punktu Nowego Targu.',
+    a: 'ul. Krzywa 19B, 34-400 Nowy Targ — centrum, dwie minuty od Rynku. Parking jest w pobliżu lokalu, bez problemu zaparkujesz nawet w sobotę po południu. Z mapą Google trafisz w 5 minut z dowolnego punktu Nowego Targu.',
   },
   {
     q: 'Jakie są godziny otwarcia?',

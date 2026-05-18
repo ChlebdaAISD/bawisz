@@ -186,7 +186,7 @@ export default function ONas({ onBookBirthday }) {
               Wpadnij <span className="hero-italic">do nas.</span>
             </h2>
             <p className="svc-final-p">
-              Sala otwarta od 10:00, kawa parzona od pierwszego klienta, zabierzesz ją także na wynos. Wstęp do bawialni od 25 zł za godzinę, opiekun zawsze gratis. ul. Krzywa 19B w Nowym Targu — centrum, parking obok.
+              Sala otwarta od 10:00, kawa parzona od pierwszego klienta, zabierzesz ją także na wynos. Wstęp do bawialni od 25 zł za godzinę, opiekun zawsze gratis. ul. Krzywa 19B w Nowym Targu — centrum, parking w pobliżu.
             </p>
             <div className="svc-final-ctas">
               <a href={telHref} className="btn btn-pop">

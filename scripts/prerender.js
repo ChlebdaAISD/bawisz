@@ -277,19 +277,19 @@ const ROUTES = [
   },
   {
     path: '/oferta-grupowa/',
-    title: 'Oferta dla przedszkoli Nowy Targ — Bawisz | od 15 zł/dziecko',
-    description: 'Wyjścia grupowe dla przedszkoli i szkół w Nowym Targu — drewniana bawialnia Montessori. Od 15 zł za godzinę za dziecko, kawa gratis dla opiekunów. Min. 10 dzieci.',
+    title: 'Oferta dla grup dzieci z Podhala — Bawisz | bawialnia Montessori',
+    description: 'Wejścia grupowe dla przedszkoli, szkół i grup dzieci z Podhala — Nowy Targ. Naturalna bawialnia Montessori. Od 15 zł/godz/dziecko, kawa gratis dla opiekunów.',
     canonical: `${SITE}/oferta-grupowa/`,
     ogImage: `${SITE}/assets/og/og-oferta-grupowa.webp`,
     breadcrumb: [
       { name: 'Strona główna', url: `${SITE}/` },
-      { name: 'Dla przedszkoli', url: `${SITE}/oferta-grupowa/` },
+      { name: 'Dla grup', url: `${SITE}/oferta-grupowa/` },
     ],
     serviceSchema: {
       '@context': 'https://schema.org',
       '@type': 'Service',
-      name: 'Wyjścia grupowe dla przedszkoli i szkół — Bawisz Nowy Targ',
-      serviceType: 'Wyjścia grupowe dla przedszkoli i szkół',
+      name: 'Wejścia grupowe dla przedszkoli, szkół i grup dzieci z Podhala — Bawisz Nowy Targ',
+      serviceType: 'Wejścia grupowe dla grup dzieci z Podhala',
       provider: { '@id': `${SITE}/#localbusiness` },
       areaServed: [
         { '@type': 'City', name: 'Nowy Targ' },

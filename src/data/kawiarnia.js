@@ -23,8 +23,8 @@ Pełne menu z cenami dostępne na miejscu.`,
     a: 'Nie — kawiarnia jest dostępna bez biletu do bawialni. Wpadasz na kawę i ciasto, siadasz, jesz. Bilet kupujesz tylko jeśli dziecko będzie się bawić w sali Montessori. Niektóre  mamy przychodzą  rano tylko na kawę, a po południu wracają z dzieckiem na wspólną zabawę.',
   },
   {
-    q: 'Gdzie was szukać i czy jest parking?',
-    a: 'ul. Krzywa 19B, 34-400 Nowy Targ — w centrum miasta. Parking jest tuż obok lokalu. Otwarte codziennie: pon.-pt. 10:00-19:00, sob.-niedz. 10:00-20:00. Dojazd z Krakowa, Zakopanego, Rabki czy Bukowiny Tatrzańskiej bez krążenia po mieście.',
+    q: 'Gdzie was szukać?',
+    a: 'ul. Krzywa 19B, 34-400 Nowy Targ — w centrum miasta. Otwarte codziennie: pon.-pt. 10:00-19:00, sob.-niedz. 10:00-20:00. Dojazd z Krakowa, Zakopanego, Rabki czy Bukowiny Tatrzańskiej bez krążenia po mieście.',
   },
   {
     q: 'Czy mogę zamówić ciasto na wynos albo na zamówienie?',
