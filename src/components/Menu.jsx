@@ -1,7 +1,5 @@
 import { useState } from 'react'
-import { Link } from 'wouter'
 import { Reveal, ImgReveal } from './Reveal.jsx'
-import { IconArrow } from './icons.jsx'
 
 export function Menu() {
   const [tab, setTab] = useState('kawa')
@@ -85,11 +83,6 @@ export function Menu() {
             * Pełne, aktualne menu z cenami znajdziesz na miejscu. Wybór ciast zmienia się wraz z dostępnością świeżych wypieków.
           </div>
 
-          <Reveal delay={120}>
-            <Link href="/kawiarnia/" className="btn btn-ghost menu-cta">
-              Sprawdź kawiarnię <IconArrow size={16} />
-            </Link>
-          </Reveal>
         </div>
 
         <div className="menu-right">
