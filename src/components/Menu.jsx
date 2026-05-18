@@ -16,21 +16,21 @@ export function Menu() {
       ['Kawa mrożona', '— orzeźwiający klasyk'],
       ['Matcha', '— na ciepło lub zimno, z syropem malinowym lub mango'],
       ['Lemoniada', '— truskawka-liczi, mango-cytryna'],
-      ['Herbaty sypane', '— lub sezonowe'],
+      ['Herbata', '— sypane lub sezonowe'],
     ],
     ciasta: [
-      ['Sezonowe ciasta domowe i monoporcje', '— zapytaj o dostępność'],
+      ['Szarlotka', '— jabłka, cynamon, opcjonalnie z lodami i bitą śmietaną'],
       ['Brownie', '— mocno czekoladowe, lekko podgrzane'],
       ['Ciasto marchewkowe', '— aromatyczne, z delikatną masą'],
       ['Malinowa Chmurka', '— krucha i kremowa'],
       ['Sernik pistacjowy', '— ulubieniec naszych gości'],
+      ['Monoporcja', '— wyjątkowy deser w różnych smakowych odsłonach'],
     ],
     dzieciaki: [
-      ['Szarlotka', '— jabłka, cynamon, opcjonalnie z lodami i bitą śmietaną'],
-      ['Gofry', '— solo, z cukrem pudrem, bitą śmietaną, frużeliną lub kremem pistacjowym'],
       ['Tosty', '— z serem i szynką'],
+      ['Gofry', '— solo, z cukrem pudrem, bitą śmietaną, frużeliną lub kremem pistacjowym'],
+      ['Kolorowa galaretka', '— lekki deser w wersji solo, lub z bitą śmietaną'],
       ['Bejbiczino / Mleko / Kakao / Naturalne soki tłoczone', '— '],
-      ['Zdrowe przekąski', '— '],
     ],
   }
 

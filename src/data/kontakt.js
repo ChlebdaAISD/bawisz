@@ -22,11 +22,11 @@ export const KONTAKT_FAQ = [
   {
     q: 'Czy macie email do firmowych zapytań ?',
     a: `Tak, bawisz.bawialnia@gmail.com
- W sprawach bieżących najszybciej skontaktujesz się z nami telefonicznie lub przez Messenger. Tak najszybciej odpowiemy na asze pytania,, bez maili, które giną w spamie.`,
+ W sprawach bieżących najszybciej skontaktujesz się z nami telefonicznie lub przez Messenger. Tak najszybciej odpowiemy na nasze pytania, bez maili, które giną w spamie.`,
   },
   {
     q: 'Czy można odwiedzić Bawisz bez dziecka, na samą kawę?',
-    a: 'Tak. Kawiarnia działa osobno — wpadasz, zamawiasz przy ladzie, siadasz przy stoliku. Aromatyczna kawa, domowe ciasta, czy pyszne lody.  Dobre miejsce na spotkania lub  pracę przy  laptopie.',
+    a: 'Tak. Kawiarnia działa osobno — wpadasz, zamawiasz przy ladzie, siadasz przy stoliku. Aromatyczna kawa, domowe ciasta, czy pyszne lody. Dobre miejsce na spotkania lub pracę przy laptopie.',
   },
 ]
 

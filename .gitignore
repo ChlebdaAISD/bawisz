@@ -3,6 +3,8 @@ dist
 .DS_Store
 .vite
 *.log
+teksty
+
 
 # Cloudflare
 .wrangler

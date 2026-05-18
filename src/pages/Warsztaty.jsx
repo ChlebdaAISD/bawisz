@@ -9,6 +9,7 @@ import {
   WARSZTATY_EXAMPLES as EXAMPLES,
 } from '../data/warsztaty.js'
 import { updateHead } from '../lib/head.js'
+import { CONTACT, telHref } from '../data/contact.js'
 
 const PROCESS = [
   {
@@ -42,13 +43,7 @@ export default function Warsztaty() {
     <>
       {/* HERO (AIDA) */}
       <section className="svc-hero">
-        <div className="svc-hero-decor">
-          <Decoration type="leaf" color="var(--rose-deep)" size={110} rotate={-18} opacity={0.5} className="dec-keep" style={{ right: '6%', top: '14%' }} />
-          <Decoration type="leaf" color="var(--sand)" size={78} rotate={22} opacity={0.45} style={{ right: '14%', top: '38%' }} />
-          <Decoration type="cloud" color="var(--paper)" size={150} opacity={0.18} style={{ left: '4%', top: '12%' }} />
-          <Decoration type="balloon" color="var(--rose)" size={68} rotate={-22} opacity={0.4} style={{ left: '8%', bottom: '14%' }} />
-          <Decoration type="leaf" color="var(--rose)" size={52} rotate={40} opacity={0.35} style={{ left: '38%', bottom: '6%' }} />
-        </div>
+        <div className="svc-hero-decor" />
 
         <div className="svc-hero-shell shell">
           <div className="svc-hero-text">
@@ -60,7 +55,7 @@ export default function Warsztaty() {
             <h1 className="svc-h1 fade-up" style={{ animationDelay: '0.05s' }}>
               <span className="line">Warsztaty dla dzieci.</span>
               <span className="line hero-italic">Nowy Targ — plastyka, glina,</span>
-              <span className="line">gimnastyka, animaloterapia .</span>
+              <span className="line">gimnastyka, animaloterapia.</span>
             </h1>
 
             <div className="svc-hero-ctas fade-up" style={{ animationDelay: '0.35s' }}>
@@ -72,8 +67,8 @@ export default function Warsztaty() {
               >
                 <IconInstagram size={16} /> Sprawdź terminy na Instagramie <IconArrow size={16} />
               </a>
-              <a href="tel:+48693766049" className="btn btn-ghost-light">
-                Zadzwoń · 693 766 049
+              <a href={telHref} className="btn btn-ghost-light">
+                Zadzwoń · {CONTACT.phoneDisplay}
               </a>
             </div>
           </div>
@@ -200,8 +195,8 @@ export default function Warsztaty() {
               >
                 <IconInstagram size={16} /> Otwórz Instagram
               </a>
-              <a href="tel:+48693766049" className="btn btn-ghost-light">
-                Zadzwoń · 693 766 049
+              <a href={telHref} className="btn btn-ghost-light">
+                Zadzwoń · {CONTACT.phoneDisplay}
               </a>
             </div>
           </Reveal>
@@ -250,8 +245,8 @@ export default function Warsztaty() {
               >
                 <IconInstagram size={16} /> Otwórz Instagram
               </a>
-              <a href="tel:+48693766049" className="btn btn-cream">
-                Zadzwoń · 693 766 049
+              <a href={telHref} className="btn btn-cream">
+                Zadzwoń · {CONTACT.phoneDisplay}
               </a>
             </div>
           </Reveal>

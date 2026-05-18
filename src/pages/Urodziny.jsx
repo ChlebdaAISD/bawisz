@@ -7,6 +7,7 @@ import { ServiceGallery } from '../components/ServiceGallery.jsx'
 import { IconArrow, IconInstagram } from '../components/icons.jsx'
 import { URODZINY_FAQ as FAQ, URODZINY_META as META } from '../data/urodziny.js'
 import { updateHead } from '../lib/head.js'
+import { CONTACT, telHref } from '../data/contact.js'
 
 const GALLERY = [
   { src: '/assets/zdjecia/urodziny/URODZINY.jpg',                 alt: 'Urodziny w Bawiszu' },
@@ -51,16 +52,13 @@ export default function Urodziny({ onBookBirthday }) {
         <div className="svc-hero-decor">
           <Decoration type="balloon" color="var(--rose)" size={120} rotate={-12} opacity={0.55} className="dec-keep" style={{ right: '6%', top: '14%' }} />
           <Decoration type="balloon" color="var(--sand)" size={80} rotate={14} opacity={0.45} style={{ right: '14%', top: '38%' }} />
-          <Decoration type="cloud" color="var(--paper)" size={150} opacity={0.18} style={{ left: '4%', top: '12%' }} />
-          <Decoration type="leaf" color="var(--rose-deep)" size={70} rotate={-30} opacity={0.4} style={{ left: '8%', bottom: '14%' }} />
-          <Decoration type="leaf" color="var(--rose)" size={50} rotate={45} opacity={0.35} style={{ left: '38%', bottom: '6%' }} />
         </div>
 
         <div className="svc-hero-shell shell">
           <div className="svc-hero-text">
             <Breadcrumb items={[
               { name: 'Strona główna', href: '/' },
-              { name: 'Urodziny', href: '/urodziny/' },
+              { name: 'Urodziny i Przyjęcia', href: '/urodziny/' },
             ]} />
 
             <h1 className="svc-h1 fade-up" style={{ animationDelay: '0.05s' }}>
@@ -73,8 +71,8 @@ export default function Urodziny({ onBookBirthday }) {
               <button className="btn btn-pop" onClick={onBookBirthday}>
                 Zarezerwuj urodziny <IconArrow size={16} />
               </button>
-              <a href="tel:+48693766049" className="btn btn-ghost-light">
-                Zadzwoń · 693 766 049
+              <a href={telHref} className="btn btn-ghost-light">
+                Zadzwoń · {CONTACT.phoneDisplay}
               </a>
             </div>
           </div>
@@ -156,8 +154,8 @@ Zogranizujesz u nas zarówno rodzinne przyjecie, jak i wyjątkowe urodziny z gru
               </p>
             </div>
             <div className="svc-mid-ctas">
-              <a href="tel:+48693766049" className="btn btn-pop">
-                Zadzwoń · 693 766 049
+              <a href={telHref} className="btn btn-pop">
+                Zadzwoń · {CONTACT.phoneDisplay}
               </a>
               <a
                 href="https://www.instagram.com/bawisz_bawialnia/"
@@ -209,8 +207,8 @@ Zogranizujesz u nas zarówno rodzinne przyjecie, jak i wyjątkowe urodziny z gru
               <button className="btn btn-pop" onClick={onBookBirthday}>
                 Zarezerwuj urodziny <IconArrow size={16} />
               </button>
-              <a href="tel:+48693766049" className="btn btn-cream">
-                Zadzwoń · 693 766 049
+              <a href={telHref} className="btn btn-cream">
+                Zadzwoń · {CONTACT.phoneDisplay}
               </a>
             </div>
           </Reveal>

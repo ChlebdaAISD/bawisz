@@ -16,7 +16,7 @@ Pełne menu z cenami dostępne na miejscu.`,
   },
   {
     q: 'Czy macie coś dla dziecka do jedzenia i picia?',
-    a: 'Mamy: tosty, gofry z dodatkami, ciepłe lub zimne mleko i kakao,  naturalne soki tłoczone bez dodatku cukru, a tak ze zdrowe przekąski dopasowane do wieku.',
+    a: 'Mamy: tosty, gofry z dodatkami, ciepłe lub zimne mleko i kakao,  naturalne soki tłoczone bez dodatku cukru, a także zdrowe przekąski dopasowane do wieku.',
   },
   {
     q: 'Czy muszę kupować bilet do bawialni, żeby zjeść u was ciasto?',

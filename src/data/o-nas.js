@@ -25,7 +25,7 @@ export const ONAS_FAQ = [
   },
   {
     q: 'Jak najszybciej zarezerwować termin albo zapytać o szczegóły?',
-    a: 'Telefon lub SMS na +48 693 766 049 — odpisujemy w godzinach otwarcia. Można też napisać na Instagramie (@bawisz_bawialnia) albo na Facebooku (BAWISZ Bawialnia Montessori.  Wstęp do bawialni jest bez rezerwacji. Urodziny, warsztaty i grupy zorganizowane wymagają wcześniejszego ustalenia daty.',
+    a: 'Telefon lub SMS na +48 693 766 049 — odpisujemy w godzinach otwarcia. Można też napisać na Instagramie (@bawisz_bawialnia) albo na Facebooku (BAWISZ Bawialnia Montessori). Wstęp do bawialni jest bez rezerwacji. Urodziny, warsztaty i grupy zorganizowane wymagają wcześniejszego ustalenia daty.',
   },
 ]
 

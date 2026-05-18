@@ -30,10 +30,12 @@ export function Hero({ onBookBirthday }) {
           </p>
 
           <div className="hero-ctas fade-up" style={{ animationDelay: '0.35s' }}>
-            <button className="btn btn-pop" onClick={onBookBirthday}>
-              Zarezerwuj urodziny <IconArrow size={16} />
+            <a href="#oferta" className="btn btn-pop">
+              Co u nas znajdziesz <IconArrow size={16} />
+            </a>
+            <button className="btn btn-ghost-light" onClick={onBookBirthday}>
+              Zarezerwuj urodziny
             </button>
-            <a href="#oferta" className="btn btn-ghost-light">Co u nas znajdziesz</a>
           </div>
 
           <div className="hero-meta fade-up" style={{ animationDelay: '0.5s' }}>

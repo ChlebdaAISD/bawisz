@@ -1,5 +1,6 @@
 import { Reveal } from './Reveal.jsx'
 import { IconPin, IconPhone, IconClock, IconNav } from './icons.jsx'
+import { CONTACT, telHref } from '../data/contact.js'
 
 export function Hours() {
   const today = new Date().getDay()
@@ -58,7 +59,7 @@ export function Hours() {
             <div className="hrs-info-row">
               <div className="hrs-info-icon"><IconPhone size={20} /></div>
               <div>
-                <a href="tel:+48693766049" className="hrs-info-t link-u">+48 693 766 049</a>
+                <a href={telHref} className="hrs-info-t link-u">{CONTACT.phone}</a>
                 <div className="hrs-info-s">Zadzwoń lub napisz SMS</div>
               </div>
             </div>

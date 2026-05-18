@@ -7,14 +7,15 @@ import { ServiceGallery } from '../components/ServiceGallery.jsx'
 import { IconArrow, IconInstagram } from '../components/icons.jsx'
 import { KAWIARNIA_FAQ as FAQ, KAWIARNIA_META as META } from '../data/kawiarnia.js'
 import { updateHead } from '../lib/head.js'
+import { CONTACT, telHref } from '../data/contact.js'
 
 const GALLERY = [
   { src: '/assets/zdjecia/kawiarnia/KAWIARNIA 1.jpg', alt: 'Wnętrze kawiarni Bawisz' },
-  { src: '/assets/zdjecia/kawiarnia/KAWIARNIA 2.jpg', alt: 'Kawa specialty w Bawiszu' },
+  { src: '/assets/zdjecia/kawiarnia/KAWIARNIA 2.jpg', alt: 'Kawa specialty w Bawisz' },
   { src: '/assets/zdjecia/kawiarnia/KAWIARNIA 3.jpg', alt: 'Domowe ciasto w kawiarni Bawisz' },
   { src: '/assets/zdjecia/kawiarnia/KAWIARNIA 4.jpg', alt: 'Stolik w kawiarni Bawisz' },
   { src: '/assets/zdjecia/kawiarnia/KAWIARNIA 5.jpg', alt: 'Menu kawiarni Bawisz' },
-  { src: '/assets/zdjecia/kawiarnia/KAWIARNIA 6.jpg', alt: 'Strefa kawiarni w Bawiszu' },
+  { src: '/assets/zdjecia/kawiarnia/KAWIARNIA 6.jpg', alt: 'Strefa kawiarni w Bawisz' },
   { src: '/assets/zdjecia/kawiarnia/KAWIARNIA 7.jpg', alt: 'Wypieki w kawiarni Bawisz' },
   { src: '/assets/zdjecia/kawiarnia/KAWIARNIA 8.jpg', alt: 'Atmosfera kawiarni Bawisz' },
   { src: '/assets/zdjecia/kawiarnia/KAWIARNIA.jpg',   alt: 'Kawiarnia Bawisz w Nowym Targu' },
@@ -77,8 +78,8 @@ export default function Kawiarnia({ onBookBirthday = () => {} }) {
               <a href="#menu" className="btn btn-pop">
                 Zobacz menu <IconArrow size={16} />
               </a>
-              <a href="tel:+48693766049" className="btn btn-ghost-light">
-                Zadzwoń · 693 766 049
+              <a href={telHref} className="btn btn-ghost-light">
+                Zadzwoń · {CONTACT.phoneDisplay}
               </a>
             </div>
           </div>
@@ -102,7 +103,7 @@ export default function Kawiarnia({ onBookBirthday = () => {} }) {
       {/* GALERIA */}
       <ServiceGallery
         eyebrow="[ Galeria ]"
-        heading="Tak wygląda kawiarnia w Bawiszu."
+        heading="Tak wygląda kawiarnia w Bawisz."
         italic="kawiarnia"
         subtitle="Specialty coffee, domowe ciasta, dziecko bawi się obok. Kliknij zdjęcie, żeby powiększyć."
         items={GALLERY}
@@ -158,8 +159,8 @@ export default function Kawiarnia({ onBookBirthday = () => {} }) {
               </p>
             </div>
             <div className="svc-mid-ctas">
-              <a href="tel:+48693766049" className="btn btn-pop">
-                Zadzwoń · 693 766 049
+              <a href={telHref} className="btn btn-pop">
+                Zadzwoń · {CONTACT.phoneDisplay}
               </a>
               <a
                 href="https://www.instagram.com/bawisz_bawialnia/"
@@ -208,8 +209,8 @@ export default function Kawiarnia({ onBookBirthday = () => {} }) {
               ul. Krzywa 19B, Nowy Targ. Otwarte codziennie: pon.-pt. 10:00-19:00, sob.-niedz. 10:00-20:00. Bez rezerwacji — przyjdź, kiedy chcesz. Jeśli planujesz urodziny dziecka, zarezerwuj salę z wyprzedzeniem.
             </p>
             <div className="svc-final-ctas">
-              <a href="tel:+48693766049" className="btn btn-pop">
-                Zadzwoń · 693 766 049
+              <a href={telHref} className="btn btn-pop">
+                Zadzwoń · {CONTACT.phoneDisplay}
               </a>
               <button className="btn btn-cream" onClick={onBookBirthday}>
                 Zarezerwuj urodziny <IconArrow size={16} />

@@ -3,6 +3,7 @@ import { Reveal } from './Reveal.jsx'
 import { Decoration } from './Decoration.jsx'
 import { IconArrow } from './icons.jsx'
 import { AnimalDeer, AnimalBear, AnimalFox, AnimalWolf } from './animals.jsx'
+import { CONTACT, telHref } from '../data/contact.js'
 
 export function Pricing() {
   const tiers = [
@@ -90,7 +91,7 @@ export function Pricing() {
           <Link href="/oferta-grupowa/" className="btn btn-pop">
             Cennik grupowy <IconArrow size={16} />
           </Link>
-          <a href="tel:+48693766049" className="btn btn-ghost">Zadzwoń · 693 766 049</a>
+          <a href={telHref} className="btn btn-ghost">Zadzwoń · {CONTACT.phoneDisplay}</a>
         </Reveal>
       </div>
 
