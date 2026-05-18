@@ -1,6 +1,6 @@
 export const ONAS_FAQ = [
   {
-    q: 'Czy w Bawiszu są animatorzy, którzy zajmą się dzieckiem?',
+    q: 'Czy w Bawisz są animatorzy, którzy zajmą się dzieckiem?',
     a: 'Nie. W codziennym wstępie do bawialni nie ma animatorów. Bawisz się ze swoim dzieckiem przy naturalnych zabawkach z drewna, my zajmujemy się salą, kawiarnią i wszystkim, co dookoła. Animatorzy i prowadzący pojawiają się tylko okazjonalnie lub  na zorganizowanych urodzinach (pakiet MINI 45 zł/os. lub STANDARD 74 zł/os.) i na warsztatach.',
   },
   {

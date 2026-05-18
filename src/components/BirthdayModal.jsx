@@ -233,7 +233,7 @@ export function BirthdayModal({ open, onClose }) {
         <div className="bm-head">
           <div className="bm-icon"><IconCake size={22} /></div>
           <div>
-            <div className="bm-eyebrow">[ Urodziny w Bawiszu ]</div>
+            <div className="bm-eyebrow">[ Urodziny w Bawisz ]</div>
             <h3 className="display bm-h">
               {step === 4 ? 'Wysłane.' : ['Powiedz nam o urodzinach', 'Wybierz pakiet', 'Twoje dane'][step - 1]}
             </h3>

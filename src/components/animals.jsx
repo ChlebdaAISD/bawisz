@@ -2,11 +2,11 @@
 // Mapping mirrors the printed flyer (assets/ulotki/Cennik-02.png).
 
 const ANIMAL_SRC = {
-  deer:   '/assets/animals/Canva_zwierzatka_bez_tła_relacje.png',
-  bear:   '/assets/animals/Canva_zwierzatka_bez_tła_cennik.png',
-  fox:    '/assets/animals/Canva_zwierzatka_bez_tła_urodzinki.png',
-  wolf:   '/assets/animals/Canva_zwierzatka_bez_tła_wypieki.png',
-  foxHat: '/assets/animals/zapisane_relacje_urodzinki.png',
+  deer:   '/assets/animals/Canva_zwierzatka_bez_tła_relacje.webp',
+  bear:   '/assets/animals/Canva_zwierzatka_bez_tła_cennik.webp',
+  fox:    '/assets/animals/Canva_zwierzatka_bez_tła_urodzinki.webp',
+  wolf:   '/assets/animals/Canva_zwierzatka_bez_tła_wypieki.webp',
+  foxHat: '/assets/animals/zapisane_relacje_urodzinki.webp',
 }
 
 // Wrapped gift box — yellow with mint ribbon and bow. Kept inline because brand assets have no PNG equivalent.

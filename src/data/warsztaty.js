@@ -6,7 +6,7 @@ export const WARSZTATY_EXAMPLES = [
     by: 'Anna Jagoda Mrożek · Effata Anima',
     p: 'Cykl spotkań plastycznych dla najmłodszych — zabawa kolorem,  proste prace plastyczne, swobodna zabawa po zajęciach. Cykl spotkań.',
     image: '/assets/zdjecia/warsztaty/WARSZTATY 6.webp',
-    imageAlt: 'Akademia Maluszka — zajęcia plastyczne dla dzieci do 4 lat w Bawiszu',
+    imageAlt: 'Akademia Maluszka — zajęcia plastyczne dla dzieci do 4 lat w Bawisz',
   },
   {
     h: 'Mały Artysta',
@@ -42,7 +42,7 @@ export const WARSZTATY_EXAMPLES = [
     by: 'partner zewnętrzny',
     p: 'Spotkanie z puszystymi kurami jedwabistymi — przytulanie, karmienie, dotykanie miękkiego pierza. Element wyciszenia, kontaktu z naturą i sensoryki. Żywa lekcja przyrody.',
     image: '/assets/zdjecia/warsztaty/WARSZTATY.webp',
-    imageAlt: 'Warsztaty animaloterapii z kurami jedwabistymi w Bawiszu',
+    imageAlt: 'Warsztaty animaloterapii z kurami jedwabistymi w Bawisz',
   },
 ]
 

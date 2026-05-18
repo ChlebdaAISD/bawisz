@@ -6,7 +6,7 @@ export function Offer() {
   const items = [
     {
       n: '01',
-      img: '/assets/animals/Canva_zwierzatka_bez_tła_cennik.png',
+      img: '/assets/animals/Canva_zwierzatka_bez_tła_cennik.webp',
       t: 'Sala zabaw',
       s: '220 m² naturalnej przestrzeni Montessori — drewniane zabawki, domki i strefy dla najmłodszych i starszych. Miejsce stworzone do swobodnej zabawy i spędzania czasu z dzieckiem.',
       tags: ['0–10 lat', 'Montessori', 'Drewno'],
@@ -17,7 +17,7 @@ export function Offer() {
     },
     {
       n: '02',
-      img: '/assets/animals/zapisane_relacje_wypieki.png',
+      img: '/assets/animals/zapisane_relacje_wypieki.webp',
       t: 'Kawiarnia',
       s: 'Kawa specialty, domowe ciasta, menu dla dzieci. Pijesz kawę w kawiarni — dziecko bezpiecznie bawi się w zasięgu wzroku.',
       tags: ['Specialty', 'Domowe ciasta'],
@@ -28,7 +28,7 @@ export function Offer() {
     },
     {
       n: '03',
-      img: '/assets/animals/zapisane_relacje_urodzinki.png',
+      img: '/assets/animals/zapisane_relacje_urodzinki.webp',
       t: 'Urodziny',
       s: 'Pakiet MINI albo STANDARD. Pakiet DLA RODZICÓW. Ty wybierasz, my robimy resztę — dekoracje, poczęstunek, prezent dla solenizanta.',
       tags: ['MINI · STANDARD', 'Sala na wyłączność', 'Prezent od nas'],
@@ -39,7 +39,7 @@ export function Offer() {
     },
     {
       n: '04',
-      img: '/assets/animals/zapisane_relacje_warsztaty.png',
+      img: '/assets/animals/zapisane_relacje_warsztaty.webp',
       t: 'Warsztaty',
       s: `Tematyczne, okazjonalne a także cykliczne zajęcia dla dzieci.
 Od warsztatów plastycznych, przez muzyczne, po ruchowe i sensoryczne, zawsze kreatywne, angażujące i dopasowane do wieku oraz rozwoju dziecka.`,
