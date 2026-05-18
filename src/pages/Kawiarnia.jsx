@@ -10,15 +10,15 @@ import { updateHead } from '../lib/head.js'
 import { CONTACT, telHref } from '../data/contact.js'
 
 const GALLERY = [
-  { src: '/assets/zdjecia/kawiarnia/KAWIARNIA 1.jpg', alt: 'Wnętrze kawiarni Bawisz' },
-  { src: '/assets/zdjecia/kawiarnia/KAWIARNIA 2.jpg', alt: 'Kawa specialty w Bawisz' },
-  { src: '/assets/zdjecia/kawiarnia/KAWIARNIA 3.jpg', alt: 'Domowe ciasto w kawiarni Bawisz' },
-  { src: '/assets/zdjecia/kawiarnia/KAWIARNIA 4.jpg', alt: 'Stolik w kawiarni Bawisz' },
-  { src: '/assets/zdjecia/kawiarnia/KAWIARNIA 5.jpg', alt: 'Menu kawiarni Bawisz' },
-  { src: '/assets/zdjecia/kawiarnia/KAWIARNIA 6.jpg', alt: 'Strefa kawiarni w Bawisz' },
-  { src: '/assets/zdjecia/kawiarnia/KAWIARNIA 7.jpg', alt: 'Wypieki w kawiarni Bawisz' },
-  { src: '/assets/zdjecia/kawiarnia/KAWIARNIA 8.jpg', alt: 'Atmosfera kawiarni Bawisz' },
-  { src: '/assets/zdjecia/kawiarnia/KAWIARNIA.jpg',   alt: 'Kawiarnia Bawisz w Nowym Targu' },
+  { src: '/assets/zdjecia/kawiarnia/KAWIARNIA 1.webp', alt: 'Wnętrze kawiarni Bawisz' },
+  { src: '/assets/zdjecia/kawiarnia/KAWIARNIA 2.webp', alt: 'Kawa specialty w Bawisz' },
+  { src: '/assets/zdjecia/kawiarnia/KAWIARNIA 3.webp', alt: 'Domowe ciasto w kawiarni Bawisz' },
+  { src: '/assets/zdjecia/kawiarnia/KAWIARNIA 4.webp', alt: 'Stolik w kawiarni Bawisz' },
+  { src: '/assets/zdjecia/kawiarnia/KAWIARNIA 5.webp', alt: 'Menu kawiarni Bawisz' },
+  { src: '/assets/zdjecia/kawiarnia/KAWIARNIA 6.webp', alt: 'Strefa kawiarni w Bawisz' },
+  { src: '/assets/zdjecia/kawiarnia/KAWIARNIA 7.webp', alt: 'Wypieki w kawiarni Bawisz' },
+  { src: '/assets/zdjecia/kawiarnia/KAWIARNIA 8.webp', alt: 'Atmosfera kawiarni Bawisz' },
+  { src: '/assets/zdjecia/kawiarnia/KAWIARNIA.webp',   alt: 'Kawiarnia Bawisz w Nowym Targu' },
 ]
 
 const PROCESS = [

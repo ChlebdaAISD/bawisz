@@ -72,7 +72,7 @@ Od warsztatów plastycznych, przez muzyczne, po ruchowe i sensoryczne, zawsze kr
           {items.map((item, i) => (
             <Reveal key={item.n} delay={i * 100} className={`offer-card tone-${item.tone} peek-${i % 4}`}>
               <div className="offer-peek" aria-hidden="true">
-                <img src={item.img} alt="" loading="lazy" />
+                <img src={item.img} alt="" width={140} height={140} loading="lazy" />
               </div>
               <div className="offer-card-top">
                 <div className="offer-num">{item.n}</div>
