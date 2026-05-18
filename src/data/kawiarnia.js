@@ -36,5 +36,5 @@ export const KAWIARNIA_META = {
   title: 'Kawiarnia Nowy Targ — Bawisz | specialty + domowe ciasta',
   description: 'Kawiarnia w Nowym Targu z bawialnią Montessori obok. Specialty kawa, domowe ciasta (też bez cukru i bezglutenowe). ul. Krzywa 19B. Ocena 4.9/5 w Google.',
   canonical: 'https://bawialniabawisz.pl/kawiarnia/',
-  ogImage: 'https://bawialniabawisz.pl/assets/zdjecia/kawiarnia/og-kawiarnia.jpg',
+  ogImage: 'https://bawialniabawisz.pl/assets/og/og-kawiarnia.webp',
 }

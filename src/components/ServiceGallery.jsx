@@ -143,7 +143,7 @@ export function ServiceGallery({ eyebrow = '[ Galeria ]', heading, italic, subti
           >
             <IconChevronLeft size={20} />
           </button>
-          <div className="svcgal-dots" role="tablist">
+          <div className="svcgal-dots" role="group" aria-label="Wybór zdjęcia">
             {items.map((_, i) => {
               const isActive = i >= activeSlide && i < activeSlide + visiblePerView
               return (
@@ -153,7 +153,7 @@ export function ServiceGallery({ eyebrow = '[ Galeria ]', heading, italic, subti
                   className={`svcgal-dot ${isActive ? 'is-active' : ''}`}
                   onClick={() => scrollToSlide(i)}
                   aria-label={`Zdjęcie ${i + 1} z ${total}`}
-                  aria-selected={isActive}
+                  aria-current={isActive ? 'true' : undefined}
                 />
               )
             })}
@@ -316,20 +316,32 @@ export function ServiceGallery({ eyebrow = '[ Galeria ]', heading, italic, subti
         }
         .svcgal-dots {
           display: flex;
-          gap: 8px;
+          gap: 0;
           align-items: center;
         }
         .svcgal-dot {
+          width: 44px;
+          height: 44px;
+          border-radius: 50%;
+          background: transparent;
+          border: none;
+          padding: 0;
+          cursor: pointer;
+          position: relative;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .svcgal-dot::before {
+          content: '';
+          display: block;
           width: 8px;
           height: 8px;
           border-radius: 50%;
           background: var(--line-soft);
-          border: none;
-          padding: 0;
-          cursor: pointer;
-          transition: background 0.2s, transform 0.2s, width 0.2s;
+          transition: background 0.2s, width 0.2s, border-radius 0.2s;
         }
-        .svcgal-dot.is-active {
+        .svcgal-dot.is-active::before {
           background: var(--brand-deep);
           width: 22px;
           border-radius: 4px;

@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { Breadcrumb } from '../components/Breadcrumb.jsx'
 import { Reveal } from '../components/Reveal.jsx'
 import { Decoration } from '../components/Decoration.jsx'
@@ -64,7 +64,8 @@ export default function Kontakt({ onBookBirthday }) {
     updateHead(META)
   }, [])
 
-  const today = new Date().getDay()
+  const [today, setToday] = useState(null)
+  useEffect(() => { setToday(new Date().getDay()) }, [])
 
   return (
     <>

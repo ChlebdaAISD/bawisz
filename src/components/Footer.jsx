@@ -3,7 +3,7 @@ import { IconInstagram, IconFacebook, IconTiktok } from './icons.jsx'
 import { CONTACT, telHref } from '../data/contact.js'
 
 export function Footer({ onBookBirthday }) {
-  const year = new Date().getFullYear()
+  const year = 2026
 
   return (
     <footer className="ftr">

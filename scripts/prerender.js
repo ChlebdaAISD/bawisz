@@ -45,7 +45,7 @@ const ROUTES = [
     title: 'Urodziny dla dziecka Nowy Targ — Bawisz | od 45 zł',
     description: 'Urodziny dla dziecka w Nowym Targu w drewnianej bawialni Montessori. Pakiet MINI od 45 zł/os., STANDARD od 74 zł/os. z salą tylko dla was. Ocena 4.9/5 w Google.',
     canonical: `${SITE}/urodziny/`,
-    ogImage: `${SITE}/assets/zdjecia/strona_glowna/Bawisz_-13.webp`,
+    ogImage: `${SITE}/assets/og/og-urodziny.webp`,
     breadcrumb: [
       { name: 'Strona główna', url: `${SITE}/` },
       { name: 'Urodziny', url: `${SITE}/urodziny/` },
@@ -95,7 +95,7 @@ const ROUTES = [
     title: 'Kawiarnia Nowy Targ — Bawisz | specialty + domowe ciasta',
     description: 'Kawiarnia w Nowym Targu z bawialnią Montessori obok. Specialty kawa, domowe ciasta (też bez cukru i bezglutenowe). ul. Krzywa 19B. Ocena 4.9/5 w Google.',
     canonical: `${SITE}/kawiarnia/`,
-    ogImage: `${SITE}/assets/zdjecia/kawiarnia/og-kawiarnia.jpg`,
+    ogImage: `${SITE}/assets/og/og-kawiarnia.webp`,
     breadcrumb: [
       { name: 'Strona główna', url: `${SITE}/` },
       { name: 'Kawiarnia', url: `${SITE}/kawiarnia/` },
@@ -108,7 +108,7 @@ const ROUTES = [
       name: 'Bawisz — Kawiarnia w Nowym Targu',
       url: `${SITE}/kawiarnia/`,
       telephone: '+48693766049',
-      image: `${SITE}/assets/zdjecia/kawiarnia/og-kawiarnia.jpg`,
+      image: `${SITE}/assets/og/og-kawiarnia.webp`,
       priceRange: '10–50 PLN',
       servesCuisine: ['Kawa specialty', 'Domowe ciasta', 'Wypieki bezglutenowe', 'Wypieki bez cukru'],
       address: {
@@ -189,7 +189,7 @@ const ROUTES = [
     title: 'Warsztaty dla dzieci Nowy Targ — Bawisz | plastyka, glina, joga',
     description: 'Warsztaty dla dzieci w Nowym Targu w drewnianej sali Montessori: plastyka, glina, joga dla dzieci, animaloterapia. Terminy na Instagramie. 60-80 zł/os, 1,5 h.',
     canonical: `${SITE}/warsztaty/`,
-    ogImage: `${SITE}/assets/zdjecia/dla_grup/Bawisz_AnnaMrożek-39.webp`,
+    ogImage: `${SITE}/assets/og/og-warsztaty.webp`,
     breadcrumb: [
       { name: 'Strona główna', url: `${SITE}/` },
       { name: 'Warsztaty', url: `${SITE}/warsztaty/` },
@@ -234,7 +234,7 @@ const ROUTES = [
     title: 'Bawialnia Montessori Nowy Targ | drewniana sala — Bawisz',
     description: 'Bawialnia Montessori w Nowym Targu — drewniana sala, naturalne zabawki, kawiarnia obok. Dzieci 0-10 lat. Wstęp od 25 zł. ul. Krzywa 19B. Ocena 4.9/5.',
     canonical: `${SITE}/o-nas/`,
-    ogImage: `${SITE}/assets/zdjecia/dla_grup/Bawisz_AnnaMrożek-22.webp`,
+    ogImage: `${SITE}/assets/og/og-o-nas.webp`,
     breadcrumb: [
       { name: 'Strona główna', url: `${SITE}/` },
       { name: 'O nas', url: `${SITE}/o-nas/` },
@@ -280,7 +280,7 @@ const ROUTES = [
     title: 'Oferta dla przedszkoli Nowy Targ — Bawisz | od 15 zł/dziecko',
     description: 'Wyjścia grupowe dla przedszkoli i szkół w Nowym Targu — drewniana bawialnia Montessori. Od 15 zł za godzinę za dziecko, kawa gratis dla opiekunów. Min. 10 dzieci.',
     canonical: `${SITE}/oferta-grupowa/`,
-    ogImage: `${SITE}/assets/zdjecia/dla_grup/Bawisz_-38.webp`,
+    ogImage: `${SITE}/assets/og/og-oferta-grupowa.webp`,
     breadcrumb: [
       { name: 'Strona główna', url: `${SITE}/` },
       { name: 'Dla przedszkoli', url: `${SITE}/oferta-grupowa/` },
@@ -338,7 +338,7 @@ const ROUTES = [
     title: 'Polityka prywatności — Bawisz · bawialnia Montessori',
     description: 'Polityka prywatności bawialni Bawisz w Nowym Targu. Informacje o przetwarzaniu danych osobowych zgodnie z RODO.',
     canonical: `${SITE}/polityka-prywatnosci/`,
-    ogImage: `${SITE}/assets/zdjecia/strona_glowna/Bawisz_-13.webp`,
+    ogImage: `${SITE}/assets/og/og-home.webp`,
     breadcrumb: [
       { name: 'Strona główna', url: `${SITE}/` },
       { name: 'Polityka prywatności', url: `${SITE}/polityka-prywatnosci/` },
@@ -349,7 +349,7 @@ const ROUTES = [
     title: 'Kontakt — Bawisz Nowy Targ | telefon, mapa, godziny',
     description: 'Kontakt z Bawisz w Nowym Targu — telefon +48 693 766 049, ul. Krzywa 19B, otwarte codziennie od 10:00. Napisz na Instagramie lub odwiedź nas osobiście.',
     canonical: `${SITE}/kontakt/`,
-    ogImage: `${SITE}/assets/zdjecia/dla_grup/Bawisz_AnnaMrożek-49.webp`,
+    ogImage: `${SITE}/assets/og/og-kontakt.webp`,
     breadcrumb: [
       { name: 'Strona główna', url: `${SITE}/` },
       { name: 'Kontakt', url: `${SITE}/kontakt/` },

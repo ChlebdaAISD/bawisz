@@ -1,9 +1,11 @@
+import { useState, useEffect } from 'react'
 import { Reveal } from './Reveal.jsx'
 import { IconPin, IconPhone, IconClock, IconNav } from './icons.jsx'
 import { CONTACT, telHref } from '../data/contact.js'
 
 export function Hours() {
-  const today = new Date().getDay()
+  const [today, setToday] = useState(null)
+  useEffect(() => { setToday(new Date().getDay()) }, [])
   const sched = [
     { day: 'Poniedziałek', hours: '10:00 — 19:00', i: 1 },
     { day: 'Wtorek',       hours: '10:00 — 19:00', i: 2 },

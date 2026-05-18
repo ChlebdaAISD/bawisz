@@ -1,311 +1,253 @@
 # SEO Improvement Plan — BAWISZ
 *Plan based on: [seo-audit-report.md](seo-audit-report.md)*
 *Rubric: [.claude/rules/on-page-seo.md](.claude/rules/on-page-seo.md)*
+*Updated: 2026-05-18 (re-audit po wdrożeniu SSG + reorganizacji obrazków)*
 
-## FAZA 1 — Critical fixes (Day 1-3)
+> **Sprostowanie:** wcześniejsza dzisiejsza wersja tego planu zakładała problemy z hero 8.4 MB i galerią. Te wnioski bazowały na starym `dist/` (build z 9 maja, sprzed reorganizacji obrazków 15-18 maja). Aktualnie obrazki są już WebP w optymalnych rozmiarach. Plan poniżej skorygowany.
 
-### 1.1 Implementacja prawdziwego SSG (4-6 h, 🔥🔥🔥)
+## Status z poprzedniego planu (2026-05-09)
 
-**Problem**: [scripts/prerender.js](scripts/prerender.js) injectuje meta+JSON-LD do template, ale `<div id="root">` zostaje pusty. AI search (ChatGPT/Perplexity/Claude), Bing, social scrapery widzą stronę bez treści.
+✅ **WYKONANE**:
+- SSG implementation (`vite.config.ssr.js` + `scripts/prerender.js` działa)
+- Per-route meta tags (title, description, canonical, OG, Twitter)
+- Per-route JSON-LD (rozszerzone o Menu, OfferCatalog, ContactPage, AboutPage)
+- Sitemap.xml + robots.txt
+- Breadcrumb component na subpages (visualy + JSON-LD)
+- **Reorganizacja obrazków do WebP** w podkatalogach `public/assets/zdjecia/{strona_glowna,kawiarnia,urodziny,warsztaty,dla_grup}/` (15-18 maja)
+- Hero image: `hero.webp` (197 KB) + `hero-mobile.webp` (49 KB)
 
-**Action**:
-1. Dodać Vite SSR build:
-   - `src/entry-client.jsx` (existing main → hydrate)
-   - `src/entry-server.jsx` (renderToString z routes)
-   - `vite.config.ssr.js` (build SSR bundle)
-2. Przebudować `scripts/prerender.js`:
-   - Dla każdej route: `renderToString(<App location={path} />)` → injectuj rendered HTML do `<div id="root">…</div>`
-   - Zachować obecną logikę meta + JSON-LD
-3. Update `package.json` build script:
-   ```json
-   "build": "vite build && vite build --config vite.config.ssr.js && node scripts/prerender.js"
-   ```
-4. wouter — useLocation server-side: użyć `Router ssrPath={url}` — sprawdzić docs wouter v3.
-
-**Prompt do Claude Code** (tu, w tym repo):
-> "Strona Bawisz w `/Users/lukaszchlebda/ClaudeCode/Bawisz/` to React+Vite SPA z 'prerender' skryptem który injectuje tylko meta tags i JSON-LD, ale `<div id="root">` zostaje pusty na wszystkich routach (`dist/index.html`, `dist/urodziny/index.html`, etc.). Zaimplementuj prawdziwe SSG: `src/entry-client.jsx`, `src/entry-server.jsx`, `vite.config.ssr.js`, oraz przerób `scripts/prerender.js` tak, żeby renderToString zaaplikować dla każdej route z ROUTES i wstrzyknąć HTML do `<div id="root">…</div>` zamiast zostawiać go pustego. Routes: `/`, `/urodziny/`, `/kawiarnia/`, `/warsztaty/`, `/o-nas/`, `/oferta-grupowa/`, `/kontakt/`. Routing: wouter v3. Po implementacji: `rm -rf dist && npm run build`, potem `grep -c '<div id=\"root\"></div>' dist/*/index.html dist/index.html` powinno zwrócić 0 dla każdego."
-
-**Verification po fixie**:
-```bash
-rm -rf /Users/lukaszchlebda/ClaudeCode/Bawisz/dist
-cd /Users/lukaszchlebda/ClaudeCode/Bawisz && npm run build
-grep -c '<h1' dist/index.html dist/urodziny/index.html dist/kawiarnia/index.html
-# Każdy plik powinien zawierać >= 1 <h1>
-curl -s http://localhost:3001/urodziny/ | grep -E '<h1|<title>' # po deployu
-```
-
-### 1.2 Brakujące OG images (30 min, 🔥🔥🔥)
-
-**Problem**: 4 pliki referenced w meta nie istnieją w `public/assets/`.
-
-**Action**:
-- Wygeneruj/wybierz 4 obrazy 1200×630, < 1 MB, zapisz jako:
-  - `public/assets/og-default.jpg` (do `/`, `/o-nas/`, `/kontakt/`)
-  - `public/assets/og-urodziny.jpg`
-  - `public/assets/og-warsztaty.jpg`
-  - `public/assets/og-oferta-grupowa.jpg`
-- Każdy z czytelnym tekstem dla preview (np. "BAWISZ — Urodziny dla dziecka · Nowy Targ"). Można użyć Canvy lub przygotować w Figmie.
-- ALTERNATYWNIE: tymczasowo zmień wszystkie OG image referenced na istniejące zdjęcia (np. `/assets/zdjecia/Bawisz_-13.webp`) w [scripts/prerender.js](scripts/prerender.js) i [src/data/*.js](src/data/).
-
-**Verification**:
-```bash
-ls public/assets/og-*.jpg # wszystkie 4 powinny być
-# Po deployu: paste URL do facebook.com/sharing/sharing-dialogue/preview/ debugger
-```
-
-### 1.3 Stale dist build (1 min, 🔥🔥)
-
-**Action**: zrób na lokalu i w CI:
-```bash
-cd /Users/lukaszchlebda/ClaudeCode/Bawisz
-rm -rf dist
-npm run build
-```
-
-Po SSG fix (1.1) — to staje się obowiązkowe dla każdego deployu.
-
-### 1.4 Title urodziny za długi (5 min, 🔥🔥)
-
-**File**: [scripts/prerender.js:42](scripts/prerender.js#L42)
-
-**Old**:
-```js
-title: 'Urodziny dla dziecka Nowy Targ — Bawisz | Pakiety MINI 45 zł, STANDARD 74 zł',
-```
-
-**New** (52 znaki):
-```js
-title: 'Urodziny dla dziecka Nowy Targ — Bawisz | od 45 zł',
-```
-
-Cena STANDARD przenieść w description (i tak już jest).
+⚠️ **POZOSTAJE**: OG images które kod referuje, ale fizycznie ich nie ma + drobne fixy compliance.
 
 ---
 
-## FAZA 2 — On-page-seo.md compliance (Week 1)
+## FAZA 1 — OG images (Day 1) — KRYTYCZNE
 
-### 2.1 Description homepage do 150-160 znaków (5 min, 🔥)
+**Cel**: 5 z 7 routes po deploy zwraca 404 dla og:image — Facebook/LinkedIn/Twitter preview nie wyświetli się. Naprawić jak najszybciej.
 
-**File**: [src/data/home.js:38](src/data/home.js#L38)
+### Task 1.1: Wygeneruj 6 brakujących OG images 1200×630 WebP
 
-**Old** (132 znaki):
-> Bawialnia Montessori w Nowym Targu dla dzieci 0-10 lat. Drewniana sala 220 m², kawiarnia obok. Wstęp od 25 zł. Ocena 4.9/5 w Google.
+**Pliki SEO które trzeba podłączyć do istniejących plików:**
 
-**New** (~158 znaków):
-> Bawialnia Montessori w Nowym Targu dla dzieci 0-10 lat. Drewniana sala 220 m², kawiarnia obok. Wstęp od 25 zł, urodziny od 45 zł/os. Ocena 4.9/5 w Google.
+| Route | Plik referowany w `src/data/*.js` | Status |
+|---|---|---|
+| `/` | `/assets/zdjecia/strona_glowna/Bawisz_-13.webp` | ✅ istnieje, ale 1024×1536 pionowy |
+| `/o-nas` | `/assets/og-default.jpg` | ❌ MISSING |
+| `/kontakt` | `/assets/og-default.jpg` | ❌ MISSING |
+| `/kawiarnia` | `/assets/zdjecia/kawiarnia/og-kawiarnia.jpg` | ❌ MISSING |
+| `/urodziny` | `/assets/og-urodziny.jpg` | ❌ MISSING |
+| `/warsztaty` | `/assets/og-warsztaty.jpg` | ❌ MISSING |
+| `/oferta-grupowa` | `/assets/og-oferta-grupowa.jpg` | ❌ MISSING |
 
-### 2.2 Apple-touch-icon (10 min, 🔥)
+**Akcja**:
+1. Wybierz najlepsze zdjęcie per sekcja z `public/assets/zdjecia/{sekcja}/`
+2. Wygeneruj 7× WebP 1200×630 (cropping z safe area dla central focus), max ~250 KB każda — przez `sharp`:
+   ```bash
+   node -e "require('sharp')('public/assets/zdjecia/strona_glowna/Bawisz_-13.webp').resize(1200,630,{fit:'cover',position:'centre'}).webp({quality:82}).toFile('public/assets/og/og-home.webp')"
+   ```
+3. Save w nowym katalogu `public/assets/og/` jako:
+   - `og-home.webp`, `og-o-nas.webp`, `og-kontakt.webp`, `og-kawiarnia.webp`, `og-urodziny.webp`, `og-warsztaty.webp`, `og-oferta-grupowa.webp`
+4. Update wszystkich `src/data/*.js` żeby referowały nowe ścieżki:
+   - `ogImage: 'https://bawialniabawisz.pl/assets/og/og-{route}.webp'`
+5. Dodaj `og:image:width` = 1200 i `og:image:height` = 630 meta tags w komponencie SEO (jeśli nie ma)
+6. `rm -rf dist && npm run build`
+7. Test po deploy: [Facebook Sharing Debugger](https://developers.facebook.com/tools/debug/) + [opengraph.xyz](https://www.opengraph.xyz/)
 
-**File**: [index.html](index.html) (+ regenerate dist)
+**Time**: 45-60 min
+**Impact**: 🔥🔥🔥 social sharing CTR (Facebook/Instagram to główne kanały Bawisza)
 
-Dodaj po linii `<link rel="icon" type="image/svg+xml" href="/favicon.svg" />`:
-```html
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-```
+---
 
-Wrzuć plik `public/apple-touch-icon.png` (180×180, logo Bawisza na cream background).
+## FAZA 2 — on-page-seo.md compliance (Day 2)
 
-### 2.3 Widoczne breadcrumb na podstronach (1 h, 🔥🔥)
-
-**Files**: każda strona w `src/pages/` (apart Home)
-
-Dodaj nowy komponent `src/components/Breadcrumb.jsx`:
-```jsx
-import { Link } from 'wouter'
-
-export function Breadcrumb({ items }) {
-  return (
-    <nav aria-label="breadcrumb" className="breadcrumb">
-      <ol>
-        {items.map((item, i) => (
-          <li key={i}>
-            {i < items.length - 1 ? (
-              <><Link href={item.href}>{item.name}</Link><span aria-hidden="true"> / </span></>
-            ) : (
-              <span aria-current="page">{item.name}</span>
-            )}
-          </li>
-        ))}
-      </ol>
-    </nav>
-  )
-}
-```
-
-W każdej `src/pages/{Urodziny,Kawiarnia,Warsztaty,ONas,OfertaGrupowa,Kontakt}.jsx` dodaj nad hero:
-```jsx
-<Breadcrumb items={[
-  { name: 'Strona główna', href: '/' },
-  { name: 'Urodziny', href: '/urodziny/' },
-]} />
-```
-
-### 2.4 Logo alt text (5 min, 🔥)
+### Task 2.1: Verify image dimensions po świeżym buildzie (CLS prevention)
 
 **Files**:
-- [src/components/Navbar.jsx:61](src/components/Navbar.jsx#L61) — `alt=""` → `alt="BAWISZ"`
-- [src/components/Navbar.jsx:96](src/components/Navbar.jsx#L96) — `alt=""` → `alt="BAWISZ"`
-- [src/components/Footer.jsx:12](src/components/Footer.jsx#L12) — `alt=""` → `alt="BAWISZ"`
+- [src/components/Hero.jsx](src/components/Hero.jsx)
+- [src/components/Gallery.jsx](src/components/Gallery.jsx)
+- [src/components/Birthdays.jsx](src/components/Birthdays.jsx)
+- [src/components/ServiceGallery.jsx](src/components/ServiceGallery.jsx)
+- [src/components/Menu.jsx](src/components/Menu.jsx)
 
-(W Navbar, na desktopie tekst brand jest obok więc decorative, ale na mobile `nav-brand-text` jest hidden — wtedy logo zostaje samo bez tekstu, więc warto.)
+**Akcja**:
+1. `rm -rf dist && npm run build`
+2. Verify: `perl -0777 -ne 'my $nd=0; while(/<img\b([^>]*)>/sg){ $nd++ unless ($1=~/\bwidth=/ && $1=~/\bheight=/) } print "no_dim=$nd\n"' dist/index.html`
+3. Jeśli > 0 — dodaj `width`/`height` attributes w komponentach renderujących te obrazki (z faktycznych wymiarów WebP)
 
-### 2.5 Image filenames bez polskich znaków (30 min, 🔥)
+**Time**: 20-30 min (jeśli potrzebne)
+**Impact**: 🔥🔥 Core Web Vitals (CLS)
 
-**Files w `public/assets/zdjecia/`**:
-- `Bawisz_AnnaMrożek-*.webp` → `bawisz-anna-mrozek-*.webp`
-- `foto_2025 (2).jpg` → `bawisz-hero-2025.jpg`
+### Task 2.2: Meta description fix — 3 routes
 
-**Update referencji**:
-- [src/components/Hero.jsx:7](src/components/Hero.jsx#L7) → `/assets/zdjecia/bawisz-hero-2025.jpg`
-- [src/components/Gallery.jsx:8-14](src/components/Gallery.jsx#L8-L14) → wszystkie `Bawisz_AnnaMrożek-*` → `bawisz-anna-mrozek-*`
+**Akcja** (znajdź w komponencie SEO lub data file):
+- `/oferta-grupowa`: skróć z 170 → ≤158 znaków
+- `/urodziny`: skróć z 163 → ≤158 znaków
+- (`/warsztaty`: tytuł 65 znaków → ≤60)
 
-Bash one-liner do renamy:
-```bash
-cd /Users/lukaszchlebda/ClaudeCode/Bawisz/public/assets/zdjecia
-for f in *AnnaMrożek*; do mv "$f" "$(echo "$f" | sed 's/Bawisz_AnnaMrożek/bawisz-anna-mrozek/' | tr 'A-Z' 'a-z')"; done
+**Konkretne propozycje**:
+- `/oferta-grupowa`: "Wyjścia grupowe dla przedszkoli i szkół w Nowym Targu — drewniana sala Montessori. Od 15 zł/godz. za dziecko, kawa gratis dla opiekunów. Min. 10 dzieci." (158)
+- `/urodziny`: "Urodziny dziecka w Nowym Targu w drewnianej bawialni Montessori. Pakiet MINI od 45 zł/os., STANDARD od 74 zł/os. z salą tylko dla was. 4.9/5 w Google." (158)
+- `/warsztaty` title: "Warsztaty dla dzieci Nowy Targ — Bawisz | plastyka, glina" (57)
+
+**Time**: 10 min
+**Impact**: 🔥 CTR z SERP
+
+### Task 2.3: Skip-to-content link (a11y)
+
+**File**: `src/App.jsx` lub wherever layout root is
+
+**Akcja**: dodaj jako pierwszy element po `<body>`:
+```jsx
+<a href="#main" className="skip-to-content">Przejdź do treści</a>
 ```
 
-### 2.6 Anglicyzm "specialty" w title kawiarni (5 min, 🔥)
-
-**File**: [scripts/prerender.js:92](scripts/prerender.js#L92)
-
-**Decyzja**: zostaw "specialty" (jest to utrwalony termin branżowy specialty coffee — patrz tone-of-voice 4b.4) ALBO zmień na "rzemieślnicza". Polski Senuto/Ahrefs pokazuje że "specialty" jako keyword istnieje. Rekomendacja: zostaw.
-
-Jeśli chcesz zmienić:
-```js
-title: 'Kawiarnia Nowy Targ — Bawisz | rzemieślnicza kawa, ciasta',
-```
-
-### 2.7 Meta robots explicit (2 min, 🔥)
-
-**File**: [index.html](index.html)
-
-Po linii viewport dodaj:
-```html
-<meta name="robots" content="index, follow, max-image-preview:large" />
-```
-
-### 2.8 AggregateRating na głównym LocalBusiness (5 min, 🔥)
-
-**File**: [scripts/prerender.js](scripts/prerender.js) — `ROUTES[0]` powinno mieć schema z aggregateRating, ALBO główny `<script>` w [index.html:33-71](index.html#L33-L71) powinien zawierać aggregateRating dla `ChildCare`.
-
-W [index.html:62-70](index.html) dodaj przed `"areaServed"`:
-```json
-"aggregateRating": {
-  "@type": "AggregateRating",
-  "ratingValue": "4.9",
-  "bestRating": "5",
-  "reviewCount": "129"
-},
-```
-
-(Liczba 129 z `CafeOrCoffeeShop` schema — sprawdź czy ChildCare ma takie samo bo to suma reviews całej firmy w GBP.)
-
----
-
-## FAZA 3 — AI SEARCH optimization (Week 2)
-
-**Wymaga ukończenia Fazy 1 (SSG)** — bez tego AI crawlers nie widzą strony w ogóle.
-
-### 3.1 H2 jako pełne pytania na FAQ-heavy sections (1-2 h, 🔥🔥)
-
-Niektóre H2 to TOV statements — to OK dla brand voice. Ale FAQ section w każdej stronie ma `<h2>Najczęstsze pytania</h2>` i potem `<h3>` per pytanie.
-
-**Action**: zmień `<h3>` w FAQ items na `<h3>` które są pełnymi pytaniami (już są — np. "Ile kosztują urodziny dla dziecka w Nowym Targu w Bawiszu?"). To jest poprawne. **Brak fixu konieczny**.
-
-Opcjonalnie: na service pages oprócz FAQ — gdzie zaczyna się logiczna sekcja Q&A (np. "Termin urodzin?") — można zmienić na pełne pytanie ("Kiedy zarezerwować termin urodzin dla dziecka?"). [src/pages/Urodziny.jsx:127-129](src/pages/Urodziny.jsx#L127-L129).
-
-### 3.2 Internal Graph — anchor text jako entity name (2 h, 🔥)
-
-**Files**: każda service page — w body, gdzie linkujesz na inne strony, użyj keyword anchor text zamiast generic "Wpadnij na kawę".
-
-Przykłady:
-- `<Link href="/kawiarnia/">Wpadnij na kawę</Link>` → `<Link href="/kawiarnia/">kawiarnia w Nowym Targu</Link>`
-- `<Link href="/urodziny/">tutaj</Link>` → `<Link href="/urodziny/">urodziny dla dziecka w Bawiszu</Link>`
-
-W FAQ — zachowaj naturalny język, ale gdzie wspomina się usługę dodaj link do odpowiedniej strony.
-
-### 3.3 Citation-Friendly Format — brak bylines (decyzja klienta)
-
-Mała firma rodzinna może nie chcieć imienia właściciela jako autora. Ale jeśli chce **wzmocnić E-E-A-T sygnały** dla AI search:
-- Dodać sekcję "O właścicielce" na `/o-nas/` z imieniem, latami doświadczenia, kwalifikacjami (Montessori cert, etc.)
-- Dodać `Person` schema z `sameAs` do Instagram/LinkedIn osobistego (jeśli jest)
-
-To jest decyzja brand strategy — nie technical fix. Skipped w planie.
-
----
-
-## FAZA 4 — Schema enrichment (Week 2-3)
-
-### 4.1 Person/Author schema (jeśli decyzja z 3.3)
-
-Pomijamy chyba że klient zdecyduje.
-
-### 4.2 Event schema dla warsztatów (2 h, 🔥)
-
-Warsztaty to eventy — Google + AI search lubią `Event` schema z dates.
-
-**File**: [src/data/warsztaty.js](src/data/warsztaty.js) (sprawdź jak wygląda struktura) — jeśli warsztaty mają konkretne daty:
-```js
-{
-  "@type": "Event",
-  "name": "Warsztaty plastyczne dla dzieci",
-  "startDate": "2026-06-15T10:00:00+02:00",
-  "location": { "@id": "https://bawialniabawisz.pl/#localbusiness" },
-  ...
+CSS w [src/index.css](src/index.css):
+```css
+.skip-to-content {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 9999;
+}
+.skip-to-content:focus {
+  left: 1rem;
+  top: 1rem;
+  background: var(--paper);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
 }
 ```
 
-Wymaga źródła dat — jeśli warsztaty są ad-hoc na Instagramie, skip.
+Dodaj `id="main"` na `<main>` w layoutach.
+
+**Time**: 10 min
+**Impact**: 🔥 a11y + minor SEO signal
+
+### Task 2.4: Sitemap.xml update
+
+**File**: [scripts/prerender.js](scripts/prerender.js) lub gdzie sitemap jest generowany
+
+**Akcja**:
+- Update `<lastmod>` do `2026-05-18`
+- Decyzja na `/polityka-prywatnosci/`: dodaj do sitemap z `priority=0.3` LUB usuń z prerender + dodaj `meta name="robots" content="noindex"`
+
+**Time**: 5 min
+**Impact**: 🔥 świeży lastmod = sygnał świeżości
 
 ---
 
-## FAZA 5 — Long-tail (Month 2+)
+## FAZA 3 — E-E-A-T + AI Search optimization (Day 3-5)
 
-### 5.1 Bootstrap SEO content pipeline
+### Task 3.1: Author byline + bio na homepage
 
-Projekt **NIE MA** `references/voice.md` ani `seo/blog_keywords.md`. Bez tego skille `/write-blog-post` i `/write-service-page` hard-failują.
+Dodaj w sekcji "O nas" lub footer:
 
-**Action**: odpalić `/seed-client-seo` w [/Users/lukaszchlebda/ClaudeCode/Bawisz/](.):
-- intake interview
-- auto-propose 30-50 keywords (mix info + commercial)
-- klient weryfikuje → przenosi do "Active" w `seo/blog_keywords.md`
+> **Prowadzą**: Kasia + Łukasz, właściciele Bawisza od 2024. Sami rodzice — bawialnia powstała z potrzeby miejsca, w którym dziecko bawi się samo, a rodzic ma minutę przy kawie.
 
-### 5.2 Local SEO (jednorazowy duży boost)
+Wzbogać o link do `/o-nas/` + zdjęcie pary jeśli zgoda. Dodaj `Person` schema w JSON-LD homepage:
 
-**Action**: odpalić `/local-seo-optimizer`:
-- GBP audit (czy categories są optymalne, opening hours, photos quality)
-- Polish citations (Panorama Firm, Pkt.pl, Mapa Polski, mikolaj.pl, infoofirmie.pl)
-- Reviews strategy (29 → 129 → cel 200+ w 6 miesięcy)
-- NAP consistency check across web
+```json
+{
+  "@type": "Person",
+  "name": "Kasia [nazwisko]",
+  "jobTitle": "Właścicielka",
+  "worksFor": { "@id": "https://bawialniabawisz.pl/#localbusiness" }
+}
+```
 
-To dla local business **większa dźwignia** niż 50 blog postów.
+**Time**: 30 min
+**Impact**: 🔥🔥 E-E-A-T, AI cytowalność
 
-### 5.3 Blog content (po seed-client-seo)
+### Task 3.2: H2 jako pytania (CCV — conversational query value)
 
-Po ustaleniu Active keywords w `seo/blog_keywords.md`:
-- `/write-blog-post atrakcje dla dzieci Nowy Targ`
-- `/write-blog-post co robić z dzieckiem w Tatrach kiedy pada`
-- `/write-blog-post bawialnia Montessori — czym różni się od zwykłego placu zabaw`
+**Obecne H2 są stwierdzeniami** (świetne stylistycznie, ale słabiej dla AI overviews). Dodaj **drugie H2** w stylu pytania nad każdą sekcją.
 
-### 5.4 Service page expansion
+**Przykłady (homepage):**
+- "Drewniana sala dla małych odkrywców." → dodaj nad nim H2 "Co znajdziecie w Bawiszu?"
+- "Cztery powody, żeby zostać na dłużej." → "Dlaczego Bawisz, a nie kawiarnia z kącikiem?"
+- "Wstęp od 25 zł. Bez niespodzianek." → "Ile kosztuje wejście do bawialni?"
 
-Po decyzji o service area:
-- `/write-service-page Zakopane urodziny` (jeśli klient obsługuje)
-- `/write-service-page Rabka-Zdrój urodziny`
+**Service pages** — analogicznie:
+- `/urodziny`: H2 "Ile kosztują urodziny dla dziecka w Nowym Targu?", "Co jest w cenie?", "Czy mogę przynieść tort?"
+- `/warsztaty`: H2 "Jakie warsztaty są dla dzieci w Bawiszu?", "Ile kosztują warsztaty?", "Dla jakiego wieku są warsztaty?"
+
+**Time**: 60-90 min
+**Impact**: 🔥🔥 AI overviews, voice search, ChatGPT/Perplexity cytowania
+
+### Task 3.3: TL;DR callout na service pages
+
+Dodaj na początku `/urodziny`, `/warsztaty`, `/oferta-grupowa` blok 2-4 zdań syntezy:
+
+```jsx
+<aside className="tldr">
+  <strong>W skrócie:</strong> Urodziny w Bawiszu = drewniana sala Montessori przy Krzywej 19B w Nowym Targu, dwa pakiety (45 zł lub 74 zł/os.), 2-2,5 h, pełen poczęstunek i dekoracje. Tort przynosicie wy, resztę robimy my.
+</aside>
+```
+
+**Time**: 30 min (3 strony × 10 min)
+**Impact**: 🔥🔥 AI overviews wycinają TL;DR
+
+---
+
+## FAZA 4 — Content depth + blog (Week 2-3)
+
+### Task 4.1: Bootstrap content pipeline
+
+- Uruchom `/seed-client-seo` w `/Users/lukaszchlebda/ClaudeCode/Bawisz/` jeśli `references/voice.md` i `seo/blog_keywords.md` nie są kompletne
+- Verify keywords pre-Active section
+
+### Task 4.2: Pierwsze 3 blog posts (informational queries)
+
+Sugerowane keywords (proposed — verify volume/intent w `/seed-client-seo`):
+1. "atrakcje dla dzieci Nowy Targ" — listicle, blog hub-and-spoke linkujący do `/urodziny`, `/warsztaty`, `/kawiarnia`
+2. "co robić z dzieckiem w deszczowy dzień Podhale" — long-tail informational, evergreen
+3. "kiedy iść do bawialni z dzieckiem" — informational, FAQ-rich
+
+**Wykonanie**: `/write-blog-post [keyword]`
+
+**Time**: 2-3h per post (Claude generuje, user weryfikuje)
+**Impact**: 🔥🔥🔥 organic traffic (informational queries z 0 obecnie)
+
+---
+
+## FAZA 5 — Long-tail (Month 2)
+
+### Task 5.1: Strona porównawcza vs konkurencja
+
+`/bawialnie-nowy-targ-porownanie/` lub blog post "Bawialnia w Nowym Targu — gdzie najlepiej z dzieckiem". Comparison tables są cytowane przez AI overviews bezpośrednio.
+
+### Task 5.2: Author/team page
+
+`/zespol/` lub rozszerzenie `/o-nas/` z zdjęciami, bio, kwalifikacje (jeśli Kasia ma certyfikat Montessori — pokażcie go).
+
+### Task 5.3: Lokalne backlinks
+
+(Hand-off do `/local-seo-optimizer` — citations + reviews + lokalne portale).
 
 ---
 
 ## Podsumowanie
 
-| Faza | Czas | Wpływ | Status |
-|------|------|-------|--------|
-| Faza 1 — Critical (SSG, OG images, dist rebuild, title) | 5-7 h | 🔥🔥🔥 Natychmiastowy (bez tego AI search = 0) | `[ ]` |
-| Faza 2 — Compliance (description, breadcrumb, alt text, filenames) | 2-3 h | 🔥🔥 Wysoki | `[ ]` |
-| Faza 3 — AI SEARCH (H2, internal graph, byline) | 3-5 h | 🔥🔥 Wysoki (po SSG) | `[ ]` |
-| Faza 4 — Schema enrichment (Event) | 1-3 h | 🔥 Średni | `[ ]` |
-| Faza 5 — Long-tail (seed, local SEO, blog) | 10-20 h | 🔥🔥🔥 Skumulowany | `[ ]` |
+| Faza | Czas | Wpływ | Priorytet |
+|------|------|-------|-----------|
+| Faza 1 — OG images | 45-60 min | 🔥🔥🔥 Natychmiastowy (social sharing) | `[ ]` Day 1 |
+| Faza 2 — on-page compliance | 1-1.5h | 🔥🔥 Wysoki (CTR, a11y) | `[ ]` Day 2 |
+| Faza 3 — E-E-A-T + AI Search | 2-3h | 🔥🔥 Średni-wysoki (AI overviews) | `[ ]` Day 3-5 |
+| Faza 4 — Content/blog | 6-9h (3 posty) | 🔥🔥🔥 Organic traffic | `[ ]` Week 2-3 |
+| Faza 5 — Long-tail | 4-6h | 🔥 Cumulative | `[ ]` Month 2 |
 
-**Estimated total Faza 1-4**: 11-18 godzin pracy. **Faza 5**: open-ended (zależy ile content i jak głęboki local SEO push).
+**Estimated total**: 13-19 godzin pracy.
 
-**Priorytet absolutny**: **Faza 1.1 (SSG)** + **1.2 (OG images)**. Bez SSG cała pozostała SEO praca daje 30-50% potencjału (bo Bing/AI search/social widzą pustą stronę).
+**Co zrobić jako pierwsze (≤2h, zamyka 80% impactu)**:
+1. Task 1.1 (6 brakujących OG images — naprawia 5 routes ze 404 po share)
+2. Task 2.2 (meta description fix 3 routes)
+3. Task 2.3 (skip-to-content)
+4. `rm -rf dist && npm run build` + verify Task 2.1 (image dimensions)
+
+---
+
+## Hand-offs
+
+- **GBP / Maps / citations / reviews**: → `/local-seo-optimizer` (zobacz [local-seo-audit-report.md](local-seo-audit-report.md) z 2026-05-18)
+- **Keywords proposal**: → `/seed-client-seo`
+- **Blog posts**: → `/write-blog-post`
+- **Nowe service pages**: → `/write-service-page`
