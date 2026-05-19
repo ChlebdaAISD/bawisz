@@ -39,7 +39,20 @@ export default function ONas({ onBookBirthday }) {
   return (
     <>
       {/* HERO (AIDA) */}
-      <section className="svc-hero">
+      <section className="svc-hero svc-hero--photo">
+        <div className="svc-hero-bg">
+          <picture>
+            <source media="(max-width: 720px)" type="image/webp" srcSet="/assets/zdjecia/o_nas/o-nas-glowne-mobile.webp" />
+            <img
+              src="/assets/zdjecia/o_nas/o-nas-glowne.webp"
+              alt=""
+              width={1067}
+              height={1600}
+              fetchPriority="high"
+            />
+          </picture>
+          <div className="svc-hero-overlay" />
+        </div>
         <div className="svc-hero-decor">
           <Decoration type="leaf" color="var(--rose)" size={110} rotate={-18} opacity={0.5} className="dec-keep" style={{ right: '6%', top: '14%' }} />
           <Decoration type="leaf" color="var(--rose-deep)" size={70} rotate={28} opacity={0.4} style={{ right: '14%', bottom: '18%' }} />

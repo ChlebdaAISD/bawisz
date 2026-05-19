@@ -1,7 +1,6 @@
 import { useRef, useState, useEffect } from 'react'
 import { Reveal } from './Reveal.jsx'
 import { IconStar, IconQuote, IconChevronLeft, IconChevronRight } from './icons.jsx'
-import { Decoration } from './Decoration.jsx'
 
 export function Testimonials() {
   const reviews = [
@@ -102,13 +101,21 @@ export function Testimonials() {
 
   return (
     <section className="tst">
-      <Decoration
-        type="pencil"
-        color="var(--brand-soft)"
-        size={150}
-        rotate={12}
-        opacity={0.6}
-        style={{ right: '5%', top: '60px' }}
+      <img
+        src="/assets/animals/ikonka-opinie.webp"
+        alt=""
+        aria-hidden="true"
+        width={150}
+        height={150}
+        loading="lazy"
+        style={{
+          position: 'absolute',
+          right: '5%',
+          top: '60px',
+          transform: 'rotate(12deg)',
+          opacity: 0.85,
+          pointerEvents: 'none',
+        }}
       />
       <div className="shell">
         <div className="tst-head">
@@ -177,7 +184,7 @@ export function Testimonials() {
       </div>
 
       <style>{`
-        .tst { padding: 110px 0 90px; background: var(--paper); overflow: hidden; }
+        .tst { position: relative; padding: 110px 0 90px; background: var(--paper); overflow: hidden; }
         .tst-head { display: flex; flex-direction: column; gap: 18px; margin-bottom: 50px; }
         .tst-rating { display: flex; align-items: center; gap: 14px; }
         .tst-stars { display: flex; gap: 4px; color: var(--rose-deep); }

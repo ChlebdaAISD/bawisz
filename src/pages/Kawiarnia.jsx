@@ -54,7 +54,20 @@ export default function Kawiarnia({ onBookBirthday = () => {} }) {
   return (
     <>
       {/* HERO (AIDA) */}
-      <section className="svc-hero">
+      <section className="svc-hero svc-hero--photo">
+        <div className="svc-hero-bg">
+          <picture>
+            <source media="(max-width: 720px)" type="image/webp" srcSet="/assets/zdjecia/kawiarnia/kawiarnia-glowne-mobile.webp" />
+            <img
+              src="/assets/zdjecia/kawiarnia/KAWIARNIA 1.webp"
+              alt=""
+              width={1600}
+              height={1067}
+              fetchPriority="high"
+            />
+          </picture>
+          <div className="svc-hero-overlay" />
+        </div>
         <div className="svc-hero-decor">
           <Decoration type="cloud" color="var(--paper)" size={150} opacity={0.18} style={{ left: '4%', top: '12%' }} />
           <Decoration type="leaf" color="var(--rose-deep)" size={70} rotate={-30} opacity={0.4} className="dec-keep" style={{ right: '6%', top: '18%' }} />

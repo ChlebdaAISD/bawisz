@@ -54,7 +54,20 @@ export default function Urodziny({ onBookBirthday }) {
   return (
     <>
       {/* HERO (AIDA) */}
-      <section className="svc-hero">
+      <section className="svc-hero svc-hero--photo">
+        <div className="svc-hero-bg">
+          <picture>
+            <source media="(max-width: 720px)" type="image/webp" srcSet="/assets/zdjecia/urodziny/urodziny-glowne-mobile.webp" />
+            <img
+              src="/assets/zdjecia/urodziny/20260412_144023.webp"
+              alt=""
+              width={1200}
+              height={1600}
+              fetchPriority="high"
+            />
+          </picture>
+          <div className="svc-hero-overlay" />
+        </div>
         <div className="svc-hero-decor">
           <Decoration type="balloon" color="var(--rose)" size={120} rotate={-12} opacity={0.55} className="dec-keep" style={{ right: '6%', top: '14%' }} />
           <Decoration type="balloon" color="var(--sand)" size={80} rotate={14} opacity={0.45} style={{ right: '14%', top: '38%' }} />

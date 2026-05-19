@@ -13,6 +13,8 @@ const GALLERY = [
   { src: '/assets/zdjecia/dla_grup/GRUPY 1.webp',     alt: 'Wejście grupy przedszkolnej do Bawisz' },
   { src: '/assets/zdjecia/dla_grup/Grupy 2 (1).webp', alt: 'Dzieci z przedszkola w sali Montessori' },
   { src: '/assets/zdjecia/dla_grup/GRUPY 3 (1).webp', alt: 'Grupa zorganizowana w bawialni Bawisz' },
+  { src: '/assets/zdjecia/dla_grup/grupy-2-new.webp', alt: 'Dzieci bawiące się w sali Montessori w Bawisz' },
+  { src: '/assets/zdjecia/dla_grup/grupy-5-new.webp', alt: 'Grupa dzieci podczas zorganizowanego pobytu w bawialni' },
 ]
 
 const AUDIENCES = [

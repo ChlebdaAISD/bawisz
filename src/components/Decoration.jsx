@@ -60,16 +60,6 @@ export function Decoration({
         <path d="M50 64 A 10 10 0 0 1 70 64" stroke="#A98062" strokeWidth="9" strokeLinecap="round" />
       </svg>
     )
-  } else if (type === 'pencil') {
-    svg = (
-      <svg viewBox="0 0 130 30" fill="none" {...shared}>
-        <rect x="22" y="9" width="78" height="12" fill={color} rx="2" />
-        <polygon points="100,9 118,15 100,21" fill="#FBF7EE" stroke="#776258" strokeWidth="1" />
-        <polygon points="113,12 118,15 113,18" fill="#5C4F47" />
-        <rect x="10" y="9" width="12" height="12" fill="#E8B4B8" stroke="#776258" strokeWidth="1" rx="1" />
-        <rect x="6" y="11" width="6" height="8" fill="#A98062" stroke="#776258" strokeWidth="1" rx="1" />
-      </svg>
-    )
   } else if (type === 'balloon') {
     svg = (
       <svg viewBox="0 0 60 100" fill="none" {...shared}>
