@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Breadcrumb } from '../components/Breadcrumb.jsx'
 import { Reveal } from '../components/Reveal.jsx'
-import { Decoration } from '../components/Decoration.jsx'
 import {
   IconArrow,
   IconPhone,
@@ -84,10 +83,7 @@ export default function Kontakt({ onBookBirthday }) {
           </picture>
           <div className="svc-hero-overlay" />
         </div>
-        <div className="svc-hero-decor">
-          <Decoration type="leaf" color="var(--rose)" size={64} rotate={-18} opacity={0.25} className="dec-keep" style={{ right: '6%', top: '14%' }} />
-          <Decoration type="leaf" color="var(--rose-soft)" size={48} rotate={28} opacity={0.22} style={{ left: '6%', bottom: '14%' }} />
-        </div>
+        <div className="svc-hero-decor" />
 
         <div className="svc-hero-shell shell">
           <div className="svc-hero-text">

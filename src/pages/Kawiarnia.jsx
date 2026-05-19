@@ -68,13 +68,7 @@ export default function Kawiarnia({ onBookBirthday = () => {} }) {
           </picture>
           <div className="svc-hero-overlay" />
         </div>
-        <div className="svc-hero-decor">
-          <Decoration type="cloud" color="var(--paper)" size={150} opacity={0.18} style={{ left: '4%', top: '12%' }} />
-          <Decoration type="leaf" color="var(--rose-deep)" size={70} rotate={-30} opacity={0.4} className="dec-keep" style={{ right: '6%', top: '18%' }} />
-          <Decoration type="leaf" color="var(--rose)" size={50} rotate={45} opacity={0.35} style={{ right: '14%', bottom: '14%' }} />
-          <Decoration type="leaf" color="var(--sand)" size={60} rotate={-15} opacity={0.4} style={{ left: '8%', bottom: '14%' }} />
-          <Decoration type="leaf" color="var(--rose)" size={42} rotate={20} opacity={0.3} style={{ left: '38%', bottom: '6%' }} />
-        </div>
+        <div className="svc-hero-decor" />
 
         <div className="svc-hero-shell shell">
           <div className="svc-hero-text">

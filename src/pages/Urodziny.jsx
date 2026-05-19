@@ -68,10 +68,7 @@ export default function Urodziny({ onBookBirthday }) {
           </picture>
           <div className="svc-hero-overlay" />
         </div>
-        <div className="svc-hero-decor">
-          <Decoration type="balloon" color="var(--rose)" size={120} rotate={-12} opacity={0.55} className="dec-keep" style={{ right: '6%', top: '14%' }} />
-          <Decoration type="balloon" color="var(--sand)" size={80} rotate={14} opacity={0.45} style={{ right: '14%', top: '38%' }} />
-        </div>
+        <div className="svc-hero-decor" />
 
         <div className="svc-hero-shell shell">
           <div className="svc-hero-text">
