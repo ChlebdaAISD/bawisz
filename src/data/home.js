@@ -34,8 +34,8 @@ export const HOME_FAQ = [
 ]
 
 export const HOME_META = {
-  title: 'Bawialnia Nowy Targ — Bawisz | drewniana sala Montessori',
-  description: 'Bawialnia Montessori w Nowym Targu dla dzieci 0-10 lat. Drewniana sala 220 m², kawiarnia obok. Wstęp od 25 zł, urodziny od 45 zł/os. Ocena 4.9/5 w Google.',
+  title: 'Bawialnia Nowy Targ — Bawisz | sala zabaw Montessori',
+  description: 'Sala zabaw Montessori w Nowym Targu dla dzieci 0-10 lat. Naturalna bawialnia z kawiarnią, urodziny dla dzieci i kreatywna przestrzeń do zabawy.',
   canonical: 'https://bawialniabawisz.pl/',
   ogImage: 'https://bawialniabawisz.pl/assets/og/og-home.webp',
 }

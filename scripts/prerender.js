@@ -30,6 +30,26 @@ const ROUTES = [
     breadcrumb: [
       { name: 'Strona główna', url: `${SITE}/` },
     ],
+    webPageSchema: {
+      '@context': 'https://schema.org',
+      '@type': 'WebPage',
+      '@id': `${SITE}/#webpage`,
+      url: `${SITE}/`,
+      name: HOME_META.title,
+      description: HOME_META.description,
+      inLanguage: 'pl-PL',
+      isPartOf: { '@id': `${SITE}/#website` },
+      about: { '@id': `${SITE}/#localbusiness` },
+      primaryImageOfPage: {
+        '@type': 'ImageObject',
+        '@id': `${SITE}/#primaryimage`,
+        url: `${SITE}/assets/og/og-home-square.webp`,
+        contentUrl: `${SITE}/assets/og/og-home-square.webp`,
+        width: 1200,
+        height: 1200,
+        caption: 'Drewniana sala zabaw Montessori — Bawisz w Nowym Targu, ścianka wspinaczkowa i strefy tematyczne',
+      },
+    },
     faqSchema: {
       '@context': 'https://schema.org',
       '@type': 'FAQPage',
@@ -475,6 +495,7 @@ function injectMeta(html, route) {
       })),
     })
   }
+  if (route.webPageSchema) schemas.push(route.webPageSchema)
   if (route.serviceSchema) schemas.push(route.serviceSchema)
   if (route.faqSchema) schemas.push(route.faqSchema)
 
