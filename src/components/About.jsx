@@ -26,7 +26,7 @@ export function About() {
           <Reveal delay={160} className="about-p body-lg">
             Bawisz to 220 m² naturalnej przestrzeni Montessori w sercu Nowego Targu — sala zabaw
             dla dzieci 0–10 lat i kawiarnia dla rodziców pod jednym dachem.
-            Dziecko bawi się wśród kreatywnych zabawek, a ty masz chwilę dla siebie przy dobrej kawie.
+            Dziecko odkrywa świat poprzez swobodną zabawę, a ty masz chwilę dla siebie przy dobrej kawie.
           </Reveal>
 
           <div className="about-values">

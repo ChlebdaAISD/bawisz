@@ -28,7 +28,7 @@ export function Hero({ onBookBirthday }) {
 
           <p className="hero-sub body-lg fade-up" style={{ animationDelay: '0.2s' }}>
             Naturalna sala Montessori dla dzieci 0–10 lat przy ul. Krzywej 19B.<br />
-            Ty pijesz kawę i jesz domowe ciasto. Dziecko bawi się obok — przy kreatywnych zabawkach.
+            Ty pijesz kawę i jesz domowe ciasto. Dziecko bawi się obok — wśród drewnianych i edukacyjnych zabawek.
           </p>
 
           <div className="hero-ctas fade-up" style={{ animationDelay: '0.35s' }}>
