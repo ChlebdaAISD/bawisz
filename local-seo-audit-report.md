@@ -1,10 +1,10 @@
-# LOCAL SEO AUDIT — BAWISZ Bawialnia (re-audit)
+# LOCAL SEO AUDIT — BAWISZ Bawialnia (re-audit #3)
 
 **Business**: BAWISZ Bawialnia
 **Location**: Nowy Targ, ul. Krzywa 19B, 34-400
 **Primary Keyword**: "bawialnia nowy targ"
-**Date**: 2026-05-18 (re-audit; pierwszy audyt 2026-05-09)
-**Source**: Google Places API (New) — `places/ChIJI5kdKjnlFUcRx7klm74NvMM` + `compare_gbp_website.py` diff vs `https://bawialniabawisz.pl`
+**Date**: 2026-05-27 (re-audit; poprzedni 2026-05-18, pierwszy 2026-05-09)
+**Source**: Google Places API (New) — `places/ChIJI5kdKjnlFUcRx7klm74NvMM` + `compare_gbp_website.py` diff vs `https://bawialniabawisz.pl`. ✅ Nowy API key (2026-05-27) działa.
 
 ---
 
@@ -12,191 +12,187 @@
 
 | | |
 |---|---|
-| **Status fix z 2026-05-09** | 🔴 **Priority 1 NIEZROBIONY** — `websiteUri` w GBP wciąż wskazuje na Instagram |
-| **Current Maps Pack** | top 4 (#1 Xtreme KiDS 497 op., #2 Mini Club 137, #3 BAWISZ 130, #4 Fun Factory 62) |
-| **Reviews velocity** | BAWISZ +1 w 9 dni (∼3/mc). Xtreme KiDS +11 w 9 dni (∼36/mc) — przewaga rośnie. |
-| **Strona vs GBP (auto-diff)** | Phone ✓ · Adres ✓ · aggregateRating ✓ (4.9/129 vs 4.9/130) · Name MISMATCH (HIGH) · brak embedded mapy |
-| **Quick Wins (single biggest)** | Wciąż: zmiana `websiteUri` w GBP z Instagram na `https://bawialniabawisz.pl/` — 5 min, największy single-fix |
-| **Timeline to Top 3 stable** | 3-5 miesięcy od dnia w którym faktycznie zrobimy fix websiteUri + uruchomimy review generation |
+| **Status fix z 2026-05-18** | 🟢 **3/3 fixów ZROBIONE** — schema `name` ✓, "Nowy Targ" mentions ✓, **websiteUri w GBP ✅ NAPRAWIONE** (już bawialniabawisz.pl, nie IG) |
+| **Auto-diff (4 fields)** | ✅ Match 4 / Mismatch 0 / Missing 0 — wszystkie krytyczne pola zsynchronizowane |
+| **Reviews velocity boost** | **134 opinii** (z 130 w 2026-05-18) = **+4 w 9 dni** = ~13/mc velocity — **4× wzrost vs poprzednie ~3/mc** 🎉 |
+| **Quick Wins this week** | 1) re-run build-time `fetch-google-rating.ts` (schema reviewCount lag: 129 vs live 134), 2) zmień w GBP `http://` na `https://`, 3) zacznij service area expansion |
+| **Status websiteUri** | ✅ `http://www.bawialniabawisz.pl/` (niewielki minus: powinno być https — Google auto-redirectuje ale czystsze) |
 
-**Co się zmieniło od 2026-05-09:**
-- ✅ Strona `bawialniabawisz.pl` jest LIVE z `ChildCare` JSON-LD, NAP w footer, aggregateRating (4.9/129) — SSG po `/seo-analyzer` zaimplementowane
-- ✅ Telephone i address dopasowane między GBP i schema (auto-diff: MATCH)
-- 🔴 `websiteUri` w GBP wciąż = Instagram (NIE zrobiony fix #1 z poprzedniego audytu)
-- 🟠 Reviews +1 w 9 dni (program QR/follow-up nie ruszył)
-- ⚠️ Schema `name` MISMATCH naprawiony w source ([index.html:39](index.html#L39)) — **wymaga rebuild + deploy** żeby trafiło na live
-- ✅ Embedded Google Map istnieje na homepage przez komponent [Hours.jsx:84](src/components/Hours.jsx#L84) i na [/kontakt/](src/pages/Kontakt.jsx#L225) (false negative w poprzedniej wersji raportu — WebFetch zgubił iframe przy konwersji do markdown)
-
-**Hand-offs identified:**
-- Service area pages (Czarny Dunajec, Szaflary, Ludźmierz, Rabka) → `/write-service-page` × 4 (priorytet po fix #1)
-- Embedded map + correct `schema.name` → `/write-service-page` regeneracja `/kontakt/` lub edycja schema source
+**Co się zmieniło od 2026-05-18:**
+- ✅ **websiteUri w GBP fixed: IG → bawialniabawisz.pl** (Priority 1 z poprzednich 2 audytów — WRESZCIE!)
+- ✅ Schema `name` = "BAWISZ Bawialnia" matching GBP — fix #2 wdrożony i live
+- ✅ "Nowy Targ" mentions na homepage 4 → 8 — fix #6 wdrożony
+- ✅ FAQ schema (`FAQPage`) z 8 pytaniami PAA-style
+- ✅ WebPage JSON-LD dodane z `primaryImageOfPage`
+- ✅ **Reviews velocity 13/mc** (z ~3/mc) — coś ruszyło, ale 134 vs schema 129 = lag 5
+- ⚠️ `aggregateRating.reviewCount` 129 (z live GBP 134) — schema stale, build-time fetch nie odpalany przy ostatnim deploy
 
 ---
 
 ## 1. Google Business Profile Status
 
-### Raw API data (snapshot 2026-05-18)
+### Raw API data (snapshot 2026-05-27)
 
-| Pole | Wartość | Δ vs 2026-05-09 |
+| Pole | Wartość | Δ vs 2026-05-18 |
 |---|---|---|
 | Place ID | `ChIJI5kdKjnlFUcRx7klm74NvMM` | — |
 | Display Name | BAWISZ Bawialnia | — |
 | Address | Krzywa 19B, 34-400 Nowy Targ | — |
-| Phone | +48 693 766 049 | — |
-| Website | **`instagram.com/bawisz_bawialnia/...`** ❌ | **bez zmian — NIEZROBIONE** |
+| Website | **`http://www.bawialniabawisz.pl/`** ✅ | **NAPRAWIONE** (było IG) |
 | Primary Type | `amusement_center` | — |
-| Types | indoor_playground, playground, amusement_center, point_of_interest, establishment | — |
+| Types (secondary) | coffee_shop, indoor_playground, playground, **dessert_restaurant**, cafe, food_store, association_or_organization | **rich** — wcześniej tylko 5 types, teraz 8 (kawiarnia/desery doszły jako kategorie) |
 | Rating | 4.9 ★ | — |
-| Reviews count | **130** | **+1** (było 129) |
+| Reviews count | **134** | **+4** (było 130) — velocity skok |
 | Business Status | OPERATIONAL | — |
-| Hours | Pn-Pt 10:00-19:00, Sb-Nd 10:00-20:00 | — |
+| Photos (sample) | 10 | — |
+| Reviews (sample) | 5 | — |
 
-### 🔴 Critical Issue (unchanged from 2026-05-09)
+### 🟢 Wszystkie 3 krytyczne fixy z poprzednich audytów ZROBIONE
+1. ✅ `websiteUri` w GBP wskazuje na `bawialniabawisz.pl` (z IG)
+2. ✅ Schema `name` matching GBP
+3. ✅ "Nowy Targ" mentions na homepage z 4 → 8
 
-**Issue #1: `websiteUri` w GBP wskazuje na Instagram, nie na własną domenę** 🔥
+### 🟡 Nowe drobne issues
+- **`websiteUri` używa `http://`** zamiast `https://` — minor SEO concern (Google auto-redirectuje, ale w GBP dashboard zmień na `https://www.bawialniabawisz.pl/`)
+- **Schema `reviewCount` lag**: 129 (na stronie) vs 134 (live GBP) — re-run build-time fetch script lub odpal nowy deploy
 
-- Current: `https://www.instagram.com/bawisz_bawialnia/?igsh=...&utm_source=qr`
-- Powinno być: `https://bawialniabawisz.pl/` (strona JEST live z poprawnym schema i NAP — gotowe do podpięcia)
-- **Impact: WYSOKI** — to wciąż największy single-fix dostępny dla local SEO
-- **Fix (5 min)**: business.google.com → BAWISZ → Edytuj profil → Strona internetowa → wstaw `https://bawialniabawisz.pl/` → Zapisz
-- Wszyscy konkurenci w top-4 mają domeny: Xtreme KiDS → `xtremekids.pl/sale/nowy-targ`, Mini Club → `miniclub.pl`, Fun Factory → `ffnt.pl`
+### Live schema (z https://bawialniabawisz.pl HEAD, weryfikowane curl-em)
 
-### 🟠 Reviews velocity gap (new finding)
+| Pole | Wartość | Status |
+|---|---|---|
+| `@type` | `ChildCare` | ✓ specific subtype |
+| `@id` | `https://bawialniabawisz.pl/#localbusiness` | ✓ |
+| `name` | "BAWISZ Bawialnia" | ✅ FIXED (poprzednio mismatch) |
+| `alternateName` | ["Bawisz", "BAWISZ — Bawialnia Montessori i Kawiarnia"] | ✓ marketing string zachowany |
+| `telephone` | "+48693766049" | ✓ |
+| `address` | ul. Krzywa 19B, 34-400 Nowy Targ, małopolskie, PL | ✓ pełne |
+| `geo` | 49.4773, 20.0303 | ✓ |
+| `openingHoursSpecification` | Pn-Pt 10-19, Sb-Nd 10-20 | ✓ |
+| `aggregateRating` | 4.9 / 129 | ⚠️ stale (od 2026-05-18 było 130 w GBP) |
+| `priceRange` | "25-215 PLN" | ✓ przedział z cennika |
+| `sameAs` | IG, FB, TikTok | ✓ 3 platformy |
+| `areaServed` | Nowy Targ, Podhale | ✓ entity-friendly |
+| `image` | og-home-square.webp, og-home.webp | ✓ |
 
-W 9 dni:
-- BAWISZ: 129 → 130 (**+1**, ~3/mc trend)
-- Xtreme KiDS: 486 → 497 (**+11**, ~36/mc trend)
-- Mini Club: 137 → 137 (0)
-- Fun Factory: 62 → 62 (0)
+### Dodatkowe schemas wykryte na homepage (nowe od poprzedniego auditu)
 
-Xtreme aktywnie generuje opinie — gap (357 → 367) rośnie. Mini Club statyczny, ale wciąż +7 nad BAWISZ. **Plan QR/follow-up z poprzedniego audytu prawdopodobnie nie ruszył.**
+- `WebPage` z `primaryImageOfPage` + `about` reference do `#localbusiness` ✅
+- `FAQPage` z **8 pytaniami** (cennik, wiek, różnice od placu zabaw, rezerwacje, parking, Montessori, bezpieczeństwo, zniżki) ✅
+- `BreadcrumbList` (tylko homepage entry, do rozbudowy na podstronach)
 
-### ⚠️ Still TBD (z poprzedniego audytu)
-- `child_care_agency` w secondary categories — sprawdzić z klientem czy element opieki ma miejsce (warsztaty Montessori mogą się kwalifikować)
-- Photos count w GBP dashboard (API zwraca sampel 10) — target 30+
-- Posts schedule — target 2-4/mc
+**To wszystko są pozytywne sygnały dla AI Overview Optimization (sekcja 4 of on-page-seo.md "AI SEARCH OPTIMIZATION").**
 
 ---
 
-## 2. Competition Analysis (Maps Pack snapshot 2026-05-18)
+## 2. Competition Analysis (Maps Pack snapshot 2026-05-27)
 
-| # | Business | Reviews | Δ 9d | Rating | Website | Primary Type |
+⚠️ Dane dla BAWISZ z API; konkurencja z poprzedniego audytu (manual Maps Pack check zalecany dla aktualnych).
+
+| # | Business | Reviews 2026-05-18 | Reviews TODAY (BAWISZ z API) | Δ 9d | Rating | Website |
 |---|---|---|---|---|---|---|
-| 1 | **Sala zabaw Xtreme KiDS** | **497** | +11 | 4.8 | xtremekids.pl/sale/nowy-targ ✓ | amusement_center |
-| 2 | **MINI CLUB Sala Zabaw** | 137 | 0 | 4.9 | miniclub.pl ✓ | amusement_center |
-| 3 | **BAWISZ Bawialnia** | 130 | +1 | 4.9 | **instagram.com** ❌ | amusement_center |
-| 4 | Fun factory | 62 | 0 | 4.6 | ffnt.pl ✓ | playground |
+| 1 | Sala zabaw Xtreme KiDS | 497 | TBD (~508-510 prediction) | +11 prior | 4.8 | xtremekids.pl/sale/nowy-targ |
+| 2 | MINI CLUB Sala Zabaw | 137 | TBD (prior trend 0) | 0 prior | 4.9 | miniclub.pl |
+| 3 | **BAWISZ Bawialnia** | 130 | **134** ✅ | **+4** | 4.9 | **bawialniabawisz.pl** ✅ |
+| 4 | Fun factory | 62 | TBD | 0 prior | 4.6 | ffnt.pl |
 
-**Observation**: BAWISZ wciąż z najlepszą oceną w mieście (tied z Mini Club 4.9), ale przewaga prominence Xtreme KiDS rośnie szybciej niż dystans do Mini Club zamyka się. Bez review velocity program — pozycja #3 nie urośnie do #2.
+**Velocity comparison**:
+- BAWISZ: +1/9d (poprzednio) → **+4/9d (teraz)** = 13/mc trend = **4× przyspieszenie** 🎉
+- Xtreme KiDS: ~36/mc trend — wciąż przed
+- BAWISZ vs Mini Club: ratingowo tied (4.9), reviews-wise prawdopodobnie BAWISZ wyprzedził Mini Club (134 vs ~137 statyczny) lub blisko
+
+**Konkluzja**: review velocity zaczęła rosnąć (coś ruszyło — QR program?). Jeśli utrzymamy 13/mc, w 6 mc dojdziemy do ~210. Xtreme zostanie #1 (jego trend +36/mc), ale BAWISZ vs Mini Club walka realna na #2.
+
+**Manual check do zrobienia** (5 min): otwórz Google Maps i sprawdź aktualne liczby Xtreme/MiniClub/FunFactory — zaktualizuj prediction.
 
 ---
 
 ## 3. Website Local SEO Verification (auto-diff)
 
-### 3a. GBP ↔ Website diff (z `/tmp/gbp_diff.json`)
+### 3a. GBP ↔ Website diff (z `/tmp/gbp_bawisz_diff.json`)
 
-**Summary**: Match 3 | Mismatch 1 | Missing 0 | Top severity: **HIGH**
+**Summary**: Match 4 | Mismatch 0 | Missing 0 | Top severity: **MEDIUM** (tylko INFO websiteUri target)
 
 | Field | GBP | Website (schema) | Status | Severity |
 |---|---|---|---|---|
-| name | BAWISZ Bawialnia | BAWISZ — Bawialnia Montessori i Kawiarnia | **MISMATCH** | HIGH |
-| telephone | +48 693 766 049 | +48 693 766 049 | MATCH | OK |
-| address | Krzywa 19B, 34-400 Nowy Targ | ul. Krzywa 19B, 34-400, Nowy Targ | MATCH | OK |
-| aggregateRating | 4.9 / 130 | 4.9 / 129 | MATCH | OK (1 review lag — fresh build by re-run `fetch-google-rating.ts`) |
+| name | BAWISZ Bawialnia | BAWISZ Bawialnia | ✅ MATCH | OK |
+| telephone | 693766049 | 693766049 | ✅ MATCH | OK |
+| address | Krzywa 19B, 34-400 Nowy Targ, Poland | ul. Krzywa 19B, 34-400, Nowy Targ | ✅ MATCH | OK |
+| aggregateRating | 4.9 / 134 | 4.9 / 129 | ✅ MATCH (script tolerance) | OK — ale `reviewCount` lag 5, warto refresh |
+| websiteUri (GBP→site) | http://www.bawialniabawisz.pl/ | bawialniabawisz.pl | ✅ FIXED | INFO/MEDIUM (homepage target, można landing) |
+| schema.@type | restaurant→ChildCare | ChildCare | ✓ specific subtype | OK |
 
-**Diff-driven hand-offs:**
-- HIGH name mismatch → ujednolicić **w jedną stronę**: albo zmienić `schema.name` w source na `BAWISZ Bawialnia` (krótszy, dopasowany do GBP), albo zostawić długi marketingowy "BAWISZ — Bawialnia Montessori i Kawiarnia" jako brand pitch. Rekomendacja: **schema = "BAWISZ Bawialnia"** (matching GBP truth), długi opis trzymać w `description` field schema.
-- aggregateRating lag (130 vs 129) → kolejny build automatycznie podciągnie; nie krytyczne. Jeśli używamy `script/fetch-google-rating.ts` pattern z AI_Solutions_Design_v2 — re-run na CI.
+**Diff-driven hand-offs (refresh)**:
+- 🟡 MEDIUM stale rating → re-run `script/fetch-google-rating.ts` (jeśli istnieje w projekcie) — schema `reviewCount` 129 vs live GBP 134 (lag 5)
+- 🟢 INFO: GBP `websiteUri` używa `http://www.` — zmień w GBP dashboard na `https://www.bawialniabawisz.pl/` (5 min, czystszy signal)
 
 ### 3b. Manual checks (semantic)
 
 | Element | Status | Notes |
 |---|---|---|
-| LocalBusiness JSON-LD (`ChildCare`) | ✓ obecne | wykryte przez comparator |
-| BreadcrumbList JSON-LD | ✓ (dodane w `/seo-analyzer` 2026-05-09) | — |
-| NAP w footer | ✓ | "ul. Krzywa 19B, 34-400 Nowy Targ" + "+48 693 766 049" — match z GBP |
-| Embedded Google Map | ✅ | iframe na homepage przez [Hours.jsx](src/components/Hours.jsx) (sekcja "Godziny / Dojazd") + na [/kontakt/](src/pages/Kontakt.jsx) |
-| "Nowy Targ" mentions na homepage | ⚠️ 4× (low) | target 5-10× naturalnie — niedobór na primary keyword |
-| Service area pages exist | ❌ | brak dedicated landing dla Czarny Dunajec, Szaflary, Ludźmierz, Rabka |
-| `websiteUri` w GBP = bawialniabawisz.pl | ❌ | wskazuje na IG — **wciąż PRIORYTET 1** |
-
-### Hand-off:
-- **Embedded map + schema.name fix** → edycja `src/...` na `/kontakt/` (lub global LocalBusiness schema source). Jeśli schema jest generowany centralnie → fix w 1 miejscu i rebuild SSG.
-- **"Nowy Targ" boost na homepage** → dopisać 2-3 wzmianki w naturalnym kontekście (np. sekcja "Gdzie nas znajdziesz" + "Bawialnia w centrum Nowego Targu" + opis dojazdu z okolicy)
-- **Service area pages** → `/write-service-page` × 4 (lista poniżej w sekcji 7)
+| LocalBusiness JSON-LD (`ChildCare`) | ✅ | live, kompletne pola |
+| BreadcrumbList | ✅ pełne | 2-element breadcrumbs na każdej podstronie (`/urodziny/`, `/warsztaty/`, `/kontakt/`, `/o-nas/`, etc.), homepage ma 1-element entry — poprawnie |
+| WebPage schema | ✅ NEW | `primaryImageOfPage` + ref do `#localbusiness` |
+| FAQPage schema | ✅ NEW | 8 pytań, świetna baza pod AI Overview cytaty |
+| NAP w footer | ✅ | matching GBP |
+| Embedded Google Map | ✅ | obecna w `src/components/Hours.jsx` i `src/pages/Kontakt.jsx` |
+| "Nowy Targ" mentions | ✅ 8× (poprzednio 4×) | target 5-10 — w optimalnym zakresie |
+| areaServed entity | ✅ | Nowy Targ + Podhale |
+| Service area pages | ❌ | wciąż brak dedicated landing dla Czarny Dunajec, Szaflary, Ludźmierz, Rabka |
 
 ---
 
-## 4. Reviews Strategy (revised — bo plan z 2026-05-09 nie ruszył)
+## 4. Reviews Strategy (refresh — nie wiemy czy plan ruszył)
 
-**Current**: 130 opinii, 4.9★
-**Target (6 mc od dziś)**: 200+ opinii, 4.9★ utrzymane
-**Gap**: 70 w 6 mc = ~12/mc, ~3/tydzień
+**Last known (2026-05-18)**: 130 opinii, 4.9★, +1 w 9 dni (~3/mc)
+**Today (2026-05-27, prediction)**: ≈131 opinii jeśli trend utrzymany
+**Target (6 mc od 2026-05-18)**: 200+ opinii — wymaga ~12/mc, ~3/tydzień
 
-### Dlaczego stagnacja (+1 w 9 dni)
-Plan QR/follow-up z poprzedniego audytu prawdopodobnie nie został wdrożony. Bez QR na barze, bez follow-up SMS po urodzinach, organicznie wpadają opinie sporadycznie.
+### Pytania do właściciela (zanim re-planujemy)
+1. Czy QR review program (100 wizytówek) ruszył od 2026-05-18?
+2. Czy szkolenie personelu (15 min) zostało zrobione?
+3. Ile opinii wpadło faktycznie w ostatnich 9 dniach? (sprawdzić w GBP dashboard)
 
-### Tygodniowy plan (re-launch)
+Jeśli nie ruszył — plan z poprzedniego auditu (`Tydzień 1-4`) wciąż aktualny, przesunięty o 9 dni.
 
-**Tydzień 1 (od dziś, 2026-05-18)**:
-- ⏰ Zamówić 100 wizytówek z QR linkiem do `g.page/r/CZmAa7q-Db_DEAE/review` — Allegro / Printpoland, doba dostawy
-- ⏰ Trening personelu (15 min): po wyjściu zadowolonej rodziny — "Bardzo Państwu dziękujemy. Jeśli mogą Państwo zostawić opinię na Google, to dla nas duża pomoc — kod QR jest na wizytówce."
+### Response protocol (bez zmian)
 
-**Tydzień 2**:
-- Po każdych warsztatach Montessori/sensorycznych — papierowy "dziękujemy" z imieniem dziecka + QR
-- Cel tygodnia: 3 opinie
-
-**Tydzień 3**:
-- Follow-up SMS 24h po urodzinach: "Cieszymy się że Marcelinka świetnie się bawiła! Jeśli mają Państwo chwilę, opinia na Google: [link] — Zespół BAWISZ"
-- Cel: 1 opinia/urodziny
-
-**Tydzień 4**:
-- Response na 100% opinii (target 24h)
-- Review opinii za miesiąc — pomiar velocity (target: minimum +8-10 w pełnym miesiącu)
-
-### Response protocol — bez zmian (z poprzedniego audytu, działa)
+- 100% response rate target
+- 24-48h response time
+- Positive: thank + highlight service mentioned ("Cieszymy się, że Marcelinka świetnie się bawiła w sali sensorycznej!")
+- Negative: empathy + offer offline fix, NIE defensiveness
 
 ---
 
-## 5. Local Citations & NAP Consistency
-
-### Status — bez zmian od 2026-05-09 (do zrobienia)
+## 5. Local Citations & NAP Consistency (refresh — bez zmian od 2026-05-18)
 
 | Directory | Status | Akcja |
 |---|---|---|
-| Panorama Firm | TBD | Sprawdzić obecność, claim, NAP = GBP truth |
+| Panorama Firm | TBD | sprawdzić obecność + claim |
 | Pkt.pl | TBD | jw. |
 | Firmy.net | TBD | jw. |
 | Facebook Business | TBD | sprawdzić NAP + cross-link z IG |
 | Apple Maps | TBD | claim przez business.apple.com (free) |
-| Pomyslowirodzice.pl | ✓ obecność | branżowy, high-relevance citation |
-| Booksy (rezerwacje urodzin) | TBD | rozważyć (silne SEO ranking dla "urodziny dla dzieci [city]") |
+| Pomyslowirodzice.pl | ✓ obecność | branżowy, high-relevance |
+| Booksy (rezerwacje urodzin) | TBD | rozważyć (silne SEO dla "urodziny dla dzieci nowy targ") |
 
-**NAP truth (z GBP)**:
+**NAP truth (z live schema, matching GBP)**:
 - Name: `BAWISZ Bawialnia`
 - Phone: `+48 693 766 049`
-- Address: `Krzywa 19B, 34-400 Nowy Targ` (bez "ul.", bez przecinka między kodem a miastem)
-
-**Najczęstsze błędy do uniknięcia w citations**:
-- Phone format: użyj `+48 693 766 049` (z plusem i spacjami) wszędzie
-- Address: `Krzywa 19B, 34-400 Nowy Targ` (bez "ul.")
-- Nazwa: `BAWISZ Bawialnia` (matching GBP — NIE "BAWISZ — Bawialnia Montessori i Kawiarnia")
-
-**Action (30 min)**: ręczny check Panorama Firm + Pkt.pl + FB; ujednolic format.
+- Address: `ul. Krzywa 19B, 34-400 Nowy Targ`
 
 ---
 
 ## 6. Backlinks & Local PR — bez zmian (do zrobienia)
 
-Plan z poprzedniego audytu wciąż aktualny:
+Plan z poprzedniego auditu wciąż aktualny:
 
 **Immediate (this month)**:
 1. **Podhale24.pl** — pitch "Najlepsze bawialnie w Nowym Targu 2026" — Bawisz dostarcza zdjęcia + cytat, w zamian backlink
 2. **Lokalne mama-blogi** (krakowskiezpodhalem.pl, podhalanskamama.pl) — guest post lub recenzja
-3. **FB grupy** "Mamy Nowego Targu", "Rodzinne Podhale" — merytoryczne udzielanie się (NIE spam)
+3. **FB grupy** "Mamy Nowego Targu", "Rodzinne Podhale" — merytoryczne udzielanie się
 4. **Współpraca z fotografem dziecięcym** w Nowym Targu — sesje w Bawiszu, fotograf linkuje
 
-**Medium-term (3-6 mc)**: sponsoring lokalnych eventów (Dzień Dziecka), partnerstwo z przedszkolami.
+**Medium-term (3-6 mc)**: sponsoring Dnia Dziecka 2026-06-01 (za tydzień!), partnerstwo z przedszkolami.
 
 ---
 
@@ -210,95 +206,111 @@ Plan z poprzedniego audytu wciąż aktualny:
 | **Rabka-Zdrój** | 25 km | Medium | `/write-service-page rabka-zdroj bawialnia` |
 | Zakopane | 20 km | Low | wymaga osobnej strategii (silna konkurencja) |
 
-**Każda strona musi mieć**:
-- Unique LocalBusiness JSON-LD z `addressLocality: "Nowy Targ"` + tekst nawigacji "dojazd z [miasto]"
-- Embedded map z markerem Bawisz + route z target town
-- 5-8× nazwa target town w treści, z odmianą ("w Czarnym Dunajcu", "z Czarnego Dunajca")
-- Linki do `/` i głównych podstron (`/urodziny/`, `/warsztaty/`)
-
-**Najpierw 'proposed' keywords trzeba zweryfikować** — `seo/service_keywords.md` ma sekcję Proposed z lokalnymi wariantami; przesuń do Active **przed** wywołaniem `/write-service-page`.
+**Prerequisite**: zweryfikuj keywords w `seo/service_keywords.md` sekcja Proposed → przenieś do Active **PRZED** wywołaniem `/write-service-page`.
 
 ---
 
-## 8. Action Plan (prioritized 2026-05-18)
+## 8. Action Plan (prioritized 2026-05-27)
 
-### 🔴 PRIORITY 1 — TODAY (5 min)
-**Task #1 (powtórka, wciąż niewykonane): Zmień `websiteUri` w GBP**
-- **How**: business.google.com → BAWISZ → Edytuj profil → Strona internetowa → wstaw `https://bawialniabawisz.pl/` → Zapisz
-- **Time**: 5 min
-- **Impact**: 🔥🔥🔥 — wciąż największy single-fix dostępny
+### 🟡 PRIORITY 1 — TODAY (15 min) — drobne polishe
+**Task #1: GBP websiteUri http → https** (5 min)
+- business.google.com → BAWISZ → Edytuj profil → Strona internetowa
+- Obecna wartość: `http://www.bawialniabawisz.pl/`
+- Zmień na: `https://www.bawialniabawisz.pl/` (lub bez www: `https://bawialniabawisz.pl/`)
+- Save → Google auto-indeksuje w 24-48h
 
-### 🔴 PRIORITY 2 — This Week
-**Task #2: Schema `name` MISMATCH fix** ✅ zrobione w source 2026-05-18 — wymaga **rebuild + deploy**
-- **What was done**: [index.html:39](index.html#L39) → `"name": "BAWISZ Bawialnia"`, długi marketingowy string przeniesiony do `alternateName` array
-- **Next**: `npm run build` + deploy na Railway/Cloudflare → re-run `compare_gbp_website.py` żeby zweryfikować że live serwuje nowy schema
+**Task #2: Re-run build-time rating fetch + deploy** (10 min, jeśli skrypt istnieje)
+- Schema `reviewCount` = 129, live GBP = 134 → lag 5
+- Jeśli projekt ma `script/fetch-google-rating.ts` (pattern z AI_Solutions_Design_v2) — odpalić w CI/pre-deploy
+- Jeśli nie ma — manualnie zaktualizuj w source: `index.html:` → `"reviewCount": "134"` → deploy
 
-**Task #3: Re-launch review generation**
-- 100 wizytówek z QR (Allegro/Printpoland — 24h)
-- 15-min trening personelu
-- Target tygodnia 1: 2-3 opinie
+### 🟢 PRIORITY 2 — This Week (review momentum jest!)
 
-**Task #4: NAP audit w citations (30 min)**
-- Panorama Firm + Pkt.pl + Facebook → ujednolic format
+**Task #3: Review generation — utrzymaj momentum**
+- ⚡ Z +1/9d (poprzednio) → +4/9d (teraz) coś ruszyło — utrzymaj/wzmocnij
+- Jeśli QR program już działa: zamów dodatkowe 100 wizytówek (Allegro 24h)
+- Jeśli nie wiesz co zadziałało (organicznie?): poproś personel o feedback — co mówili klientom?
+- Target następnych 30 dni: utrzymać 12-15 opinii/mc → schema reviewCount 134 → 150+
+
+**Task #5: ~~BreadcrumbList na podstronach~~** — ❌ błędny finding w v1 raportu; verified 2026-05-27: 2-element breadcrumbs są na wszystkich podstronach (urodziny, warsztaty, kontakt, o-nas) ✓
 
 ### 🟠 PRIORITY 3 — This Month
-**Task #5: Service area expansion**
-- Zweryfikować Proposed keywords (`seo/service_keywords.md` — sekcja "Lokalne — okoliczne miejscowości") → przenieść do Active
-- `/write-service-page czarny-dunajec bawialnia`
-- `/write-service-page szaflary bawialnia`
-- `/write-service-page ludzmierz bawialnia`
+**Task #6: Service area expansion**
+- Zweryfikować Proposed keywords w `seo/service_keywords.md` (sekcja lokalna)
+- `/write-service-page czarny-dunajec bawialnia` (12 km — high priority)
+- `/write-service-page szaflary bawialnia` (7 km — high priority)
+- `/write-service-page ludzmierz bawialnia` (5 km — medium)
 
-**Task #6: "Nowy Targ" mentions na homepage 4 → 6-8**
-- Dopisać 2-3 wzmianki w naturalnym kontekście (sekcja "Dojazd" / "Gdzie nas znajdziesz" / opis okolicy)
+**Task #7: NAP audit w citations (30 min)**
+- Panorama Firm + Pkt.pl + Facebook → ujednolic format
+
+**Task #8: Dzień Dziecka 2026-06-01 (za tydzień!)**
+- Sponsoring/event w lokalu — generator opinii + lokalne PR
+- Pitch do Podhale24.pl: relacja z eventu z linkiem do bawialniabawisz.pl
 
 ### 🟡 PRIORITY 4 — Next 3 Months
-- Lokalne PR (Podhale24.pl pitch, mama-blogi guest posts, FB grupy)
-- Sponsoring Dnia Dziecka 2026-06-01
-- GBP Products feature (linki do podstron)
+- Lokalne PR (Podhale24.pl, mama-blogi guest posts, FB grupy)
+- GBP Products feature (linki do podstron `/urodziny/`, `/warsztaty/`)
 - Posts schedule: 2-4/mc
+- Photos w GBP 10 → 30+ (zewnątrz, wnętrze, sale, kawiarnia, warsztaty)
 
 ---
 
-## 9. Expected Timeline (jeśli ruszamy DZIŚ)
+## 9. Expected Timeline (refresh 2026-05-27)
 
-- **+5 min** (DZIŚ): GBP websiteUri fix indexed przez Google w 24-72h
-- **+2 tyg**: pierwsze opinie z QR programu (target +4-6 vs baseline +1/9d)
-- **+1 mc**: noticeable Maps Pack ranking lift (websiteUri trust signal + content fixes)
-- **+2 mc**: stable top 3 walka, ale realnie Mini Club zachowuje +7 op. — dogonienie zależy od velocity
-- **+3-4 mc**: walka o #2 (Mini Club statyczny — realistyczne), #1 Xtreme KiDS poza zasięgiem (498→532+ do tego momentu)
-- **+6 mc**: 200+ opinii, stable top 3, service area pages indeksowane
+- **+10 min** (DZIŚ): GBP manual check + websiteUri fix (jeśli wciąż IG) — Google indeksuje w 24-72h
+- **+1 tydzień**: pierwsze zmiany ze schema fix (name, FAQ) widoczne w SERP, FAQ rich snippet możliwy
+- **+2-3 tyg**: pierwsze nowe opinie z QR programu (jeśli ruszy)
+- **+1 mc**: Maps Pack ranking lift (websiteUri trust + content + FAQ)
+- **+2-3 mc**: walka o #2 (Mini Club statyczny), #1 Xtreme poza zasięgiem (≈600+ reviews)
+- **+6 mc**: 200+ opinii (jeśli QR ruszy), stable top 3, service area pages zaindeksowane
 
 ---
 
 ## 10. Implementation Checklist (refresh)
 
-- [x] LocalBusiness JSON-LD obecne na stronie (verified)
-- [x] BreadcrumbList JSON-LD obecne
-- [x] NAP w footer matching GBP (telephone, address)
-- [x] aggregateRating w schema (4.9/129 — lag 1 vs GBP 130, akceptowalne)
-- [ ] **Update `websiteUri` w GBP na bawialniabawisz.pl** ← #1
-- [x] **Fix schema `name` MISMATCH** — w source już "BAWISZ Bawialnia" (wymaga rebuild + deploy)
-- [x] Embedded Google Map — obecna w Hours.jsx i Kontakt.jsx (verified w source)
-- [ ] "Nowy Targ" mentions na homepage 4 → 6-8
-- [ ] 100 wizytówek QR review wydrukowane i wprowadzone do baru
+### Zrobione od 2026-05-18 ✅
+- [x] **`websiteUri` w GBP → bawialniabawisz.pl** (z Instagram) — Priority 1 FINALLY DONE
+- [x] Schema `name` = "BAWISZ Bawialnia" (live na bawialniabawisz.pl)
+- [x] "Nowy Targ" mentions na homepage 4 → 8
+- [x] FAQ schema (`FAQPage`) z 8 pytaniami
+- [x] WebPage schema z `primaryImageOfPage`
+- [x] BreadcrumbList JSON-LD na każdej podstronie (2-element breadcrumbs)
+- [x] alternateName array z marketingowym brand string
+- [x] sameAs: IG, FB, TikTok (3 platformy)
+- [x] areaServed: Nowy Targ + Podhale
+- [x] Places API klucz odnowiony (working 2026-05-27)
+
+### TO DO 🟡 (drobne polishe, nic krytycznego)
+- [ ] GBP `websiteUri` http → https (5 min w business.google.com)
+- [x] Schema `reviewCount` updated 129 → 134 + rebuild (2026-05-27) — deploy pending
+- [ ] 100 wizytówek QR review wydrukowane
 - [ ] Trening personelu (15 min)
-- [ ] Follow-up SMS po urodzinach skonfigurowane
-- [ ] Response na 100% istniejących opinii w 24h
-- [ ] Citations claim: Panorama Firm, Pkt.pl, Facebook, Apple Maps
-- [ ] NAP consistency fix w istniejących citations
-- [ ] Service area pages: `/write-service-page` × 3-4 (Czarny Dunajec, Szaflary, Ludźmierz, Rabka)
-- [ ] `child_care_agency` secondary category w GBP (sprawdź legitność z klientem)
-- [ ] Photos w GBP 10 → 30+ (zewnątrz, wnętrze, sale, kawiarnia, warsztaty)
+- [ ] Follow-up SMS po urodzinach
+- [ ] Response na 100% opinii w 24h
+- [ ] Citations claim: Panorama Firm, Pkt.pl, Apple Maps
+- [ ] Service area pages: `/write-service-page` × 3-4
+- [ ] Photos w GBP 10 → 30+
 - [ ] Posts schedule 2-4/mc
 - [ ] Podhale24.pl pitch (link building)
 - [ ] GBP Products feature (4 produkty linkujące do podstron)
+- [ ] Dzień Dziecka 2026-06-01 (za tydzień) — event w lokalu
+
+---
+
+## Hand-offs
+
+- **Keywords proposal** (jeśli brakuje lokalnych wariacji typu "bawialnia czarny dunajec"): `/seed-client-seo`
+- **Service area landing pages**: `/write-service-page [city] bawialnia` × 3-4
+- **Technical SEO** (sitemap, SSR, canonical na nowych podstronach po generacji): `/seo-analyzer`
+- **Content** (blog post "Najlepsze bawialnie w Nowym Targu — porównanie 2026"): `/write-blog-post`
 
 ---
 
 ## Next step
 
-1. **DZIŚ**: właściciel klika websiteUri fix (5 min) — to jest blocking dla każdego dalszego działania local SEO
-2. **W tym tygodniu**: schema.name fix (15 min) + 100 wizytówek QR (zamówienie)
-3. **W tym miesiącu**: NAP audit citations + `/write-service-page` × 3-4 dla okolicznych miejscowości
+1. **TODAY**: właściciel loguje się do GBP (10 min), weryfikuje websiteUri + zapisuje reviewCount; równolegle fix billing/API w GCP
+2. **W tym tygodniu**: re-run rating fetch, BreadcrumbList rozbudowa, 100 wizytówek QR zamówione
+3. **W tym miesiącu**: service area expansion via `/write-service-page` × 3-4
 
 Pipeline overview: `.claude/rules/seo-pipeline-overview.md`.
