@@ -14,6 +14,9 @@ export function Gallery() {
     { src: '/assets/zdjecia/strona_glowna/O NAS.webp',                  span: 'tall', alt: 'Stolik z drewnianymi klockami w sali zabaw' },
     { src: '/assets/zdjecia/strona_glowna/Bawisz- 16.webp',             span: 'wide', alt: 'Dziecko przy stoliku w Bawisz' },
     { src: '/assets/zdjecia/strona_glowna/Bawisz54.webp',               span: 'wide', alt: 'Atmosfera kawiarni Bawisz' },
+    { src: '/assets/zdjecia/strona_glowna/stara-czesc-1.webp',          span: 'wide', alt: 'Piętrowa drewniana konstrukcja do wspinaczki z napisem Bawisz i kącikiem zabaw dla dzieci' },
+    { src: '/assets/zdjecia/strona_glowna/stara-czesc-2.webp',          span: 'big',  alt: 'Kącik muzyczny z drewnianymi instrumentami — pianino, gitara i cymbałki w Bawisz' },
+    { src: '/assets/zdjecia/strona_glowna/stara-czesc-3.webp',          span: 'wide', alt: 'Drewniana sala zabaw Montessori ze zjeżdżalnią i piętrową konstrukcją w Bawisz' },
   ]
 
   const [current, setCurrent] = useState(null)
