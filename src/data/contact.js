@@ -40,7 +40,7 @@ export const CONTACT = {
   },
 
   webhooks: {
-    birthdayReservation: 'https://adrian264-20264.wykr.es/webhook/bawisz_urodziny',
+    birthdayReservation: import.meta.env.VITE_BAWISZ_BIRTHDAY_WEBHOOK,
   },
 }
 
