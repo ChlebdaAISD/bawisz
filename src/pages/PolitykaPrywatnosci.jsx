@@ -109,11 +109,20 @@ export default function PolitykaPrywatnosci() {
           <h2>6. Odbiorcy danych</h2>
           <p>Państwa dane mogą zostać udostępnione wyłącznie:</p>
           <ul>
-            <li>dostawcy usługi e-mail oraz automatyzacji (operator skrzynki pocztowej, narzędzie n8n) — w zakresie niezbędnym do dostarczenia korespondencji,</li>
+            <li>Cloudflare, Inc. (USA) — dostawca hostingu strony; przetwarza m.in. dane z formularzy oraz logi serwera (adresy IP),</li>
+            <li>Resend, Inc. (USA) — wysyłka wiadomości e-mail (potwierdzenia, korespondencja); adres e-mail odbiorcy oraz treść wiadomości przechowywane są u dostawcy do 30 dni,</li>
+            <li>n8n — narzędzie automatyzacji obsługi zgłoszeń z formularzy,</li>
+            <li>Google Ireland Limited (Irlandia) oraz Google LLC (USA) — osadzona mapa Google Maps; po jej wczytaniu Google może ustawiać własne pliki cookies i przetwarzać dane (m.in. adres IP),</li>
             <li>biuru rachunkowemu — w zakresie obsługi księgowej,</li>
             <li>uprawnionym organom państwowym — w przypadkach przewidzianych przez prawo.</li>
           </ul>
           <p>Nie sprzedajemy ani nie udostępniamy Państwa danych w celach marketingowych podmiotom trzecim.</p>
+          <p>
+            Część odbiorców (Cloudflare, Resend, Google) przetwarza dane w Stanach Zjednoczonych. Przekazywanie
+            odbywa się na podstawie standardowych klauzul umownych (SCC) zatwierdzonych przez Komisję Europejską
+            (art. 46 RODO), a w przypadku Resend i Google dodatkowo na podstawie certyfikacji EU-US Data Privacy
+            Framework (art. 45 RODO).
+          </p>
         </Reveal>
 
         <Reveal className="pp-section">
