@@ -238,7 +238,7 @@ export default function Kontakt({ onBookBirthday }) {
             <div className="kt-map">
               <iframe
                 title="Mapa — Bawisz, ul. Krzywa 19B, Nowy Targ"
-                src={`https://www.google.com/maps?q=${encodeURIComponent(MAPS_QUERY)}&output=embed&z=15`}
+                src={`https://www.google.com/maps/embed/v1/place?key=${import.meta.env.VITE_GOOGLE_MAPS_EMBED_KEY}&q=${encodeURIComponent(MAPS_QUERY)}&zoom=15`}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 sandbox="allow-scripts allow-same-origin allow-popups"

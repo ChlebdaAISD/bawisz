@@ -83,7 +83,7 @@ export function Hours() {
           <div className="hrs-map">
             <iframe
               title="Mapa — Bawisz, Nowy Targ"
-              src={`https://www.google.com/maps?q=${encodeURIComponent(mapsQuery)}&output=embed&z=15`}
+              src={`https://www.google.com/maps/embed/v1/place?key=${import.meta.env.VITE_GOOGLE_MAPS_EMBED_KEY}&q=${encodeURIComponent(mapsQuery)}&zoom=15`}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               allowFullScreen
